@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Savoria</title>
+<style>
+:root { --bg: #faf7f2; --card: #ffffff; --text: #2d2a26; --muted: #6b655c; --accent: #8a5a2b; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
+  h1 { font-size: 1.9rem; margin-bottom: 4px; }
+  .updated { color: var(--muted); font-size: 0.9rem; margin-bottom: 8px; }
+  .lang { font-size: 0.9rem; margin-bottom: 32px; }
+  h2 { font-size: 1.2rem; margin: 28px 0 10px; color: var(--accent); }
+  p, li { margin-bottom: 8px; }
+  ul { padding-left: 20px; margin-bottom: 12px; }
+  a { color: var(--accent); font-weight: 600; }
+  .warn { background: #fdf3e7; border: 1px solid #ecd9bd; border-radius: 12px; padding: 16px; margin: 12px 0; }
+  .langbtn { float: right; margin-top: 4px; font: inherit; font-size: .85rem; font-weight: 600;
+    color: var(--accent); background: #fff; border: 1px solid #e2ddd4; border-radius: 999px;
+    padding: 6px 14px; cursor: pointer; }
+  .langblock[hidden] { display: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <button id="langToggle" class="langbtn" type="button">English</button>
+  <div class="langblock" data-lang="fr">
+<h1>Conditions générales d'utilisation</h1>
+  <p class="updated">Savoria — Dernière mise à jour : 7 juillet 2026</p>
+
+  <h2>1. Objet et acceptation</h2>
+  <p>Les présentes conditions générales d'utilisation (« CGU ») régissent l'utilisation de l'application Android <strong>Savoria</strong> (« l'application », « le service »), éditée par la société <strong>JEYLAB</strong>, SARL au capital de 1 000 € immatriculée au RCS de Paris sous le numéro 943 632 588, dont le siège social est situé 6 rue Émile Dubois, 75014 Paris (« l'éditeur », « nous »). Les informations légales complètes figurent dans les <a href="mentions-legales.html">mentions légales</a>. En créant un compte ou en utilisant l'application, vous acceptez ces CGU. Si vous ne les acceptez pas, n'utilisez pas l'application.</p>
+
+  <h2>2. Description du service</h2>
+  <p>Savoria est une application de gestion de recettes de cuisine assistée par intelligence artificielle : import et structuration de recettes, assistant conversationnel culinaire, mode cuisine pas-à-pas, liste de courses intelligente, carnet d'adresses gourmandes, génération d'illustrations, partage avec d'autres utilisateurs.</p>
+  <p>Le service est actuellement fourni gratuitement. L'éditeur se réserve le droit de faire évoluer les fonctionnalités, d'introduire des offres payantes ou de cesser le service, moyennant une information préalable raisonnable dans l'application.</p>
+
+  <h2>3. Compte utilisateur</h2>
+  <p>L'utilisation de Savoria nécessite une connexion avec un compte Google et est réservée aux personnes âgées d'au moins 15 ans. Vous êtes responsable de la confidentialité de l'accès à votre appareil et à votre compte. Vous pouvez supprimer votre compte à tout moment (Paramètres → Compte), ce qui efface définitivement vos données — voir la <a href="privacy.html">politique de confidentialité</a>.</p>
+
+  <h2>4. Contenu généré par intelligence artificielle</h2>
+  <p>Les fonctions « Chef IA », l'import de recettes, les assistants contextuels et la génération d'images reposent sur des modèles d'intelligence artificielle tiers (Google Gemini / Vertex AI). En conséquence :</p>
+  <ul>
+    <li>Le contenu généré (recettes, conseils, quantités, temps et températures de cuisson, catégorisations, images) est produit <strong>automatiquement, sans relecture humaine</strong>.</li>
+    <li>Il peut être <strong>inexact, incomplet, obsolète ou erroné</strong>, y compris de manière non évidente (« hallucinations »).</li>
+    <li>Il est fourni <strong>à titre purement informatif et culinaire</strong> : il ne constitue en aucun cas un conseil médical, nutritionnel, diététique ou de santé.</li>
+    <li>Les images générées par IA sont des <strong>illustrations</strong> : elles ne représentent pas fidèlement le plat réel.</li>
+  </ul>
+  <figure class="warn">
+    <p><strong>⚠️ Sécurité alimentaire — votre responsabilité.</strong> Avant de préparer ou de consommer une recette, vous devez systématiquement vérifier par vous-même :</p>
+    <ul>
+      <li>la <strong>présence d'allergènes</strong> au regard de vos allergies et intolérances et de celles de vos convives ;</li>
+      <li>les <strong>températures et durées de cuisson</strong>, en particulier pour les viandes, volailles, poissons, œufs et fruits de mer ;</li>
+      <li>les <strong>règles de conservation et d'hygiène</strong> (chaîne du froid, stérilisation, fermentation…) ;</li>
+      <li>l'adéquation de la recette avec votre <strong>situation particulière</strong> (grossesse, jeune enfant, immunodépression, régime médical…).</li>
+    </ul>
+    <p>En cas de doute, référez-vous aux recommandations officielles (par exemple celles de l'ANSES) ou consultez un professionnel.</p>
+  </figure>
+  <p>Un mécanisme de signalement est intégré : appui long sur une réponse de l'IA → « Signaler cette réponse ». Les signalements sont examinés et contribuent à l'amélioration du service.</p>
+
+  <h2>5. Votre contenu</h2>
+  <p>Vous restez propriétaire du contenu que vous créez ou importez (recettes, notes, listes, adresses, photos). Vous nous accordez une licence limitée, non exclusive et révocable d'héberger, reproduire et traiter ce contenu aux seules fins de fournir le service (stockage, synchronisation, partage que vous initiez, traitement par l'IA à votre demande).</p>
+  <p>Vous êtes responsable du contenu que vous importez et partagez. L'import de recettes depuis des sites tiers est destiné à un <strong>usage personnel et privé</strong> ; le respect des droits éventuels des tiers sur ces contenus vous incombe.</p>
+
+  <h2>6. Usage acceptable et quotas</h2>
+  <p>Il est interdit :</p>
+  <ul>
+    <li>d'utiliser le service à des fins illégales ou pour générer du contenu illicite, haineux ou dangereux ;</li>
+    <li>de tenter de contourner les mécanismes de sécurité, de quotas ou de modération, d'accéder aux systèmes sans autorisation, ou d'appeler nos interfaces serveur en dehors de l'application ;</li>
+    <li>de perturber le service (surcharge volontaire, automatisation abusive, robots).</li>
+  </ul>
+  <p>Les fonctions IA sont soumises à des <strong>quotas d'usage équitable</strong> (par minute, par jour, par mois), susceptibles d'évoluer. En cas de violation des présentes CGU ou d'abus manifeste, l'éditeur peut restreindre, suspendre ou résilier l'accès au service, temporairement ou définitivement, après notification sauf urgence.</p>
+
+  <h2>7. Partage entre utilisateurs</h2>
+  <p>Le partage s'effectue via un code personnel et un mécanisme d'approbation : vous contrôlez qui accède à vos collections et avec quels droits, et pouvez révoquer un accès à tout moment. Vous êtes responsable du contenu que vous partagez et du choix des personnes à qui vous l'accordez.</p>
+
+  <h2>8. Disponibilité</h2>
+  <p>Le service est fourni « en l'état » et « selon disponibilité ». L'éditeur s'efforce d'assurer un fonctionnement continu mais ne garantit pas l'absence d'interruptions, d'erreurs ou de pertes de données ; le service dépend en outre de services tiers (Google Firebase, API Gemini) dont la disponibilité ne relève pas de son contrôle. Pensez à utiliser l'export de sauvegarde local (Paramètres → Maintenance).</p>
+
+  <h2>9. Responsabilité</h2>
+  <p>Rien dans les présentes CGU n'exclut ni ne limite la responsabilité de l'éditeur en cas de faute lourde ou dolosive, de dommage corporel causé par sa faute prouvée, ou dans tout autre cas où la loi interdit une telle limitation. Les droits que vous tenez des dispositions impératives du droit français de la consommation sont préservés.</p>
+  <p>Sous ces réserves : l'éditeur ne saurait être tenu responsable des dommages indirects, ni des conséquences (i) de l'utilisation d'un contenu généré par IA sans les vérifications décrites à l'article 4, (ii) du contenu importé ou partagé par les utilisateurs, (iii) de l'indisponibilité des services tiers. Pour le service fourni à titre gratuit, la responsabilité totale de l'éditeur est en tout état de cause limitée au préjudice direct et prévisible.</p>
+
+  <h2>10. Propriété intellectuelle</h2>
+  <p>L'application, sa marque, son design et son code restent la propriété exclusive de l'éditeur. Ces CGU ne vous concèdent aucun droit sur ceux-ci, hormis le droit personnel, non exclusif et non transférable d'utiliser l'application conformément à sa destination.</p>
+
+  <h2>11. Données personnelles</h2>
+  <p>Le traitement de vos données est décrit dans la <a href="privacy.html">politique de confidentialité</a>, qui fait partie intégrante des présentes CGU.</p>
+
+  <h2>12. Modification des CGU</h2>
+  <p>L'éditeur peut modifier les présentes CGU. Toute modification substantielle sera annoncée dans l'application avec un préavis raisonnable. La poursuite de l'utilisation après l'entrée en vigueur vaut acceptation ; à défaut, vous pouvez cesser d'utiliser le service et supprimer votre compte.</p>
+
+  <h2>13. Droit applicable et litiges</h2>
+  <p>Les présentes CGU sont régies par le droit français. En cas de litige, une solution amiable sera recherchée en priorité : contactez-nous à l'adresse ci-dessous. Conformément au Code de la consommation, vous pouvez recourir gratuitement à un médiateur de la consommation ; les coordonnées du médiateur compétent seront communiquées sur demande et publiées ici lorsque des offres payantes seront proposées. À défaut de résolution amiable, les tribunaux français seront compétents dans les conditions du droit commun.</p>
+
+  <h2>14. Contact</h2>
+  <p><a href="mailto:savoriaapp@gmail.com">savoriaapp@gmail.com</a></p>
+
+  <p style="margin-top:24px;"><a href="index.html">← Retour à Savoria</a> · <a href="privacy.html">Politique de confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a></p>
+  </div>
+  <div class="langblock" data-lang="en">
+<h1>Terms of Use</h1>
+  <p class="updated">Savoria — Last updated: July 7, 2026</p>
+
+  <h2>1. Purpose and acceptance</h2>
+  <p>These Terms of Use ("Terms") govern the use of the Android application <strong>Savoria</strong> ("the app", "the service"), published by <strong>JEYLAB</strong>, a French limited liability company (SARL) with share capital of €1,000, registered with the Paris Trade and Companies Register under number 943 632 588, with its registered office at 6 rue Émile Dubois, 75014 Paris ("the publisher", "we"). Full legal information is available in the <a href="mentions-legales.html">legal notice</a>. By creating an account or using the app, you accept these Terms. If you do not accept them, do not use the app.</p>
+
+  <h2>2. Service description</h2>
+  <p>Savoria is an AI-assisted recipe management app: recipe import and structuring, culinary chat assistant, step-by-step cooking mode, smart shopping list, food finds, image generation, and sharing with other users.</p>
+  <p>The service is currently provided free of charge. The publisher reserves the right to evolve features, introduce paid offers, or discontinue the service, with reasonable prior notice in the app.</p>
+
+  <h2>3. User account</h2>
+  <p>Using Savoria requires signing in with a Google account and is restricted to persons aged 15 or over. You are responsible for keeping access to your device and account secure. You can delete your account at any time (Settings → Account), which permanently erases your data — see the <a href="privacy.html">Privacy Policy</a>.</p>
+
+  <h2>4. AI-generated content</h2>
+  <p>The "AI Chef" features, recipe import, contextual assistants and image generation rely on third-party artificial intelligence models (Google Gemini / Vertex AI). As a consequence:</p>
+  <ul>
+    <li>Generated content (recipes, advice, quantities, cooking times and temperatures, categorizations, images) is produced <strong>automatically, without human review</strong>.</li>
+    <li>It may be <strong>inaccurate, incomplete, outdated or wrong</strong>, including in non-obvious ways ("hallucinations").</li>
+    <li>It is provided <strong>for informational, culinary purposes only</strong>: it does not constitute medical, nutritional, dietary or health advice of any kind.</li>
+    <li>AI-generated images are <strong>illustrations</strong>: they do not faithfully depict the actual dish.</li>
+  </ul>
+  <figure class="warn">
+    <p><strong>⚠️ Food safety — your responsibility.</strong> Before preparing or eating any recipe, you must always verify for yourself:</p>
+    <ul>
+      <li>the <strong>presence of allergens</strong> with respect to your allergies and intolerances and those of your guests;</li>
+      <li><strong>cooking temperatures and times</strong>, in particular for meat, poultry, fish, eggs and seafood;</li>
+      <li><strong>storage and hygiene rules</strong> (cold chain, sterilization, fermentation…);</li>
+      <li>the suitability of the recipe for your <strong>particular situation</strong> (pregnancy, young children, weakened immune system, medical diet…).</li>
+    </ul>
+    <p>When in doubt, refer to official food-safety guidance or consult a professional.</p>
+  </figure>
+  <p>A reporting mechanism is built in: long-press an AI response → "Report this response". Reports are reviewed and help improve the service.</p>
+
+  <h2>5. Your content</h2>
+  <p>You remain the owner of the content you create or import (recipes, notes, lists, addresses, photos). You grant us a limited, non-exclusive, revocable license to host, reproduce and process this content for the sole purpose of providing the service (storage, synchronization, sharing you initiate, AI processing at your request).</p>
+  <p>You are responsible for the content you import and share. Importing recipes from third-party websites is intended for <strong>personal, private use</strong>; complying with any third-party rights over that content is your responsibility.</p>
+
+  <h2>6. Acceptable use and quotas</h2>
+  <p>It is forbidden to:</p>
+  <ul>
+    <li>use the service for illegal purposes or to generate unlawful, hateful or dangerous content;</li>
+    <li>attempt to bypass security, quota or moderation mechanisms, access systems without authorization, or call our server interfaces outside of the app;</li>
+    <li>disrupt the service (deliberate overload, abusive automation, bots).</li>
+  </ul>
+  <p>AI features are subject to <strong>fair-use quotas</strong> (per minute, per day, per month), which may evolve. In case of violation of these Terms or manifest abuse, the publisher may restrict, suspend or terminate access to the service, temporarily or permanently, with notice except in urgent cases.</p>
+
+  <h2>7. Sharing between users</h2>
+  <p>Sharing works through a personal code and an approval mechanism: you control who accesses your collections and with which rights, and you can revoke access at any time. You are responsible for the content you share and for choosing the people you grant access to.</p>
+
+  <h2>8. Availability</h2>
+  <p>The service is provided "as is" and "as available". The publisher strives for continuous operation but does not guarantee the absence of interruptions, errors or data loss; the service furthermore depends on third-party services (Google Firebase, Gemini API) whose availability is outside its control. Consider using the local backup export (Settings → Maintenance).</p>
+
+  <h2>9. Liability</h2>
+  <p>Nothing in these Terms excludes or limits the publisher's liability for gross negligence or willful misconduct, for personal injury caused by its proven fault, or in any other case where such limitation is prohibited by law. Your mandatory rights under applicable consumer law are preserved.</p>
+  <p>Subject to the above: the publisher shall not be liable for indirect damages, nor for the consequences of (i) using AI-generated content without the verifications described in section 4, (ii) content imported or shared by users, (iii) unavailability of third-party services. For the service provided free of charge, the publisher's total liability is in any event limited to direct and foreseeable damage.</p>
+
+  <h2>10. Intellectual property</h2>
+  <p>The app, its brand, design and code remain the exclusive property of the publisher. These Terms grant you no rights over them, other than a personal, non-exclusive, non-transferable right to use the app for its intended purpose.</p>
+
+  <h2>11. Personal data</h2>
+  <p>The processing of your data is described in the <a href="privacy.html">Privacy Policy</a>, which forms an integral part of these Terms.</p>
+
+  <h2>12. Changes to these Terms</h2>
+  <p>The publisher may modify these Terms. Any material change will be announced in the app with reasonable notice. Continued use after the effective date constitutes acceptance; otherwise, you may stop using the service and delete your account.</p>
+
+  <h2>13. Governing law and disputes</h2>
+  <p>These Terms are governed by French law. In case of dispute, an amicable solution will be sought first: contact us at the address below. In accordance with the French Consumer Code, you may use a consumer mediator free of charge; the competent mediator's details will be provided on request and published here once paid offers are introduced. Failing amicable resolution, the French courts shall have jurisdiction under ordinary law rules.</p>
+
+  <h2>14. Contact</h2>
+  <p><a href="mailto:savoriaapp@gmail.com">savoriaapp@gmail.com</a></p>
+
+  <p style="margin-top:24px;"><a href="index.html">← Back to Savoria</a> · <a href="privacy.html">Privacy Policy</a> · <a href="mentions-legales.html">Legal Notice</a></p>
+  </div>
+</div>
+<script>
+  // i18n auto-configuré : LANGS dérivé des blocs présents. Ajouter une langue = ajouter un
+  // <div class="langblock" data-lang="X">…</div> (le cycle du bouton + la détection suivent).
+  var blocks = [].slice.call(document.querySelectorAll('.langblock'));
+  var LANGS = blocks.map(function(b){ return b.getAttribute('data-lang'); });
+  var LABELS = { fr: 'Français', en: 'English', de: 'Deutsch' };
+  function setLang(lang){
+    if (LANGS.indexOf(lang) < 0) lang = LANGS[0];
+    document.documentElement.lang = lang;
+    blocks.forEach(function(b){ b.hidden = (b.getAttribute('data-lang') !== lang); });
+    var active = document.querySelector('.langblock[data-lang="'+lang+'"]');
+    var h1 = active && active.querySelector('h1');
+    if (h1) document.title = h1.textContent + ' — Savoria';
+    var next = LANGS[(LANGS.indexOf(lang) + 1) % LANGS.length];
+    document.getElementById('langToggle').textContent = LABELS[next] || next;
+    try { localStorage.setItem('savoria_lang', lang); } catch(e) {}
+  }
+  var stored = (function(){ try { return localStorage.getItem('savoria_lang'); } catch(e) { return null; } })();
+  var param = new URLSearchParams(location.search).get('lang');
+  var browser = LANGS.filter(function(l){ return (navigator.language||'').toLowerCase().indexOf(l) === 0; })[0];
+  setLang([stored, param, browser].filter(function(l){ return LANGS.indexOf(l) >= 0; })[0] || LANGS[0]);
+  document.getElementById('langToggle').addEventListener('click', function(){
+    setLang(LANGS[(LANGS.indexOf(document.documentElement.lang) + 1) % LANGS.length]);
+  });
+</script>
+</body>
+</html>

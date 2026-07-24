@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Savoria</title>
+<style>
+:root { --bg: #faf7f2; --card: #ffffff; --text: #2d2a26; --muted: #6b655c; --accent: #8a5a2b; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
+  h1 { font-size: 1.9rem; margin-bottom: 4px; }
+  .updated { color: var(--muted); font-size: 0.9rem; margin-bottom: 8px; }
+  .lang { font-size: 0.9rem; margin-bottom: 32px; }
+  h2 { font-size: 1.2rem; margin: 28px 0 10px; color: var(--accent); }
+  p, li { margin-bottom: 8px; }
+  ul { padding-left: 20px; margin-bottom: 12px; }
+  a { color: var(--accent); font-weight: 600; }
+  /* Tables larges : défilent dans leur propre conteneur, le corps de page ne scrolle jamais en X. */
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 12px 0; }
+  table { border-collapse: collapse; width: 100%; min-width: 620px; margin: 0; font-size: 0.95rem; }
+  th, td { border: 1px solid #e2ddd4; padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: #f1ece3; }
+  @media (max-width: 600px) {
+    .wrap { padding: 32px 16px; }
+    table { font-size: 0.86rem; }
+    th, td { padding: 7px 9px; }
+  }
+  .langbtn { float: right; margin-top: 4px; font: inherit; font-size: .85rem; font-weight: 600;
+    color: var(--accent); background: #fff; border: 1px solid #e2ddd4; border-radius: 999px;
+    padding: 6px 14px; cursor: pointer; }
+  .langblock[hidden] { display: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <button id="langToggle" class="langbtn" type="button">English</button>
+  <div class="langblock" data-lang="fr">
+<h1>Politique de confidentialité</h1>
+  <p class="updated">Savoria — Dernière mise à jour : 7 juillet 2026</p>
+
+  <p>Cette politique explique quelles données <strong>Savoria</strong> (« l'application », « nous ») collecte, pourquoi, sur quelle base légale, combien de temps elles sont conservées, et comment exercer vos droits. Savoria est une application Android de recettes assistée par IA, éditée par la société <strong>JEYLAB</strong> (SARL, RCS Paris 943 632 588, siège : 6 rue Émile Dubois, 75014 Paris), responsable de traitement au sens du RGPD (contact ci-dessous, informations complètes dans les <a href="mentions-legales.html">mentions légales</a>).</p>
+
+  <h2>1. Données collectées et finalités</h2>
+  <figure class="table-wrap">
+  <table>
+    <tr><th>Données</th><th>Quand</th><th>Finalité</th><th>Base légale (art. 6 RGPD)</th></tr>
+    <tr>
+      <td>Informations du compte Google (adresse e-mail, nom affiché)</td>
+      <td>À la connexion avec Google (requise pour utiliser l'application)</td>
+      <td>Authentification, synchronisation de vos données entre vos appareils</td>
+      <td>Exécution du contrat</td>
+    </tr>
+    <tr>
+      <td>Votre contenu : recettes, listes de courses, bonnes adresses, équipements de cuisine</td>
+      <td>Au fil de votre utilisation</td>
+      <td>Stockage et synchronisation (Google Firebase Firestore)</td>
+      <td>Exécution du contrat</td>
+    </tr>
+    <tr>
+      <td>Images (illustrations de recettes et d'adresses générées par IA)</td>
+      <td>À la génération d'une image</td>
+      <td>Affichage de votre contenu (Google Firebase Storage)</td>
+      <td>Exécution du contrat</td>
+    </tr>
+    <tr>
+      <td>Messages, photos et documents soumis aux fonctions IA</td>
+      <td>Quand vous utilisez le Chef IA, l'import de recettes ou l'assistant cuisine</td>
+      <td>Transmis à l'API Google Gemini pour générer la réponse, via notre fonction serveur qui les relaie sans les conserver. L'historique des conversations est stocké <strong>uniquement en local sur votre appareil</strong> — jamais sur nos serveurs. Aucun profilage.</td>
+      <td>Exécution du contrat</td>
+    </tr>
+    <tr>
+      <td>Contenu public d'une publication de réseau social (légende ou description, et le cas échéant la vidéo, d'un lien Instagram, TikTok ou YouTube que vous soumettez)</td>
+      <td>Quand vous importez une recette depuis un lien de réseau social</td>
+      <td>Récupération du contenu de la publication (légende et, le cas échéant, vidéo) par un <strong>service côté serveur</strong> s'appuyant sur un outil open-source, <strong>sans connexion à aucun compte de réseau social</strong>, puis transmission à l'API Gemini pour en extraire la recette. Une éventuelle vidéo transite temporairement par notre serveur et est <strong>supprimée immédiatement après l'analyse</strong> : aucun contenu de plateforme n'est conservé, seule la recette structurée qui en résulte est enregistrée dans votre compte.</td>
+      <td>Exécution du contrat</td>
+    </tr>
+    <tr>
+      <td>Compteurs d'usage IA (nombre de requêtes par jour/mois, volumes de tokens, modèle utilisé)</td>
+      <td>Quand vous utilisez les fonctions IA</td>
+      <td>Prévention des abus, quotas d'usage équitable, suivi des coûts</td>
+      <td>Intérêt légitime (protection du service contre les abus)</td>
+    </tr>
+    <tr>
+      <td>Jeton anti-fraude : empreinte non identifiante (hachage à sens unique) dérivée de votre adresse e-mail</td>
+      <td>À la création d'un compte, lorsqu'une offre d'essai gratuite vous est proposée</td>
+      <td>Empêcher le recyclage abusif de l'offre d'essai gratuite (supprimer puis recréer un compte pour en bénéficier à nouveau). L'empreinte ne permet pas de vous réidentifier et n'est jamais utilisée à d'autres fins.</td>
+      <td>Intérêt légitime (prévention de la fraude)</td>
+    </tr>
+    <tr>
+      <td>Données de plantage et de stabilité (Firebase Crashlytics : modèle d'appareil, version d'OS, traces de plantage)</td>
+      <td>En cas de plantage ou de dysfonctionnement</td>
+      <td>Diagnostic et correction des bugs</td>
+      <td>Intérêt légitime (sécurité et stabilité du service)</td>
+    </tr>
+    <tr>
+      <td>Statistiques d'utilisation (Google Analytics for Firebase : écrans consultés, événements dans l'app, identifiant pseudonyme, informations sur l'appareil)</td>
+      <td><strong>Uniquement si vous y consentez</strong>, au premier lancement ou plus tard dans les Paramètres</td>
+      <td>Comprendre l'utilisation de l'application pour l'améliorer</td>
+      <td>Consentement — refusable et retirable à tout moment dans les Paramètres, sans perte de fonctionnalité</td>
+    </tr>
+    <tr>
+      <td>Preuve de consentement (version des conditions acceptée, choix concernant les statistiques, horodatage, version de l'application)</td>
+      <td>À l'acceptation des conditions et à chaque modification de votre choix sur les statistiques</td>
+      <td>Pouvoir démontrer le recueil de votre consentement et la version acceptée</td>
+      <td>Obligation légale (art. 7.1 RGPD)</td>
+    </tr>
+  </table>
+  </figure>
+
+  <h2>2. Ce que nous ne faisons PAS</h2>
+  <ul>
+    <li>Nous ne vendons ni ne louons vos données à personne.</li>
+    <li>Pas de publicité, pas de traceurs publicitaires.</li>
+    <li>Vos recettes, messages et images ne servent ni au marketing ni au profilage.</li>
+    <li>Le service utilise l'offre payante de l'API Gemini : conformément à ses conditions, vos requêtes IA ne sont pas utilisées par Google pour entraîner ses modèles. Google peut toutefois les conserver temporairement à des fins de détection d'abus et de conformité légale.</li>
+    <li>Aucune connexion à vos comptes de réseaux sociaux : l'import depuis Instagram, TikTok ou YouTube s'effectue côté serveur, sans authentification à aucune plateforme — l'application ne vous demande jamais d'identifiants de réseau social et ne stocke aucune session ni aucun cookie de plateforme.</li>
+  </ul>
+  <p>Évitez d'inclure des informations personnelles sensibles (par exemple des données de santé) dans les messages envoyés à l'IA — elles ne sont pas nécessaires pour des conseils de cuisine.</p>
+
+  <h2>3. Partage avec d'autres utilisateurs</h2>
+  <p>Savoria vous permet de partager vos recettes, listes de courses et adresses avec les personnes que vous autorisez explicitement via un code de partage. Toute demande d'accès doit être <strong>approuvée par vous</strong> avant que le demandeur ne voie quoi que ce soit. Les données partagées ne sont visibles que des personnes autorisées, et l'accès est révocable à tout moment dans les paramètres.</p>
+
+  <h2>4. Services tiers (sous-traitants)</h2>
+  <p>Savoria s'appuie sur les services suivants, opérés par Google LLC / Google Ireland Ltd :</p>
+  <ul>
+    <li><strong>Firebase Authentication</strong> — connexion</li>
+    <li><strong>Firebase Firestore &amp; Firebase Storage</strong> — stockage des données et images</li>
+    <li><strong>API Google Gemini / Vertex AI</strong> — génération de texte et d'images par IA</li>
+    <li><strong>Firebase Crashlytics</strong> — rapports de plantage</li>
+    <li><strong>Google Analytics for Firebase</strong> — statistiques d'utilisation (avec votre consentement uniquement)</li>
+  </ul>
+  <p>Leur traitement est régi par la <a href="https://policies.google.com/privacy?hl=fr">politique de confidentialité de Google</a>.</p>
+
+  <h2>5. Transferts internationaux</h2>
+  <p>Les données traitées par Google peuvent être stockées sur des serveurs situés hors de l'Union européenne, notamment aux États-Unis. Ces transferts sont encadrés par le <strong>Data Privacy Framework UE–États-Unis</strong>, auquel Google LLC est certifié, et par les clauses contractuelles types de la Commission européenne le cas échéant.</p>
+
+  <h2>6. Durées de conservation</h2>
+  <ul>
+    <li><strong>Données de compte et contenu</strong> : conservés tant que votre compte existe ; supprimés immédiatement à la suppression du compte.</li>
+    <li><strong>Historique des conversations IA</strong> : uniquement local sur votre appareil ; supprimé quand vous l'effacez dans l'app ou désinstallez l'application.</li>
+    <li><strong>Compteurs d'usage IA</strong> : conservés tant que le compte existe, supprimés avec lui.</li>
+    <li><strong>Jeton anti-fraude</strong> : conservé <strong>24 mois</strong>, y compris <strong>au-delà de la suppression du compte</strong> — c'est précisément ce qui empêche de recréer un compte pour obtenir une nouvelle offre d'essai. Passé ce délai, il est supprimé automatiquement. Empreinte non identifiante, jamais rattachée à votre identité.</li>
+    <li><strong>Vidéos relayées lors d'un import réseau social</strong> : transit éphémère uniquement — supprimées immédiatement après l'analyse, jamais conservées.</li>
+    <li><strong>Données de plantage</strong> : conservées 90 jours par Firebase Crashlytics.</li>
+    <li><strong>Statistiques d'utilisation</strong> : conservées 14 mois maximum.</li>
+  </ul>
+
+  <h2 id="deletion">7. Suppression des données</h2>
+  <p>Vous pouvez supprimer votre compte et toutes les données associées à tout moment :</p>
+  <ul>
+    <li><strong>Dans l'application</strong> : Paramètres → Compte → « Supprimer mon compte ». Suppression immédiate et irréversible.</li>
+    <li><strong>En ligne</strong> : via le <a href="https://forms.gle/Kn7SL6Qa2NLKJP5JA">formulaire de demande de suppression</a>. Les demandes sont traitées sous <strong>30 jours</strong> et confirmées par e-mail.</li>
+  </ul>
+  <p>La suppression efface : vos recettes, listes de courses, adresses, équipements, profil de partage, images générées, compteurs d'usage IA, et votre compte de connexion. Aucune donnée personnellement identifiable n'est conservée après suppression, à la seule exception d'un <strong>jeton anti-fraude non identifiant</strong> (voir §1 et §6) qui empêche le recyclage de l'offre d'essai et ne permet pas de vous réidentifier.</p>
+
+  <h2>8. Vos droits</h2>
+  <p>Conformément au RGPD, vous disposez des droits d'<strong>accès</strong>, de <strong>rectification</strong>, d'<strong>effacement</strong> et de <strong>portabilité</strong> de vos données, du droit à la <strong>limitation</strong> et d'<strong>opposition</strong> aux traitements fondés sur l'intérêt légitime, et du droit de <strong>retirer votre consentement</strong> à tout moment (pour les statistiques, via l'interrupteur dans les Paramètres). L'export de sauvegarde locale (Paramètres → Maintenance) vous fournit à tout moment une copie portable au format JSON de vos recettes, listes, adresses et équipements.</p>
+  <p>Pour exercer un droit, écrivez-nous à l'adresse ci-dessous. Vous pouvez également introduire une réclamation auprès de la <strong>CNIL</strong> (<a href="https://www.cnil.fr">cnil.fr</a>).</p>
+
+  <h2>9. Sécurité des données</h2>
+  <p>Vos données sont hébergées sur l'infrastructure Google Firebase, protégées par des règles d'accès par utilisateur : elles ne sont accessibles qu'à votre compte authentifié et aux personnes à qui vous avez explicitement accordé un partage. Les données sont chiffrées en transit (TLS) et au repos sur l'infrastructure de Google.</p>
+
+  <h2>10. Mineurs</h2>
+  <p>Savoria ne s'adresse pas aux mineurs de moins de 15 ans (âge du consentement numérique en France) et ne collecte pas sciemment de données les concernant.</p>
+
+  <h2>11. Évolution de cette politique</h2>
+  <p>Toute mise à jour sera publiée à cette adresse avec une nouvelle date de « Dernière mise à jour ». En cas de changement substantiel, vous en serez informé dans l'application.</p>
+
+  <h2>12. Contact — responsable de traitement</h2>
+  <p>Savoria est éditée par la société <strong>JEYLAB</strong>, SARL au capital de 1 000 €, RCS Paris 943 632 588, dont le siège social est situé 6 rue Émile Dubois, 75014 Paris. Pour toute question ou demande relative à vos données : <a href="mailto:savoriaapp@gmail.com">savoriaapp@gmail.com</a> (voir aussi les <a href="mentions-legales.html">mentions légales</a>).</p>
+
+  <p style="margin-top:24px;"><a href="index.html">← Retour à Savoria</a> · <a href="terms.html">Conditions d'utilisation</a> · <a href="mentions-legales.html">Mentions légales</a></p>
+  </div>
+  <div class="langblock" data-lang="en">
+<h1>Privacy Policy</h1>
+  <p class="updated">Savoria — Last updated: July 7, 2026</p>
+
+  <p>This Privacy Policy explains what data <strong>Savoria</strong> ("the app", "we") collects, why, on what legal basis, how long it is kept, and how you can exercise your rights. Savoria is an AI-powered recipe app for Android, published by <strong>JEYLAB</strong> (a French SARL, Paris Trade Register 943 632 588, registered office: 6 rue Émile Dubois, 75014 Paris), the "data controller" within the meaning of the GDPR (contact below, full details in the <a href="mentions-legales.html">legal notice</a>).</p>
+
+  <h2>1. Data we collect and why</h2>
+  <figure class="table-wrap">
+  <table>
+    <tr><th>Data</th><th>When</th><th>Purpose</th><th>Legal basis (GDPR art. 6)</th></tr>
+    <tr>
+      <td>Google account information (email address, display name)</td>
+      <td>When you sign in with Google (required to use the app)</td>
+      <td>Authentication, syncing your data across your devices</td>
+      <td>Performance of the contract</td>
+    </tr>
+    <tr>
+      <td>Your content: recipes, shopping lists, food finds, kitchen equipment settings</td>
+      <td>As you use the app</td>
+      <td>Storing and syncing your data (Google Firebase Firestore)</td>
+      <td>Performance of the contract</td>
+    </tr>
+    <tr>
+      <td>Images (recipe and address illustrations generated by AI)</td>
+      <td>When an image is generated</td>
+      <td>Displaying your content (Google Firebase Storage)</td>
+      <td>Performance of the contract</td>
+    </tr>
+    <tr>
+      <td>Messages, photos and documents you submit to AI features</td>
+      <td>When you use the AI chef, recipe import or cooking assistant</td>
+      <td>Sent to the Google Gemini API to generate the response, through our server function which relays them without storing them. Chat history is stored <strong>locally on your device only</strong> — it is never uploaded to our servers. Not used to build a profile of you.</td>
+      <td>Performance of the contract</td>
+    </tr>
+    <tr>
+      <td>Public content of a social media post (caption or description, and where applicable the video, of an Instagram, TikTok or YouTube link you submit)</td>
+      <td>When you import a recipe from a social media link</td>
+      <td>The post's content (caption and, where applicable, video) is fetched by a <strong>server-side service</strong> relying on an open-source tool, <strong>without signing in to any social media account</strong>, and sent to the Gemini API to extract the recipe. Any video transits temporarily through our server and is <strong>deleted immediately after analysis</strong>: no platform content is retained; only the resulting structured recipe is saved to your account.</td>
+      <td>Performance of the contract</td>
+    </tr>
+    <tr>
+      <td>AI usage counters (number of requests per day/month, token counts, model used)</td>
+      <td>When you use AI features</td>
+      <td>Abuse prevention, fair-use quotas, cost monitoring</td>
+      <td>Legitimate interest (protecting the service against abuse)</td>
+    </tr>
+    <tr>
+      <td>Anti-fraud token: a non-identifying, one-way hash derived from your email address</td>
+      <td>When an account is created and a free trial offer is available</td>
+      <td>Preventing abuse of the free trial offer (deleting then recreating an account to claim it again). The hash cannot be used to re-identify you and is never used for any other purpose.</td>
+      <td>Legitimate interest (fraud prevention)</td>
+    </tr>
+    <tr>
+      <td>Crash and stability data (Firebase Crashlytics: device model, OS version, crash stack traces)</td>
+      <td>If the app crashes or malfunctions</td>
+      <td>Diagnosing and fixing bugs</td>
+      <td>Legitimate interest (security and stability of the service)</td>
+    </tr>
+    <tr>
+      <td>Usage analytics (Google Analytics for Firebase: screens viewed, in-app events, pseudonymous app identifier, device information)</td>
+      <td><strong>Only if you consent</strong>, at first launch or later in Settings</td>
+      <td>Understanding how the app is used to improve it</td>
+      <td>Consent — you can refuse or withdraw it at any time in Settings without losing any feature</td>
+    </tr>
+    <tr>
+      <td>Proof of consent (accepted terms version, analytics choice, timestamp, app version)</td>
+      <td>When you accept the terms and whenever you change your analytics choice</td>
+      <td>Being able to demonstrate that consent was collected, and which version was accepted</td>
+      <td>Legal obligation (GDPR art. 7.1)</td>
+    </tr>
+  </table>
+  </figure>
+
+  <h2>2. What we do NOT do</h2>
+  <ul>
+    <li>We do not sell or rent your data to anyone.</li>
+    <li>We do not show ads and do not use advertising trackers.</li>
+    <li>We do not use your recipes, messages or images for marketing or profiling.</li>
+    <li>The service uses the paid tier of the Gemini API: under its terms, your AI prompts are not used by Google to train its models. Google may however retain them temporarily for abuse detection and legal compliance purposes.</li>
+    <li>No connection to your social media accounts: importing from Instagram, TikTok or YouTube is performed server-side, without authenticating to any platform — the app never asks for social media credentials and stores no session or platform cookie.</li>
+  </ul>
+  <p>Please avoid including sensitive personal information (e.g. health details) in messages sent to the AI — it is not needed for cooking advice.</p>
+
+  <h2>3. Sharing with other users</h2>
+  <p>Savoria lets you share your recipes, shopping lists and addresses with people you explicitly authorize using a share code. An access request must be <strong>approved by you</strong> before the requester can see anything. Shared data is only visible to the people you grant access to, and you can revoke access at any time in the app settings.</p>
+
+  <h2>4. Third-party services (processors)</h2>
+  <p>Savoria relies on the following services, operated by Google LLC / Google Ireland Ltd:</p>
+  <ul>
+    <li><strong>Firebase Authentication</strong> — sign-in</li>
+    <li><strong>Firebase Firestore &amp; Firebase Storage</strong> — data and image storage</li>
+    <li><strong>Google Gemini API / Vertex AI</strong> — AI text and image generation</li>
+    <li><strong>Firebase Crashlytics</strong> — crash reporting</li>
+    <li><strong>Google Analytics for Firebase</strong> — usage statistics (with your consent only)</li>
+  </ul>
+  <p>Their processing is governed by <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</p>
+
+  <h2>5. International transfers</h2>
+  <p>Data processed by Google may be stored on servers located outside the European Union, including in the United States. These transfers are covered by the <strong>EU-U.S. Data Privacy Framework</strong>, to which Google LLC is certified, and by the European Commission's Standard Contractual Clauses where applicable.</p>
+
+  <h2>6. Retention</h2>
+  <ul>
+    <li><strong>Account and content data</strong>: kept as long as your account exists; deleted immediately when you delete your account.</li>
+    <li><strong>AI chat history</strong>: stored locally on your device only; removed when you delete it in the app or uninstall the app.</li>
+    <li><strong>AI usage counters</strong>: kept while your account exists, deleted with the account.</li>
+    <li><strong>Anti-fraud token</strong>: retained for <strong>24 months</strong>, including <strong>beyond account deletion</strong> — this is precisely what prevents recreating an account to obtain a new trial offer. After that period it is deleted automatically. It is a non-identifying hash, never linked to your identity.</li>
+    <li><strong>Videos relayed during a social media import</strong>: ephemeral transit only — deleted immediately after analysis, never retained.</li>
+    <li><strong>Crash data</strong>: retained by Firebase Crashlytics for 90 days.</li>
+    <li><strong>Analytics data</strong>: retained for a maximum of 14 months.</li>
+  </ul>
+
+  <h2 id="deletion">7. Data deletion</h2>
+  <p>You can delete your account and all associated data at any time:</p>
+  <ul>
+    <li><strong>In the app</strong>: Settings → Account → "Delete my account". Deletion is immediate and irreversible.</li>
+    <li><strong>Online</strong>: submit a <a href="https://forms.gle/Kn7SL6Qa2NLKJP5JA">deletion request form</a>. Requests are processed within <strong>30 days</strong> and confirmed by email.</li>
+  </ul>
+  <p>Deletion removes: your recipes, shopping lists, addresses, equipment settings, sharing profile, generated images, AI usage counters, and your sign-in account. Nothing personally identifiable is retained after deletion, with the sole exception of a <strong>non-identifying anti-fraud token</strong> (see §1 and §6) that prevents trial-offer recycling and cannot be used to re-identify you.</p>
+
+  <h2>8. Your rights</h2>
+  <p>Under the GDPR you have the right to <strong>access</strong>, <strong>rectify</strong>, <strong>erase</strong> and <strong>port</strong> your data, to <strong>restrict</strong> or <strong>object to</strong> processing based on legitimate interest, and to <strong>withdraw your consent</strong> at any time (for analytics, via the toggle in Settings). The app's local backup export (Settings → Maintenance) gives you a portable JSON copy of your recipes, lists, addresses and equipment at any time.</p>
+  <p>To exercise any right, email us at the address below. You also have the right to lodge a complaint with the French supervisory authority, the <strong>CNIL</strong> (<a href="https://www.cnil.fr">cnil.fr</a>), or with the supervisory authority of your country of residence.</p>
+
+  <h2>9. Data security</h2>
+  <p>Your data is stored on Google Firebase infrastructure, protected by per-user access rules: your data is only accessible to your authenticated account and to users you have explicitly granted sharing access to. Data is encrypted in transit (TLS) and at rest on Google's infrastructure.</p>
+
+  <h2>10. Children</h2>
+  <p>Savoria is not directed at minors under 15 (the age of digital consent in France) and does not knowingly collect data from them.</p>
+
+  <h2>11. Changes to this policy</h2>
+  <p>If this policy changes, the update will be published at this address with a new "Last updated" date. For material changes, you will be informed in the app.</p>
+
+  <h2>12. Contact — data controller</h2>
+  <p>Savoria is published by <strong>JEYLAB</strong>, a French SARL with share capital of €1,000, Paris Trade Register 943 632 588, registered office at 6 rue Émile Dubois, 75014 Paris. For any privacy question or request: <a href="mailto:savoriaapp@gmail.com">savoriaapp@gmail.com</a> (see also the <a href="mentions-legales.html">legal notice</a>).</p>
+
+  <p style="margin-top:24px;"><a href="index.html">← Back to Savoria</a> · <a href="terms.html">Terms of Use</a> · <a href="mentions-legales.html">Legal Notice</a></p>
+  </div>
+</div>
+<script>
+  // i18n auto-configuré : LANGS dérivé des blocs présents. Ajouter une langue = ajouter un
+  // <div class="langblock" data-lang="X">…</div> (le cycle du bouton + la détection suivent).
+  var blocks = [].slice.call(document.querySelectorAll('.langblock'));
+  var LANGS = blocks.map(function(b){ return b.getAttribute('data-lang'); });
+  var LABELS = { fr: 'Français', en: 'English', de: 'Deutsch' };
+  function setLang(lang){
+    if (LANGS.indexOf(lang) < 0) lang = LANGS[0];
+    document.documentElement.lang = lang;
+    blocks.forEach(function(b){ b.hidden = (b.getAttribute('data-lang') !== lang); });
+    var active = document.querySelector('.langblock[data-lang="'+lang+'"]');
+    var h1 = active && active.querySelector('h1');
+    if (h1) document.title = h1.textContent + ' — Savoria';
+    var next = LANGS[(LANGS.indexOf(lang) + 1) % LANGS.length];
+    document.getElementById('langToggle').textContent = LABELS[next] || next;
+    try { localStorage.setItem('savoria_lang', lang); } catch(e) {}
+  }
+  var stored = (function(){ try { return localStorage.getItem('savoria_lang'); } catch(e) { return null; } })();
+  var param = new URLSearchParams(location.search).get('lang');
+  var browser = LANGS.filter(function(l){ return (navigator.language||'').toLowerCase().indexOf(l) === 0; })[0];
+  setLang([stored, param, browser].filter(function(l){ return LANGS.indexOf(l) >= 0; })[0] || LANGS[0]);
+  document.getElementById('langToggle').addEventListener('click', function(){
+    setLang(LANGS[(LANGS.indexOf(document.documentElement.lang) + 1) % LANGS.length]);
+  });
+</script>
+</body>
+</html>
