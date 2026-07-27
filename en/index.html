@@ -83,6 +83,7 @@
       "featureList": [
         "Recipe import from a link, text, a photo, a PDF, Instagram, TikTok and YouTube",
         "Recipe adaptation to your kitchen equipment (oven, cooktop, food processors, air fryer)",
+        "On-request editing of an existing recipe in plain language (vegetarian, no oven, less salt), with a preview of the changes and the original kept",
         "Contextual AI cooking assistant",
         "Step-by-step cooking mode with per-step timers",
         "Shopping list with automatic sorting by aisle",
@@ -118,6 +119,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Yes. Set up your equipment (oven, cooktop, food processors, air fryer) once, and Savoria adapts the cooking steps to your actual gear."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I ask for changes to a recipe I already have?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. On any recipe in your collection, ask the AI Chef in plain language: \"make it vegetarian\", \"no oven\", \"less salt\". It shows you what would change first, you apply it with one tap, and you can undo. Ingredients you didn't mention are never modified, and you can keep the original alongside the new version."
           }
         },
         {
@@ -280,6 +289,9 @@
   .head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:14px}
   .head p{color:var(--muted);font-size:1.08rem}
   .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  /* Nombre de cartes non multiple de 3 : la dernière, seule sur sa ligne, se centre au lieu
+     de pendre à gauche. Se désactive avec la grille 3 colonnes (voir @media 860px). */
+  .feat:last-child:nth-child(3n+1){grid-column:2}
   .feat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px;
     box-shadow:var(--shadow);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
   .feat:hover{transform:translateY(-5px);box-shadow:var(--shadow-lift)}
@@ -330,6 +342,7 @@
     /* badges centrés : côte à côte s'ils tiennent, empilés-centrés sinon (jamais rétrécis) */
     .badges{justify-content:center;width:100%}
     .features{grid-template-columns:1fr 1fr}
+    .feat:last-child:nth-child(3n+1){grid-column:auto}
     .f-grid{grid-template-columns:1fr;gap:28px}
   }
   @media (max-width:560px){
@@ -415,6 +428,11 @@
           <p data-i18n-html="f2.p">Ideas from what's in your fridge, a recipe adapted to your diet, an ingredient swapped — and the conversation <strong>becomes a saved recipe</strong>.</p>
         </div>
         <div class="feat reveal" style="transition-delay: 360ms;">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"></path></svg></div>
+          <h3 data-i18n="fmod.t">Your recipe, your way</h3>
+          <p data-i18n-html="fmod.p">"Make it vegetarian", "no oven", "less salt": just ask, and the AI Chef shows you <strong>what would change</strong> before applying it. Anything you didn't ask about stays put — and you can keep both versions.</p>
+        </div>
+        <div class="feat reveal" style="transition-delay: 360ms;">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l2.5 2M9 2h6"></path></svg></div>
           <h3 data-i18n="f3.t">Step-by-step cooking mode</h3>
           <p data-i18n-html="f3.p">Full-screen steps, ingredients recalled at the right moment, timers that ring <strong>even with the app closed or the phone locked</strong>.</p>
@@ -468,6 +486,10 @@
         <details class="faq-item">
           <summary data-i18n="faq.q3">Does Savoria adapt recipes to my oven and cooktop?</summary>
           <div class="ans" data-i18n="faq.a3">Yes. Set up your equipment (oven, cooktop, food processors, air fryer) once, and Savoria adapts the cooking steps to your actual gear.</div>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq.q8">Can I ask for changes to a recipe I already have?</summary>
+          <div class="ans" data-i18n="faq.a8">Yes. On any recipe in your collection, ask the AI Chef in plain language: "make it vegetarian", "no oven", "less salt". It shows you what would change first, you apply it with one tap, and you can undo. Ingredients you didn't mention are never modified, and you can keep the original alongside the new version.</div>
         </details>
         <details class="faq-item">
           <summary data-i18n="faq.q4">Can I import a recipe from a photo or PDF?</summary>

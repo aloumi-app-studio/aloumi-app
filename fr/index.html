@@ -83,6 +83,7 @@
       "featureList": [
         "Import de recettes depuis un lien, du texte, une photo, un PDF, Instagram, TikTok et YouTube",
         "Adaptation des recettes à l'équipement de cuisine (four, plaque, air fryer, robots)",
+        "Modification d'une recette existante à la demande en langage naturel (végétarien, sans four, moins salé), avec aperçu des changements et conservation de l'originale",
         "Assistant IA culinaire contextuel",
         "Mode cuisine pas à pas avec minuteurs par étape",
         "Liste de courses avec catégorisation automatique par rayon",
@@ -118,6 +119,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Oui. Tu configures ton équipement (four, plaque, air fryer, robots) une fois, et Savoria adapte les étapes de cuisson à ton matériel réel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Puis-je demander une modification sur une recette que j'ai déjà ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Sur n'importe quelle recette de ton carnet, demande au Chef IA en langage naturel : « rends-la végé », « sans four », « moins salée ». Il te montre d'abord ce qui changerait, tu appliques d'un tap, et tu peux annuler. Les ingrédients que tu n'as pas mentionnés ne sont jamais modifiés, et tu peux garder l'originale à côté de la nouvelle version."
           }
         },
         {
@@ -280,6 +289,9 @@
   .head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:14px}
   .head p{color:var(--muted);font-size:1.08rem}
   .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  /* Nombre de cartes non multiple de 3 : la dernière, seule sur sa ligne, se centre au lieu
+     de pendre à gauche. Se désactive avec la grille 3 colonnes (voir @media 860px). */
+  .feat:last-child:nth-child(3n+1){grid-column:2}
   .feat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px;
     box-shadow:var(--shadow);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
   .feat:hover{transform:translateY(-5px);box-shadow:var(--shadow-lift)}
@@ -330,6 +342,7 @@
     /* badges centrés : côte à côte s'ils tiennent, empilés-centrés sinon (jamais rétrécis) */
     .badges{justify-content:center;width:100%}
     .features{grid-template-columns:1fr 1fr}
+    .feat:last-child:nth-child(3n+1){grid-column:auto}
     .f-grid{grid-template-columns:1fr;gap:28px}
   }
   @media (max-width:560px){
@@ -363,7 +376,7 @@
 <main>
   <section class="hero">
     <div class="wrap hero-grid">
-      <div class="reveal" style="transition-delay: 0ms;">
+      <div class="reveal in" style="transition-delay: 0ms;">
         <p class="eyebrow" data-i18n="hero.eyebrow">Ta cuisine, tes règles.</p>
         <h1 data-i18n-html="hero.title">Rassemble toutes tes recettes,<br>Savoria les adapte à ta cuisine.</h1>
         <p class="lead" data-i18n-html="hero.lead">Un lien, une photo de ton carnet, un PDF ou une vidéo Instagram, TikTok, YouTube : le Chef IA en fait une fiche recette propre, <strong>adaptée à ton matériel</strong>. Puis il te guide pas à pas.</p>
@@ -413,6 +426,11 @@
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.4 3.6L17 8l-3.6 1.4L12 13l-1.4-3.6L7 8l3.6-1.4L12 3z"></path><path d="M18 14l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2z"></path></svg></div>
           <h3 data-i18n="f2.t">Un Chef IA dans ta poche</h3>
           <p data-i18n-html="f2.p">Des idées avec ce que tu as dans le frigo, une recette adaptée à ton régime, un ingrédient remplacé — et la conversation <strong>devient une recette sauvegardée</strong>.</p>
+        </div>
+        <div class="feat reveal" style="transition-delay: 360ms;">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"></path></svg></div>
+          <h3 data-i18n="fmod.t">Ta recette, à ta façon</h3>
+          <p data-i18n-html="fmod.p">« Rends-la végé », « sans four », « moins salée » : demande, et le Chef IA te montre <strong>ce qui changerait</strong> avant d'appliquer. Ce que tu n'as pas demandé ne bouge pas — et tu peux garder les deux versions.</p>
         </div>
         <div class="feat reveal" style="transition-delay: 360ms;">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l2.5 2M9 2h6"></path></svg></div>
@@ -468,6 +486,10 @@
         <details class="faq-item">
           <summary data-i18n="faq.q3">Savoria adapte-t-elle les recettes à mon four et ma plaque ?</summary>
           <div class="ans" data-i18n="faq.a3">Oui. Tu configures ton équipement (four, plaque, air fryer, robots) une fois, et Savoria adapte les étapes de cuisson à ton matériel réel.</div>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq.q8">Puis-je demander une modification sur une recette que j'ai déjà ?</summary>
+          <div class="ans" data-i18n="faq.a8">Oui. Sur n'importe quelle recette de ton carnet, demande au Chef IA en langage naturel : « rends-la végé », « sans four », « moins salée ». Il te montre d'abord ce qui changerait, tu appliques d'un tap, et tu peux annuler. Les ingrédients que tu n'as pas mentionnés ne sont jamais modifiés, et tu peux garder l'originale à côté de la nouvelle version.</div>
         </details>
         <details class="faq-item">
           <summary data-i18n="faq.q4">Peut-on importer une recette depuis une photo ou un PDF ?</summary>

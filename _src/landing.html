@@ -71,6 +71,7 @@
       "featureList": [
         "Import de recettes depuis un lien, du texte, une photo, un PDF, Instagram, TikTok et YouTube",
         "Adaptation des recettes à l'équipement de cuisine (four, plaque, air fryer, robots)",
+        "Modification d'une recette existante à la demande en langage naturel (végétarien, sans four, moins salé), avec aperçu des changements et conservation de l'originale",
         "Assistant IA culinaire contextuel",
         "Mode cuisine pas à pas avec minuteurs par étape",
         "Liste de courses avec catégorisation automatique par rayon",
@@ -85,6 +86,7 @@
         { "@type": "Question", "name": "Savoria est-elle gratuite ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. Savoria est disponible gratuitement sur Google Play pendant sa phase de test ouvert." } },
         { "@type": "Question", "name": "Peut-on importer une recette depuis Instagram, TikTok ou YouTube ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. Colle le lien ou partage la publication vers Savoria : le Chef IA récupère la recette et la structure automatiquement, y compris depuis une vidéo." } },
         { "@type": "Question", "name": "Savoria adapte-t-elle les recettes à mon four et ma plaque ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. Tu configures ton équipement (four, plaque, air fryer, robots) une fois, et Savoria adapte les étapes de cuisson à ton matériel réel." } },
+        { "@type": "Question", "name": "Puis-je demander une modification sur une recette que j'ai déjà ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. Sur n'importe quelle recette de ton carnet, demande au Chef IA en langage naturel : « rends-la végé », « sans four », « moins salée ». Il te montre d'abord ce qui changerait, tu appliques d'un tap, et tu peux annuler. Les ingrédients que tu n'as pas mentionnés ne sont jamais modifiés, et tu peux garder l'originale à côté de la nouvelle version." } },
         { "@type": "Question", "name": "Peut-on importer une recette depuis une photo ou un PDF ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. Photographie une recette manuscrite ou une page de livre, ou importe un PDF : Savoria en extrait les ingrédients et les étapes." } },
         { "@type": "Question", "name": "Sur quelles plateformes Savoria est-elle disponible ?", "acceptedAnswer": { "@type": "Answer", "text": "Savoria est disponible sur Android via Google Play. Une version iOS est à l'étude." } },
         { "@type": "Question", "name": "Comment fonctionne le mode cuisine ?", "acceptedAnswer": { "@type": "Answer", "text": "Le mode cuisine affiche la recette étape par étape, avec des minuteurs par étape, le rappel des ingrédients et un assistant IA qui connaît la recette en cours." } },
@@ -217,6 +219,9 @@
   .head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:14px}
   .head p{color:var(--muted);font-size:1.08rem}
   .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  /* Nombre de cartes non multiple de 3 : la dernière, seule sur sa ligne, se centre au lieu
+     de pendre à gauche. Se désactive avec la grille 3 colonnes (voir @media 860px). */
+  .feat:last-child:nth-child(3n+1){grid-column:2}
   .feat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px;
     box-shadow:var(--shadow);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
   .feat:hover{transform:translateY(-5px);box-shadow:var(--shadow-lift)}
@@ -267,6 +272,7 @@
     /* badges centrés : côte à côte s'ils tiennent, empilés-centrés sinon (jamais rétrécis) */
     .badges{justify-content:center;width:100%}
     .features{grid-template-columns:1fr 1fr}
+    .feat:last-child:nth-child(3n+1){grid-column:auto}
     .f-grid{grid-template-columns:1fr;gap:28px}
   }
   @media (max-width:560px){
@@ -354,6 +360,11 @@
           <p data-i18n-html="f2.p">Des idées avec ce que tu as dans le frigo, une recette adaptée à ton régime, un ingrédient remplacé — et la conversation <strong>devient une recette sauvegardée</strong>.</p>
         </div>
         <div class="feat reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg></div>
+          <h3 data-i18n="fmod.t">Ta recette, à ta façon</h3>
+          <p data-i18n-html="fmod.p">« Rends-la végé », « sans four », « moins salée » : demande, et le Chef IA te montre <strong>ce qui changerait</strong> avant d'appliquer. Ce que tu n'as pas demandé ne bouge pas — et tu peux garder les deux versions.</p>
+        </div>
+        <div class="feat reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg></div>
           <h3 data-i18n="f3.t">Mode cuisine pas à pas</h3>
           <p data-i18n-html="f3.p">Étapes en plein écran, ingrédients rappelés au bon moment, minuteurs qui sonnent <strong>même app fermée ou téléphone verrouillé</strong>.</p>
@@ -407,6 +418,10 @@
         <details class="faq-item">
           <summary data-i18n="faq.q3">Savoria adapte-t-elle les recettes à mon four et ma plaque ?</summary>
           <div class="ans" data-i18n="faq.a3">Oui. Tu configures ton équipement (four, plaque, air fryer, robots) une fois, et Savoria adapte les étapes de cuisson à ton matériel réel.</div>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq.q8">Puis-je demander une modification sur une recette que j'ai déjà ?</summary>
+          <div class="ans" data-i18n="faq.a8">Oui. Sur n'importe quelle recette de ton carnet, demande au Chef IA en langage naturel : « rends-la végé », « sans four », « moins salée ». Il te montre d'abord ce qui changerait, tu appliques d'un tap, et tu peux annuler. Les ingrédients que tu n'as pas mentionnés ne sont jamais modifiés, et tu peux garder l'originale à côté de la nouvelle version.</div>
         </details>
         <details class="faq-item">
           <summary data-i18n="faq.q4">Peut-on importer une recette depuis une photo ou un PDF ?</summary>
@@ -491,6 +506,8 @@
       "fkit.p":"No two ovens cook alike. Set up your equipment and Savoria rewrites the times and settings <strong>for your actual gear</strong>, so the dish comes out right the first time. No more \"set your Thermomix\" when you don't own one.",
       "f2.t":"An AI Chef in your pocket",
       "f2.p":"Ideas from what's in your fridge, a recipe adapted to your diet, an ingredient swapped — and the conversation <strong>becomes a saved recipe</strong>.",
+      "fmod.t":"Your recipe, your way",
+      "fmod.p":"\"Make it vegetarian\", \"no oven\", \"less salt\": just ask, and the AI Chef shows you <strong>what would change</strong> before applying it. Anything you didn't ask about stays put — and you can keep both versions.",
       "f3.t":"Step-by-step cooking mode",
       "f3.p":"Full-screen steps, ingredients recalled at the right moment, timers that ring <strong>even with the app closed or the phone locked</strong>.",
       "f4.t":"Shopping list",
@@ -518,6 +535,8 @@
       "faq.a2":"Yes. Paste the link or share the post to Savoria: the AI Chef fetches the recipe and structures it automatically, even from a video.",
       "faq.q3":"Does Savoria adapt recipes to my oven and cooktop?",
       "faq.a3":"Yes. Set up your equipment (oven, cooktop, food processors, air fryer) once, and Savoria adapts the cooking steps to your actual gear.",
+      "faq.q8":"Can I ask for changes to a recipe I already have?",
+      "faq.a8":"Yes. On any recipe in your collection, ask the AI Chef in plain language: \"make it vegetarian\", \"no oven\", \"less salt\". It shows you what would change first, you apply it with one tap, and you can undo. Ingredients you didn't mention are never modified, and you can keep the original alongside the new version.",
       "faq.q4":"Can I import a recipe from a photo or PDF?",
       "faq.a4":"Yes. Snap a handwritten recipe or a cookbook page, or import a PDF: Savoria extracts the ingredients and steps.",
       "faq.q5":"Which platforms is Savoria available on?",

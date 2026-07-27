@@ -55,6 +55,7 @@ META = {
         "features": [
             "Import de recettes depuis un lien, du texte, une photo, un PDF, Instagram, TikTok et YouTube",
             "Adaptation des recettes à l'équipement de cuisine (four, plaque, air fryer, robots)",
+            "Modification d'une recette existante à la demande en langage naturel (végétarien, sans four, moins salé), avec aperçu des changements et conservation de l'originale",
             "Assistant IA culinaire contextuel",
             "Mode cuisine pas à pas avec minuteurs par étape",
             "Liste de courses avec catégorisation automatique par rayon",
@@ -64,6 +65,7 @@ META = {
             ("Savoria est-elle gratuite ?", "Oui. Savoria est disponible gratuitement sur Google Play pendant sa phase de test ouvert."),
             ("Peut-on importer une recette depuis Instagram, TikTok ou YouTube ?", "Oui. Colle le lien ou partage la publication vers Savoria : le Chef IA récupère la recette et la structure automatiquement, y compris depuis une vidéo."),
             ("Savoria adapte-t-elle les recettes à mon four et ma plaque ?", "Oui. Tu configures ton équipement (four, plaque, air fryer, robots) une fois, et Savoria adapte les étapes de cuisson à ton matériel réel."),
+            ("Puis-je demander une modification sur une recette que j'ai déjà ?", "Oui. Sur n'importe quelle recette de ton carnet, demande au Chef IA en langage naturel : « rends-la végé », « sans four », « moins salée ». Il te montre d'abord ce qui changerait, tu appliques d'un tap, et tu peux annuler. Les ingrédients que tu n'as pas mentionnés ne sont jamais modifiés, et tu peux garder l'originale à côté de la nouvelle version."),
             ("Peut-on importer une recette depuis une photo ou un PDF ?", "Oui. Photographie une recette manuscrite ou une page de livre, ou importe un PDF : Savoria en extrait les ingrédients et les étapes."),
             ("Sur quelles plateformes Savoria est-elle disponible ?", "Savoria est disponible sur Android via Google Play. Une version iOS est à l'étude."),
             ("Comment fonctionne le mode cuisine ?", "Le mode cuisine affiche la recette étape par étape, avec des minuteurs par étape, le rappel des ingrédients et un assistant IA qui connaît la recette en cours."),
@@ -78,6 +80,7 @@ META = {
         "features": [
             "Recipe import from a link, text, a photo, a PDF, Instagram, TikTok and YouTube",
             "Recipe adaptation to your kitchen equipment (oven, cooktop, food processors, air fryer)",
+            "On-request editing of an existing recipe in plain language (vegetarian, no oven, less salt), with a preview of the changes and the original kept",
             "Contextual AI cooking assistant",
             "Step-by-step cooking mode with per-step timers",
             "Shopping list with automatic sorting by aisle",
@@ -87,6 +90,7 @@ META = {
             ("Is Savoria free?", "Yes. Savoria is available for free on Google Play during its open testing phase."),
             ("Can I import a recipe from Instagram, TikTok or YouTube?", "Yes. Paste the link or share the post to Savoria: the AI Chef fetches the recipe and structures it automatically, even from a video."),
             ("Does Savoria adapt recipes to my oven and cooktop?", "Yes. Set up your equipment (oven, cooktop, food processors, air fryer) once, and Savoria adapts the cooking steps to your actual gear."),
+            ("Can I ask for changes to a recipe I already have?", "Yes. On any recipe in your collection, ask the AI Chef in plain language: \"make it vegetarian\", \"no oven\", \"less salt\". It shows you what would change first, you apply it with one tap, and you can undo. Ingredients you didn't mention are never modified, and you can keep the original alongside the new version."),
             ("Can I import a recipe from a photo or PDF?", "Yes. Snap a handwritten recipe or a cookbook page, or import a PDF: Savoria extracts the ingredients and steps."),
             ("Which platforms is Savoria available on?", "Savoria is available on Android via Google Play. An iOS version is under consideration."),
             ("How does cooking mode work?", "Cooking mode shows the recipe step by step, with per-step timers, ingredient reminders and an AI assistant that knows the current recipe."),

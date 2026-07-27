@@ -133,6 +133,9 @@
   .head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:14px}
   .head p{color:var(--muted);font-size:1.08rem}
   .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  /* Nombre de cartes non multiple de 3 : la dernière, seule sur sa ligne, se centre au lieu
+     de pendre à gauche. Se désactive avec la grille 3 colonnes (voir @media 860px). */
+  .feat:last-child:nth-child(3n+1){grid-column:2}
   .feat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px;
     box-shadow:var(--shadow);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
   .feat:hover{transform:translateY(-5px);box-shadow:var(--shadow-lift)}
@@ -183,6 +186,7 @@
     /* badges centrés : côte à côte s'ils tiennent, empilés-centrés sinon (jamais rétrécis) */
     .badges{justify-content:center;width:100%}
     .features{grid-template-columns:1fr 1fr}
+    .feat:last-child:nth-child(3n+1){grid-column:auto}
     .f-grid{grid-template-columns:1fr;gap:28px}
   }
   @media (max-width:560px){
