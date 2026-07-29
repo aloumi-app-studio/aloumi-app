@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Condiciones de uso — Savoria</title>
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://savoria.jeylab.fr/es/terms/">
+<link rel="alternate" hreflang="fr" href="https://savoria.jeylab.fr/fr/terms/">
+<link rel="alternate" hreflang="en" href="https://savoria.jeylab.fr/en/terms/">
+<link rel="alternate" hreflang="de" href="https://savoria.jeylab.fr/de/terms/">
+<link rel="alternate" hreflang="it" href="https://savoria.jeylab.fr/it/terms/">
+<link rel="alternate" hreflang="es" href="https://savoria.jeylab.fr/es/terms/">
+<link rel="alternate" hreflang="x-default" href="https://savoria.jeylab.fr/fr/terms/">
+<style>
+
+  :root{
+    --bg:#f6f1e9; --surface:#ffffff; --surface-2:#fbf7f0;
+    --ink:#241f1a; --muted:#7c7268; --line:rgba(40,28,16,.10);
+    --accent:#b0602c; --accent-soft:#c98a3a; --accent-ink:#844421;
+    --shadow:0 1px 2px rgba(40,28,16,.05), 0 18px 40px -20px rgba(120,66,28,.28);
+    --shadow-lift:0 1px 2px rgba(40,28,16,.06), 0 28px 56px -22px rgba(120,66,28,.40);
+    --r:22px; --maxw:1080px;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --display:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#141009; --surface:#1e1810; --surface-2:#241d13;
+      --ink:#f3ede2; --muted:#ab9f8f; --line:rgba(255,240,220,.10);
+      --accent:#e0904d; --accent-soft:#eaa960; --accent-ink:#f0b877;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 22px 46px -22px rgba(0,0,0,.7);
+      --shadow-lift:0 1px 2px rgba(0,0,0,.5), 0 30px 60px -22px rgba(0,0,0,.8);
+    }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.022em;line-height:1.08}
+
+  /* -webkit- AVANT le standard : Safari ≤ 17 ne connaît que la forme préfixée (l'unpréfixée n'arrive
+     qu'en Safari 18) — sans elle, l'en-tête perd son effet de verre dépoli sur iPhone et macOS. */
+  header{position:sticky;top:0;z-index:50;-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);
+    background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid transparent;transition:border-color .3s}
+  header.scrolled{border-color:var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:var(--display);font-size:1.3rem;font-weight:800;letter-spacing:-.02em}
+  .brand svg{width:28px;height:28px;color:var(--ink)}      /* footer */
+  .nav .brand svg{width:45px;height:45px}                  /* header — logo mis en avant, collé au mot */
+  .nav .brand{gap:8px}
+  .nav-right{display:flex;align-items:center;gap:18px;font-size:.9rem}
+  /* Sélecteur de langue — `<details>` NATIF, volontairement pas un composant JS :
+     le site est statique et servi par GitHub Pages, donc (1) les liens doivent rester de vrais
+     <a href> crawlables, (2) la page doit rester utilisable sans JS. Le natif donne en prime le
+     clavier (Entrée/Espace/Échap) et la sémantique ARIA. Le JS n'ajoute que le confort (fermeture
+     au clic extérieur / Échap). Remplace le bouton qui CYCLAIT vers la langue suivante : passable
+     à 2 langues, absurde à 5 (jusqu'à 4 taps, et on ne voit jamais la liste). */
+  .langsel{position:relative}
+  .langsel>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;
+    color:var(--muted);font-weight:600;font-size:.9rem;padding:8px 10px;border-radius:999px;
+    transition:color .2s,background .2s}
+  .langsel>summary::-webkit-details-marker{display:none}
+  .langsel>summary:hover{color:var(--ink);background:color-mix(in srgb,var(--ink) 6%,transparent)}
+  .langsel>summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .langsel .globe{width:16px;height:16px;flex:none}
+  .langsel .chev{width:11px;height:11px;flex:none;transition:transform .2s}
+  .langsel[open] .chev{transform:rotate(180deg)}
+  .langsel-code{display:none}
+  .langsel-menu{position:absolute;right:0;top:calc(100% + 8px);z-index:60;min-width:180px;padding:6px;
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-lift)}
+  .langsel-menu a{display:flex;align-items:center;justify-content:space-between;gap:14px;
+    padding:9px 12px;border-radius:9px;color:var(--ink);font-size:.9rem;font-weight:500;white-space:nowrap}
+  .langsel-menu a:hover{background:color-mix(in srgb,var(--accent) 12%,transparent)}
+  .langsel-menu a[aria-current]{font-weight:700;color:var(--accent)}
+  .langsel-menu a[aria-current]::after{content:"✓";font-size:.85rem}
+  /* Sur petit écran, l'autonyme complet pousse le bouton Play hors de la barre : on garde le
+     CODE (« ES »), qui reste informatif — contrairement à un globe seul. */
+  @media (max-width:560px){
+    .langsel-full{display:none}
+    .langsel-code{display:inline}
+  }
+  .badge-play{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);
+    padding:9px 16px;border-radius:999px;font-weight:600;font-size:.85rem;box-shadow:var(--shadow);transition:transform .2s}
+  .badge-play:hover{transform:translateY(-1px)}
+  .badge-play svg{width:15px;height:15px}
+
+  .hero{position:relative;padding:78px 0 40px}
+  .hero::before{content:"";position:absolute;inset:0;z-index:-1;
+    background:
+      radial-gradient(60% 55% at 18% 12%,color-mix(in srgb,var(--accent-soft) 26%,transparent),transparent 70%),
+      radial-gradient(50% 50% at 92% 30%,color-mix(in srgb,var(--accent) 18%,transparent),transparent 70%)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .hero h1{font-size:clamp(2.4rem,5.2vw,3.7rem);margin-bottom:20px}
+  .hero p.lead{font-size:1.16rem;color:var(--muted);max-width:35ch;margin-bottom:30px}
+  .cta{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .btn-ghost{color:var(--accent-ink);font-weight:600;display:inline-flex;align-items:center;gap:6px}
+  .btn-ghost:hover{gap:10px}
+  .badges{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .badge-store{position:relative;display:inline-flex;transition:transform .2s}
+  .badge-store.live:hover{transform:translateY(-2px)}
+  .badge-store.soon{opacity:.5;pointer-events:none}
+  /* Badges : SVG officiels Google Play (gplay-fr/en.svg) + App Store (appstore-fr/en.svg).
+     Les SVG Google Play « Web_color » remplissent exactement leur viewBox (0 marge, ratio 3.37) →
+     à hauteur CSS égale les deux boîtes s'alignent, sans détourage. ⚠️ Garder du SVG (net + pas
+     de marge transparente bakée) ; ne pas revenir aux PNG Google Play officiels (marge ~20 % qui
+     casse l'alignement). */
+  .badge-gplay img{height:50px;width:auto;display:block}
+  .badge-apple img{height:50px;width:auto;display:block}
+  .soon-tag{position:absolute;top:-7px;right:-7px;background:var(--accent);color:#fff;font-size:.56rem;
+    font-weight:700;padding:2px 7px;border-radius:999px;letter-spacing:.05em;text-transform:uppercase;box-shadow:var(--shadow)}
+  .store{display:inline-flex;align-items:center;gap:11px;background:#1b1712;color:#fff;
+    border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:9px 17px 9px 14px;
+    box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s}
+  .store:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift)}
+  .store>svg{width:23px;height:23px;flex:0 0 auto}
+  .store .lbl{display:flex;flex-direction:column;line-height:1.12;text-align:left}
+  .store .lbl small{font-size:.58rem;letter-spacing:.05em;opacity:.82;text-transform:uppercase}
+  .store .lbl b{font-size:1.02rem;font-weight:600;font-family:var(--sans)}
+  .store.soon{opacity:.58}
+
+  .phone-stage{display:flex;justify-content:center;position:relative}
+  .phone-stage::before{content:"";position:absolute;width:78%;height:78%;top:11%;
+    background:radial-gradient(circle,color-mix(in srgb,var(--accent-soft) 42%,transparent),transparent 68%);filter:blur(18px);z-index:-1}
+  .phone{width:266px;background:#2A211A;border-radius:26px;padding:8px;box-shadow:var(--shadow-lift);
+    border:1px solid #100c08}
+  .screen{border-radius:18px;overflow:hidden;position:relative;background:#000;line-height:0}
+  .screen img{width:100%;height:auto;display:block}
+  .sc-hero{height:158px;position:relative;background:linear-gradient(140deg,var(--accent) 0%,var(--accent-soft) 100%)}
+  .sc-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,12,6,.55),transparent 58%)}
+  .sc-hero .plate{position:absolute;right:-14px;bottom:-14px;width:116px;height:116px;border-radius:50%;
+    background:radial-gradient(circle at 38% 32%,#e9b877,#a75f2c 70%);box-shadow:inset 0 -10px 24px rgba(0,0,0,.25);opacity:.92}
+  .sc-back{position:absolute;top:12px;left:12px;z-index:3;width:30px;height:30px;border-radius:50%;
+    background:rgba(20,12,6,.32);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;color:#fff}
+  .sc-back svg{width:15px;height:15px}
+  .sc-title{position:absolute;left:16px;bottom:14px;right:16px;z-index:2;color:#fff}
+  .sc-title h4{font-family:var(--display);font-size:1.16rem;font-weight:800;letter-spacing:-.01em;line-height:1.12;text-shadow:0 1px 8px rgba(0,0,0,.3)}
+  .sc-body{padding:14px 16px 14px}
+  .chips{display:flex;gap:7px;margin-bottom:12px}
+  .chip{font-size:.62rem;font-weight:600;color:var(--accent-ink);
+    background:color-mix(in srgb,var(--accent-soft) 20%,var(--surface));border:1px solid var(--line);
+    padding:4px 9px;border-radius:999px;display:inline-flex;align-items:center;gap:4px}
+  .chip svg{width:9px;height:9px}
+  .chip.star{color:var(--accent)}
+  .sc-tabs{display:flex;gap:4px;background:color-mix(in srgb,var(--muted) 12%,transparent);
+    border-radius:999px;padding:3px;margin-bottom:12px}
+  .sc-tabs span{flex:1;text-align:center;font-size:.64rem;font-weight:600;color:var(--muted);padding:6px 0;border-radius:999px}
+  .sc-tabs span.on{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(40,28,16,.12)}
+  .ing{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px solid var(--line)}
+  .ing:first-of-type{border-top:0}
+  .ing .nm{font-size:.76rem;font-weight:500;color:var(--ink)}
+  .ing .qt{font-size:.72rem;font-weight:700;color:var(--accent-ink);
+    background:color-mix(in srgb,var(--accent-soft) 16%,var(--surface));border-radius:8px;padding:2px 8px}
+  .sc-bar{display:flex;align-items:center;gap:8px;margin-top:12px}
+  .sc-ic{width:38px;height:38px;border-radius:12px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;
+    background:color-mix(in srgb,var(--accent-soft) 18%,var(--surface));border:1px solid var(--line);color:var(--accent)}
+  .sc-ic svg{width:16px;height:16px}
+  .sc-go{flex:1;background:var(--accent);color:#fff;text-align:center;padding:11px;border-radius:14px;
+    font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;gap:6px}
+  .sc-go svg{width:14px;height:14px}
+
+  section.block{padding:76px 0}
+  .head{text-align:center;max-width:640px;margin:0 auto 52px}
+  .head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:14px}
+  .head p{color:var(--muted);font-size:1.08rem}
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  /* Nombre de cartes non multiple de 3 : la dernière, seule sur sa ligne, se centre au lieu
+     de pendre à gauche. Se désactive avec la grille 3 colonnes (voir @media 860px). */
+  .feat:last-child:nth-child(3n+1){grid-column:2}
+  .feat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px;
+    box-shadow:var(--shadow);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+  .feat:hover{transform:translateY(-5px);box-shadow:var(--shadow-lift)}
+  .feat .ic{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;
+    background:color-mix(in srgb,var(--accent-soft) 20%,var(--surface));color:var(--accent);margin-bottom:16px}
+  .feat .ic svg{width:22px;height:22px}
+  .feat h3{font-size:1.16rem;margin-bottom:8px;letter-spacing:-.01em}
+  .feat p{color:var(--muted);font-size:.96rem}
+  .feat p strong,.hero p.lead strong{color:var(--accent);font-weight:700}
+
+  footer{padding:60px 0 30px;border-top:1px solid var(--line);margin-top:20px}
+  .f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;margin-bottom:36px}
+  .f-brand .brand{margin-bottom:12px}
+  .f-brand p{color:var(--muted);font-size:.94rem;max-width:34ch}
+  .f-col h5{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:700}
+  .f-col a{display:block;color:var(--ink);font-size:.95rem;margin-bottom:10px;font-weight:500}
+  .f-col a:hover{color:var(--accent)}
+  .f-bottom{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:.86rem}
+  .f-mini{margin-top:14px;text-align:center;font-size:.72rem;color:var(--muted);opacity:.6}
+  .f-mini a{text-decoration:underline;text-underline-offset:2px}
+  .f-mini a:hover{color:var(--accent)}
+
+  .gallery{display:flex;gap:20px;overflow-x:auto;padding:6px 24px 26px;scroll-snap-type:x mandatory;
+    scrollbar-width:none;justify-content:safe center}
+  .gallery::-webkit-scrollbar{display:none}
+  .shot{flex:0 0 auto;width:200px;border-radius:20px;overflow:hidden;background:#2A211A;
+    box-shadow:var(--shadow-lift);border:1px solid #100c08;scroll-snap-align:center;padding:6px}
+  .shot img{width:100%;height:auto;display:block;border-radius:14px}
+  .gallery-hint{text-align:center;color:var(--muted);font-size:.82rem;margin-top:2px}
+  @media (min-width:1200px){ .gallery-hint{display:none} }
+
+  .faq-list{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+  .faq-item{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+  .faq-item summary{cursor:pointer;list-style:none;padding:18px 22px;font-weight:600;font-size:1.02rem;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::after{content:"+";color:var(--accent);font-size:1.5rem;font-weight:400;line-height:1;transition:transform .25s cubic-bezier(.2,.7,.2,1)}
+  .faq-item[open] summary::after{transform:rotate(45deg)}
+  .faq-item .ans{padding:0 22px 20px;color:var(--muted);font-size:.98rem}
+
+  /* ⚠️ SCOPÉ À `.js` — l'animation d'apparition ne doit JAMAIS pouvoir cacher le contenu.
+     Avant : `.reveal{opacity:0}` inconditionnel + JS qui ajoute `.in` → sans JavaScript (ou si
+     IntersectionObserver échoue), TOUTE la page restait invisible. La classe `js` est posée en tête
+     de <head> : si le script ne tourne pas, la règle ne s'applique pas et le texte s'affiche. */
+  .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:36px;text-align:center}
+    .hero p.lead{margin-left:auto;margin-right:auto}
+    .cta{justify-content:center;flex-direction:column}
+    /* badges centrés : côte à côte s'ils tiennent, empilés-centrés sinon (jamais rétrécis) */
+    .badges{justify-content:center;width:100%}
+    .features{grid-template-columns:1fr 1fr}
+    .feat:last-child:nth-child(3n+1){grid-column:auto}
+    .f-grid{grid-template-columns:1fr;gap:28px}
+  }
+  @media (max-width:560px){
+    .features{grid-template-columns:1fr}
+    .nav-right .badge-play{display:none}
+    .hero{padding-top:52px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .reveal{transition:none;opacity:1;transform:none}
+    html{scroll-behavior:auto}
+  }
+
+
+  main.legal .wrap { max-width: 768px; padding: 56px 24px 76px; }
+  main.legal h1 { font-size: 2.1rem; letter-spacing: -.02em; margin-bottom: 6px; }
+  main.legal .updated { color: var(--muted); font-size: .92rem; margin-bottom: 6px; }
+  main.legal h2 { font-family: var(--display); font-size: 1.35rem; font-weight: 800; color: var(--accent); margin: 36px 0 12px; }
+  main.legal p, main.legal li { margin-bottom: 9px; }
+  main.legal ul { padding-left: 20px; margin-bottom: 14px; }
+  main.legal a { color: var(--accent); font-weight: 600; }
+  main.legal a:hover { color: var(--accent-ink); }
+  main.legal .warn { background: color-mix(in srgb, var(--accent-soft) 14%, var(--surface)); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; margin: 18px 0; }
+  main.legal .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 14px 0; }
+  main.legal table { border-collapse: collapse; width: 100%; min-width: 620px; font-size: .94rem; }
+  main.legal th, main.legal td { border: 1px solid var(--line); padding: 9px 12px; text-align: left; vertical-align: top; }
+  main.legal th { background: var(--surface-2); }
+  @media (max-width: 600px) {
+    main.legal .wrap { padding: 40px 16px 60px; }
+    main.legal table { font-size: .85rem; }
+    main.legal th, main.legal td { padding: 7px 9px; }
+  }
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="savoria-logo" viewBox="0 0 1024 1024"><path fill="currentColor" opacity="1.000000" stroke="none" d=" M369.480865,590.545288 C328.355408,609.643250 293.722137,636.730713 263.991699,671.354492 C261.989166,667.853943 262.104797,665.051453 262.081268,662.343567 C261.926331,644.512756 261.890289,626.680786 261.701599,608.850403 C261.468872,586.857727 261.237427,564.863770 260.741943,542.876221 C260.633240,538.053650 262.186310,536.717896 266.978058,536.628723 C334.667572,535.368835 384.147522,503.151733 419.201477,446.616577 C424.669159,437.798340 428.689697,428.283081 432.564178,418.703644 C433.353912,416.751068 434.443695,414.775208 433.268097,411.637390 C428.514343,417.228790 424.243500,422.601288 419.612488,427.642975 C387.950012,462.113159 350.637207,487.706421 304.908752,499.758301 C273.243958,508.103638 241.863235,507.708008 211.525085,494.356323 C170.906113,476.480133 145.133545,445.468475 134.007416,402.750793 C116.066238,333.867462 154.797073,263.950134 222.574448,242.120148 C244.239532,235.142166 266.339142,234.404816 288.675751,238.703781 C292.789032,239.495453 292.656982,242.049820 292.168243,244.978729 C290.240326,256.532990 289.741333,268.181274 290.337585,279.839050 C291.641266,305.327576 299.211700,328.846985 313.251312,350.215942 C314.036346,351.410858 314.631561,352.876190 316.486145,353.589020 C317.436371,349.774200 315.782928,346.380035 315.175873,342.934937 C305.151215,286.043732 318.689423,235.982178 359.933258,194.938675 C384.060638,170.928497 413.795593,157.385849 448.058502,154.603638 C502.553284,150.178543 545.090881,171.979691 578.544006,213.898514 C581.447632,217.536880 580.834900,219.708389 577.181213,222.306671 C552.965942,239.527359 533.595520,260.903259 521.582825,288.392761 C519.120056,294.028595 517.133484,299.872986 514.944153,305.627594 C514.347290,307.196381 513.919556,308.794952 514.693909,310.684784 C517.216248,310.906799 517.821533,308.656952 518.894226,307.215973 C545.939270,270.885132 580.796509,246.601868 625.817444,238.222366 C685.974976,227.025620 747.841858,258.433441 772.081421,312.244720 C773.777588,316.010132 773.176086,318.222748 770.161438,320.789642 C752.151978,336.124176 734.028259,351.337769 716.396118,367.099030 C688.825806,391.744080 661.451294,416.614197 634.297852,441.717865 C602.736633,470.896576 571.611755,500.546967 540.092773,529.771790 C515.667908,552.418640 486.343109,564.364075 453.499969,568.342529 C424.605774,571.842468 396.504730,578.441711 369.480865,590.545288 z"/><path fill="currentColor" opacity="1.000000" stroke="none" d=" M419.290314,855.433044 C399.658264,863.679626 379.742157,869.421509 358.923126,871.862366 C337.176514,874.411865 315.635254,873.992554 294.925385,866.047607 C266.459778,855.127258 250.709564,833.991272 246.713318,803.985901 C242.918884,775.495605 251.220566,749.601013 264.582397,725.020447 C282.538818,691.987549 308.544464,666.260254 338.799011,644.494080 C369.766541,622.214905 404.174988,608.229919 441.732330,601.988403 C454.510498,599.864929 467.512451,599.200500 480.188477,596.321655 C509.959534,589.559998 535.973999,575.563232 558.300964,554.918884 C589.734680,525.853882 620.733032,496.317932 652.163391,467.249176 C703.165222,420.079376 754.046875,372.744873 809.755249,331.028717 C821.454041,322.268250 832.989990,313.014465 847.119690,308.194000 C855.415833,305.363739 863.957153,304.010529 872.655212,306.113007 C889.217163,310.116302 899.278809,326.940125 895.788086,344.383148 C892.480591,360.910431 882.749573,373.061890 869.280212,382.293701 C845.650330,398.489380 821.797913,414.362488 797.947449,430.233612 C748.984680,462.815552 700.595886,496.213715 654.138794,532.308411 C635.466675,546.815674 616.919250,561.523682 599.486938,577.542053 C573.022278,601.860291 558.671509,631.797913 558.263672,667.974060 C557.623352,724.786011 534.252319,770.794312 492.205688,808.074402 C470.362488,827.441345 446.537567,843.709961 419.290314,855.433044 M305.090118,730.557800 C303.823120,732.514587 302.467712,734.420288 301.302826,736.436096 C290.156372,755.724976 281.632660,775.764771 284.300201,798.793518 C285.701935,810.894470 291.326263,820.461243 301.883972,826.945190 C317.699554,836.658203 335.195435,836.982849 352.709320,835.276428 C378.086334,832.804077 401.638977,824.111389 423.691681,811.529480 C457.556793,792.208008 486.073792,767.190918 505.251495,732.673767 C514.109009,716.731384 520.224365,699.817688 518.649658,681.237244 C517.096069,662.906982 508.558075,649.093628 490.649933,642.237610 C474.528442,636.065552 457.911102,636.309143 441.475800,639.699463 C384.129944,651.528870 339.396332,682.661438 305.090118,730.557800 z"/><path fill="currentColor" opacity="1.000000" stroke="none" d=" M654.842651,571.818604 C659.087097,568.438721 663.058716,565.284241 666.964661,562.181946 C668.779358,563.793518 668.258057,565.385803 668.301453,566.798279 C669.279663,598.591736 669.126648,630.397156 669.341492,662.199524 C669.516968,688.171692 669.967407,714.141907 670.255554,740.113403 C670.336182,747.379028 670.270508,747.372681 663.271790,747.369812 C635.126831,747.358093 606.981873,747.357178 578.836914,747.328186 C577.037476,747.326355 575.159973,747.702148 573.506226,746.653442 C572.772644,745.220764 573.534119,744.023560 574.085083,742.844910 C583.828369,722.000122 587.294067,699.783630 588.849792,677.074219 C589.620667,665.822083 589.811707,654.488220 592.751282,643.440735 C597.458252,625.751221 607.221191,611.436768 621.142151,599.803162 C632.255798,590.515564 643.425171,581.294617 654.842651,571.818604 z"/></symbol></svg>
+<header id="hdr"><div class="wrap nav"><a class="brand" href="/es/" aria-label="Savoria"><svg class="brand-mark" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#savoria-logo"></use></svg> Savoria</a><nav class="nav-right"><details class="langsel"><summary aria-label="Idioma"><svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span class="langsel-full">Español</span><span class="langsel-code">ES</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="langsel-menu"><a href="/fr/terms/" lang="fr" hreflang="fr">Français</a><a href="/en/terms/" lang="en" hreflang="en">English</a><a href="/de/terms/" lang="de" hreflang="de">Deutsch</a><a href="/it/terms/" lang="it" hreflang="it">Italiano</a><a href="/es/terms/" lang="es" hreflang="es" aria-current="true">Español</a></div></details><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.savoria.app" target="_blank" rel="noopener">En Google Play</a></nav></div></header>
+<main class="legal">
+<div class="wrap">
+<h1>Condiciones de uso</h1>
+  <p class="updated">Savoria — Última actualización: 7 de julio de 2026</p>
+
+  <h2>1. Objeto y aceptación</h2>
+  <p>Las presentes Condiciones de uso («Condiciones») rigen el uso de la aplicación Android <strong>Savoria</strong> («la app», «el servicio»), publicada por <strong>JEYLAB</strong>, sociedad de responsabilidad limitada de derecho francés (SARL) con un capital social de 1.000 €, inscrita en el Registro Mercantil de París con el número 943 632 588 y con domicilio social en 6 rue Émile Dubois, 75014 París («el editor», «nosotros»). La información legal completa está disponible en el <a href="/es/legal-notice/">aviso legal</a>. Al crear una cuenta o utilizar la app, usted acepta las presentes Condiciones. Si no las acepta, le rogamos que no utilice la app.</p>
+
+  <h2>2. Descripción del servicio</h2>
+  <p>Savoria es una app de gestión de recetas asistida por IA: importación y estructuración de recetas, asistente de cocina por chat, modo cocina paso a paso, lista de la compra inteligente, joyas gastronómicas, generación de imágenes y uso compartido con otros usuarios.</p>
+  <p>El servicio se presta actualmente de forma gratuita. El editor se reserva el derecho de hacer evolucionar las funcionalidades, introducir ofertas de pago o interrumpir el servicio, con un preaviso razonable en la app.</p>
+
+  <h2>3. Cuenta de usuario</h2>
+  <p>El uso de Savoria requiere iniciar sesión con una cuenta de Google y está reservado a las personas de 15 años o más. Usted es responsable de proteger el acceso a su dispositivo y a su cuenta. Puede eliminar su cuenta en cualquier momento (Ajustes → Cuenta), lo que borra definitivamente sus datos — véase la <a href="/es/privacy/">Política de privacidad</a>.</p>
+
+  <h2>4. Contenidos generados por IA</h2>
+  <p>Las funciones «Chef IA», la importación de recetas, los asistentes contextuales y la generación de imágenes se basan en modelos de inteligencia artificial de terceros (Google Gemini / Vertex AI). En consecuencia:</p>
+  <ul>
+    <li>Los contenidos generados (recetas, consejos, cantidades, tiempos y temperaturas de cocción, categorizaciones, imágenes) se producen <strong>automáticamente, sin revisión humana</strong>.</li>
+    <li>Pueden ser <strong>inexactos, incompletos, estar desactualizados o ser erróneos</strong>, incluso de formas poco evidentes («alucinaciones»).</li>
+    <li>Se facilitan <strong>únicamente con fines informativos y culinarios</strong>: no constituyen en ningún caso un consejo médico, nutricional, dietético ni sanitario.</li>
+    <li>Las imágenes generadas por IA son <strong>ilustraciones</strong>: no representan fielmente el plato real.</li>
+  </ul>
+  <figure class="warn">
+    <p><strong>⚠️ Seguridad alimentaria — su responsabilidad.</strong> Antes de preparar o consumir una receta, debe comprobar siempre por sí mismo:</p>
+    <ul>
+      <li>la <strong>presencia de alérgenos</strong> en relación con sus alergias e intolerancias y las de sus invitados;</li>
+      <li>las <strong>temperaturas y los tiempos de cocción</strong>, en particular para la carne, las aves, el pescado, los huevos y el marisco;</li>
+      <li>las <strong>normas de conservación e higiene</strong> (cadena de frío, esterilización, fermentación…);</li>
+      <li>la idoneidad de la receta para su <strong>situación particular</strong> (embarazo, niños pequeños, sistema inmunitario debilitado, dieta médica…).</li>
+    </ul>
+    <p>En caso de duda, consulte las recomendaciones oficiales de seguridad alimentaria o a un profesional.</p>
+  </figure>
+  <p>Se ha integrado un mecanismo de denuncia: pulsación larga sobre una respuesta de la IA → «Denunciar esta respuesta». Las denuncias se revisan y contribuyen a mejorar el servicio.</p>
+
+  <h2>5. Sus contenidos</h2>
+  <p>Usted sigue siendo propietario de los contenidos que crea o importa (recetas, notas, listas, direcciones, fotos). Nos concede una licencia limitada, no exclusiva y revocable para alojar, reproducir y tratar dichos contenidos con el único fin de prestar el servicio (almacenamiento, sincronización, uso compartido iniciado por usted, procesamiento mediante IA a petición suya).</p>
+  <p>Usted es responsable de los contenidos que importa y comparte. La importación de recetas desde sitios de terceros está destinada a un <strong>uso personal y privado</strong>; el respeto de los eventuales derechos de terceros sobre dichos contenidos es responsabilidad suya.</p>
+
+  <h2>6. Uso permitido y límites</h2>
+  <p>Queda prohibido:</p>
+  <ul>
+    <li>utilizar el servicio con fines ilícitos o para generar contenidos ilegales, de odio o peligrosos;</li>
+    <li>intentar eludir los mecanismos de seguridad, de límite o de moderación, acceder a los sistemas sin autorización o invocar nuestras interfaces de servidor fuera de la app;</li>
+    <li>perturbar el servicio (sobrecarga deliberada, automatización abusiva, bots).</li>
+  </ul>
+  <p>Las funciones de IA están sujetas a <strong>límites de uso razonable</strong> (por minuto, por día, por mes), que pueden evolucionar. En caso de incumplimiento de las presentes Condiciones o de abuso manifiesto, el editor podrá limitar, suspender o interrumpir el acceso al servicio, de forma temporal o definitiva, con preaviso salvo en casos urgentes.</p>
+
+  <h2>7. Uso compartido entre usuarios</h2>
+  <p>El uso compartido se realiza mediante un código personal y un mecanismo de aprobación: usted controla quién accede a sus colecciones y con qué derechos, y puede revocar el acceso en cualquier momento. Usted es responsable de los contenidos que comparte y de la elección de las personas a las que concede el acceso.</p>
+
+  <h2>8. Disponibilidad</h2>
+  <p>El servicio se presta «tal cual» y «según disponibilidad». El editor se esfuerza por mantener un funcionamiento continuo, pero no garantiza la ausencia de interrupciones, errores o pérdidas de datos; el servicio depende además de servicios de terceros (Google Firebase, API de Gemini) cuya disponibilidad escapa a su control. Le recomendamos utilizar la exportación de copia de seguridad local (Ajustes → Mantenimiento).</p>
+
+  <h2>9. Responsabilidad</h2>
+  <p>Nada en las presentes Condiciones excluye ni limita la responsabilidad del editor por culpa grave o dolo, por daños personales causados por su culpa acreditada, ni en ningún otro supuesto en que dicha limitación esté prohibida por la ley. Sus derechos imperativos derivados de la normativa de consumo aplicable permanecen intactos.</p>
+  <p>Sin perjuicio de lo anterior: el editor no será responsable de los daños indirectos, ni de las consecuencias (i) del uso de contenidos generados por IA sin las comprobaciones descritas en la sección 4, (ii) de los contenidos importados o compartidos por los usuarios, (iii) de la indisponibilidad de servicios de terceros. Al prestarse el servicio de forma gratuita, la responsabilidad global del editor se limita en todo caso al daño directo y previsible.</p>
+
+  <h2>10. Propiedad intelectual</h2>
+  <p>La app, su marca, su diseño y su código siguen siendo propiedad exclusiva del editor. Las presentes Condiciones no le confieren ningún derecho sobre ellos, salvo un derecho personal, no exclusivo e intransferible de utilizar la app conforme a su finalidad.</p>
+
+  <h2>11. Datos personales</h2>
+  <p>El tratamiento de sus datos se describe en la <a href="/es/privacy/">Política de privacidad</a>, que forma parte integrante de las presentes Condiciones.</p>
+
+  <h2>12. Modificación de las presentes Condiciones</h2>
+  <p>El editor podrá modificar las presentes Condiciones. Toda modificación sustancial se anunciará en la app con un preaviso razonable. El uso continuado después de la fecha de entrada en vigor constituye aceptación; en caso contrario, puede dejar de utilizar el servicio y eliminar su cuenta.</p>
+
+  <h2>13. Legislación aplicable y controversias</h2>
+  <p>Las presentes Condiciones se rigen por el derecho francés. En caso de controversia, se buscará ante todo una solución amistosa: contáctenos en la dirección indicada a continuación. Con arreglo al Código de consumo francés, puede recurrir gratuitamente a un mediador de consumo; los datos del mediador competente se facilitarán a petición y se publicarán aquí en cuanto se introduzcan ofertas de pago. A falta de solución amistosa, serán competentes los tribunales franceses conforme a las normas de derecho común.</p>
+
+  <h2>14. Contacto</h2>
+  <p><a href="mailto:savoriaapp@gmail.com">savoriaapp@gmail.com</a></p>
+
+  <p style="margin-top:24px;"><a href="/es/">← Volver a Savoria</a> · <a href="/es/privacy/">Política de privacidad</a> · <a href="/es/legal-notice/">Aviso legal</a></p>
+</div>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-brand">
+        <div class="brand"><svg class="brand-mark" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#savoria-logo"></use></svg> Savoria</div>
+        <p data-i18n="f.tagline">Tu asistente de cocina personal, con IA. En Google Play.</p>
+      </div>
+      <div class="f-col" data-i18n-html="col.legal"><h5>Información legal</h5><a href="/es/privacy/">Política de privacidad</a><a href="/es/terms/">Condiciones de uso</a><a href="/es/legal-notice/">Aviso legal</a></div>
+      <div class="f-col" data-i18n-html="col.help"><h5>Cuenta y ayuda</h5><a href="https://forms.gle/Kn7SL6Qa2NLKJP5JA">Eliminar mi cuenta</a><a href="mailto:savoriaapp@gmail.com">Contáctanos</a></div>
+    </div>
+    <div class="f-bottom">
+      <span data-i18n="f.copy">© 2026 Savoria</span>
+      <span data-i18n="f.made">Hecha con mimo en Francia.</span>
+    </div>
+    <p class="f-mini" data-i18n-html="f.editor">Publicada por JEYLAB (SARL) · <a href="/es/legal-notice/">Aviso legal</a></p>
+  </div>
+</footer>
+<script>var h=document.getElementById('hdr');var s=function(){h&&h.classList.toggle('scrolled',scrollY>8)};s();addEventListener('scroll',s,{passive:true});</script><script>(function(){var s=document.querySelector('.langsel');if(!s)return;document.addEventListener('click',function(e){if(s.open&&!s.contains(e.target))s.open=false;});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&s.open){s.open=false;s.querySelector('summary').focus();}});})();</script>
+</body>
+</html>

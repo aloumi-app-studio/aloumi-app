@@ -2,6 +2,10 @@
 <!DOCTYPE html>
 <html lang="fr"><head>
 <meta charset="UTF-8">
+<!-- Amélioration progressive : marque le document AVANT tout rendu, pour que l'animation
+     d'apparition (`.js .reveal`) ne s'active que si JavaScript tourne. Sans ce marqueur, la page
+     s'affiche simplement sans animation — jamais vide. Inline et en tête = aucun flash. -->
+<script>document.documentElement.classList.add('js')</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="WhsYv5RZNdnLEmNBOLDnQn8RqOnmPBkveGdKUD3EZSo">
 <meta name="description" content="Savoria importe tes recettes (lien, photo, PDF, Instagram, TikTok, YouTube) et les adapte à ton four et ta plaque. Assistant cuisine IA pas à pas, sur Google Play.">
@@ -11,6 +15,9 @@
 <link rel="canonical" href="https://savoria.jeylab.fr/fr/">
 <link rel="alternate" hreflang="fr" href="https://savoria.jeylab.fr/fr/">
 <link rel="alternate" hreflang="en" href="https://savoria.jeylab.fr/en/">
+<link rel="alternate" hreflang="de" href="https://savoria.jeylab.fr/de/">
+<link rel="alternate" hreflang="it" href="https://savoria.jeylab.fr/it/">
+<link rel="alternate" hreflang="es" href="https://savoria.jeylab.fr/es/">
 <link rel="alternate" hreflang="x-default" href="https://savoria.jeylab.fr/fr/">
 <link rel="icon" type="image/png" href="/icon-512.png">
 <link rel="apple-touch-icon" href="/icon-512.png">
@@ -26,6 +33,9 @@
 <meta property="og:image:height" content="500">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="es_ES">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
@@ -72,7 +82,10 @@
       "installUrl": "https://play.google.com/store/apps/details?id=com.savoria.app",
       "inLanguage": [
         "fr",
-        "en"
+        "en",
+        "de",
+        "it",
+        "es"
       ],
       "description": "App de recettes boostée à l'IA : importe depuis un lien, une photo, un PDF, Instagram, TikTok ou YouTube, adapte les recettes à ton four et ta plaque, guide pas à pas et gère la liste de courses.",
       "offers": {
@@ -87,7 +100,7 @@
         "Assistant IA culinaire contextuel",
         "Mode cuisine pas à pas avec minuteurs par étape",
         "Liste de courses avec catégorisation automatique par rayon",
-        "Partage de recettes, courses et adresses en temps réel"
+        "Partage de recettes, courses et bonnes adresses en temps réel"
       ],
       "publisher": {
         "@id": "https://savoria.jeylab.fr/#org"
@@ -194,7 +207,9 @@
   .eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
   h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.022em;line-height:1.08}
 
-  header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.4) blur(12px);
+  /* -webkit- AVANT le standard : Safari ≤ 17 ne connaît que la forme préfixée (l'unpréfixée n'arrive
+     qu'en Safari 18) — sans elle, l'en-tête perd son effet de verre dépoli sur iPhone et macOS. */
+  header{position:sticky;top:0;z-index:50;-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);
     background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid transparent;transition:border-color .3s}
   header.scrolled{border-color:var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
@@ -203,8 +218,36 @@
   .nav .brand svg{width:45px;height:45px}                  /* header — logo mis en avant, collé au mot */
   .nav .brand{gap:8px}
   .nav-right{display:flex;align-items:center;gap:18px;font-size:.9rem}
-  .lang{color:var(--muted);font-weight:600;cursor:pointer;background:none;border:0;font-family:inherit;font-size:.9rem}
-  .lang:hover{color:var(--ink)}
+  /* Sélecteur de langue — `<details>` NATIF, volontairement pas un composant JS :
+     le site est statique et servi par GitHub Pages, donc (1) les liens doivent rester de vrais
+     <a href> crawlables, (2) la page doit rester utilisable sans JS. Le natif donne en prime le
+     clavier (Entrée/Espace/Échap) et la sémantique ARIA. Le JS n'ajoute que le confort (fermeture
+     au clic extérieur / Échap). Remplace le bouton qui CYCLAIT vers la langue suivante : passable
+     à 2 langues, absurde à 5 (jusqu'à 4 taps, et on ne voit jamais la liste). */
+  .langsel{position:relative}
+  .langsel>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;
+    color:var(--muted);font-weight:600;font-size:.9rem;padding:8px 10px;border-radius:999px;
+    transition:color .2s,background .2s}
+  .langsel>summary::-webkit-details-marker{display:none}
+  .langsel>summary:hover{color:var(--ink);background:color-mix(in srgb,var(--ink) 6%,transparent)}
+  .langsel>summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .langsel .globe{width:16px;height:16px;flex:none}
+  .langsel .chev{width:11px;height:11px;flex:none;transition:transform .2s}
+  .langsel[open] .chev{transform:rotate(180deg)}
+  .langsel-code{display:none}
+  .langsel-menu{position:absolute;right:0;top:calc(100% + 8px);z-index:60;min-width:180px;padding:6px;
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-lift)}
+  .langsel-menu a{display:flex;align-items:center;justify-content:space-between;gap:14px;
+    padding:9px 12px;border-radius:9px;color:var(--ink);font-size:.9rem;font-weight:500;white-space:nowrap}
+  .langsel-menu a:hover{background:color-mix(in srgb,var(--accent) 12%,transparent)}
+  .langsel-menu a[aria-current]{font-weight:700;color:var(--accent)}
+  .langsel-menu a[aria-current]::after{content:"✓";font-size:.85rem}
+  /* Sur petit écran, l'autonyme complet pousse le bouton Play hors de la barre : on garde le
+     CODE (« ES »), qui reste informatif — contrairement à un globe seul. */
+  @media (max-width:560px){
+    .langsel-full{display:none}
+    .langsel-code{display:inline}
+  }
   .badge-play{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);
     padding:9px 16px;border-radius:999px;font-weight:600;font-size:.85rem;box-shadow:var(--shadow);transition:transform .2s}
   .badge-play:hover{transform:translateY(-1px)}
@@ -256,7 +299,7 @@
   .sc-hero .plate{position:absolute;right:-14px;bottom:-14px;width:116px;height:116px;border-radius:50%;
     background:radial-gradient(circle at 38% 32%,#e9b877,#a75f2c 70%);box-shadow:inset 0 -10px 24px rgba(0,0,0,.25);opacity:.92}
   .sc-back{position:absolute;top:12px;left:12px;z-index:3;width:30px;height:30px;border-radius:50%;
-    background:rgba(20,12,6,.32);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;color:#fff}
+    background:rgba(20,12,6,.32);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;color:#fff}
   .sc-back svg{width:15px;height:15px}
   .sc-title{position:absolute;left:16px;bottom:14px;right:16px;z-index:2;color:#fff}
   .sc-title h4{font-family:var(--display);font-size:1.16rem;font-weight:800;letter-spacing:-.01em;line-height:1.12;text-shadow:0 1px 8px rgba(0,0,0,.3)}
@@ -331,7 +374,11 @@
   .faq-item[open] summary::after{transform:rotate(45deg)}
   .faq-item .ans{padding:0 22px 20px;color:var(--muted);font-size:.98rem}
 
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  /* ⚠️ SCOPÉ À `.js` — l'animation d'apparition ne doit JAMAIS pouvoir cacher le contenu.
+     Avant : `.reveal{opacity:0}` inconditionnel + JS qui ajoute `.in` → sans JavaScript (ou si
+     IntersectionObserver échoue), TOUTE la page restait invisible. La classe `js` est posée en tête
+     de <head> : si le script ne tourne pas, la règle ne s'applique pas et le texte s'affiche. */
+  .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1;transform:none}
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
 
@@ -367,7 +414,10 @@
       Savoria
     </a>
     <nav class="nav-right">
-      <a class="lang" href="/en/">English</a>
+      <!-- Aperçu de dev : mêmes balises que le site publié, mais les liens rebasculent la langue
+           en place (setLang) au lieu de naviguer. `build_i18n.py` remplace tout ce bloc par le
+           sélecteur à vrais liens /xx/ — voir lang_selector(). -->
+      <details class="langsel"><summary aria-label="Langue"><svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span class="langsel-full">Français</span><span class="langsel-code">FR</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="langsel-menu"><a href="/fr/" lang="fr" hreflang="fr" aria-current="true">Français</a><a href="/en/" lang="en" hreflang="en">English</a><a href="/de/" lang="de" hreflang="de">Deutsch</a><a href="/it/" lang="it" hreflang="it">Italiano</a><a href="/es/" lang="es" hreflang="es">Español</a></div></details>
       <a class="badge-play" href="https://play.google.com/store/apps/details?id=com.savoria.app" target="_blank" rel="noopener" data-i18n="nav.soon">Sur Google Play</a>
     </nav>
   </div>
@@ -545,7 +595,7 @@
   onScroll(); addEventListener('scroll', onScroll, { passive:true });
   const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold:.12 });
   document.querySelectorAll('.reveal').forEach((el,i) => { el.style.transitionDelay = (Math.min(i,6)*60)+'ms'; io.observe(el); });
-</script>
+</script><script>(function(){var s=document.querySelector('.langsel');if(!s)return;document.addEventListener('click',function(e){if(s.open&&!s.contains(e.target))s.open=false;});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&s.open){s.open=false;s.querySelector('summary').focus();}});})();</script>
 
 
 </body></html>

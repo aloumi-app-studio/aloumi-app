@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="it"><head>
+<meta charset="UTF-8">
+<!-- Amélioration progressive : marque le document AVANT tout rendu, pour que l'animation
+     d'apparition (`.js .reveal`) ne s'active que si JavaScript tourne. Sans ce marqueur, la page
+     s'affiche simplement sans animation — jamais vide. Inline et en tête = aucun flash. -->
+<script>document.documentElement.classList.add('js')</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="WhsYv5RZNdnLEmNBOLDnQn8RqOnmPBkveGdKUD3EZSo">
+<meta name="description" content="Savoria importa le tue ricette (link, foto, PDF, Instagram, TikTok, YouTube) e le adatta al tuo forno e al tuo piano cottura. Assistente di cucina IA passo dopo passo, su Google Play.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="JEYLAB">
+<meta name="theme-color" content="#b0602c">
+<link rel="canonical" href="https://savoria.jeylab.fr/it/">
+<link rel="alternate" hreflang="fr" href="https://savoria.jeylab.fr/fr/">
+<link rel="alternate" hreflang="en" href="https://savoria.jeylab.fr/en/">
+<link rel="alternate" hreflang="de" href="https://savoria.jeylab.fr/de/">
+<link rel="alternate" hreflang="it" href="https://savoria.jeylab.fr/it/">
+<link rel="alternate" hreflang="es" href="https://savoria.jeylab.fr/es/">
+<link rel="alternate" hreflang="x-default" href="https://savoria.jeylab.fr/fr/">
+<link rel="icon" type="image/png" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/icon-512.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Savoria">
+<meta property="og:title" content="Savoria — Le tue ricette adattate alla tua cucina, con uno chef IA">
+<meta property="og:description" content="Importa le tue ricette (link, foto, PDF, Instagram, TikTok, YouTube) e lascia che il Chef IA le adatti al tuo forno e al tuo piano cottura. Su Google Play.">
+<meta property="og:url" content="https://savoria.jeylab.fr/it/">
+<meta property="og:image" content="https://savoria.jeylab.fr/og-image.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta property="og:locale" content="it_IT">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="es_ES">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Savoria — Le tue ricette adattate alla tua cucina, con uno chef IA">
+<meta name="twitter:description" content="Importa le tue ricette (link, foto, PDF, Instagram, TikTok, YouTube) e lascia che il Chef IA le adatti al tuo forno e al tuo piano cottura. Su Google Play.">
+<meta name="twitter:image" content="https://savoria.jeylab.fr/og-image.png">
+
+<title>Savoria — Le tue ricette adattate alla tua cucina, con uno chef IA</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://savoria.jeylab.fr/#org",
+      "name": "JEYLAB",
+      "url": "https://savoria.jeylab.fr/",
+      "logo": "https://savoria.jeylab.fr/icon-512.png",
+      "email": "savoriaapp@gmail.com",
+      "brand": {
+        "@type": "Brand",
+        "name": "Savoria"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://savoria.jeylab.fr/#website",
+      "name": "Savoria",
+      "url": "https://savoria.jeylab.fr/it/",
+      "inLanguage": "it",
+      "publisher": {
+        "@id": "https://savoria.jeylab.fr/#org"
+      }
+    },
+    {
+      "@type": "MobileApplication",
+      "@id": "https://savoria.jeylab.fr/#app",
+      "name": "Savoria",
+      "operatingSystem": "Android 8.0+",
+      "applicationCategory": "LifestyleApplication",
+      "url": "https://savoria.jeylab.fr/it/",
+      "downloadUrl": "https://play.google.com/store/apps/details?id=com.savoria.app",
+      "installUrl": "https://play.google.com/store/apps/details?id=com.savoria.app",
+      "inLanguage": [
+        "fr",
+        "en",
+        "de",
+        "it",
+        "es"
+      ],
+      "description": "App di ricette con IA: importa da un link, una foto, un PDF, Instagram, TikTok o YouTube, adatta le ricette al tuo forno e al tuo piano cottura, cucina passo dopo passo e gestisci la lista della spesa.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "featureList": [
+        "Importazione di ricette da link, testo, foto, PDF, Instagram, TikTok e YouTube",
+        "Adattamento delle ricette alla tua attrezzatura (forno, piano cottura, friggitrice ad aria, robot da cucina)",
+        "Modifica di una ricetta che hai già, chiesta in linguaggio naturale (vegetariana, senza forno, meno salata), con anteprima delle modifiche e originale conservato",
+        "Assistente di cucina IA che conosce la ricetta in corso",
+        "Modalità cucina passo dopo passo con timer per ogni passaggio",
+        "Lista della spesa ordinata automaticamente per reparto",
+        "Condivisione in tempo reale di ricette, liste della spesa e chicche golose"
+      ],
+      "publisher": {
+        "@id": "https://savoria.jeylab.fr/#org"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://savoria.jeylab.fr/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Savoria è gratuita?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì. Savoria è disponibile gratuitamente su Google Play durante la fase di test aperto."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Posso importare una ricetta da Instagram, TikTok o YouTube?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì. Incolla il link o condividi il post con Savoria: il Chef IA recupera la ricetta e la struttura in automatico, anche da un video."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Savoria adatta le ricette al mio forno e al mio piano cottura?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì. Configuri la tua attrezzatura una volta sola (forno, piano cottura, friggitrice ad aria, robot da cucina) e Savoria adatta i passaggi di cottura a quello che hai davvero."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Posso chiedere una modifica su una ricetta che ho già?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì. Su qualsiasi ricetta del tuo ricettario, chiedi al Chef IA in linguaggio naturale: «rendila vegetariana», «senza forno», «meno salata». Prima ti mostra cosa cambierebbe, poi applichi con un tocco e puoi annullare. Gli ingredienti che non hai nominato non vengono mai modificati, e puoi tenere l'originale accanto alla nuova versione."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Posso importare una ricetta da una foto o da un PDF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì. Fotografa una ricetta scritta a mano o la pagina di un libro, oppure importa un PDF: Savoria ne estrae ingredienti e passaggi."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Su quali piattaforme è disponibile Savoria?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Savoria è disponibile su Android tramite Google Play. Una versione iOS è allo studio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Come funziona la modalità cucina?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La modalità cucina mostra la ricetta passo dopo passo, con timer per ogni passaggio, il richiamo degli ingredienti e un assistente IA che conosce la ricetta in corso."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Perché adattare una ricetta alla mia cucina?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ogni apparecchio cuoce in modo diverso: un forno, un piano a induzione, una friggitrice ad aria o un robot da cucina non hanno né la stessa potenza né le stesse regolazioni da un modello all'altro. Una ricetta scritta per un'altra attrezzatura può non riuscire a casa tua. Savoria riscrive tempi, temperature e regolazioni per quello che hai davvero — così riesce al primo colpo."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  :root{
+    --bg:#f6f1e9; --surface:#ffffff; --surface-2:#fbf7f0;
+    --ink:#241f1a; --muted:#7c7268; --line:rgba(40,28,16,.10);
+    --accent:#b0602c; --accent-soft:#c98a3a; --accent-ink:#844421;
+    --shadow:0 1px 2px rgba(40,28,16,.05), 0 18px 40px -20px rgba(120,66,28,.28);
+    --shadow-lift:0 1px 2px rgba(40,28,16,.06), 0 28px 56px -22px rgba(120,66,28,.40);
+    --r:22px; --maxw:1080px;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --display:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#141009; --surface:#1e1810; --surface-2:#241d13;
+      --ink:#f3ede2; --muted:#ab9f8f; --line:rgba(255,240,220,.10);
+      --accent:#e0904d; --accent-soft:#eaa960; --accent-ink:#f0b877;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 22px 46px -22px rgba(0,0,0,.7);
+      --shadow-lift:0 1px 2px rgba(0,0,0,.5), 0 30px 60px -22px rgba(0,0,0,.8);
+    }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.022em;line-height:1.08}
+
+  /* -webkit- AVANT le standard : Safari ≤ 17 ne connaît que la forme préfixée (l'unpréfixée n'arrive
+     qu'en Safari 18) — sans elle, l'en-tête perd son effet de verre dépoli sur iPhone et macOS. */
+  header{position:sticky;top:0;z-index:50;-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);
+    background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid transparent;transition:border-color .3s}
+  header.scrolled{border-color:var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:var(--display);font-size:1.3rem;font-weight:800;letter-spacing:-.02em}
+  .brand svg{width:28px;height:28px;color:var(--ink)}      /* footer */
+  .nav .brand svg{width:45px;height:45px}                  /* header — logo mis en avant, collé au mot */
+  .nav .brand{gap:8px}
+  .nav-right{display:flex;align-items:center;gap:18px;font-size:.9rem}
+  /* Sélecteur de langue — `<details>` NATIF, volontairement pas un composant JS :
+     le site est statique et servi par GitHub Pages, donc (1) les liens doivent rester de vrais
+     <a href> crawlables, (2) la page doit rester utilisable sans JS. Le natif donne en prime le
+     clavier (Entrée/Espace/Échap) et la sémantique ARIA. Le JS n'ajoute que le confort (fermeture
+     au clic extérieur / Échap). Remplace le bouton qui CYCLAIT vers la langue suivante : passable
+     à 2 langues, absurde à 5 (jusqu'à 4 taps, et on ne voit jamais la liste). */
+  .langsel{position:relative}
+  .langsel>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;
+    color:var(--muted);font-weight:600;font-size:.9rem;padding:8px 10px;border-radius:999px;
+    transition:color .2s,background .2s}
+  .langsel>summary::-webkit-details-marker{display:none}
+  .langsel>summary:hover{color:var(--ink);background:color-mix(in srgb,var(--ink) 6%,transparent)}
+  .langsel>summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .langsel .globe{width:16px;height:16px;flex:none}
+  .langsel .chev{width:11px;height:11px;flex:none;transition:transform .2s}
+  .langsel[open] .chev{transform:rotate(180deg)}
+  .langsel-code{display:none}
+  .langsel-menu{position:absolute;right:0;top:calc(100% + 8px);z-index:60;min-width:180px;padding:6px;
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-lift)}
+  .langsel-menu a{display:flex;align-items:center;justify-content:space-between;gap:14px;
+    padding:9px 12px;border-radius:9px;color:var(--ink);font-size:.9rem;font-weight:500;white-space:nowrap}
+  .langsel-menu a:hover{background:color-mix(in srgb,var(--accent) 12%,transparent)}
+  .langsel-menu a[aria-current]{font-weight:700;color:var(--accent)}
+  .langsel-menu a[aria-current]::after{content:"✓";font-size:.85rem}
+  /* Sur petit écran, l'autonyme complet pousse le bouton Play hors de la barre : on garde le
+     CODE (« ES »), qui reste informatif — contrairement à un globe seul. */
+  @media (max-width:560px){
+    .langsel-full{display:none}
+    .langsel-code{display:inline}
+  }
+  .badge-play{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);
+    padding:9px 16px;border-radius:999px;font-weight:600;font-size:.85rem;box-shadow:var(--shadow);transition:transform .2s}
+  .badge-play:hover{transform:translateY(-1px)}
+  .badge-play svg{width:15px;height:15px}
+
+  .hero{position:relative;padding:78px 0 40px}
+  .hero::before{content:"";position:absolute;inset:0;z-index:-1;
+    background:
+      radial-gradient(60% 55% at 18% 12%,color-mix(in srgb,var(--accent-soft) 26%,transparent),transparent 70%),
+      radial-gradient(50% 50% at 92% 30%,color-mix(in srgb,var(--accent) 18%,transparent),transparent 70%)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .hero h1{font-size:clamp(2.4rem,5.2vw,3.7rem);margin-bottom:20px}
+  .hero p.lead{font-size:1.16rem;color:var(--muted);max-width:35ch;margin-bottom:30px}
+  .cta{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .btn-ghost{color:var(--accent-ink);font-weight:600;display:inline-flex;align-items:center;gap:6px}
+  .btn-ghost:hover{gap:10px}
+  .badges{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .badge-store{position:relative;display:inline-flex;transition:transform .2s}
+  .badge-store.live:hover{transform:translateY(-2px)}
+  .badge-store.soon{opacity:.5;pointer-events:none}
+  /* Badges : SVG officiels Google Play (gplay-fr/en.svg) + App Store (appstore-fr/en.svg).
+     Les SVG Google Play « Web_color » remplissent exactement leur viewBox (0 marge, ratio 3.37) →
+     à hauteur CSS égale les deux boîtes s'alignent, sans détourage. ⚠️ Garder du SVG (net + pas
+     de marge transparente bakée) ; ne pas revenir aux PNG Google Play officiels (marge ~20 % qui
+     casse l'alignement). */
+  .badge-gplay img{height:50px;width:auto;display:block}
+  .badge-apple img{height:50px;width:auto;display:block}
+  .soon-tag{position:absolute;top:-7px;right:-7px;background:var(--accent);color:#fff;font-size:.56rem;
+    font-weight:700;padding:2px 7px;border-radius:999px;letter-spacing:.05em;text-transform:uppercase;box-shadow:var(--shadow)}
+  .store{display:inline-flex;align-items:center;gap:11px;background:#1b1712;color:#fff;
+    border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:9px 17px 9px 14px;
+    box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s}
+  .store:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift)}
+  .store>svg{width:23px;height:23px;flex:0 0 auto}
+  .store .lbl{display:flex;flex-direction:column;line-height:1.12;text-align:left}
+  .store .lbl small{font-size:.58rem;letter-spacing:.05em;opacity:.82;text-transform:uppercase}
+  .store .lbl b{font-size:1.02rem;font-weight:600;font-family:var(--sans)}
+  .store.soon{opacity:.58}
+
+  .phone-stage{display:flex;justify-content:center;position:relative}
+  .phone-stage::before{content:"";position:absolute;width:78%;height:78%;top:11%;
+    background:radial-gradient(circle,color-mix(in srgb,var(--accent-soft) 42%,transparent),transparent 68%);filter:blur(18px);z-index:-1}
+  .phone{width:266px;background:#2A211A;border-radius:26px;padding:8px;box-shadow:var(--shadow-lift);
+    border:1px solid #100c08}
+  .screen{border-radius:18px;overflow:hidden;position:relative;background:#000;line-height:0}
+  .screen img{width:100%;height:auto;display:block}
+  .sc-hero{height:158px;position:relative;background:linear-gradient(140deg,var(--accent) 0%,var(--accent-soft) 100%)}
+  .sc-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,12,6,.55),transparent 58%)}
+  .sc-hero .plate{position:absolute;right:-14px;bottom:-14px;width:116px;height:116px;border-radius:50%;
+    background:radial-gradient(circle at 38% 32%,#e9b877,#a75f2c 70%);box-shadow:inset 0 -10px 24px rgba(0,0,0,.25);opacity:.92}
+  .sc-back{position:absolute;top:12px;left:12px;z-index:3;width:30px;height:30px;border-radius:50%;
+    background:rgba(20,12,6,.32);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;color:#fff}
+  .sc-back svg{width:15px;height:15px}
+  .sc-title{position:absolute;left:16px;bottom:14px;right:16px;z-index:2;color:#fff}
+  .sc-title h4{font-family:var(--display);font-size:1.16rem;font-weight:800;letter-spacing:-.01em;line-height:1.12;text-shadow:0 1px 8px rgba(0,0,0,.3)}
+  .sc-body{padding:14px 16px 14px}
+  .chips{display:flex;gap:7px;margin-bottom:12px}
+  .chip{font-size:.62rem;font-weight:600;color:var(--accent-ink);
+    background:color-mix(in srgb,var(--accent-soft) 20%,var(--surface));border:1px solid var(--line);
+    padding:4px 9px;border-radius:999px;display:inline-flex;align-items:center;gap:4px}
+  .chip svg{width:9px;height:9px}
+  .chip.star{color:var(--accent)}
+  .sc-tabs{display:flex;gap:4px;background:color-mix(in srgb,var(--muted) 12%,transparent);
+    border-radius:999px;padding:3px;margin-bottom:12px}
+  .sc-tabs span{flex:1;text-align:center;font-size:.64rem;font-weight:600;color:var(--muted);padding:6px 0;border-radius:999px}
+  .sc-tabs span.on{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(40,28,16,.12)}
+  .ing{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px solid var(--line)}
+  .ing:first-of-type{border-top:0}
+  .ing .nm{font-size:.76rem;font-weight:500;color:var(--ink)}
+  .ing .qt{font-size:.72rem;font-weight:700;color:var(--accent-ink);
+    background:color-mix(in srgb,var(--accent-soft) 16%,var(--surface));border-radius:8px;padding:2px 8px}
+  .sc-bar{display:flex;align-items:center;gap:8px;margin-top:12px}
+  .sc-ic{width:38px;height:38px;border-radius:12px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;
+    background:color-mix(in srgb,var(--accent-soft) 18%,var(--surface));border:1px solid var(--line);color:var(--accent)}
+  .sc-ic svg{width:16px;height:16px}
+  .sc-go{flex:1;background:var(--accent);color:#fff;text-align:center;padding:11px;border-radius:14px;
+    font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;gap:6px}
+  .sc-go svg{width:14px;height:14px}
+
+  section.block{padding:76px 0}
+  .head{text-align:center;max-width:640px;margin:0 auto 52px}
+  .head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:14px}
+  .head p{color:var(--muted);font-size:1.08rem}
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  /* Nombre de cartes non multiple de 3 : la dernière, seule sur sa ligne, se centre au lieu
+     de pendre à gauche. Se désactive avec la grille 3 colonnes (voir @media 860px). */
+  .feat:last-child:nth-child(3n+1){grid-column:2}
+  .feat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px;
+    box-shadow:var(--shadow);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+  .feat:hover{transform:translateY(-5px);box-shadow:var(--shadow-lift)}
+  .feat .ic{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;
+    background:color-mix(in srgb,var(--accent-soft) 20%,var(--surface));color:var(--accent);margin-bottom:16px}
+  .feat .ic svg{width:22px;height:22px}
+  .feat h3{font-size:1.16rem;margin-bottom:8px;letter-spacing:-.01em}
+  .feat p{color:var(--muted);font-size:.96rem}
+  .feat p strong,.hero p.lead strong{color:var(--accent);font-weight:700}
+
+  footer{padding:60px 0 30px;border-top:1px solid var(--line);margin-top:20px}
+  .f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;margin-bottom:36px}
+  .f-brand .brand{margin-bottom:12px}
+  .f-brand p{color:var(--muted);font-size:.94rem;max-width:34ch}
+  .f-col h5{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:700}
+  .f-col a{display:block;color:var(--ink);font-size:.95rem;margin-bottom:10px;font-weight:500}
+  .f-col a:hover{color:var(--accent)}
+  .f-bottom{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:.86rem}
+  .f-mini{margin-top:14px;text-align:center;font-size:.72rem;color:var(--muted);opacity:.6}
+  .f-mini a{text-decoration:underline;text-underline-offset:2px}
+  .f-mini a:hover{color:var(--accent)}
+
+  .gallery{display:flex;gap:20px;overflow-x:auto;padding:6px 24px 26px;scroll-snap-type:x mandatory;
+    scrollbar-width:none;justify-content:safe center}
+  .gallery::-webkit-scrollbar{display:none}
+  .shot{flex:0 0 auto;width:200px;border-radius:20px;overflow:hidden;background:#2A211A;
+    box-shadow:var(--shadow-lift);border:1px solid #100c08;scroll-snap-align:center;padding:6px}
+  .shot img{width:100%;height:auto;display:block;border-radius:14px}
+  .gallery-hint{text-align:center;color:var(--muted);font-size:.82rem;margin-top:2px}
+  @media (min-width:1200px){ .gallery-hint{display:none} }
+
+  .faq-list{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+  .faq-item{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+  .faq-item summary{cursor:pointer;list-style:none;padding:18px 22px;font-weight:600;font-size:1.02rem;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::after{content:"+";color:var(--accent);font-size:1.5rem;font-weight:400;line-height:1;transition:transform .25s cubic-bezier(.2,.7,.2,1)}
+  .faq-item[open] summary::after{transform:rotate(45deg)}
+  .faq-item .ans{padding:0 22px 20px;color:var(--muted);font-size:.98rem}
+
+  /* ⚠️ SCOPÉ À `.js` — l'animation d'apparition ne doit JAMAIS pouvoir cacher le contenu.
+     Avant : `.reveal{opacity:0}` inconditionnel + JS qui ajoute `.in` → sans JavaScript (ou si
+     IntersectionObserver échoue), TOUTE la page restait invisible. La classe `js` est posée en tête
+     de <head> : si le script ne tourne pas, la règle ne s'applique pas et le texte s'affiche. */
+  .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:36px;text-align:center}
+    .hero p.lead{margin-left:auto;margin-right:auto}
+    .cta{justify-content:center;flex-direction:column}
+    /* badges centrés : côte à côte s'ils tiennent, empilés-centrés sinon (jamais rétrécis) */
+    .badges{justify-content:center;width:100%}
+    .features{grid-template-columns:1fr 1fr}
+    .feat:last-child:nth-child(3n+1){grid-column:auto}
+    .f-grid{grid-template-columns:1fr;gap:28px}
+  }
+  @media (max-width:560px){
+    .features{grid-template-columns:1fr}
+    .nav-right .badge-play{display:none}
+    .hero{padding-top:52px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .reveal{transition:none;opacity:1;transform:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="savoria-logo" viewBox="0 0 1024 1024"><path fill="currentColor" opacity="1.000000" stroke="none" d=" M369.480865,590.545288 C328.355408,609.643250 293.722137,636.730713 263.991699,671.354492 C261.989166,667.853943 262.104797,665.051453 262.081268,662.343567 C261.926331,644.512756 261.890289,626.680786 261.701599,608.850403 C261.468872,586.857727 261.237427,564.863770 260.741943,542.876221 C260.633240,538.053650 262.186310,536.717896 266.978058,536.628723 C334.667572,535.368835 384.147522,503.151733 419.201477,446.616577 C424.669159,437.798340 428.689697,428.283081 432.564178,418.703644 C433.353912,416.751068 434.443695,414.775208 433.268097,411.637390 C428.514343,417.228790 424.243500,422.601288 419.612488,427.642975 C387.950012,462.113159 350.637207,487.706421 304.908752,499.758301 C273.243958,508.103638 241.863235,507.708008 211.525085,494.356323 C170.906113,476.480133 145.133545,445.468475 134.007416,402.750793 C116.066238,333.867462 154.797073,263.950134 222.574448,242.120148 C244.239532,235.142166 266.339142,234.404816 288.675751,238.703781 C292.789032,239.495453 292.656982,242.049820 292.168243,244.978729 C290.240326,256.532990 289.741333,268.181274 290.337585,279.839050 C291.641266,305.327576 299.211700,328.846985 313.251312,350.215942 C314.036346,351.410858 314.631561,352.876190 316.486145,353.589020 C317.436371,349.774200 315.782928,346.380035 315.175873,342.934937 C305.151215,286.043732 318.689423,235.982178 359.933258,194.938675 C384.060638,170.928497 413.795593,157.385849 448.058502,154.603638 C502.553284,150.178543 545.090881,171.979691 578.544006,213.898514 C581.447632,217.536880 580.834900,219.708389 577.181213,222.306671 C552.965942,239.527359 533.595520,260.903259 521.582825,288.392761 C519.120056,294.028595 517.133484,299.872986 514.944153,305.627594 C514.347290,307.196381 513.919556,308.794952 514.693909,310.684784 C517.216248,310.906799 517.821533,308.656952 518.894226,307.215973 C545.939270,270.885132 580.796509,246.601868 625.817444,238.222366 C685.974976,227.025620 747.841858,258.433441 772.081421,312.244720 C773.777588,316.010132 773.176086,318.222748 770.161438,320.789642 C752.151978,336.124176 734.028259,351.337769 716.396118,367.099030 C688.825806,391.744080 661.451294,416.614197 634.297852,441.717865 C602.736633,470.896576 571.611755,500.546967 540.092773,529.771790 C515.667908,552.418640 486.343109,564.364075 453.499969,568.342529 C424.605774,571.842468 396.504730,578.441711 369.480865,590.545288 z"></path><path fill="currentColor" opacity="1.000000" stroke="none" d=" M419.290314,855.433044 C399.658264,863.679626 379.742157,869.421509 358.923126,871.862366 C337.176514,874.411865 315.635254,873.992554 294.925385,866.047607 C266.459778,855.127258 250.709564,833.991272 246.713318,803.985901 C242.918884,775.495605 251.220566,749.601013 264.582397,725.020447 C282.538818,691.987549 308.544464,666.260254 338.799011,644.494080 C369.766541,622.214905 404.174988,608.229919 441.732330,601.988403 C454.510498,599.864929 467.512451,599.200500 480.188477,596.321655 C509.959534,589.559998 535.973999,575.563232 558.300964,554.918884 C589.734680,525.853882 620.733032,496.317932 652.163391,467.249176 C703.165222,420.079376 754.046875,372.744873 809.755249,331.028717 C821.454041,322.268250 832.989990,313.014465 847.119690,308.194000 C855.415833,305.363739 863.957153,304.010529 872.655212,306.113007 C889.217163,310.116302 899.278809,326.940125 895.788086,344.383148 C892.480591,360.910431 882.749573,373.061890 869.280212,382.293701 C845.650330,398.489380 821.797913,414.362488 797.947449,430.233612 C748.984680,462.815552 700.595886,496.213715 654.138794,532.308411 C635.466675,546.815674 616.919250,561.523682 599.486938,577.542053 C573.022278,601.860291 558.671509,631.797913 558.263672,667.974060 C557.623352,724.786011 534.252319,770.794312 492.205688,808.074402 C470.362488,827.441345 446.537567,843.709961 419.290314,855.433044 M305.090118,730.557800 C303.823120,732.514587 302.467712,734.420288 301.302826,736.436096 C290.156372,755.724976 281.632660,775.764771 284.300201,798.793518 C285.701935,810.894470 291.326263,820.461243 301.883972,826.945190 C317.699554,836.658203 335.195435,836.982849 352.709320,835.276428 C378.086334,832.804077 401.638977,824.111389 423.691681,811.529480 C457.556793,792.208008 486.073792,767.190918 505.251495,732.673767 C514.109009,716.731384 520.224365,699.817688 518.649658,681.237244 C517.096069,662.906982 508.558075,649.093628 490.649933,642.237610 C474.528442,636.065552 457.911102,636.309143 441.475800,639.699463 C384.129944,651.528870 339.396332,682.661438 305.090118,730.557800 z"></path><path fill="currentColor" opacity="1.000000" stroke="none" d=" M654.842651,571.818604 C659.087097,568.438721 663.058716,565.284241 666.964661,562.181946 C668.779358,563.793518 668.258057,565.385803 668.301453,566.798279 C669.279663,598.591736 669.126648,630.397156 669.341492,662.199524 C669.516968,688.171692 669.967407,714.141907 670.255554,740.113403 C670.336182,747.379028 670.270508,747.372681 663.271790,747.369812 C635.126831,747.358093 606.981873,747.357178 578.836914,747.328186 C577.037476,747.326355 575.159973,747.702148 573.506226,746.653442 C572.772644,745.220764 573.534119,744.023560 574.085083,742.844910 C583.828369,722.000122 587.294067,699.783630 588.849792,677.074219 C589.620667,665.822083 589.811707,654.488220 592.751282,643.440735 C597.458252,625.751221 607.221191,611.436768 621.142151,599.803162 C632.255798,590.515564 643.425171,581.294617 654.842651,571.818604 z"></path></symbol></svg>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="/it/" aria-label="Savoria">
+      <svg class="brand-mark" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#savoria-logo"></use></svg>
+      Savoria
+    </a>
+    <nav class="nav-right">
+      <!-- Aperçu de dev : mêmes balises que le site publié, mais les liens rebasculent la langue
+           en place (setLang) au lieu de naviguer. `build_i18n.py` remplace tout ce bloc par le
+           sélecteur à vrais liens /xx/ — voir lang_selector(). -->
+      <details class="langsel"><summary aria-label="Lingua"><svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span class="langsel-full">Italiano</span><span class="langsel-code">IT</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="langsel-menu"><a href="/fr/" lang="fr" hreflang="fr">Français</a><a href="/en/" lang="en" hreflang="en">English</a><a href="/de/" lang="de" hreflang="de">Deutsch</a><a href="/it/" lang="it" hreflang="it" aria-current="true">Italiano</a><a href="/es/" lang="es" hreflang="es">Español</a></div></details>
+      <a class="badge-play" href="https://play.google.com/store/apps/details?id=com.savoria.app" target="_blank" rel="noopener" data-i18n="nav.soon">Su Google Play</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal in" style="transition-delay: 0ms;">
+        <p class="eyebrow" data-i18n="hero.eyebrow">La tua cucina, le tue regole.</p>
+        <h1 data-i18n-html="hero.title">Raccogli tutte le tue ricette,<br>Savoria le adatta alla tua cucina.</h1>
+        <p class="lead" data-i18n-html="hero.lead">Un link, la foto del tuo quaderno di ricette, un PDF o un video di Instagram, TikTok o YouTube: il Chef IA lo trasforma in una ricetta pulita, <strong>su misura per la tua attrezzatura</strong>. Poi ti guida passo dopo passo.</p>
+        <div class="cta">
+          <div class="badges">
+            <a class="badge-store badge-gplay live" href="https://play.google.com/store/apps/details?id=com.savoria.app" target="_blank" rel="noopener">
+              <img src="/badges/gplay-it.svg" data-i18n-src="/badge.gplaySrc" data-i18n-alt="badge.gplayAlt" alt="Disponibile su Google Play" width="239" height="71">
+            </a>
+            <span class="badge-store badge-apple soon" role="img" aria-label="Application iOS bientôt disponible sur l'App Store">
+              <img src="/badges/appstore-it.svg" data-i18n-src="/badge.appstoreSrc" alt="" width="127" height="40">
+              <span class="soon-tag" data-i18n="badge.soontag">Presto disponibile</span>
+            </span>
+          </div>
+          <a class="btn-ghost" href="#features" data-i18n="hero.cta">Scopri le funzioni →</a>
+        </div>
+      </div>
+
+      <div class="phone-stage reveal" style="transition-delay: 60ms;">
+        <div class="phone">
+          <div class="screen">
+            <img src="/screens/it/05_equipment.png" width="520" height="1050" alt="Scheda ricetta di Savoria con i passaggi di cottura adattati al forno dell'utente" data-i18n-src="/phone.src" data-i18n-alt="phone.alt" style="width:100%;height:auto;display:block">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="features">
+    <div class="wrap">
+      <div class="head reveal" style="transition-delay: 120ms;">
+        <p class="eyebrow" data-i18n="feat.eyebrow">Tutto quello che ti serve</p>
+        <h2 data-i18n="feat.title">Una sola app, dal frigo al piatto.</h2>
+        <p data-i18n="feat.sub">Ogni passaggio in cucina, assistito dall'IA — pensato per farti risparmiare tempo senza rinunciare al gusto.</p>
+      </div>
+      <div class="features">
+        <div class="feat reveal" style="transition-delay: 180ms;">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"></path><path d="M5 21V5a2 2 0 0 1 2-2h8l4 4v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"></path><path d="M12 11v6m-3-3l3 3 3-3"></path></svg></div>
+          <h3 data-i18n="f1.t">Importa da ovunque</h3>
+          <p data-i18n-html="f1.p">Un link, la foto del tuo quaderno di ricette, un PDF, un video di Instagram, TikTok o YouTube — Savoria lo trasforma in una scheda pulita e strutturata, <strong>anche da un'altra lingua</strong>.</p>
+        </div>
+        <div class="feat reveal" style="transition-delay: 240ms;">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="8" x2="20" y2="8"></line><line x1="4" y1="16" x2="20" y2="16"></line><circle cx="10" cy="8" r="2.3"></circle><circle cx="15" cy="16" r="2.3"></circle></svg></div>
+          <h3 data-i18n="fkit.t">Su misura per la tua cucina</h3>
+          <p data-i18n-html="fkit.p">Non esistono due forni che cuociano allo stesso modo. Configura la tua attrezzatura e Savoria riscrive tempi e regolazioni <strong>per quello che hai davvero</strong>, così il piatto riesce al primo colpo. Basta con i «imposta il Bimby» quando non ce l'hai.</p>
+        </div>
+        <div class="feat reveal" style="transition-delay: 300ms;">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.4 3.6L17 8l-3.6 1.4L12 13l-1.4-3.6L7 8l3.6-1.4L12 3z"></path><path d="M18 14l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2z"></path></svg></div>
+          <h3 data-i18n="f2.t">Uno chef IA in tasca</h3>
+          <p data-i18n-html="f2.p">Idee a partire da quello che hai in frigo, una ricetta adattata alla tua dieta, un ingrediente sostituito — e la conversazione <strong>diventa una ricetta salvata</strong>.</p>
+        </div>
+        <div class="feat reveal" style="transition-delay: 360ms;">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"></path></svg></div>
+          <h3 data-i18n="fmod.t">La tua ricetta, come vuoi tu</h3>
+          <p data-i18n-html="fmod.p">«Rendila vegetariana», «senza forno», «meno salata»: basta chiedere, e il Chef IA ti mostra <strong>cosa cambierebbe</strong> prima di procedere. Quello che non hai chiesto resta com'è — e puoi tenere entrambe le versioni.</p>
+        </div>
+        <div class="feat reveal" style="transition-delay: 360ms;">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l2.5 2M9 2h6"></path></svg></div>
+          <h3 data-i18n="f3.t">Modalità cucina passo dopo passo</h3>
+          <p data-i18n-html="f3.p">Passaggi a schermo intero, ingredienti richiamati al momento giusto, timer che suonano <strong>anche ad app chiusa o a telefono bloccato</strong>.</p>
+        </div>
+        <div class="feat reveal" style="transition-delay: 360ms;">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12L5 3H2"></path><circle cx="9" cy="20" r="1.4"></circle><circle cx="18" cy="20" r="1.4"></circle></svg></div>
+          <h3 data-i18n="f4.t">Lista della spesa</h3>
+          <p data-i18n-html="f4.p">Scrivi liberamente: Savoria <strong>ordina per reparto</strong>, unisce i doppioni e converte le quantità.</p>
+        </div>
+        <div class="feat reveal" style="transition-delay: 360ms;">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="2.5"></circle><circle cx="6" cy="12" r="2.5"></circle><circle cx="18" cy="19" r="2.5"></circle><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"></path></svg></div>
+          <h3 data-i18n="f6.t">Condivisione in tempo reale</h3>
+          <p data-i18n-html="f6.p">Ricette, liste della spesa e chicche golose condivise <strong>all'istante</strong> con la tua cerchia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="apercu">
+    <div class="wrap">
+      <div class="head reveal" style="transition-delay: 360ms;">
+        <p class="eyebrow" data-i18n="gal.eyebrow">Un assaggio</p>
+        <h2 data-i18n="gal.title">L'app in breve.</h2>
+      </div>
+    </div>
+    <div class="gallery reveal" style="transition-delay: 360ms;">
+      <figure class="shot"><img src="/screens/it/02_collection.png" width="520" height="1050" loading="lazy" data-i18n-src="/gal.s1" data-i18n-alt="gal.a1" alt="Il ricettario dell'utente in Savoria"></figure>
+      <figure class="shot"><img src="/screens/it/01_import.png" width="520" height="1050" loading="lazy" data-i18n-src="/gal.s2" data-i18n-alt="gal.a2" alt="Importazione di una ricetta scritta a mano fotografata in Savoria"></figure>
+      <figure class="shot"><img src="/screens/it/03_inspiration.png" width="520" height="1050" loading="lazy" data-i18n-src="/gal.s3" data-i18n-alt="gal.a3" alt="Il Chef IA di Savoria propone idee di ricette"></figure>
+      <figure class="shot"><img src="/screens/it/04_cooking.png" width="520" height="1050" loading="lazy" data-i18n-src="/gal.s4" data-i18n-alt="gal.a4" alt="Modalità cucina passo dopo passo con timer in Savoria"></figure>
+      <figure class="shot"><img src="/screens/it/06_shopping.png" width="520" height="1050" loading="lazy" data-i18n-src="/gal.s5" data-i18n-alt="gal.a5" alt="Lista della spesa ordinata per reparto in Savoria"></figure>
+    </div>
+    <p class="gallery-hint" data-i18n="gal.hint">Scorri per sfogliare →</p>
+  </section>
+
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="head reveal" style="transition-delay: 360ms;">
+        <p class="eyebrow" data-i18n="faq.eyebrow">Domande frequenti</p>
+        <h2 data-i18n="faq.title">Tutto quello che vuoi sapere.</h2>
+      </div>
+      <div class="faq-list reveal" style="transition-delay: 360ms;">
+        <details class="faq-item">
+          <summary data-i18n="faq.q1">Savoria è gratuita?</summary>
+          <div class="ans" data-i18n="faq.a1">Sì. Savoria è disponibile gratuitamente su Google Play durante la fase di test aperto.</div>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq.q2">Posso importare una ricetta da Instagram, TikTok o YouTube?</summary>
+          <div class="ans" data-i18n="faq.a2">Sì. Incolla il link o condividi il post con Savoria: il Chef IA recupera la ricetta e la struttura in automatico, anche da un video.</div>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq.q3">Savoria adatta le ricette al mio forno e al mio piano cottura?</summary>
+          <div class="ans" data-i18n="faq.a3">Sì. Configuri la tua attrezzatura una volta sola (forno, piano cottura, friggitrice ad aria, robot da cucina) e Savoria adatta i passaggi di cottura a quello che hai davvero.</div>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq.q8">Posso chiedere una modifica su una ricetta che ho già?</summary>
+          <div class="ans" data-i18n="faq.a8">Sì. Su qualsiasi ricetta del tuo ricettario, chiedi al Chef IA in linguaggio naturale: «rendila vegetariana», «senza forno», «meno salata». Prima ti mostra cosa cambierebbe, poi applichi con un tocco e puoi annullare. Gli ingredienti che non hai nominato non vengono mai modificati, e puoi tenere l'originale accanto alla nuova versione.</div>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq.q4">Posso importare una ricetta da una foto o da un PDF?</summary>
+          <div class="ans" data-i18n="faq.a4">Sì. Fotografa una ricetta scritta a mano o la pagina di un libro, oppure importa un PDF: Savoria ne estrae ingredienti e passaggi.</div>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq.q5">Su quali piattaforme è disponibile Savoria?</summary>
+          <div class="ans" data-i18n="faq.a5">Savoria è disponibile su Android tramite Google Play. Una versione iOS è allo studio.</div>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq.q6">Come funziona la modalità cucina?</summary>
+          <div class="ans" data-i18n="faq.a6">La modalità cucina mostra la ricetta passo dopo passo, con timer per ogni passaggio, il richiamo degli ingredienti e un assistente IA che conosce la ricetta in corso.</div>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq.q7">Perché adattare una ricetta alla mia cucina?</summary>
+          <div class="ans" data-i18n="faq.a7">Ogni apparecchio cuoce in modo diverso: un forno, un piano a induzione, una friggitrice ad aria o un robot da cucina non hanno né la stessa potenza né le stesse regolazioni da un modello all'altro. Una ricetta scritta per un'altra attrezzatura può non riuscire a casa tua. Savoria riscrive tempi, temperature e regolazioni per quello che hai davvero — così riesce al primo colpo.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-brand">
+        <div class="brand"><svg class="brand-mark" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#savoria-logo"></use></svg> Savoria</div>
+        <p data-i18n="f.tagline">Il tuo assistente di cucina personale, con l'IA. Su Google Play.</p>
+      </div>
+      <div class="f-col" data-i18n-html="col.legal"><h5>Informazioni legali</h5><a href="/it/privacy/">Informativa sulla privacy</a><a href="/it/terms/">Condizioni d'uso</a><a href="/it/legal-notice/">Note legali</a></div>
+      <div class="f-col" data-i18n-html="col.help"><h5>Account e assistenza</h5><a href="https://forms.gle/Kn7SL6Qa2NLKJP5JA">Elimina il mio account</a><a href="mailto:savoriaapp@gmail.com">Contattaci</a></div>
+    </div>
+    <div class="f-bottom">
+      <span data-i18n="f.copy">© 2026 Savoria</span>
+      <span data-i18n="f.made">Realizzata con cura in Francia.</span>
+    </div>
+    <p class="f-mini" data-i18n-html="f.editor">Pubblicata da JEYLAB (SARL) · <a href="/it/legal-notice/">Note legali</a></p>
+  </div>
+</footer>
+
+<script>
+  const hdr = document.getElementById('hdr');
+  const onScroll = () => hdr && hdr.classList.toggle('scrolled', window.scrollY > 8);
+  onScroll(); addEventListener('scroll', onScroll, { passive:true });
+  const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold:.12 });
+  document.querySelectorAll('.reveal').forEach((el,i) => { el.style.transitionDelay = (Math.min(i,6)*60)+'ms'; io.observe(el); });
+</script><script>(function(){var s=document.querySelector('.langsel');if(!s)return;document.addEventListener('click',function(e){if(s.open&&!s.contains(e.target))s.open=false;});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&s.open){s.open=false;s.querySelector('summary').focus();}});})();</script>
+
+
+</body></html>

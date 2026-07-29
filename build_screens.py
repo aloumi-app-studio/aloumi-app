@@ -15,7 +15,11 @@ import os, struct, subprocess, sys, tempfile, pathlib
 
 SITE = pathlib.Path(__file__).parent
 STORE_RAW = (SITE / ".." / "store" / "raw").resolve()
-LANGS = ["fr", "en"]            # miroir de build_i18n.py — garder synchronisé
+sys.path.insert(0, str(STORE_RAW.parent))
+import i18n_loader as i18n  # noqa: E402  (chemin posé juste au-dessus)
+# LANGS vient de la SSOT vitrine (i18n_loader, qui lit store/i18n/langs.json) — le module est
+# IMPORTÉ, pas re-lu : le bloc de chargement était lui aussi recopié ici et dans build_i18n.py.
+LANGS = i18n.LANGS
 SHOTS = ["01_import.png", "02_collection.png", "03_inspiration.png",
          "04_cooking.png", "05_equipment.png", "06_shopping.png"]
 WIDTH = 1000                    # largeur cible web. Le landing affiche les captures à ~250px CSS max

@@ -7,13 +7,16 @@
 <link rel="icon" type="image/png" href="/icon-512.png">
 <link rel="alternate" hreflang="fr" href="https://savoria.jeylab.fr/fr/privacy/">
 <link rel="alternate" hreflang="en" href="https://savoria.jeylab.fr/en/privacy/">
+<link rel="alternate" hreflang="de" href="https://savoria.jeylab.fr/de/privacy/">
+<link rel="alternate" hreflang="it" href="https://savoria.jeylab.fr/it/privacy/">
+<link rel="alternate" hreflang="es" href="https://savoria.jeylab.fr/es/privacy/">
 <link rel="alternate" hreflang="x-default" href="https://savoria.jeylab.fr/fr/privacy/">
 <meta name="robots" content="noindex,follow">
 <meta http-equiv="refresh" content="0; url=/fr/privacy/">
 <script>
   // Redirection de commodité vers la langue de l'utilisateur. Les crawlers ignorent ce JS
   // et découvrent chaque langue via les hreflang ci-dessus (contenu pré-rendu, pas de JS requis).
-  var LANGS = ["fr", "en"];
+  var LANGS = ["fr", "en", "de", "it", "es"];
   var stored; try { stored = localStorage.getItem('savoria_lang'); } catch(e) {}
   var param = new URLSearchParams(location.search).get('lang');
   var nav = (navigator.language || '').toLowerCase();
@@ -23,6 +26,6 @@
 </script>
 </head>
 <body>
-<p style="font:16px system-ui;padding:24px">Savoria — <a href="/fr/privacy/">Français</a> · <a href="/en/privacy/">English</a></p>
+<p style="font:16px system-ui;padding:24px">Savoria — <a href="/fr/privacy/">Français</a> · <a href="/en/privacy/">English</a> · <a href="/de/privacy/">Deutsch</a> · <a href="/it/privacy/">Italiano</a> · <a href="/es/privacy/">Español</a></p>
 </body>
 </html>

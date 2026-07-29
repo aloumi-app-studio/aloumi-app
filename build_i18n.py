@@ -26,9 +26,13 @@ import pathlib
 SITE = pathlib.Path(__file__).parent
 BASE = "https://savoria.jeylab.fr"
 PLAY = "https://play.google.com/store/apps/details?id=com.savoria.app"
-LANGS = ["fr", "en"]            # ordre = ordre du cycle du switcher ; ajouter "de" ici + dans META
-LANG_LABEL = {"fr": "Français", "en": "English", "de": "Deutsch"}
-OG_LOCALE = {"fr": "fr_FR", "en": "en_US", "de": "de_DE"}
+sys.path.insert(0, str((SITE / ".." / "store").resolve()))
+import i18n_loader as i18n  # noqa: E402  (chemin posé juste au-dessus)
+# LANGS vient de la SSOT vitrine (i18n_loader, qui lit store/i18n/langs.json) — le module est
+# IMPORTÉ, pas re-lu : le bloc de chargement était lui aussi recopié ici et dans build_screens.py.
+LANGS = i18n.LANGS               # ordre = ordre d'affichage dans le sélecteur de langue
+LANG_LABEL = {"fr": "Français", "en": "English", "de": "Deutsch", "it": "Italiano", "es": "Español"}
+OG_LOCALE = {"fr": "fr_FR", "en": "en_US", "de": "de_DE", "it": "it_IT", "es": "es_ES"}
 X_DEFAULT = "fr"               # langue du hreflang x-default (marché principal)
 TEMPLATE = "_src/landing.html"   # template source (hors pages servies, disallow robots)
 LEGAL = {                        # slug unifié -> source bilingue (blocs data-lang)
@@ -59,7 +63,7 @@ META = {
             "Assistant IA culinaire contextuel",
             "Mode cuisine pas à pas avec minuteurs par étape",
             "Liste de courses avec catégorisation automatique par rayon",
-            "Partage de recettes, courses et adresses en temps réel",
+            "Partage de recettes, courses et bonnes adresses en temps réel",
         ],
         "faq": [
             ("Savoria est-elle gratuite ?", "Oui. Savoria est disponible gratuitement sur Google Play pendant sa phase de test ouvert."),
@@ -84,7 +88,7 @@ META = {
             "Contextual AI cooking assistant",
             "Step-by-step cooking mode with per-step timers",
             "Shopping list with automatic sorting by aisle",
-            "Real-time sharing of recipes, shopping lists and addresses",
+            "Real-time sharing of recipes, shopping lists and food finds",
         ],
         "faq": [
             ("Is Savoria free?", "Yes. Savoria is available for free on Google Play during its open testing phase."),
@@ -97,6 +101,81 @@ META = {
             ("Why adapt a recipe to my kitchen?", "Every appliance cooks differently: an oven, an induction cooktop, an air fryer or a food processor don't share the same power or settings from one model to the next. A recipe written for other equipment can flop in your kitchen. Savoria rewrites times, temperatures and settings for your actual gear — so it comes out right the first time."),
         ],
     },
+    "de": {
+        "title": "Savoria — Deine Rezepte, angepasst an deine Küche, mit KI-Koch",
+        "desc": "Savoria importiert deine Rezepte (Link, Foto, PDF, Instagram, TikTok, YouTube) und passt sie an deinen Backofen und dein Kochfeld an. Schritt-für-Schritt-Kochassistent mit KI, bei Google Play.",
+        "ogdesc": "Importiere deine Rezepte (Link, Foto, PDF, Instagram, TikTok, YouTube) und lass den KI-Koch sie an deinen Backofen und dein Kochfeld anpassen. Bei Google Play.",
+        "appdesc": "Rezept-App mit KI: importiere aus einem Link, einem Foto, einem PDF, Instagram, TikTok oder YouTube, passe Rezepte an deinen Backofen und dein Kochfeld an, koche Schritt für Schritt und verwalte deine Einkaufsliste.",
+        "features": [
+            "Rezeptimport aus Link, Text, Foto, PDF, Instagram, TikTok und YouTube",
+            "Anpassung der Rezepte an deine Küchengeräte (Backofen, Kochfeld, Heißluftfritteuse, Küchenmaschinen)",
+            "Bestehende Rezepte auf Zuruf ändern, in normaler Sprache (vegetarisch, ohne Backofen, weniger Salz) — mit Vorschau der Änderungen und Erhalt des Originals",
+            "Kontextbezogener KI-Kochassistent",
+            "Schritt-für-Schritt-Kochmodus mit Timern pro Schritt",
+            "Einkaufsliste mit automatischer Sortierung nach Warengruppen",
+            "Rezepte, Einkaufslisten und Feinkost-Tipps in Echtzeit teilen",
+        ],
+        "faq": [
+            ("Ist Savoria kostenlos?", "Ja. Savoria ist während der offenen Testphase kostenlos bei Google Play verfügbar."),
+            ("Kann ich ein Rezept von Instagram, TikTok oder YouTube importieren?", "Ja. Füge den Link ein oder teile den Beitrag mit Savoria: Der KI-Koch holt das Rezept und strukturiert es automatisch — auch aus einem Video."),
+            ("Passt Savoria Rezepte an meinen Backofen und mein Kochfeld an?", "Ja. Du richtest deine Geräte einmal ein (Backofen, Kochfeld, Heißluftfritteuse, Küchenmaschinen), und Savoria passt die Garschritte an deine tatsächliche Ausstattung an."),
+            ("Kann ich ein Rezept ändern lassen, das ich schon habe?", "Ja. Bei jedem Rezept in deiner Sammlung fragst du den KI-Koch in normaler Sprache: „mach es vegetarisch“, „ohne Backofen“, „weniger Salz“. Er zeigt dir zuerst, was sich ändern würde, du übernimmst es mit einem Tippen und kannst es rückgängig machen. Zutaten, die du nicht genannt hast, werden nie verändert, und du kannst das Original neben der neuen Version behalten."),
+            ("Kann ich ein Rezept aus einem Foto oder PDF importieren?", "Ja. Fotografiere ein handschriftliches Rezept oder eine Kochbuchseite, oder importiere ein PDF: Savoria liest Zutaten und Schritte heraus."),
+            ("Auf welchen Plattformen gibt es Savoria?", "Savoria gibt es für Android bei Google Play. Eine iOS-Version wird geprüft."),
+            ("Wie funktioniert der Kochmodus?", "Der Kochmodus zeigt das Rezept Schritt für Schritt, mit Timern pro Schritt, den Zutaten zum jeweiligen Schritt und einem KI-Assistenten, der das laufende Rezept kennt."),
+            ("Warum ein Rezept an meine Küche anpassen?", "Jedes Gerät gart anders: Backofen, Induktionskochfeld, Heißluftfritteuse oder Küchenmaschine haben von Modell zu Modell weder dieselbe Leistung noch dieselben Einstellungen. Ein Rezept, das für andere Geräte geschrieben wurde, kann bei dir misslingen. Savoria schreibt Zeiten, Temperaturen und Einstellungen für deine tatsächliche Ausstattung um — damit es gleich beim ersten Mal gelingt."),
+        ],
+    },
+    "it": {
+        "title": "Savoria — Le tue ricette adattate alla tua cucina, con uno chef IA",
+        "desc": "Savoria importa le tue ricette (link, foto, PDF, Instagram, TikTok, YouTube) e le adatta al tuo forno e al tuo piano cottura. Assistente di cucina IA passo dopo passo, su Google Play.",
+        "ogdesc": "Importa le tue ricette (link, foto, PDF, Instagram, TikTok, YouTube) e lascia che il Chef IA le adatti al tuo forno e al tuo piano cottura. Su Google Play.",
+        "appdesc": "App di ricette con IA: importa da un link, una foto, un PDF, Instagram, TikTok o YouTube, adatta le ricette al tuo forno e al tuo piano cottura, cucina passo dopo passo e gestisci la lista della spesa.",
+        "features": [
+            "Importazione di ricette da link, testo, foto, PDF, Instagram, TikTok e YouTube",
+            "Adattamento delle ricette alla tua attrezzatura (forno, piano cottura, friggitrice ad aria, robot da cucina)",
+            "Modifica di una ricetta che hai già, chiesta in linguaggio naturale (vegetariana, senza forno, meno salata), con anteprima delle modifiche e originale conservato",
+            "Assistente di cucina IA che conosce la ricetta in corso",
+            "Modalità cucina passo dopo passo con timer per ogni passaggio",
+            "Lista della spesa ordinata automaticamente per reparto",
+            "Condivisione in tempo reale di ricette, liste della spesa e chicche golose",
+        ],
+        "faq": [
+            ("Savoria è gratuita?", "Sì. Savoria è disponibile gratuitamente su Google Play durante la fase di test aperto."),
+            ("Posso importare una ricetta da Instagram, TikTok o YouTube?", "Sì. Incolla il link o condividi il post con Savoria: il Chef IA recupera la ricetta e la struttura in automatico, anche da un video."),
+            ("Savoria adatta le ricette al mio forno e al mio piano cottura?", "Sì. Configuri la tua attrezzatura una volta sola (forno, piano cottura, friggitrice ad aria, robot da cucina) e Savoria adatta i passaggi di cottura a quello che hai davvero."),
+            ("Posso chiedere una modifica su una ricetta che ho già?", "Sì. Su qualsiasi ricetta del tuo ricettario, chiedi al Chef IA in linguaggio naturale: «rendila vegetariana», «senza forno», «meno salata». Prima ti mostra cosa cambierebbe, poi applichi con un tocco e puoi annullare. Gli ingredienti che non hai nominato non vengono mai modificati, e puoi tenere l'originale accanto alla nuova versione."),
+            ("Posso importare una ricetta da una foto o da un PDF?", "Sì. Fotografa una ricetta scritta a mano o la pagina di un libro, oppure importa un PDF: Savoria ne estrae ingredienti e passaggi."),
+            ("Su quali piattaforme è disponibile Savoria?", "Savoria è disponibile su Android tramite Google Play. Una versione iOS è allo studio."),
+            ("Come funziona la modalità cucina?", "La modalità cucina mostra la ricetta passo dopo passo, con timer per ogni passaggio, il richiamo degli ingredienti e un assistente IA che conosce la ricetta in corso."),
+            ("Perché adattare una ricetta alla mia cucina?", "Ogni apparecchio cuoce in modo diverso: un forno, un piano a induzione, una friggitrice ad aria o un robot da cucina non hanno né la stessa potenza né le stesse regolazioni da un modello all'altro. Una ricetta scritta per un'altra attrezzatura può non riuscire a casa tua. Savoria riscrive tempi, temperature e regolazioni per quello che hai davvero — così riesce al primo colpo."),
+        ],
+    },
+    "es": {
+        "title": "Savoria — Tus recetas adaptadas a tu cocina, con un chef IA",
+        "desc": "Savoria importa tus recetas (enlace, foto, PDF, Instagram, TikTok, YouTube) y las adapta a tu horno y a tu placa. Asistente de cocina con IA paso a paso, en Google Play.",
+        "ogdesc": "Importa tus recetas (enlace, foto, PDF, Instagram, TikTok, YouTube) y deja que el Chef IA las adapte a tu horno y a tu placa. En Google Play.",
+        "appdesc": "App de recetas con IA: importa desde un enlace, una foto, un PDF, Instagram, TikTok o YouTube, adapta las recetas a tu horno y a tu placa, cocina paso a paso y gestiona la lista de la compra.",
+        "features": [
+            "Importación de recetas desde un enlace, texto, foto, PDF, Instagram, TikTok y YouTube",
+            "Adaptación de las recetas a tu equipamiento (horno, placa, freidora de aire, robot de cocina)",
+            "Cambios en una receta que ya tienes, pedidos en lenguaje natural (vegetariana, sin horno, menos salada), con vista previa de los cambios y la original conservada",
+            "Asistente de cocina con IA que conoce la receta en curso",
+            "Modo cocina paso a paso con temporizador para cada paso",
+            "Lista de la compra ordenada automáticamente por secciones",
+            "Uso compartido en tiempo real de recetas, listas de la compra y joyas gastronómicas",
+        ],
+        "faq": [
+            ("¿Savoria es gratis?", "Sí. Savoria está disponible gratis en Google Play durante la fase de prueba abierta."),
+            ("¿Puedo importar una receta de Instagram, TikTok o YouTube?", "Sí. Pega el enlace o comparte la publicación con Savoria: el Chef IA recupera la receta y la estructura automáticamente, incluso desde un vídeo."),
+            ("¿Savoria adapta las recetas a mi horno y a mi placa?", "Sí. Configuras tu equipamiento una sola vez (horno, placa, freidora de aire, robot de cocina) y Savoria adapta los pasos de cocción a lo que tienes de verdad."),
+            ("¿Puedo pedir un cambio en una receta que ya tengo?", "Sí. En cualquier receta de tu recetario, pídeselo al Chef IA en lenguaje natural: «hazla vegetariana», «sin horno», «menos salada». Primero te enseña lo que cambiaría, luego lo aplicas con un toque y puedes deshacerlo. Los ingredientes que no has nombrado nunca se tocan, y puedes quedarte con la original junto a la nueva versión."),
+            ("¿Puedo importar una receta desde una foto o un PDF?", "Sí. Fotografía una receta escrita a mano o la página de un libro, o importa un PDF: Savoria extrae los ingredientes y los pasos."),
+            ("¿En qué plataformas está disponible Savoria?", "Savoria está disponible en Android a través de Google Play. Una versión para iOS está en estudio."),
+            ("¿Cómo funciona el modo cocina?", "El modo cocina muestra la receta paso a paso, con temporizadores para cada paso, el recordatorio de los ingredientes y un asistente de IA que conoce la receta en curso."),
+            ("¿Por qué adaptar una receta a mi cocina?", "Cada aparato cocina de una forma distinta: un horno, una placa de inducción, una freidora de aire o un robot de cocina no tienen ni la misma potencia ni los mismos ajustes de un modelo a otro. Una receta escrita para otro equipamiento puede no salir en tu casa. Savoria reescribe tiempos, temperaturas y ajustes para lo que tienes de verdad — así sale a la primera."),
+        ],
+    },
 }
 
 # Réécriture des liens de page internes vers la nouvelle taxonomie par langue.
@@ -107,13 +186,58 @@ PAGE_LINKS = {  # ancien href du template -> slug de destination (préfixé /{la
     "mentions-legales.html": "legal-notice/",
 }
 
+# Langues qui ont RÉELLEMENT un texte légal (blocs `data-lang` dans `_src/privacy.html` etc.).
+# ⚠️ Le juridique n'est PAS traduit par la chaîne i18n : c'est du contenu contractuel/réglementaire,
+# une traduction approximative y a des conséquences. Tant qu'une langue n'a pas ses blocs, ses pages
+# renvoient vers [LEGAL_FALLBACK] — un lien honnête vers une page qui existe, jamais un 404 (l'URL de
+# politique de confidentialité est EXIGÉE par Google Play) ni une fausse URL /de/privacy/ vide.
+LEGAL_FALLBACK = "en"
+
+
+def _legal_langs():
+    """Langues réellement couvertes par les sources légales — lu dans les fichiers, pas déclaré.
+
+    ⚠️ INTERSECTION des TROIS sources, jamais la seule `privacy`. `LEGAL_LANGS` gouverne les trois
+    slugs à la fois (hreflang + sitemap + liens de pied de page) : une langue traduite dans
+    `privacy.html` mais pas encore dans `terms.html` serait annoncée pour /terms/ alors que
+    `build_legal()` ne génère pas ce fichier — hreflang et sitemap pointeraient vers un 404.
+    Avec l'intersection, une traduction légale partielle dégrade proprement (toute la langue
+    reste sur [LEGAL_FALLBACK]) au lieu de publier un lien mort.
+    """
+    per_page = [
+        set(re.findall(r'<div class="langblock" data-lang="([a-z]{2})"',
+                       (SITE / src).read_text(encoding="utf-8")))
+        for src in LEGAL.values()
+    ]
+    return set.intersection(*per_page) if per_page else set()
+
+
+LEGAL_LANGS = _legal_langs()
+
+
+def legal_href(lang, dst):
+    """Préfixe de langue d'un lien de page : la langue elle-même si elle a du légal, sinon le repli."""
+    if dst and lang not in LEGAL_LANGS:
+        return f"/{LEGAL_FALLBACK}/{dst}"
+    return f"/{lang}/{dst}"
+
+# Confort du sélecteur de langue — CONFORT SEULEMENT : `<details>` ouvre/ferme, navigue et se pilote
+# au clavier sans une ligne de JS. Ceci n'ajoute que ce que le natif ne fait pas (fermer au clic
+# extérieur et à Échap). Si le script ne charge pas, le sélecteur reste pleinement utilisable.
+LANGSEL_JS = ("<script>(function(){var s=document.querySelector('.langsel');if(!s)return;"
+              "document.addEventListener('click',function(e){"
+              "if(s.open&&!s.contains(e.target))s.open=false;});"
+              "document.addEventListener('keydown',function(e){"
+              "if(e.key==='Escape'&&s.open){s.open=false;s.querySelector('summary').focus();}});"
+              "})();</script>")
+
 REVEAL_JS = """<script>
   const hdr = document.getElementById('hdr');
   const onScroll = () => hdr && hdr.classList.toggle('scrolled', window.scrollY > 8);
   onScroll(); addEventListener('scroll', onScroll, { passive:true });
   const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold:.12 });
   document.querySelectorAll('.reveal').forEach((el,i) => { el.style.transitionDelay = (Math.min(i,6)*60)+'ms'; io.observe(el); });
-</script>"""
+</script>""" + LANGSEL_JS
 
 # ── Chrome partagé (header + footer) des pages légales ────────────────────────────────────
 # THÉMING PARTAGÉ AVEC LA LANDING (SSOT = _src/landing.html) : les pages légales réutilisent le
@@ -129,7 +253,38 @@ LOGO_SVG = re.search(r'<svg[^>]*>\s*<symbol id="savoria-logo".*?</symbol>\s*</sv
 LANDING_STYLE = re.search(r"<style>(.*?)</style>",
                           (SITE / TEMPLATE).read_text(encoding="utf-8"), re.S).group(1)
 
-PLAY_LABEL = {"fr": "Sur Google Play", "en": "On Google Play", "de": "Bei Google Play"}
+PLAY_LABEL = {"fr": "Sur Google Play", "en": "On Google Play", "de": "Bei Google Play", "it": "Su Google Play", "es": "En Google Play"}
+
+# ── Sélecteur de langue (header) ────────────────────────────────────────────────────────────────
+# `<details>` NATIF, pas un composant JS : le site est statique (GitHub Pages), donc les liens
+# doivent rester de vrais <a href> crawlables et la page utilisable sans JS. Le natif fournit en
+# prime le clavier et l'ARIA. Remplace la rangée de liens à plat (illisible à 5 langues, et qui ne
+# disait pas laquelle était active) ET le bouton qui CYCLAIT vers la suivante (jusqu'à 4 taps).
+LANG_WORD = {"fr": "Langue", "en": "Language", "de": "Sprache", "it": "Lingua", "es": "Idioma"}
+_GLOBE = ('<svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" '
+          'aria-hidden="true"><circle cx="12" cy="12" r="9"/>'
+          '<path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>')
+_CHEV = ('<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" '
+         'aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>')
+
+
+def lang_selector(current, href):
+    """Sélecteur du header pour `current`. `href(lang)` donne l'URL de la MÊME page dans `lang`.
+
+    ⚠️ Toutes les langues sont listées, mais l'URL passe par l'appelant : sur une page légale il
+    doit utiliser `legal_href`, qui replie sur [LEGAL_FALLBACK] tant que le texte n'est pas traduit.
+    L'ancienne version fabriquait `/{l}/{slug}/` en dur — un 404 en attente pour toute langue dont
+    le juridique n'aurait pas encore été écrit.
+    """
+    items = "".join(
+        '<a href="%s" lang="%s" hreflang="%s"%s>%s</a>'
+        % (href(l), l, l, ' aria-current="true"' if l == current else "", LANG_LABEL[l])
+        for l in LANGS)
+    return (
+        '<details class="langsel"><summary aria-label="%s">%s'
+        '<span class="langsel-full">%s</span><span class="langsel-code">%s</span>%s</summary>'
+        '<div class="langsel-menu">%s</div></details>'
+        % (LANG_WORD[current], _GLOBE, LANG_LABEL[current], current.upper(), _CHEV, items))
 
 # Spécifique aux pages légales : colonne de lecture étroite + typo du corps, sur les tokens landing.
 # `.legal .wrap` (plus spécifique que `.wrap`) rétrécit UNIQUEMENT le contenu ; header/footer gardent
@@ -157,7 +312,7 @@ LEGAL_CSS = """
 
 HDR_SCROLL_JS = ("<script>var h=document.getElementById('hdr');"
                  "var s=function(){h&&h.classList.toggle('scrolled',scrollY>8)};"
-                 "s();addEventListener('scroll',s,{passive:true});</script>")
+                 "s();addEventListener('scroll',s,{passive:true});</script>" + LANGSEL_JS)
 
 
 def jsonld(lang):
@@ -182,10 +337,40 @@ def jsonld(lang):
                       ensure_ascii=False, indent=2)
 
 
+def langs_for(page=""):
+    """Langues où CETTE page existe réellement — jamais `LANGS` en aveugle.
+
+    ⚠️ Le landing existe dans toutes les langues, mais le LÉGAL n'existe que là où le texte a été
+    écrit (`LEGAL_LANGS`). Boucler sur `LANGS` partout produisait trois défauts d'un coup :
+    le routeur `/privacy/` (l'URL donnée à Google Play, qui négocie la langue du navigateur)
+    redirigeait un Allemand vers un **404** ; les `hreflang` déclaraient des pages inexistantes ;
+    le sitemap les soumettait à Search Console. Trouvé le 29/07/2026.
+    """
+    slug = page.rstrip("/")
+    if slug in LEGAL:
+        return [l for l in LANGS if l in LEGAL_LANGS]
+    return LANGS
+
+
+def default_for(page=""):
+    """Langue du `x-default` (et du repli sans JS) pour CETTE page.
+
+    Page disponible partout (le landing) → politique du site (`X_DEFAULT`, le marché principal).
+    Page à couverture PARTIELLE (le légal) → `LEGAL_FALLBACK` (anglais) : c'est la langue qui sera
+    servie à un visiteur dont la langue n'existe pas encore (allemand, italien…), et l'anglais lui
+    est plus lisible que le français. Le visiteur francophone, lui, est de toute façon apparié
+    directement sur `/fr/` par la négociation — ce repli ne le concerne pas.
+    """
+    avail = langs_for(page)
+    if avail == LANGS:
+        return X_DEFAULT
+    return LEGAL_FALLBACK if LEGAL_FALLBACK in avail else avail[0]
+
+
 def hreflang_block(page=""):
     """page = '' pour le landing, 'privacy/' etc. pour le légal."""
-    lines = [f'<link rel="alternate" hreflang="{l}" href="{BASE}/{l}/{page}">' for l in LANGS]
-    lines.append(f'<link rel="alternate" hreflang="x-default" href="{BASE}/{X_DEFAULT}/{page}">')
+    lines = [f'<link rel="alternate" hreflang="{l}" href="{BASE}/{l}/{page}">' for l in langs_for(page)]
+    lines.append(f'<link rel="alternate" hreflang="x-default" href="{BASE}/{default_for(page)}/{page}">')
     return "\n".join(lines)
 
 
@@ -240,15 +425,25 @@ def post_process_landing(dom, lang):
     # JSON-LD par langue
     h = re.sub(r'<script type="application/ld\+json">.*?</script>',
                '<script type="application/ld+json">\n%s\n</script>' % jsonld(lang), h, flags=re.S)
-    # 3) switcher runtime -> vrais liens <a> (marche sans JS, crawlable)
-    others = "".join(
-        f'<a class="lang" href="/{l}/">{LANG_LABEL[l]}</a>' for l in LANGS if l != lang)
-    h = re.sub(r'<button class="lang" id="langToggle"[^>]*>.*?</button>', others, h, flags=re.S)
+    # 3) sélecteur runtime -> vrais liens <a> (marche sans JS, crawlable)
+    h, n = re.subn(r'<details class="langsel" id="langSel">.*?</details>',
+                   lambda _m: lang_selector(lang, lambda l: f"/{l}/"), h, flags=re.S)
+    if n != 1:
+        raise SystemExit(f"landing {lang} : sélecteur de langue substitué {n} fois (attendu 1) — "
+                         "le markup de _src/landing.html a bougé")
     # 4) liens de page internes -> nouvelle taxonomie /{lang}/slug/
     for old, slug in PAGE_LINKS.items():
-        h = h.replace(f'href="{old}"', f'href="/{lang}/{slug}"')
+        h = h.replace(f'href="{old}"', f'href="{legal_href(lang, slug)}"')
     # 5) retire le script i18n runtime (contenu déjà figé), garde le reveal
-    h = re.sub(r'<script>\s*const I18N.*?</script>', REVEAL_JS, h, flags=re.S)
+    # ⚠️ Garde-fou OBLIGATOIRE depuis que l'étape 3 remplace le sélecteur : ce script référence
+    # `langSelLabel`/`langSelCode`/`langSelMenu`, des ids qui N'EXISTENT PLUS après l'étape 3. S'il
+    # survivait (regex qui ne matche plus parce que le markup de _src a bougé), chaque page publiée
+    # lèverait une TypeError au chargement. Échouer bruyamment vaut mieux que publier des pages
+    # dont le JS casse — même posture que le garde-fou de l'étape 3.
+    h, n = re.subn(r'<script>\s*const I18N.*?</script>', lambda _m: REVEAL_JS, h, flags=re.S)
+    if n != 1:
+        raise SystemExit(f"landing {lang} : script i18n runtime retiré {n} fois (attendu 1) — "
+                         "il resterait dans la page publiée en référençant des ids supprimés")
     # 6) chemins d'assets relatifs -> root-absolute (badges/, screens/, icon-512.png…)
     h = re.sub(r'(href|src)="(?!https?://|/|#|mailto:|tel:|data:)', r'\1="/', h)
     return "<!DOCTYPE html>\n" + h.lstrip()
@@ -258,8 +453,10 @@ def router_html(page=""):
     """Routeur négociant : hreflang statique (découverte crawler) + redirection JS (commodité user).
     page='' = home ('/'), page='privacy/' etc. = routeur légal ('/privacy/')."""
     hl = hreflang_block(page)
-    links = " · ".join(f'<a href="/{l}/{page}">{LANG_LABEL[l]}</a>' for l in LANGS)
-    js_langs = json.dumps(LANGS)
+    avail = langs_for(page)      # jamais LANGS en aveugle : le légal n'existe pas dans toutes
+    dflt = default_for(page)
+    links = " · ".join(f'<a href="/{l}/{page}">{LANG_LABEL[l]}</a>' for l in avail)
+    js_langs = json.dumps(avail)
     return f"""<!DOCTYPE html>
 <html lang="{X_DEFAULT}">
 <head>
@@ -269,7 +466,7 @@ def router_html(page=""):
 <link rel="icon" type="image/png" href="/icon-512.png">
 {hl}
 <meta name="robots" content="noindex,follow">
-<meta http-equiv="refresh" content="0; url=/{X_DEFAULT}/{page}">
+<meta http-equiv="refresh" content="0; url=/{dflt}/{page}">
 <script>
   // Redirection de commodité vers la langue de l'utilisateur. Les crawlers ignorent ce JS
   // et découvrent chaque langue via les hreflang ci-dessus (contenu pré-rendu, pas de JS requis).
@@ -278,7 +475,7 @@ def router_html(page=""):
   var param = new URLSearchParams(location.search).get('lang');
   var nav = (navigator.language || '').toLowerCase();
   var browser = LANGS.filter(function(l){{ return nav.indexOf(l) === 0; }})[0];
-  var pick = [param, stored, browser].filter(function(l){{ return LANGS.indexOf(l) >= 0; }})[0] || '{X_DEFAULT}';
+  var pick = [param, stored, browser].filter(function(l){{ return LANGS.indexOf(l) >= 0; }})[0] || '{dflt}';
   location.replace('/' + pick + '/{page}' + location.hash);
 </script>
 </head>
@@ -303,15 +500,18 @@ def build_legal(footers):
         for lang in LANGS:
             content = blocks.get(lang)
             if content is None:
+                # BRUYANT, jamais silencieux : sans ça, la landing de cette langue liait un 404.
+                # ASCII pur : la console Windows (cp1252) plante sur une fleche ou un accent ici.
+                print(f"legal      /{lang}/{slug}/ ABSENT - les liens {lang} pointent vers "
+                      f"/{LEGAL_FALLBACK}/{slug}/ (texte juridique non traduit)")
                 continue
             h1 = re.search(r"<h1>(.*?)</h1>", content, re.S)
             title = re.sub("<[^>]+>", "", h1.group(1)).strip() if h1 else "Savoria"
             for old, dst in PAGE_LINKS.items():
-                content = content.replace(f'href="{old}"', f'href="/{lang}/{dst}"')
-            # Switcher de langue dans la nav du header (comme la landing), pas flottant dans le corps.
-            lang_links = "".join(
-                f'<a class="lang" href="/{l}/{slug}/">{LANG_LABEL[l]}</a>'
-                for l in LANGS if l != lang)
+                content = content.replace(f'href="{old}"', f'href="{legal_href(lang, dst)}"')
+            # Sélecteur de langue dans la nav du header (comme la landing), pas flottant dans le
+            # corps. `legal_href` replie sur LEGAL_FALLBACK si la langue n'a pas encore son texte.
+            lang_links = lang_selector(lang, lambda l: legal_href(l, f"{slug}/"))
             header = (
                 f'<header id="hdr"><div class="wrap nav">'
                 f'<a class="brand" href="/{lang}/" aria-label="Savoria">'
@@ -359,11 +559,12 @@ def build_sitemap():
     pages = [("", "weekly", "1.0")] + [(f"{s}/", LEGAL_FREQ[s], "0.3") for s in LEGAL]
     urls = []
     for page, freq, prio in pages:
+        avail = langs_for(page)      # ne pas soumettre de 404 à Search Console
         alts = "".join(
             f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{BASE}/{l}/{page}"/>'
-            for l in LANGS)
-        alts += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{BASE}/{X_DEFAULT}/{page}"/>'
-        for lang in LANGS:
+            for l in avail)
+        alts += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{BASE}/{default_for(page)}/{page}"/>'
+        for lang in avail:
             urls.append(f"""  <url>
     <loc>{BASE}/{lang}/{page}</loc>{alts}
     <lastmod>{today}</lastmod>

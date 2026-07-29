@@ -2,6 +2,10 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<!-- Amélioration progressive : marque le document AVANT tout rendu, pour que l'animation
+     d'apparition (`.js .reveal`) ne s'active que si JavaScript tourne. Sans ce marqueur, la page
+     s'affiche simplement sans animation — jamais vide. Inline et en tête = aucun flash. -->
+<script>document.documentElement.classList.add('js')</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="WhsYv5RZNdnLEmNBOLDnQn8RqOnmPBkveGdKUD3EZSo" />
 <meta name="description" content="Savoria importe tes recettes (lien, photo, PDF, Instagram, TikTok, YouTube) et les adapte à ton four et ta plaque. Assistant cuisine IA pas à pas, sur Google Play.">
@@ -124,7 +128,9 @@
   .eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
   h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.022em;line-height:1.08}
 
-  header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.4) blur(12px);
+  /* -webkit- AVANT le standard : Safari ≤ 17 ne connaît que la forme préfixée (l'unpréfixée n'arrive
+     qu'en Safari 18) — sans elle, l'en-tête perd son effet de verre dépoli sur iPhone et macOS. */
+  header{position:sticky;top:0;z-index:50;-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);
     background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid transparent;transition:border-color .3s}
   header.scrolled{border-color:var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
@@ -133,8 +139,36 @@
   .nav .brand svg{width:45px;height:45px}                  /* header — logo mis en avant, collé au mot */
   .nav .brand{gap:8px}
   .nav-right{display:flex;align-items:center;gap:18px;font-size:.9rem}
-  .lang{color:var(--muted);font-weight:600;cursor:pointer;background:none;border:0;font-family:inherit;font-size:.9rem}
-  .lang:hover{color:var(--ink)}
+  /* Sélecteur de langue — `<details>` NATIF, volontairement pas un composant JS :
+     le site est statique et servi par GitHub Pages, donc (1) les liens doivent rester de vrais
+     <a href> crawlables, (2) la page doit rester utilisable sans JS. Le natif donne en prime le
+     clavier (Entrée/Espace/Échap) et la sémantique ARIA. Le JS n'ajoute que le confort (fermeture
+     au clic extérieur / Échap). Remplace le bouton qui CYCLAIT vers la langue suivante : passable
+     à 2 langues, absurde à 5 (jusqu'à 4 taps, et on ne voit jamais la liste). */
+  .langsel{position:relative}
+  .langsel>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;
+    color:var(--muted);font-weight:600;font-size:.9rem;padding:8px 10px;border-radius:999px;
+    transition:color .2s,background .2s}
+  .langsel>summary::-webkit-details-marker{display:none}
+  .langsel>summary:hover{color:var(--ink);background:color-mix(in srgb,var(--ink) 6%,transparent)}
+  .langsel>summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .langsel .globe{width:16px;height:16px;flex:none}
+  .langsel .chev{width:11px;height:11px;flex:none;transition:transform .2s}
+  .langsel[open] .chev{transform:rotate(180deg)}
+  .langsel-code{display:none}
+  .langsel-menu{position:absolute;right:0;top:calc(100% + 8px);z-index:60;min-width:180px;padding:6px;
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-lift)}
+  .langsel-menu a{display:flex;align-items:center;justify-content:space-between;gap:14px;
+    padding:9px 12px;border-radius:9px;color:var(--ink);font-size:.9rem;font-weight:500;white-space:nowrap}
+  .langsel-menu a:hover{background:color-mix(in srgb,var(--accent) 12%,transparent)}
+  .langsel-menu a[aria-current]{font-weight:700;color:var(--accent)}
+  .langsel-menu a[aria-current]::after{content:"✓";font-size:.85rem}
+  /* Sur petit écran, l'autonyme complet pousse le bouton Play hors de la barre : on garde le
+     CODE (« ES »), qui reste informatif — contrairement à un globe seul. */
+  @media (max-width:560px){
+    .langsel-full{display:none}
+    .langsel-code{display:inline}
+  }
   .badge-play{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);
     padding:9px 16px;border-radius:999px;font-weight:600;font-size:.85rem;box-shadow:var(--shadow);transition:transform .2s}
   .badge-play:hover{transform:translateY(-1px)}
@@ -186,7 +220,7 @@
   .sc-hero .plate{position:absolute;right:-14px;bottom:-14px;width:116px;height:116px;border-radius:50%;
     background:radial-gradient(circle at 38% 32%,#e9b877,#a75f2c 70%);box-shadow:inset 0 -10px 24px rgba(0,0,0,.25);opacity:.92}
   .sc-back{position:absolute;top:12px;left:12px;z-index:3;width:30px;height:30px;border-radius:50%;
-    background:rgba(20,12,6,.32);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;color:#fff}
+    background:rgba(20,12,6,.32);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;color:#fff}
   .sc-back svg{width:15px;height:15px}
   .sc-title{position:absolute;left:16px;bottom:14px;right:16px;z-index:2;color:#fff}
   .sc-title h4{font-family:var(--display);font-size:1.16rem;font-weight:800;letter-spacing:-.01em;line-height:1.12;text-shadow:0 1px 8px rgba(0,0,0,.3)}
@@ -261,7 +295,11 @@
   .faq-item[open] summary::after{transform:rotate(45deg)}
   .faq-item .ans{padding:0 22px 20px;color:var(--muted);font-size:.98rem}
 
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  /* ⚠️ SCOPÉ À `.js` — l'animation d'apparition ne doit JAMAIS pouvoir cacher le contenu.
+     Avant : `.reveal{opacity:0}` inconditionnel + JS qui ajoute `.in` → sans JavaScript (ou si
+     IntersectionObserver échoue), TOUTE la page restait invisible. La classe `js` est posée en tête
+     de <head> : si le script ne tourne pas, la règle ne s'applique pas et le texte s'affiche. */
+  .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1;transform:none}
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
 
@@ -297,7 +335,18 @@
       Savoria
     </a>
     <nav class="nav-right">
-      <button class="lang" id="langToggle" type="button">English</button>
+      <!-- Aperçu de dev : mêmes balises que le site publié, mais les liens rebasculent la langue
+           en place (setLang) au lieu de naviguer. `build_i18n.py` remplace tout ce bloc par le
+           sélecteur à vrais liens /xx/ — voir lang_selector(). -->
+      <details class="langsel" id="langSel">
+        <summary aria-label="Langue">
+          <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+          <span class="langsel-full" id="langSelLabel">Français</span>
+          <span class="langsel-code" id="langSelCode">FR</span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="langsel-menu" id="langSelMenu"></div>
+      </details>
       <a class="badge-play" href="https://play.google.com/store/apps/details?id=com.savoria.app" target="_blank" rel="noopener" data-i18n="nav.soon">Sur Google Play</a>
     </nav>
   </div>
@@ -551,6 +600,244 @@
       "f.copy":"© 2026 Savoria",
       "f.made":"Crafted with care in France.",
       "f.editor":'Published by JEYLAB (SARL) · <a href="mentions-legales.html">Legal notice</a>'
+    },
+    de: {
+      "nav.soon":"Bei Google Play",
+      "hero.eyebrow":"Deine Küche, deine Regeln.",
+      "hero.title":"Sammle alle deine Rezepte —<br>Savoria passt sie an deine Küche an.",
+      "hero.lead":"Ein Link, ein Foto aus deinem Rezeptheft, ein PDF oder ein Instagram-, TikTok- oder YouTube-Video: Der KI-Koch macht daraus ein sauberes Rezept, <strong>abgestimmt auf deine Geräte</strong>. Und führt dich dann Schritt für Schritt.",
+      "phone.alt":"Savoria-Rezept mit Garschritten, angepasst an den Backofen des Nutzers",
+      "phone.src":"screens/de/05_equipment.png",
+      "badge.soon":"Demnächst bei",
+      "badge.avail":"Verfügbar bei",
+      "badge.gplaySrc":"badges/gplay-de.svg",
+      "badge.appstoreSrc":"badges/appstore-de.svg",
+      "badge.gplayAlt":"Jetzt bei Google Play",
+      "badge.soontag":"Demnächst",
+      "hero.cta":"Funktionen ansehen →",
+      "phone.title":"Rindfleisch mit Karotten",
+      "phone.serv":"4 Portionen",
+      "phone.tab1":"Zutaten",
+      "phone.tab2":"Schritte",
+      "phone.tab3":"Notizen",
+      "phone.i1":"Schmorfleisch vom Rind",
+      "phone.i2":"Karotten",
+      "phone.i3":"Zwiebel",
+      "phone.i4":"Gemüsebrühe",
+      "phone.cook":"Kochen",
+      "feat.eyebrow":"Alles, was du brauchst",
+      "feat.title":"Eine App, vom Kühlschrank bis auf den Teller.",
+      "feat.sub":"Jeder Schritt beim Kochen, unterstützt von KI — gemacht, um dir Zeit zu sparen — ohne Abstriche beim Geschmack.",
+      "f1.t":"Import von überall",
+      "f1.p":"Ein Link, ein Foto aus deinem Rezeptheft, ein PDF, ein Instagram-, TikTok- oder YouTube-Video — Savoria macht daraus ein sauber strukturiertes Rezept, <strong>auch aus einer anderen Sprache</strong>.",
+      "fkit.t":"An deine Küche angepasst",
+      "fkit.p":"Kein Backofen gart wie der andere. Richte deine Geräte ein, und Savoria schreibt Zeiten und Einstellungen <strong>für deine tatsächliche Ausstattung</strong> um — damit das Gericht gleich beim ersten Mal gelingt. Schluss mit „stell deinen Thermomix ein“, wenn du gar keinen hast.",
+      "f2.t":"Ein KI-Koch in deiner Tasche",
+      "f2.p":"Ideen aus dem, was im Kühlschrank liegt, ein Rezept passend zu deiner Ernährung, eine Zutat ersetzt — und aus dem Gespräch <strong>wird ein gespeichertes Rezept</strong>.",
+      "fmod.t":"Dein Rezept, wie du es willst",
+      "fmod.p":"„Mach es vegetarisch“, „ohne Backofen“, „weniger Salz“: frag einfach, und der KI-Koch zeigt dir <strong>was sich ändern würde</strong>, bevor er es übernimmt. Was du nicht genannt hast, bleibt unangetastet — und du kannst beide Versionen behalten.",
+      "f3.t":"Kochmodus Schritt für Schritt",
+      "f3.p":"Schritte im Vollbild, Zutaten im richtigen Moment eingeblendet, Timer, die klingeln <strong>auch bei geschlossener App oder gesperrtem Handy</strong>.",
+      "f4.t":"Einkaufsliste",
+      "f4.p":"Schreib einfach drauflos: Savoria <strong>sortiert nach Warengruppen</strong>, führt Doppeltes zusammen und rechnet Mengen um.",
+      "f6.t":"Teilen in Echtzeit",
+      "f6.p":"Rezepte, Einkaufslisten und Feinkost-Tipps <strong>live</strong> mit deinen Leuten geteilt.",
+      "gal.eyebrow":"Ein Vorgeschmack",
+      "gal.title":"Die App auf einen Blick.",
+      "gal.hint":"Wischen zum Blättern →",
+      "gal.a1":"Die Rezeptsammlung des Nutzers in Savoria",
+      "gal.a2":"Import eines abfotografierten handschriftlichen Rezepts in Savoria",
+      "gal.a3":"Der KI-Koch von Savoria schlägt Rezeptideen vor",
+      "gal.a4":"Kochmodus Schritt für Schritt mit Timer in Savoria",
+      "gal.a5":"Nach Warengruppen sortierte Einkaufsliste in Savoria",
+      "gal.s1":"screens/de/02_collection.png",
+      "gal.s2":"screens/de/01_import.png",
+      "gal.s3":"screens/de/03_inspiration.png",
+      "gal.s4":"screens/de/04_cooking.png",
+      "gal.s5":"screens/de/06_shopping.png",
+      "faq.eyebrow":"Häufige Fragen",
+      "faq.title":"Alles, was du wissen willst.",
+      "faq.q1":"Ist Savoria kostenlos?",
+      "faq.a1":"Ja. Savoria ist während der offenen Testphase kostenlos bei Google Play verfügbar.",
+      "faq.q2":"Kann ich ein Rezept von Instagram, TikTok oder YouTube importieren?",
+      "faq.a2":"Ja. Füge den Link ein oder teile den Beitrag mit Savoria: Der KI-Koch holt das Rezept und strukturiert es automatisch — auch aus einem Video.",
+      "faq.q3":"Passt Savoria Rezepte an meinen Backofen und mein Kochfeld an?",
+      "faq.a3":"Ja. Du richtest deine Geräte einmal ein (Backofen, Kochfeld, Heißluftfritteuse, Küchenmaschinen), und Savoria passt die Garschritte an deine tatsächliche Ausstattung an.",
+      "faq.q8":"Kann ich ein Rezept ändern lassen, das ich schon habe?",
+      "faq.a8":"Ja. Bei jedem Rezept in deiner Sammlung fragst du den KI-Koch in normaler Sprache: „mach es vegetarisch“, „ohne Backofen“, „weniger Salz“. Er zeigt dir zuerst, was sich ändern würde, du übernimmst es mit einem Tippen und kannst es rückgängig machen. Zutaten, die du nicht genannt hast, werden nie verändert, und du kannst das Original neben der neuen Version behalten.",
+      "faq.q4":"Kann ich ein Rezept aus einem Foto oder PDF importieren?",
+      "faq.a4":"Ja. Fotografiere ein handschriftliches Rezept oder eine Kochbuchseite, oder importiere ein PDF: Savoria liest Zutaten und Schritte heraus.",
+      "faq.q5":"Auf welchen Plattformen gibt es Savoria?",
+      "faq.a5":"Savoria gibt es für Android bei Google Play. Eine iOS-Version wird geprüft.",
+      "faq.q6":"Wie funktioniert der Kochmodus?",
+      "faq.a6":"Der Kochmodus zeigt das Rezept Schritt für Schritt, mit einem Timer je Schritt, den passenden Zutaten im richtigen Moment und einem KI-Assistenten, der das laufende Rezept kennt.",
+      "faq.q7":"Warum ein Rezept an meine Küche anpassen?",
+      "faq.a7":"Jedes Gerät gart anders: Backofen, Induktionskochfeld, Heißluftfritteuse oder Küchenmaschine haben von Modell zu Modell weder dieselbe Leistung noch dieselben Einstellungen. Ein Rezept, das für andere Geräte geschrieben wurde, kann bei dir misslingen. Savoria schreibt Zeiten, Temperaturen und Einstellungen für deine tatsächliche Ausstattung um — damit es gleich beim ersten Mal gelingt.",
+      "col.legal":'<h5>Rechtliches</h5><a href="privacy.html">Datenschutzerklärung</a><a href="terms.html">Nutzungsbedingungen</a><a href="mentions-legales.html">Impressum</a>',
+      "col.help":'<h5>Konto &amp; Hilfe</h5><a href="https://forms.gle/Kn7SL6Qa2NLKJP5JA">Mein Konto löschen</a><a href="mailto:savoriaapp@gmail.com">Kontakt</a>',
+      "f.tagline":"Dein persönlicher Küchenbegleiter mit KI. Bei Google Play.",
+      "f.copy":"© 2026 Savoria",
+      "f.made":"Mit Sorgfalt in Frankreich entwickelt.",
+      "f.editor":'Herausgegeben von JEYLAB (SARL) · <a href="mentions-legales.html">Impressum</a>'
+    },
+    it: {
+      "nav.soon":"Su Google Play",
+      "hero.eyebrow":"La tua cucina, le tue regole.",
+      "hero.title":"Raccogli tutte le tue ricette,<br>Savoria le adatta alla tua cucina.",
+      "hero.lead":"Un link, la foto del tuo quaderno di ricette, un PDF o un video di Instagram, TikTok o YouTube: il Chef IA lo trasforma in una ricetta pulita, <strong>su misura per la tua attrezzatura</strong>. Poi ti guida passo dopo passo.",
+      "phone.alt":"Scheda ricetta di Savoria con i passaggi di cottura adattati al forno dell'utente",
+      "phone.src":"screens/it/05_equipment.png",
+      "badge.soon":"Presto su",
+      "badge.avail":"Disponibile su",
+      "badge.gplaySrc":"badges/gplay-it.svg",
+      "badge.appstoreSrc":"badges/appstore-it.svg",
+      "badge.gplayAlt":"Disponibile su Google Play",
+      "badge.soontag":"Presto disponibile",
+      "hero.cta":"Scopri le funzioni →",
+      "phone.title":"Spezzatino con carote",
+      "phone.serv":"4 porzioni",
+      "phone.tab1":"Ingredienti",
+      "phone.tab2":"Preparazione",
+      "phone.tab3":"Note",
+      "phone.i1":"Manzo per spezzatino",
+      "phone.i2":"Carote",
+      "phone.i3":"Cipolla",
+      "phone.i4":"Brodo vegetale",
+      "phone.cook":"Cucina",
+      "feat.eyebrow":"Tutto quello che ti serve",
+      "feat.title":"Una sola app, dal frigo al piatto.",
+      "feat.sub":"Ogni passaggio in cucina, assistito dall'IA — pensato per farti risparmiare tempo senza rinunciare al gusto.",
+      "f1.t":"Importa da ovunque",
+      "f1.p":"Un link, la foto del tuo quaderno di ricette, un PDF, un video di Instagram, TikTok o YouTube — Savoria lo trasforma in una scheda pulita e strutturata, <strong>anche da un'altra lingua</strong>.",
+      "fkit.t":"Su misura per la tua cucina",
+      "fkit.p":"Non esistono due forni che cuociano allo stesso modo. Configura la tua attrezzatura e Savoria riscrive tempi e regolazioni <strong>per quello che hai davvero</strong>, così il piatto riesce al primo colpo. Basta con i «imposta il Bimby» quando non ce l'hai.",
+      "f2.t":"Uno chef IA in tasca",
+      "f2.p":"Idee a partire da quello che hai in frigo, una ricetta adattata alla tua dieta, un ingrediente sostituito — e la conversazione <strong>diventa una ricetta salvata</strong>.",
+      "fmod.t":"La tua ricetta, come vuoi tu",
+      "fmod.p":"«Rendila vegetariana», «senza forno», «meno salata»: basta chiedere, e il Chef IA ti mostra <strong>cosa cambierebbe</strong> prima di procedere. Quello che non hai chiesto resta com'è — e puoi tenere entrambe le versioni.",
+      "f3.t":"Modalità cucina passo dopo passo",
+      "f3.p":"Passaggi a schermo intero, ingredienti richiamati al momento giusto, timer che suonano <strong>anche ad app chiusa o a telefono bloccato</strong>.",
+      "f4.t":"Lista della spesa",
+      "f4.p":"Scrivi liberamente: Savoria <strong>ordina per reparto</strong>, unisce i doppioni e converte le quantità.",
+      "f6.t":"Condivisione in tempo reale",
+      "f6.p":"Ricette, liste della spesa e chicche golose condivise <strong>all'istante</strong> con la tua cerchia.",
+      "gal.eyebrow":"Un assaggio",
+      "gal.title":"L'app in breve.",
+      "gal.hint":"Scorri per sfogliare →",
+      "gal.a1":"Il ricettario dell'utente in Savoria",
+      "gal.a2":"Importazione di una ricetta scritta a mano fotografata in Savoria",
+      "gal.a3":"Il Chef IA di Savoria propone idee di ricette",
+      "gal.a4":"Modalità cucina passo dopo passo con timer in Savoria",
+      "gal.a5":"Lista della spesa ordinata per reparto in Savoria",
+      "gal.s1":"screens/it/02_collection.png",
+      "gal.s2":"screens/it/01_import.png",
+      "gal.s3":"screens/it/03_inspiration.png",
+      "gal.s4":"screens/it/04_cooking.png",
+      "gal.s5":"screens/it/06_shopping.png",
+      "faq.eyebrow":"Domande frequenti",
+      "faq.title":"Tutto quello che vuoi sapere.",
+      "faq.q1":"Savoria è gratuita?",
+      "faq.a1":"Sì. Savoria è disponibile gratuitamente su Google Play durante la fase di test aperto.",
+      "faq.q2":"Posso importare una ricetta da Instagram, TikTok o YouTube?",
+      "faq.a2":"Sì. Incolla il link o condividi il post con Savoria: il Chef IA recupera la ricetta e la struttura in automatico, anche da un video.",
+      "faq.q3":"Savoria adatta le ricette al mio forno e al mio piano cottura?",
+      "faq.a3":"Sì. Configuri la tua attrezzatura una volta sola (forno, piano cottura, friggitrice ad aria, robot da cucina) e Savoria adatta i passaggi di cottura a quello che hai davvero.",
+      "faq.q8":"Posso chiedere una modifica su una ricetta che ho già?",
+      "faq.a8":"Sì. Su qualsiasi ricetta del tuo ricettario, chiedi al Chef IA in linguaggio naturale: «rendila vegetariana», «senza forno», «meno salata». Prima ti mostra cosa cambierebbe, poi applichi con un tocco e puoi annullare. Gli ingredienti che non hai nominato non vengono mai modificati, e puoi tenere l'originale accanto alla nuova versione.",
+      "faq.q4":"Posso importare una ricetta da una foto o da un PDF?",
+      "faq.a4":"Sì. Fotografa una ricetta scritta a mano o la pagina di un libro, oppure importa un PDF: Savoria ne estrae ingredienti e passaggi.",
+      "faq.q5":"Su quali piattaforme è disponibile Savoria?",
+      "faq.a5":"Savoria è disponibile su Android tramite Google Play. Una versione iOS è allo studio.",
+      "faq.q6":"Come funziona la modalità cucina?",
+      "faq.a6":"La modalità cucina mostra la ricetta passo dopo passo, con timer per ogni passaggio, il richiamo degli ingredienti e un assistente IA che conosce la ricetta in corso.",
+      "faq.q7":"Perché adattare una ricetta alla mia cucina?",
+      "faq.a7":"Ogni apparecchio cuoce in modo diverso: un forno, un piano a induzione, una friggitrice ad aria o un robot da cucina non hanno né la stessa potenza né le stesse regolazioni da un modello all'altro. Una ricetta scritta per un'altra attrezzatura può non riuscire a casa tua. Savoria riscrive tempi, temperature e regolazioni per quello che hai davvero — così riesce al primo colpo.",
+      "col.legal":'<h5>Informazioni legali</h5><a href="privacy.html">Informativa sulla privacy</a><a href="terms.html">Condizioni d\'uso</a><a href="mentions-legales.html">Note legali</a>',
+      "col.help":'<h5>Account e assistenza</h5><a href="https://forms.gle/Kn7SL6Qa2NLKJP5JA">Elimina il mio account</a><a href="mailto:savoriaapp@gmail.com">Contattaci</a>',
+      "f.tagline":"Il tuo assistente di cucina personale, con l'IA. Su Google Play.",
+      "f.copy":"© 2026 Savoria",
+      "f.made":"Realizzata con cura in Francia.",
+      "f.editor":'Pubblicata da JEYLAB (SARL) · <a href="mentions-legales.html">Note legali</a>'
+    },
+
+    es: {
+      "nav.soon":"En Google Play",
+      "hero.eyebrow":"Tu cocina, tus reglas.",
+      "hero.title":"Reúne todas tus recetas,<br>Savoria las adapta a tu cocina.",
+      "hero.lead":"Un enlace, la foto de tu cuaderno de recetas, un PDF o un vídeo de Instagram, TikTok o YouTube: el Chef IA lo convierte en una ficha de receta limpia, <strong>adaptada a tu equipamiento</strong>. Y después te guía paso a paso.",
+      "phone.alt":"Ficha de receta de Savoria con los pasos de cocción adaptados al horno del usuario",
+      "phone.src":"screens/es/05_equipment.png",
+      "badge.soon":"Muy pronto en",
+      "badge.avail":"Disponible en",
+      "badge.gplaySrc":"badges/gplay-es.svg",
+      "badge.appstoreSrc":"badges/appstore-es.svg",
+      "badge.gplayAlt":"Disponible en Google Play",
+      "badge.soontag":"Muy pronto",
+      "hero.cta":"Descubre las funciones →",
+      "phone.title":"Ternera con zanahorias",
+      "phone.serv":"4 raciones",
+      "phone.tab1":"Ingredientes",
+      "phone.tab2":"Elaboración",
+      "phone.tab3":"Notas",
+      "phone.i1":"Ternera para guisar",
+      "phone.i2":"Zanahorias",
+      "phone.i3":"Cebolla",
+      "phone.i4":"Caldo de verduras",
+      "phone.cook":"Cocinar",
+      "feat.eyebrow":"Todo lo que necesitas",
+      "feat.title":"Una sola app, de la nevera al plato.",
+      "feat.sub":"Cada paso en la cocina, asistido por la IA — pensado para ahorrarte tiempo sin renunciar al sabor.",
+      "f1.t":"Importa de donde sea",
+      "f1.p":"Un enlace, la foto de tu cuaderno de recetas, un PDF, un vídeo de Instagram, TikTok o YouTube — Savoria lo convierte en una ficha limpia y estructurada, <strong>incluso desde otro idioma</strong>.",
+      "fkit.t":"Hecha a la medida de tu cocina",
+      "fkit.p":"No hay dos hornos que cocinen igual. Configura tu equipamiento y Savoria reescribe tiempos y ajustes <strong>para lo que tienes de verdad</strong>, para que el plato salga a la primera. Se acabó el «programa la Thermomix» cuando no tienes una.",
+      "f2.t":"Un chef IA en el bolsillo",
+      "f2.p":"Ideas a partir de lo que te queda en la nevera, una receta adaptada a tu dieta, un ingrediente sustituido — y la conversación <strong>se convierte en una receta guardada</strong>.",
+      "fmod.t":"Tu receta, como tú quieras",
+      "fmod.p":"«Hazla vegetariana», «sin horno», «menos salada»: basta con pedirlo, y el Chef IA te enseña <strong>lo que cambiaría</strong> antes de seguir. Lo que no has pedido se queda como estaba — y puedes quedarte con las dos versiones.",
+      "f3.t":"Modo cocina paso a paso",
+      "f3.p":"Pasos a pantalla completa, ingredientes recordados en el momento justo, temporizadores que suenan <strong>aunque cierres la app o bloquees el móvil</strong>.",
+      "f4.t":"Lista de la compra",
+      "f4.p":"Escribe a tu aire: Savoria <strong>ordena por secciones</strong>, junta los duplicados y convierte las cantidades.",
+      "f6.t":"Compartir en tiempo real",
+      "f6.p":"Recetas, listas de la compra y joyas gastronómicas compartidas <strong>al instante</strong> con tu gente.",
+      "gal.eyebrow":"Un aperitivo",
+      "gal.title":"La app de un vistazo.",
+      "gal.hint":"Desliza para verlas →",
+      "gal.a1":"El recetario del usuario en Savoria",
+      "gal.a2":"Importación de una receta escrita a mano fotografiada en Savoria",
+      "gal.a3":"El Chef IA de Savoria propone ideas de recetas",
+      "gal.a4":"Modo cocina paso a paso con temporizador en Savoria",
+      "gal.a5":"Lista de la compra ordenada por secciones en Savoria",
+      "gal.s1":"screens/es/02_collection.png",
+      "gal.s2":"screens/es/01_import.png",
+      "gal.s3":"screens/es/03_inspiration.png",
+      "gal.s4":"screens/es/04_cooking.png",
+      "gal.s5":"screens/es/06_shopping.png",
+      "faq.eyebrow":"Preguntas frecuentes",
+      "faq.title":"Todo lo que quieres saber.",
+      "faq.q1":"¿Savoria es gratis?",
+      "faq.a1":"Sí. Savoria está disponible gratis en Google Play durante la fase de prueba abierta.",
+      "faq.q2":"¿Puedo importar una receta de Instagram, TikTok o YouTube?",
+      "faq.a2":"Sí. Pega el enlace o comparte la publicación con Savoria: el Chef IA recupera la receta y la estructura automáticamente, incluso desde un vídeo.",
+      "faq.q3":"¿Savoria adapta las recetas a mi horno y a mi placa?",
+      "faq.a3":"Sí. Configuras tu equipamiento una sola vez (horno, placa, freidora de aire, robot de cocina) y Savoria adapta los pasos de cocción a lo que tienes de verdad.",
+      "faq.q8":"¿Puedo pedir un cambio en una receta que ya tengo?",
+      "faq.a8":"Sí. En cualquier receta de tu recetario, pídeselo al Chef IA en lenguaje natural: «hazla vegetariana», «sin horno», «menos salada». Primero te enseña lo que cambiaría, luego lo aplicas con un toque y puedes deshacerlo. Los ingredientes que no has nombrado nunca se tocan, y puedes quedarte con la original junto a la nueva versión.",
+      "faq.q4":"¿Puedo importar una receta desde una foto o un PDF?",
+      "faq.a4":"Sí. Fotografía una receta escrita a mano o la página de un libro, o importa un PDF: Savoria extrae los ingredientes y los pasos.",
+      "faq.q5":"¿En qué plataformas está disponible Savoria?",
+      "faq.a5":"Savoria está disponible en Android a través de Google Play. Una versión para iOS está en estudio.",
+      "faq.q6":"¿Cómo funciona el modo cocina?",
+      "faq.a6":"El modo cocina muestra la receta paso a paso, con temporizadores para cada paso, el recordatorio de los ingredientes y un asistente de IA que conoce la receta en curso.",
+      "faq.q7":"¿Por qué adaptar una receta a mi cocina?",
+      "faq.a7":"Cada aparato cocina de una forma distinta: un horno, una placa de inducción, una freidora de aire o un robot de cocina no tienen ni la misma potencia ni los mismos ajustes de un modelo a otro. Una receta escrita para otro equipamiento puede no salir en tu casa. Savoria reescribe tiempos, temperaturas y ajustes para lo que tienes de verdad — así sale a la primera.",
+      "col.legal":'<h5>Información legal</h5><a href="privacy.html">Política de privacidad</a><a href="terms.html">Condiciones de uso</a><a href="mentions-legales.html">Aviso legal</a>',
+      "col.help":'<h5>Cuenta y ayuda</h5><a href="https://forms.gle/Kn7SL6Qa2NLKJP5JA">Eliminar mi cuenta</a><a href="mailto:savoriaapp@gmail.com">Contáctanos</a>',
+      "f.tagline":"Tu asistente de cocina personal, con IA. En Google Play.",
+      "f.copy":"© 2026 Savoria",
+      "f.made":"Hecha con mimo en Francia.",
+      "f.editor":'Publicada por JEYLAB (SARL) · <a href="mentions-legales.html">Aviso legal</a>'
     }
   };
   const nodes = [...document.querySelectorAll('[data-i18n],[data-i18n-html]')];
@@ -559,11 +846,16 @@
   altNodes.forEach(el => { el._altSrc = el.getAttribute('alt') || ''; });
   const srcNodes = [...document.querySelectorAll('[data-i18n-src]')];
   srcNodes.forEach(el => { el._srcSrc = el.getAttribute('src') || ''; });
-  // Registre de langues extensible (miroir de l'app : ajouter une langue = données, pas de logique).
-  // Pour ajouter DE : pousser 'de' dans LANGS + un dico I18N.de + une ligne hreflang dans <head>.
-  // FR = langue de BASE (texte écrit dans le HTML) et fallback ultime si une clé manque.
-  const LANGS = ['fr', 'en'];
-  const LABELS = { fr: 'Français', en: 'English', de: 'Deutsch' };
+  // Registre de langues DÉRIVÉ du dico — jamais une liste écrite à la main.
+  // ⚠️ C'était `const LANGS = ['fr','en']` : ajouter le bloc I18N.it ne suffisait pas, `setLang('it')`
+  // retombait sur le français et la page /it/ sortait avec un <title> italien et un CORPS FRANÇAIS
+  // (bug réel du 29/07/2026 — la 6ᵉ occurrence de cette même cause dans le projet).
+  // FR = langue de BASE (texte écrit en dur dans le HTML) donc absente du dico : on la remet en tête.
+  // Ajouter une langue = un bloc dans I18N + son libellé ci-dessous. Rien d'autre.
+  const LANGS = ['fr'].concat(Object.keys(I18N).filter(l => l !== 'fr'));
+  // ⚠️ Une entrée par langue de LANGS. Sans la sienne, le sélecteur affiche le CODE brut au lieu de
+  // l'autonyme — c'était déjà le cas de l'italien, personne ne l'a vu (le repli est silencieux).
+  const LABELS = { fr: 'Français', en: 'English', de: 'Deutsch', it: 'Italiano', es: 'Español' };
   const BASE = LANGS[0];
   const tr = (lang, key, base) =>
     lang === BASE ? base : ((I18N[lang] && I18N[lang][key] != null) ? I18N[lang][key] : base);
@@ -577,18 +869,37 @@
     });
     altNodes.forEach(el => el.setAttribute('alt', tr(lang, el.getAttribute('data-i18n-alt'), el._altSrc)));
     srcNodes.forEach(el => el.setAttribute('src', tr(lang, el.getAttribute('data-i18n-src'), el._srcSrc)));
-    const next = LANGS[(LANGS.indexOf(lang) + 1) % LANGS.length];
-    document.getElementById('langToggle').textContent = LABELS[next] || next;
+    document.getElementById('langSelLabel').textContent = LABELS[lang] || lang;
+    document.getElementById('langSelCode').textContent = lang.toUpperCase();
+    sel.querySelectorAll('a[data-lang]').forEach(a => {
+      const on = a.getAttribute('data-lang') === lang;
+      if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+    });
     try { localStorage.setItem('savoria_lang', lang); } catch(e) {}
   }
+  // Menu construit depuis LANGS (aucune liste en dur dans le HTML) — aperçu de dev : les liens
+  // rebasculent la langue en place. Le site PUBLIÉ, lui, reçoit de vrais <a href="/xx/"> par
+  // `lang_selector()` de build_i18n.py, donc il reste crawlable et fonctionnel sans JS.
+  const sel = document.getElementById('langSel');
+  document.getElementById('langSelMenu').innerHTML = LANGS
+    .map(l => `<a href="?lang=${l}" data-lang="${l}" lang="${l}">${LABELS[l] || l}</a>`).join('');
+  sel.addEventListener('click', (e) => {
+    const a = e.target.closest('a[data-lang]');
+    if (!a) return;
+    e.preventDefault();
+    setLang(a.getAttribute('data-lang'));
+    sel.open = false;
+  });
+  // Confort ajouté par JS seulement : le natif ne ferme pas au clic extérieur ni à Échap.
+  document.addEventListener('click', (e) => { if (sel.open && !sel.contains(e.target)) sel.open = false; });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && sel.open) { sel.open = false; sel.querySelector('summary').focus(); }
+  });
+
   const stored = (() => { try { return localStorage.getItem('savoria_lang'); } catch(e) { return null; } })();
   const param = new URLSearchParams(location.search).get('lang');
   const browser = LANGS.filter(l => (navigator.language || '').toLowerCase().indexOf(l) === 0)[0];
   setLang([stored, param, browser].filter(l => LANGS.indexOf(l) >= 0)[0] || BASE);
-  // Le bouton fait défiler les langues (toggle à 2, cycle fr→en→de… à N).
-  document.getElementById('langToggle').addEventListener('click', () => {
-    setLang(LANGS[(LANGS.indexOf(document.documentElement.lang) + 1) % LANGS.length]);
-  });
 
   const hdr = document.getElementById('hdr');
   const onScroll = () => hdr.classList.toggle('scrolled', window.scrollY > 8);

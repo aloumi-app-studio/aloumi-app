@@ -8,6 +8,9 @@
 <link rel="canonical" href="https://savoria.jeylab.fr/fr/terms/">
 <link rel="alternate" hreflang="fr" href="https://savoria.jeylab.fr/fr/terms/">
 <link rel="alternate" hreflang="en" href="https://savoria.jeylab.fr/en/terms/">
+<link rel="alternate" hreflang="de" href="https://savoria.jeylab.fr/de/terms/">
+<link rel="alternate" hreflang="it" href="https://savoria.jeylab.fr/it/terms/">
+<link rel="alternate" hreflang="es" href="https://savoria.jeylab.fr/es/terms/">
 <link rel="alternate" hreflang="x-default" href="https://savoria.jeylab.fr/fr/terms/">
 <style>
 
@@ -38,7 +41,9 @@
   .eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
   h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.022em;line-height:1.08}
 
-  header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.4) blur(12px);
+  /* -webkit- AVANT le standard : Safari ≤ 17 ne connaît que la forme préfixée (l'unpréfixée n'arrive
+     qu'en Safari 18) — sans elle, l'en-tête perd son effet de verre dépoli sur iPhone et macOS. */
+  header{position:sticky;top:0;z-index:50;-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);
     background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid transparent;transition:border-color .3s}
   header.scrolled{border-color:var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
@@ -47,8 +52,36 @@
   .nav .brand svg{width:45px;height:45px}                  /* header — logo mis en avant, collé au mot */
   .nav .brand{gap:8px}
   .nav-right{display:flex;align-items:center;gap:18px;font-size:.9rem}
-  .lang{color:var(--muted);font-weight:600;cursor:pointer;background:none;border:0;font-family:inherit;font-size:.9rem}
-  .lang:hover{color:var(--ink)}
+  /* Sélecteur de langue — `<details>` NATIF, volontairement pas un composant JS :
+     le site est statique et servi par GitHub Pages, donc (1) les liens doivent rester de vrais
+     <a href> crawlables, (2) la page doit rester utilisable sans JS. Le natif donne en prime le
+     clavier (Entrée/Espace/Échap) et la sémantique ARIA. Le JS n'ajoute que le confort (fermeture
+     au clic extérieur / Échap). Remplace le bouton qui CYCLAIT vers la langue suivante : passable
+     à 2 langues, absurde à 5 (jusqu'à 4 taps, et on ne voit jamais la liste). */
+  .langsel{position:relative}
+  .langsel>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;
+    color:var(--muted);font-weight:600;font-size:.9rem;padding:8px 10px;border-radius:999px;
+    transition:color .2s,background .2s}
+  .langsel>summary::-webkit-details-marker{display:none}
+  .langsel>summary:hover{color:var(--ink);background:color-mix(in srgb,var(--ink) 6%,transparent)}
+  .langsel>summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .langsel .globe{width:16px;height:16px;flex:none}
+  .langsel .chev{width:11px;height:11px;flex:none;transition:transform .2s}
+  .langsel[open] .chev{transform:rotate(180deg)}
+  .langsel-code{display:none}
+  .langsel-menu{position:absolute;right:0;top:calc(100% + 8px);z-index:60;min-width:180px;padding:6px;
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-lift)}
+  .langsel-menu a{display:flex;align-items:center;justify-content:space-between;gap:14px;
+    padding:9px 12px;border-radius:9px;color:var(--ink);font-size:.9rem;font-weight:500;white-space:nowrap}
+  .langsel-menu a:hover{background:color-mix(in srgb,var(--accent) 12%,transparent)}
+  .langsel-menu a[aria-current]{font-weight:700;color:var(--accent)}
+  .langsel-menu a[aria-current]::after{content:"✓";font-size:.85rem}
+  /* Sur petit écran, l'autonyme complet pousse le bouton Play hors de la barre : on garde le
+     CODE (« ES »), qui reste informatif — contrairement à un globe seul. */
+  @media (max-width:560px){
+    .langsel-full{display:none}
+    .langsel-code{display:inline}
+  }
   .badge-play{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);
     padding:9px 16px;border-radius:999px;font-weight:600;font-size:.85rem;box-shadow:var(--shadow);transition:transform .2s}
   .badge-play:hover{transform:translateY(-1px)}
@@ -100,7 +133,7 @@
   .sc-hero .plate{position:absolute;right:-14px;bottom:-14px;width:116px;height:116px;border-radius:50%;
     background:radial-gradient(circle at 38% 32%,#e9b877,#a75f2c 70%);box-shadow:inset 0 -10px 24px rgba(0,0,0,.25);opacity:.92}
   .sc-back{position:absolute;top:12px;left:12px;z-index:3;width:30px;height:30px;border-radius:50%;
-    background:rgba(20,12,6,.32);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;color:#fff}
+    background:rgba(20,12,6,.32);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;color:#fff}
   .sc-back svg{width:15px;height:15px}
   .sc-title{position:absolute;left:16px;bottom:14px;right:16px;z-index:2;color:#fff}
   .sc-title h4{font-family:var(--display);font-size:1.16rem;font-weight:800;letter-spacing:-.01em;line-height:1.12;text-shadow:0 1px 8px rgba(0,0,0,.3)}
@@ -175,7 +208,11 @@
   .faq-item[open] summary::after{transform:rotate(45deg)}
   .faq-item .ans{padding:0 22px 20px;color:var(--muted);font-size:.98rem}
 
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  /* ⚠️ SCOPÉ À `.js` — l'animation d'apparition ne doit JAMAIS pouvoir cacher le contenu.
+     Avant : `.reveal{opacity:0}` inconditionnel + JS qui ajoute `.in` → sans JavaScript (ou si
+     IntersectionObserver échoue), TOUTE la page restait invisible. La classe `js` est posée en tête
+     de <head> : si le script ne tourne pas, la règle ne s'applique pas et le texte s'affiche. */
+  .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1;transform:none}
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
 
@@ -223,7 +260,7 @@
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="savoria-logo" viewBox="0 0 1024 1024"><path fill="currentColor" opacity="1.000000" stroke="none" d=" M369.480865,590.545288 C328.355408,609.643250 293.722137,636.730713 263.991699,671.354492 C261.989166,667.853943 262.104797,665.051453 262.081268,662.343567 C261.926331,644.512756 261.890289,626.680786 261.701599,608.850403 C261.468872,586.857727 261.237427,564.863770 260.741943,542.876221 C260.633240,538.053650 262.186310,536.717896 266.978058,536.628723 C334.667572,535.368835 384.147522,503.151733 419.201477,446.616577 C424.669159,437.798340 428.689697,428.283081 432.564178,418.703644 C433.353912,416.751068 434.443695,414.775208 433.268097,411.637390 C428.514343,417.228790 424.243500,422.601288 419.612488,427.642975 C387.950012,462.113159 350.637207,487.706421 304.908752,499.758301 C273.243958,508.103638 241.863235,507.708008 211.525085,494.356323 C170.906113,476.480133 145.133545,445.468475 134.007416,402.750793 C116.066238,333.867462 154.797073,263.950134 222.574448,242.120148 C244.239532,235.142166 266.339142,234.404816 288.675751,238.703781 C292.789032,239.495453 292.656982,242.049820 292.168243,244.978729 C290.240326,256.532990 289.741333,268.181274 290.337585,279.839050 C291.641266,305.327576 299.211700,328.846985 313.251312,350.215942 C314.036346,351.410858 314.631561,352.876190 316.486145,353.589020 C317.436371,349.774200 315.782928,346.380035 315.175873,342.934937 C305.151215,286.043732 318.689423,235.982178 359.933258,194.938675 C384.060638,170.928497 413.795593,157.385849 448.058502,154.603638 C502.553284,150.178543 545.090881,171.979691 578.544006,213.898514 C581.447632,217.536880 580.834900,219.708389 577.181213,222.306671 C552.965942,239.527359 533.595520,260.903259 521.582825,288.392761 C519.120056,294.028595 517.133484,299.872986 514.944153,305.627594 C514.347290,307.196381 513.919556,308.794952 514.693909,310.684784 C517.216248,310.906799 517.821533,308.656952 518.894226,307.215973 C545.939270,270.885132 580.796509,246.601868 625.817444,238.222366 C685.974976,227.025620 747.841858,258.433441 772.081421,312.244720 C773.777588,316.010132 773.176086,318.222748 770.161438,320.789642 C752.151978,336.124176 734.028259,351.337769 716.396118,367.099030 C688.825806,391.744080 661.451294,416.614197 634.297852,441.717865 C602.736633,470.896576 571.611755,500.546967 540.092773,529.771790 C515.667908,552.418640 486.343109,564.364075 453.499969,568.342529 C424.605774,571.842468 396.504730,578.441711 369.480865,590.545288 z"/><path fill="currentColor" opacity="1.000000" stroke="none" d=" M419.290314,855.433044 C399.658264,863.679626 379.742157,869.421509 358.923126,871.862366 C337.176514,874.411865 315.635254,873.992554 294.925385,866.047607 C266.459778,855.127258 250.709564,833.991272 246.713318,803.985901 C242.918884,775.495605 251.220566,749.601013 264.582397,725.020447 C282.538818,691.987549 308.544464,666.260254 338.799011,644.494080 C369.766541,622.214905 404.174988,608.229919 441.732330,601.988403 C454.510498,599.864929 467.512451,599.200500 480.188477,596.321655 C509.959534,589.559998 535.973999,575.563232 558.300964,554.918884 C589.734680,525.853882 620.733032,496.317932 652.163391,467.249176 C703.165222,420.079376 754.046875,372.744873 809.755249,331.028717 C821.454041,322.268250 832.989990,313.014465 847.119690,308.194000 C855.415833,305.363739 863.957153,304.010529 872.655212,306.113007 C889.217163,310.116302 899.278809,326.940125 895.788086,344.383148 C892.480591,360.910431 882.749573,373.061890 869.280212,382.293701 C845.650330,398.489380 821.797913,414.362488 797.947449,430.233612 C748.984680,462.815552 700.595886,496.213715 654.138794,532.308411 C635.466675,546.815674 616.919250,561.523682 599.486938,577.542053 C573.022278,601.860291 558.671509,631.797913 558.263672,667.974060 C557.623352,724.786011 534.252319,770.794312 492.205688,808.074402 C470.362488,827.441345 446.537567,843.709961 419.290314,855.433044 M305.090118,730.557800 C303.823120,732.514587 302.467712,734.420288 301.302826,736.436096 C290.156372,755.724976 281.632660,775.764771 284.300201,798.793518 C285.701935,810.894470 291.326263,820.461243 301.883972,826.945190 C317.699554,836.658203 335.195435,836.982849 352.709320,835.276428 C378.086334,832.804077 401.638977,824.111389 423.691681,811.529480 C457.556793,792.208008 486.073792,767.190918 505.251495,732.673767 C514.109009,716.731384 520.224365,699.817688 518.649658,681.237244 C517.096069,662.906982 508.558075,649.093628 490.649933,642.237610 C474.528442,636.065552 457.911102,636.309143 441.475800,639.699463 C384.129944,651.528870 339.396332,682.661438 305.090118,730.557800 z"/><path fill="currentColor" opacity="1.000000" stroke="none" d=" M654.842651,571.818604 C659.087097,568.438721 663.058716,565.284241 666.964661,562.181946 C668.779358,563.793518 668.258057,565.385803 668.301453,566.798279 C669.279663,598.591736 669.126648,630.397156 669.341492,662.199524 C669.516968,688.171692 669.967407,714.141907 670.255554,740.113403 C670.336182,747.379028 670.270508,747.372681 663.271790,747.369812 C635.126831,747.358093 606.981873,747.357178 578.836914,747.328186 C577.037476,747.326355 575.159973,747.702148 573.506226,746.653442 C572.772644,745.220764 573.534119,744.023560 574.085083,742.844910 C583.828369,722.000122 587.294067,699.783630 588.849792,677.074219 C589.620667,665.822083 589.811707,654.488220 592.751282,643.440735 C597.458252,625.751221 607.221191,611.436768 621.142151,599.803162 C632.255798,590.515564 643.425171,581.294617 654.842651,571.818604 z"/></symbol></svg>
-<header id="hdr"><div class="wrap nav"><a class="brand" href="/fr/" aria-label="Savoria"><svg class="brand-mark" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#savoria-logo"></use></svg> Savoria</a><nav class="nav-right"><a class="lang" href="/en/terms/">English</a><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.savoria.app" target="_blank" rel="noopener">Sur Google Play</a></nav></div></header>
+<header id="hdr"><div class="wrap nav"><a class="brand" href="/fr/" aria-label="Savoria"><svg class="brand-mark" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#savoria-logo"></use></svg> Savoria</a><nav class="nav-right"><details class="langsel"><summary aria-label="Langue"><svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span class="langsel-full">Français</span><span class="langsel-code">FR</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="langsel-menu"><a href="/fr/terms/" lang="fr" hreflang="fr" aria-current="true">Français</a><a href="/en/terms/" lang="en" hreflang="en">English</a><a href="/de/terms/" lang="de" hreflang="de">Deutsch</a><a href="/it/terms/" lang="it" hreflang="it">Italiano</a><a href="/es/terms/" lang="es" hreflang="es">Español</a></div></details><a class="badge-play" href="https://play.google.com/store/apps/details?id=com.savoria.app" target="_blank" rel="noopener">Sur Google Play</a></nav></div></header>
 <main class="legal">
 <div class="wrap">
 <h1>Conditions générales d'utilisation</h1>
@@ -326,6 +363,6 @@
     <p class="f-mini" data-i18n-html="f.editor">Édité par JEYLAB (SARL) · <a href="/fr/legal-notice/">Mentions légales</a></p>
   </div>
 </footer>
-<script>var h=document.getElementById('hdr');var s=function(){h&&h.classList.toggle('scrolled',scrollY>8)};s();addEventListener('scroll',s,{passive:true});</script>
+<script>var h=document.getElementById('hdr');var s=function(){h&&h.classList.toggle('scrolled',scrollY>8)};s();addEventListener('scroll',s,{passive:true});</script><script>(function(){var s=document.querySelector('.langsel');if(!s)return;document.addEventListener('click',function(e){if(s.open&&!s.contains(e.target))s.open=false;});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&s.open){s.open=false;s.querySelector('summary').focus();}});})();</script>
 </body>
 </html>
