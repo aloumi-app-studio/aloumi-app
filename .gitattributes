@@ -1,3 +1,7 @@
+# Ce fichier voyage AVEC site/ vers le dépôt public (aloumi-app-studio/aloumi-app).
+# Sans lui, une republication depuis une machine en core.autocrlf=true réécrit les 81
+# fichiers en CRLF : le diff devient illisible et la moindre relecture de bascule
+# (« qu'est-ce qui a vraiment changé ? ») est impossible. Même leçon que .nojekyll.
 * text=auto eol=lf
 *.png -text
 *.jpg -text
