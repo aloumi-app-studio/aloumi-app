@@ -416,6 +416,16 @@ def post_process_landing(dom, lang):
                f'<meta name="twitter:title" content="{esc(m["title"])}">', h)
     h = re.sub(r'<meta[^>]*name="twitter:description"[^>]*>',
                f'<meta name="twitter:description" content="{esc(m["ogdesc"])}">', h)
+    # La carte de partage est la SEULE surface du site où l'image porte du TEXTE : « Aloumi »,
+    # le slogan et la phrase de résumé y sont DESSINÉS. Elle se localise donc comme un texte,
+    # sinon un partage depuis la page allemande affiche une accroche en français. Un seul
+    # fichier par langue, dérivé de store/feature_graphic_<lang>.png — il n'existe pas de
+    # og-image.png sans suffixe : un fichier par défaut que plus personne ne référence est
+    # exactement ce qui a laissé la bannière Savoria en ligne après le rebranding.
+    h = re.sub(r'<meta[^>]*property="og:image"(?![:])[^>]*>',
+               f'<meta property="og:image" content="{BASE}/og-image-{lang}.png">', h)
+    h = re.sub(r'<meta[^>]*name="twitter:image"[^>]*>',
+               f'<meta name="twitter:image" content="{BASE}/og-image-{lang}.png">', h)
     # canonical auto-référent + hreflang (retire tous les alternate hreflang existants, réinjecte)
     h = re.sub(r'<link[^>]*rel="canonical"[^>]*>',
                f'<link rel="canonical" href="{BASE}/{lang}/">', h)
@@ -446,6 +456,16 @@ def post_process_landing(dom, lang):
                          "il resterait dans la page publiée en référençant des ids supprimés")
     # 6) chemins d'assets relatifs -> root-absolute (badges/, screens/, icon-512.png…)
     h = re.sub(r'(href|src)="(?!https?://|/|#|mailto:|tel:|data:)', r'\1="/', h)
+    # 7) fige l'unique bloc `.reveal` (le hero) à l'état RÉVÉLÉ.
+    # ⚠️ Sans ça le générateur n'est PAS idempotent, contrairement à ce qu'annonce son en-tête :
+    # `.in` est posé par l'IntersectionObserver, donc `--dump-dom` capture tantôt `reveal`,
+    # tantôt `reveal in` selon que l'observer a eu le temps de tourner. Constaté le 30/08/2026 —
+    # une régénération qui ne changeait QUE l'og:image a fait basculer le français seul, et une
+    # page aurait été publiée avec un comportement différent des quatre autres, sans que rien
+    # ne le signale. On fige à `in` (l'état déjà publié) plutôt qu'à `reveal` : le hero porte le
+    # <h1> au-dessus de la ligne de flottaison, le peindre tout de suite vaut mieux que le
+    # laisser à opacity 0 en attendant le JS. Un seul élément est concerné — rien à animer.
+    h = re.sub(r'class="reveal(?! in)"', 'class="reveal in"', h)
     return "<!DOCTYPE html>\n" + h.lstrip()
 
 
