@@ -41,23 +41,16 @@
   .eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
   h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.022em;line-height:1.08}
 
-  /* -webkit- AVANT le standard : Safari ≤ 17 ne connaît que la forme préfixée (l'unpréfixée n'arrive
-     qu'en Safari 18) — sans elle, l'en-tête perd son effet de verre dépoli sur iPhone et macOS. */
   header{position:sticky;top:0;z-index:50;-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);
     background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid transparent;transition:border-color .3s}
   header.scrolled{border-color:var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
   .brand{display:flex;align-items:center;gap:9px;font-family:var(--display);font-size:1.3rem;font-weight:800;letter-spacing:-.02em}
-  .brand svg{width:28px;height:28px;color:var(--ink)}      /* footer */
-  .nav .brand svg{width:45px;height:45px}                  /* header — logo mis en avant, collé au mot */
+  .brand svg{width:28px;height:28px;color:var(--ink)}
+  .nav .brand svg{width:45px;height:45px}
   .nav .brand{gap:8px}
   .nav-right{display:flex;align-items:center;gap:18px;font-size:.9rem}
-  /* Sélecteur de langue — `<details>` NATIF, volontairement pas un composant JS :
-     le site est statique et servi par GitHub Pages, donc (1) les liens doivent rester de vrais
-     <a href> crawlables, (2) la page doit rester utilisable sans JS. Le natif donne en prime le
-     clavier (Entrée/Espace/Échap) et la sémantique ARIA. Le JS n'ajoute que le confort (fermeture
-     au clic extérieur / Échap). Remplace le bouton qui CYCLAIT vers la langue suivante : passable
-     à 2 langues, absurde à 5 (jusqu'à 4 taps, et on ne voit jamais la liste). */
+
   .langsel{position:relative}
   .langsel>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;
     color:var(--muted);font-weight:600;font-size:.9rem;padding:8px 10px;border-radius:999px;
@@ -76,8 +69,7 @@
   .langsel-menu a:hover{background:color-mix(in srgb,var(--accent) 12%,transparent)}
   .langsel-menu a[aria-current]{font-weight:700;color:var(--accent)}
   .langsel-menu a[aria-current]::after{content:"✓";font-size:.85rem}
-  /* Sur petit écran, l'autonyme complet pousse le bouton Play hors de la barre : on garde le
-     CODE (« ES »), qui reste informatif — contrairement à un globe seul. */
+
   @media (max-width:560px){
     .langsel-full{display:none}
     .langsel-code{display:inline}
@@ -102,11 +94,7 @@
   .badge-store{position:relative;display:inline-flex;transition:transform .2s}
   .badge-store.live:hover{transform:translateY(-2px)}
   .badge-store.soon{opacity:.5;pointer-events:none}
-  /* Badges : SVG officiels Google Play (gplay-fr/en.svg) + App Store (appstore-fr/en.svg).
-     Les SVG Google Play « Web_color » remplissent exactement leur viewBox (0 marge, ratio 3.37) →
-     à hauteur CSS égale les deux boîtes s'alignent, sans détourage. ⚠️ Garder du SVG (net + pas
-     de marge transparente bakée) ; ne pas revenir aux PNG Google Play officiels (marge ~20 % qui
-     casse l'alignement). */
+
   .badge-gplay img{height:50px;width:auto;display:block}
   .badge-apple img{height:50px;width:auto;display:block}
   .soon-tag{position:absolute;top:-7px;right:-7px;background:var(--accent);color:#fff;font-size:.56rem;
@@ -166,8 +154,7 @@
   .head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:14px}
   .head p{color:var(--muted);font-size:1.08rem}
   .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  /* Nombre de cartes non multiple de 3 : la dernière, seule sur sa ligne, se centre au lieu
-     de pendre à gauche. Se désactive avec la grille 3 colonnes (voir @media 860px). */
+
   .feat:last-child:nth-child(3n+1){grid-column:2}
   .feat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px;
     box-shadow:var(--shadow);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
@@ -208,10 +195,6 @@
   .faq-item[open] summary::after{transform:rotate(45deg)}
   .faq-item .ans{padding:0 22px 20px;color:var(--muted);font-size:.98rem}
 
-  /* ⚠️ SCOPÉ À `.js` — l'animation d'apparition ne doit JAMAIS pouvoir cacher le contenu.
-     Avant : `.reveal{opacity:0}` inconditionnel + JS qui ajoute `.in` → sans JavaScript (ou si
-     IntersectionObserver échoue), TOUTE la page restait invisible. La classe `js` est posée en tête
-     de <head> : si le script ne tourne pas, la règle ne s'applique pas et le texte s'affiche. */
   .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1;transform:none}
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
@@ -220,7 +203,7 @@
     .hero-grid{grid-template-columns:1fr;gap:36px;text-align:center}
     .hero p.lead{margin-left:auto;margin-right:auto}
     .cta{justify-content:center;flex-direction:column}
-    /* badges centrés : côte à côte s'ils tiennent, empilés-centrés sinon (jamais rétrécis) */
+
     .badges{justify-content:center;width:100%}
     .features{grid-template-columns:1fr 1fr}
     .feat:last-child:nth-child(3n+1){grid-column:auto}
