@@ -33,7 +33,7 @@ import i18n_loader as i18n  # noqa: E402  (chemin posé juste au-dessus)
 LANGS = i18n.LANGS               # ordre = ordre d'affichage dans le sélecteur de langue
 LANG_LABEL = {"fr": "Français", "en": "English", "de": "Deutsch", "it": "Italiano", "es": "Español"}
 OG_LOCALE = {"fr": "fr_FR", "en": "en_US", "de": "de_DE", "it": "it_IT", "es": "es_ES"}
-X_DEFAULT = "fr"               # langue du hreflang x-default (marché principal)
+X_DEFAULT = "en"               # langue servie à qui ne matche AUCUNE des cinq — voir default_for()
 TEMPLATE = "_src/landing.html"   # template source (hors pages servies, disallow robots)
 LEGAL = {                        # slug unifié -> source bilingue (blocs data-lang)
     "privacy": "_src/privacy.html",
@@ -355,11 +355,18 @@ def langs_for(page=""):
 def default_for(page=""):
     """Langue du `x-default` (et du repli sans JS) pour CETTE page.
 
-    Page disponible partout (le landing) → politique du site (`X_DEFAULT`, le marché principal).
-    Page à couverture PARTIELLE (le légal) → `LEGAL_FALLBACK` (anglais) : c'est la langue qui sera
-    servie à un visiteur dont la langue n'existe pas encore (allemand, italien…), et l'anglais lui
-    est plus lisible que le français. Le visiteur francophone, lui, est de toute façon apparié
-    directement sur `/fr/` par la négociation — ce repli ne le concerne pas.
+    ⚠️ `x-default` n'est PAS « la langue principale du site », et c'est l'erreur qu'il portait
+    jusqu'au 30/08/2026 (`fr`, commenté « marché principal »). C'est la version servie au visiteur
+    dont la langue ne correspond à **aucune** des cinq : un Néerlandais, un Polonais, un Japonais.
+    Le francophone, lui, n'est jamais concerné — la négociation l'apparie directement sur `/fr/`.
+    Le repli est donc l'**anglais**, comme dans l'app (`values/` = EN, `PromptLanguage.DEFAULT`) :
+    c'est le seul choix qui traite le reste du monde mieux qu'au hasard.
+
+    Page disponible partout (le landing) → politique du site (`X_DEFAULT`).
+    Page à couverture PARTIELLE (le légal) → `LEGAL_FALLBACK`. Les deux valent `en` aujourd'hui,
+    et les deux constantes restent distinctes à dessein : elles répondent à des questions
+    différentes (« quel repli mondial ? » vs « quelle langue quand ce TEXTE n'est pas traduit ? »)
+    et rien ne garantit qu'elles bougeront ensemble.
     """
     avail = langs_for(page)
     if avail == LANGS:
@@ -412,10 +419,6 @@ def post_process_landing(dom, lang):
     alt = [OG_LOCALE[l] for l in LANGS if l != lang]
     h = re.sub(r'<meta[^>]*property="og:locale:alternate"[^>]*>',
                "\n".join(f'<meta property="og:locale:alternate" content="{a}">' for a in alt), h)
-    h = re.sub(r'<meta[^>]*name="twitter:title"[^>]*>',
-               f'<meta name="twitter:title" content="{esc(m["title"])}">', h)
-    h = re.sub(r'<meta[^>]*name="twitter:description"[^>]*>',
-               f'<meta name="twitter:description" content="{esc(m["ogdesc"])}">', h)
     # La carte de partage est la SEULE surface du site où l'image porte du TEXTE : « Aloumi »,
     # le slogan et la phrase de résumé y sont DESSINÉS. Elle se localise donc comme un texte,
     # sinon un partage depuis la page allemande affiche une accroche en français. Un seul
@@ -424,8 +427,12 @@ def post_process_landing(dom, lang):
     # exactement ce qui a laissé la bannière Savoria en ligne après le rebranding.
     h = re.sub(r'<meta[^>]*property="og:image"(?![:])[^>]*>',
                f'<meta property="og:image" content="{BASE}/og-image-{lang}.png">', h)
-    h = re.sub(r'<meta[^>]*name="twitter:image"[^>]*>',
-               f'<meta name="twitter:image" content="{BASE}/og-image-{lang}.png">', h)
+    # ⚠️ Aucun `twitter:title/description/image` ici, et ce n'est pas un oubli : X (ex-Twitter)
+    # retombe sur les `og:` équivalentes quand elles manquent. Les dupliquer, c'était trois
+    # chaînes de plus à tenir synchronisées par langue pour zéro gain. Seule `twitter:card`
+    # survit dans le template — c'est la seule qui fasse un travail que l'OG ne fait pas :
+    # imposer la GRANDE carte (`summary_large_image`) au lieu d'une vignette carrée.
+    # Le nom `twitter:*` reste celui du standard, X compris : `x:*` n'est lu par personne.
     # canonical auto-référent + hreflang (retire tous les alternate hreflang existants, réinjecte)
     h = re.sub(r'<link[^>]*rel="canonical"[^>]*>',
                f'<link rel="canonical" href="{BASE}/{lang}/">', h)
@@ -477,6 +484,22 @@ def router_html(page=""):
     dflt = default_for(page)
     links = " · ".join(f'<a href="/{l}/{page}">{LANG_LABEL[l]}</a>' for l in avail)
     js_langs = json.dumps(avail)
+    # Carte de partage du routeur. ⚠️ `noindex` ne dispense PAS d'Open Graph : c'est une consigne
+    # aux moteurs de RECHERCHE, pas aux robots d'aperçu. Or `aloumi.app` nu est l'URL la plus
+    # partagée qui soit, et ces robots n'exécutent pas le JS — ils restent donc sur CETTE page,
+    # qui n'avait aucune balise `og:` : lien collé = aucune vignette, dans aucune langue.
+    # La carte prend la langue du repli (`dflt`), et son texte est LU dans META plutôt que réécrit
+    # ici — une description de plus à maintenir en double est une description qui divergera.
+    card = META[dflt]
+    og = (f'<meta property="og:type" content="website">\n'
+          f'<meta property="og:site_name" content="Aloumi">\n'
+          f'<meta property="og:title" content="{esc(card["title"])}">\n'
+          f'<meta property="og:description" content="{esc(card["ogdesc"])}">\n'
+          f'<meta property="og:url" content="{BASE}/{page}">\n'
+          f'<meta property="og:image" content="{BASE}/og-image-{dflt}.png">\n'
+          f'<meta property="og:image:width" content="1024">\n'
+          f'<meta property="og:image:height" content="500">\n'
+          f'<meta name="twitter:card" content="summary_large_image">')
     return f"""<!DOCTYPE html>
 <html lang="{X_DEFAULT}">
 <head>
@@ -485,6 +508,7 @@ def router_html(page=""):
 <title>Aloumi</title>
 <link rel="icon" type="image/png" href="/icon-512.png">
 {hl}
+{og}
 <meta name="robots" content="noindex,follow">
 <meta http-equiv="refresh" content="0; url=/{dflt}/{page}">
 <script>

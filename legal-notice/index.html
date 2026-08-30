@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +10,18 @@
 <link rel="alternate" hreflang="de" href="https://aloumi.app/de/legal-notice/">
 <link rel="alternate" hreflang="it" href="https://aloumi.app/it/legal-notice/">
 <link rel="alternate" hreflang="es" href="https://aloumi.app/es/legal-notice/">
-<link rel="alternate" hreflang="x-default" href="https://aloumi.app/fr/legal-notice/">
+<link rel="alternate" hreflang="x-default" href="https://aloumi.app/en/legal-notice/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aloumi">
+<meta property="og:title" content="Aloumi — Your recipes, adapted to your kitchen, with an AI chef">
+<meta property="og:description" content="Import your recipes (link, photo, PDF, Instagram, TikTok, YouTube) and let the AI Chef adapt them to your oven and cooktop. On Google Play.">
+<meta property="og:url" content="https://aloumi.app/legal-notice/">
+<meta property="og:image" content="https://aloumi.app/og-image-en.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="noindex,follow">
-<meta http-equiv="refresh" content="0; url=/fr/legal-notice/">
+<meta http-equiv="refresh" content="0; url=/en/legal-notice/">
 <script>
   // Redirection de commodité vers la langue de l'utilisateur. Les crawlers ignorent ce JS
   // et découvrent chaque langue via les hreflang ci-dessus (contenu pré-rendu, pas de JS requis).
@@ -21,7 +30,7 @@
   var param = new URLSearchParams(location.search).get('lang');
   var nav = (navigator.language || '').toLowerCase();
   var browser = LANGS.filter(function(l){ return nav.indexOf(l) === 0; })[0];
-  var pick = [param, stored, browser].filter(function(l){ return LANGS.indexOf(l) >= 0; })[0] || 'fr';
+  var pick = [param, stored, browser].filter(function(l){ return LANGS.indexOf(l) >= 0; })[0] || 'en';
   location.replace('/' + pick + '/legal-notice/' + location.hash);
 </script>
 </head>
