@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /_src/
 
-Sitemap: https://savoria.jeylab.fr/sitemap.xml
+Sitemap: https://aloumi.app/sitemap.xml

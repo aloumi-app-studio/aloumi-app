@@ -24,8 +24,8 @@ from threading import Thread
 import pathlib
 
 SITE = pathlib.Path(__file__).parent
-BASE = "https://savoria.jeylab.fr"
-PLAY = "https://play.google.com/store/apps/details?id=com.savoria.app"
+BASE = "https://aloumi.app"
+PLAY = "https://play.google.com/store/apps/details?id=com.aloumi.app"
 sys.path.insert(0, str((SITE / ".." / "store").resolve()))
 import i18n_loader as i18n  # noqa: E402  (chemin posé juste au-dessus)
 # LANGS vient de la SSOT vitrine (i18n_loader, qui lit store/i18n/langs.json) — le module est
@@ -52,8 +52,8 @@ assert CHROME, "Chrome introuvable — ajuste le chemin"
 # ── Métadonnées <head> par langue (SEO/GEO — traduites au SENS, pas mot à mot) ────────────
 META = {
     "fr": {
-        "title": "Savoria — Tes recettes adaptées à ta cuisine, avec un chef IA",
-        "desc": "Savoria importe tes recettes (lien, photo, PDF, Instagram, TikTok, YouTube) et les adapte à ton four et ta plaque. Assistant cuisine IA pas à pas, sur Google Play.",
+        "title": "Aloumi — Tes recettes adaptées à ta cuisine, avec un chef IA",
+        "desc": "Aloumi importe tes recettes (lien, photo, PDF, Instagram, TikTok, YouTube) et les adapte à ton four et ta plaque. Assistant cuisine IA pas à pas, sur Google Play.",
         "ogdesc": "Importe tes recettes (lien, photo, PDF, Instagram, TikTok, YouTube) et laisse le Chef IA les adapter à ton four et ta plaque. Sur Google Play.",
         "appdesc": "App de recettes boostée à l'IA : importe depuis un lien, une photo, un PDF, Instagram, TikTok ou YouTube, adapte les recettes à ton four et ta plaque, guide pas à pas et gère la liste de courses.",
         "features": [
@@ -66,19 +66,19 @@ META = {
             "Partage de recettes, courses et bonnes adresses en temps réel",
         ],
         "faq": [
-            ("Savoria est-elle gratuite ?", "Oui. Savoria est disponible gratuitement sur Google Play pendant sa phase de test ouvert."),
-            ("Peut-on importer une recette depuis Instagram, TikTok ou YouTube ?", "Oui. Colle le lien ou partage la publication vers Savoria : le Chef IA récupère la recette et la structure automatiquement, y compris depuis une vidéo."),
-            ("Savoria adapte-t-elle les recettes à mon four et ma plaque ?", "Oui. Tu configures ton équipement (four, plaque, air fryer, robots) une fois, et Savoria adapte les étapes de cuisson à ton matériel réel."),
+            ("Aloumi est-elle gratuite ?", "Oui. Aloumi est disponible gratuitement sur Google Play pendant sa phase de test ouvert."),
+            ("Peut-on importer une recette depuis Instagram, TikTok ou YouTube ?", "Oui. Colle le lien ou partage la publication vers Aloumi : le Chef IA récupère la recette et la structure automatiquement, y compris depuis une vidéo."),
+            ("Aloumi adapte-t-elle les recettes à mon four et ma plaque ?", "Oui. Tu configures ton équipement (four, plaque, air fryer, robots) une fois, et Aloumi adapte les étapes de cuisson à ton matériel réel."),
             ("Puis-je demander une modification sur une recette que j'ai déjà ?", "Oui. Sur n'importe quelle recette de ton carnet, demande au Chef IA en langage naturel : « rends-la végé », « sans four », « moins salée ». Il te montre d'abord ce qui changerait, tu appliques d'un tap, et tu peux annuler. Les ingrédients que tu n'as pas mentionnés ne sont jamais modifiés, et tu peux garder l'originale à côté de la nouvelle version."),
-            ("Peut-on importer une recette depuis une photo ou un PDF ?", "Oui. Photographie une recette manuscrite ou une page de livre, ou importe un PDF : Savoria en extrait les ingrédients et les étapes."),
-            ("Sur quelles plateformes Savoria est-elle disponible ?", "Savoria est disponible sur Android via Google Play. Une version iOS est à l'étude."),
+            ("Peut-on importer une recette depuis une photo ou un PDF ?", "Oui. Photographie une recette manuscrite ou une page de livre, ou importe un PDF : Aloumi en extrait les ingrédients et les étapes."),
+            ("Sur quelles plateformes Aloumi est-elle disponible ?", "Aloumi est disponible sur Android via Google Play. Une version iOS est à l'étude."),
             ("Comment fonctionne le mode cuisine ?", "Le mode cuisine affiche la recette étape par étape, avec des minuteurs par étape, le rappel des ingrédients et un assistant IA qui connaît la recette en cours."),
-            ("Pourquoi adapter une recette à ma cuisine ?", "Chaque équipement cuit différemment : un four, une plaque à induction, un air fryer ou un robot n'ont ni la même puissance ni les mêmes réglages d'un modèle à l'autre. Une recette écrite pour un autre matériel peut rater chez toi. Savoria réécrit temps, températures et réglages pour ton équipement réel — pour réussir du premier coup."),
+            ("Pourquoi adapter une recette à ma cuisine ?", "Chaque équipement cuit différemment : un four, une plaque à induction, un air fryer ou un robot n'ont ni la même puissance ni les mêmes réglages d'un modèle à l'autre. Une recette écrite pour un autre matériel peut rater chez toi. Aloumi réécrit temps, températures et réglages pour ton équipement réel — pour réussir du premier coup."),
         ],
     },
     "en": {
-        "title": "Savoria — Your recipes, adapted to your kitchen, with an AI chef",
-        "desc": "Savoria imports your recipes (link, photo, PDF, Instagram, TikTok, YouTube) and adapts them to your oven and cooktop. Step-by-step AI cooking assistant, on Google Play.",
+        "title": "Aloumi — Your recipes, adapted to your kitchen, with an AI chef",
+        "desc": "Aloumi imports your recipes (link, photo, PDF, Instagram, TikTok, YouTube) and adapts them to your oven and cooktop. Step-by-step AI cooking assistant, on Google Play.",
         "ogdesc": "Import your recipes (link, photo, PDF, Instagram, TikTok, YouTube) and let the AI Chef adapt them to your oven and cooktop. On Google Play.",
         "appdesc": "AI-powered recipe app: import from a link, a photo, a PDF, Instagram, TikTok or YouTube, adapt recipes to your oven and cooktop, cook step by step and manage your shopping list.",
         "features": [
@@ -91,19 +91,19 @@ META = {
             "Real-time sharing of recipes, shopping lists and food finds",
         ],
         "faq": [
-            ("Is Savoria free?", "Yes. Savoria is available for free on Google Play during its open testing phase."),
-            ("Can I import a recipe from Instagram, TikTok or YouTube?", "Yes. Paste the link or share the post to Savoria: the AI Chef fetches the recipe and structures it automatically, even from a video."),
-            ("Does Savoria adapt recipes to my oven and cooktop?", "Yes. Set up your equipment (oven, cooktop, food processors, air fryer) once, and Savoria adapts the cooking steps to your actual gear."),
+            ("Is Aloumi free?", "Yes. Aloumi is available for free on Google Play during its open testing phase."),
+            ("Can I import a recipe from Instagram, TikTok or YouTube?", "Yes. Paste the link or share the post to Aloumi: the AI Chef fetches the recipe and structures it automatically, even from a video."),
+            ("Does Aloumi adapt recipes to my oven and cooktop?", "Yes. Set up your equipment (oven, cooktop, food processors, air fryer) once, and Aloumi adapts the cooking steps to your actual gear."),
             ("Can I ask for changes to a recipe I already have?", "Yes. On any recipe in your collection, ask the AI Chef in plain language: \"make it vegetarian\", \"no oven\", \"less salt\". It shows you what would change first, you apply it with one tap, and you can undo. Ingredients you didn't mention are never modified, and you can keep the original alongside the new version."),
-            ("Can I import a recipe from a photo or PDF?", "Yes. Snap a handwritten recipe or a cookbook page, or import a PDF: Savoria extracts the ingredients and steps."),
-            ("Which platforms is Savoria available on?", "Savoria is available on Android via Google Play. An iOS version is under consideration."),
+            ("Can I import a recipe from a photo or PDF?", "Yes. Snap a handwritten recipe or a cookbook page, or import a PDF: Aloumi extracts the ingredients and steps."),
+            ("Which platforms is Aloumi available on?", "Aloumi is available on Android via Google Play. An iOS version is under consideration."),
             ("How does cooking mode work?", "Cooking mode shows the recipe step by step, with per-step timers, ingredient reminders and an AI assistant that knows the current recipe."),
-            ("Why adapt a recipe to my kitchen?", "Every appliance cooks differently: an oven, an induction cooktop, an air fryer or a food processor don't share the same power or settings from one model to the next. A recipe written for other equipment can flop in your kitchen. Savoria rewrites times, temperatures and settings for your actual gear — so it comes out right the first time."),
+            ("Why adapt a recipe to my kitchen?", "Every appliance cooks differently: an oven, an induction cooktop, an air fryer or a food processor don't share the same power or settings from one model to the next. A recipe written for other equipment can flop in your kitchen. Aloumi rewrites times, temperatures and settings for your actual gear — so it comes out right the first time."),
         ],
     },
     "de": {
-        "title": "Savoria — Deine Rezepte, angepasst an deine Küche, mit KI-Koch",
-        "desc": "Savoria importiert deine Rezepte (Link, Foto, PDF, Instagram, TikTok, YouTube) und passt sie an deinen Backofen und dein Kochfeld an. Schritt-für-Schritt-Kochassistent mit KI, bei Google Play.",
+        "title": "Aloumi — Deine Rezepte, angepasst an deine Küche, mit KI-Koch",
+        "desc": "Aloumi importiert deine Rezepte (Link, Foto, PDF, Instagram, TikTok, YouTube) und passt sie an deinen Backofen und dein Kochfeld an. Schritt-für-Schritt-Kochassistent mit KI, bei Google Play.",
         "ogdesc": "Importiere deine Rezepte (Link, Foto, PDF, Instagram, TikTok, YouTube) und lass den KI-Koch sie an deinen Backofen und dein Kochfeld anpassen. Bei Google Play.",
         "appdesc": "Rezept-App mit KI: importiere aus einem Link, einem Foto, einem PDF, Instagram, TikTok oder YouTube, passe Rezepte an deinen Backofen und dein Kochfeld an, koche Schritt für Schritt und verwalte deine Einkaufsliste.",
         "features": [
@@ -116,19 +116,19 @@ META = {
             "Rezepte, Einkaufslisten und Feinkost-Tipps in Echtzeit teilen",
         ],
         "faq": [
-            ("Ist Savoria kostenlos?", "Ja. Savoria ist während der offenen Testphase kostenlos bei Google Play verfügbar."),
-            ("Kann ich ein Rezept von Instagram, TikTok oder YouTube importieren?", "Ja. Füge den Link ein oder teile den Beitrag mit Savoria: Der KI-Koch holt das Rezept und strukturiert es automatisch — auch aus einem Video."),
-            ("Passt Savoria Rezepte an meinen Backofen und mein Kochfeld an?", "Ja. Du richtest deine Geräte einmal ein (Backofen, Kochfeld, Heißluftfritteuse, Küchenmaschinen), und Savoria passt die Garschritte an deine tatsächliche Ausstattung an."),
+            ("Ist Aloumi kostenlos?", "Ja. Aloumi ist während der offenen Testphase kostenlos bei Google Play verfügbar."),
+            ("Kann ich ein Rezept von Instagram, TikTok oder YouTube importieren?", "Ja. Füge den Link ein oder teile den Beitrag mit Aloumi: Der KI-Koch holt das Rezept und strukturiert es automatisch — auch aus einem Video."),
+            ("Passt Aloumi Rezepte an meinen Backofen und mein Kochfeld an?", "Ja. Du richtest deine Geräte einmal ein (Backofen, Kochfeld, Heißluftfritteuse, Küchenmaschinen), und Aloumi passt die Garschritte an deine tatsächliche Ausstattung an."),
             ("Kann ich ein Rezept ändern lassen, das ich schon habe?", "Ja. Bei jedem Rezept in deiner Sammlung fragst du den KI-Koch in normaler Sprache: „mach es vegetarisch“, „ohne Backofen“, „weniger Salz“. Er zeigt dir zuerst, was sich ändern würde, du übernimmst es mit einem Tippen und kannst es rückgängig machen. Zutaten, die du nicht genannt hast, werden nie verändert, und du kannst das Original neben der neuen Version behalten."),
-            ("Kann ich ein Rezept aus einem Foto oder PDF importieren?", "Ja. Fotografiere ein handschriftliches Rezept oder eine Kochbuchseite, oder importiere ein PDF: Savoria liest Zutaten und Schritte heraus."),
-            ("Auf welchen Plattformen gibt es Savoria?", "Savoria gibt es für Android bei Google Play. Eine iOS-Version wird geprüft."),
+            ("Kann ich ein Rezept aus einem Foto oder PDF importieren?", "Ja. Fotografiere ein handschriftliches Rezept oder eine Kochbuchseite, oder importiere ein PDF: Aloumi liest Zutaten und Schritte heraus."),
+            ("Auf welchen Plattformen gibt es Aloumi?", "Aloumi gibt es für Android bei Google Play. Eine iOS-Version wird geprüft."),
             ("Wie funktioniert der Kochmodus?", "Der Kochmodus zeigt das Rezept Schritt für Schritt, mit Timern pro Schritt, den Zutaten zum jeweiligen Schritt und einem KI-Assistenten, der das laufende Rezept kennt."),
-            ("Warum ein Rezept an meine Küche anpassen?", "Jedes Gerät gart anders: Backofen, Induktionskochfeld, Heißluftfritteuse oder Küchenmaschine haben von Modell zu Modell weder dieselbe Leistung noch dieselben Einstellungen. Ein Rezept, das für andere Geräte geschrieben wurde, kann bei dir misslingen. Savoria schreibt Zeiten, Temperaturen und Einstellungen für deine tatsächliche Ausstattung um — damit es gleich beim ersten Mal gelingt."),
+            ("Warum ein Rezept an meine Küche anpassen?", "Jedes Gerät gart anders: Backofen, Induktionskochfeld, Heißluftfritteuse oder Küchenmaschine haben von Modell zu Modell weder dieselbe Leistung noch dieselben Einstellungen. Ein Rezept, das für andere Geräte geschrieben wurde, kann bei dir misslingen. Aloumi schreibt Zeiten, Temperaturen und Einstellungen für deine tatsächliche Ausstattung um — damit es gleich beim ersten Mal gelingt."),
         ],
     },
     "it": {
-        "title": "Savoria — Le tue ricette adattate alla tua cucina, con uno chef IA",
-        "desc": "Savoria importa le tue ricette (link, foto, PDF, Instagram, TikTok, YouTube) e le adatta al tuo forno e al tuo piano cottura. Assistente di cucina IA passo dopo passo, su Google Play.",
+        "title": "Aloumi — Le tue ricette adattate alla tua cucina, con uno chef IA",
+        "desc": "Aloumi importa le tue ricette (link, foto, PDF, Instagram, TikTok, YouTube) e le adatta al tuo forno e al tuo piano cottura. Assistente di cucina IA passo dopo passo, su Google Play.",
         "ogdesc": "Importa le tue ricette (link, foto, PDF, Instagram, TikTok, YouTube) e lascia che il Chef IA le adatti al tuo forno e al tuo piano cottura. Su Google Play.",
         "appdesc": "App di ricette con IA: importa da un link, una foto, un PDF, Instagram, TikTok o YouTube, adatta le ricette al tuo forno e al tuo piano cottura, cucina passo dopo passo e gestisci la lista della spesa.",
         "features": [
@@ -141,19 +141,19 @@ META = {
             "Condivisione in tempo reale di ricette, liste della spesa e chicche golose",
         ],
         "faq": [
-            ("Savoria è gratuita?", "Sì. Savoria è disponibile gratuitamente su Google Play durante la fase di test aperto."),
-            ("Posso importare una ricetta da Instagram, TikTok o YouTube?", "Sì. Incolla il link o condividi il post con Savoria: il Chef IA recupera la ricetta e la struttura in automatico, anche da un video."),
-            ("Savoria adatta le ricette al mio forno e al mio piano cottura?", "Sì. Configuri la tua attrezzatura una volta sola (forno, piano cottura, friggitrice ad aria, robot da cucina) e Savoria adatta i passaggi di cottura a quello che hai davvero."),
+            ("Aloumi è gratuita?", "Sì. Aloumi è disponibile gratuitamente su Google Play durante la fase di test aperto."),
+            ("Posso importare una ricetta da Instagram, TikTok o YouTube?", "Sì. Incolla il link o condividi il post con Aloumi: il Chef IA recupera la ricetta e la struttura in automatico, anche da un video."),
+            ("Aloumi adatta le ricette al mio forno e al mio piano cottura?", "Sì. Configuri la tua attrezzatura una volta sola (forno, piano cottura, friggitrice ad aria, robot da cucina) e Aloumi adatta i passaggi di cottura a quello che hai davvero."),
             ("Posso chiedere una modifica su una ricetta che ho già?", "Sì. Su qualsiasi ricetta del tuo ricettario, chiedi al Chef IA in linguaggio naturale: «rendila vegetariana», «senza forno», «meno salata». Prima ti mostra cosa cambierebbe, poi applichi con un tocco e puoi annullare. Gli ingredienti che non hai nominato non vengono mai modificati, e puoi tenere l'originale accanto alla nuova versione."),
-            ("Posso importare una ricetta da una foto o da un PDF?", "Sì. Fotografa una ricetta scritta a mano o la pagina di un libro, oppure importa un PDF: Savoria ne estrae ingredienti e passaggi."),
-            ("Su quali piattaforme è disponibile Savoria?", "Savoria è disponibile su Android tramite Google Play. Una versione iOS è allo studio."),
+            ("Posso importare una ricetta da una foto o da un PDF?", "Sì. Fotografa una ricetta scritta a mano o la pagina di un libro, oppure importa un PDF: Aloumi ne estrae ingredienti e passaggi."),
+            ("Su quali piattaforme è disponibile Aloumi?", "Aloumi è disponibile su Android tramite Google Play. Una versione iOS è allo studio."),
             ("Come funziona la modalità cucina?", "La modalità cucina mostra la ricetta passo dopo passo, con timer per ogni passaggio, il richiamo degli ingredienti e un assistente IA che conosce la ricetta in corso."),
-            ("Perché adattare una ricetta alla mia cucina?", "Ogni apparecchio cuoce in modo diverso: un forno, un piano a induzione, una friggitrice ad aria o un robot da cucina non hanno né la stessa potenza né le stesse regolazioni da un modello all'altro. Una ricetta scritta per un'altra attrezzatura può non riuscire a casa tua. Savoria riscrive tempi, temperature e regolazioni per quello che hai davvero — così riesce al primo colpo."),
+            ("Perché adattare una ricetta alla mia cucina?", "Ogni apparecchio cuoce in modo diverso: un forno, un piano a induzione, una friggitrice ad aria o un robot da cucina non hanno né la stessa potenza né le stesse regolazioni da un modello all'altro. Una ricetta scritta per un'altra attrezzatura può non riuscire a casa tua. Aloumi riscrive tempi, temperature e regolazioni per quello che hai davvero — così riesce al primo colpo."),
         ],
     },
     "es": {
-        "title": "Savoria — Tus recetas adaptadas a tu cocina, con un chef IA",
-        "desc": "Savoria importa tus recetas (enlace, foto, PDF, Instagram, TikTok, YouTube) y las adapta a tu horno y a tu placa. Asistente de cocina con IA paso a paso, en Google Play.",
+        "title": "Aloumi — Tus recetas adaptadas a tu cocina, con un chef IA",
+        "desc": "Aloumi importa tus recetas (enlace, foto, PDF, Instagram, TikTok, YouTube) y las adapta a tu horno y a tu placa. Asistente de cocina con IA paso a paso, en Google Play.",
         "ogdesc": "Importa tus recetas (enlace, foto, PDF, Instagram, TikTok, YouTube) y deja que el Chef IA las adapte a tu horno y a tu placa. En Google Play.",
         "appdesc": "App de recetas con IA: importa desde un enlace, una foto, un PDF, Instagram, TikTok o YouTube, adapta las recetas a tu horno y a tu placa, cocina paso a paso y gestiona la lista de la compra.",
         "features": [
@@ -166,14 +166,14 @@ META = {
             "Uso compartido en tiempo real de recetas, listas de la compra y joyas gastronómicas",
         ],
         "faq": [
-            ("¿Savoria es gratis?", "Sí. Savoria está disponible gratis en Google Play durante la fase de prueba abierta."),
-            ("¿Puedo importar una receta de Instagram, TikTok o YouTube?", "Sí. Pega el enlace o comparte la publicación con Savoria: el Chef IA recupera la receta y la estructura automáticamente, incluso desde un vídeo."),
-            ("¿Savoria adapta las recetas a mi horno y a mi placa?", "Sí. Configuras tu equipamiento una sola vez (horno, placa, freidora de aire, robot de cocina) y Savoria adapta los pasos de cocción a lo que tienes de verdad."),
+            ("¿Aloumi es gratis?", "Sí. Aloumi está disponible gratis en Google Play durante la fase de prueba abierta."),
+            ("¿Puedo importar una receta de Instagram, TikTok o YouTube?", "Sí. Pega el enlace o comparte la publicación con Aloumi: el Chef IA recupera la receta y la estructura automáticamente, incluso desde un vídeo."),
+            ("¿Aloumi adapta las recetas a mi horno y a mi placa?", "Sí. Configuras tu equipamiento una sola vez (horno, placa, freidora de aire, robot de cocina) y Aloumi adapta los pasos de cocción a lo que tienes de verdad."),
             ("¿Puedo pedir un cambio en una receta que ya tengo?", "Sí. En cualquier receta de tu recetario, pídeselo al Chef IA en lenguaje natural: «hazla vegetariana», «sin horno», «menos salada». Primero te enseña lo que cambiaría, luego lo aplicas con un toque y puedes deshacerlo. Los ingredientes que no has nombrado nunca se tocan, y puedes quedarte con la original junto a la nueva versión."),
-            ("¿Puedo importar una receta desde una foto o un PDF?", "Sí. Fotografía una receta escrita a mano o la página de un libro, o importa un PDF: Savoria extrae los ingredientes y los pasos."),
-            ("¿En qué plataformas está disponible Savoria?", "Savoria está disponible en Android a través de Google Play. Una versión para iOS está en estudio."),
+            ("¿Puedo importar una receta desde una foto o un PDF?", "Sí. Fotografía una receta escrita a mano o la página de un libro, o importa un PDF: Aloumi extrae los ingredientes y los pasos."),
+            ("¿En qué plataformas está disponible Aloumi?", "Aloumi está disponible en Android a través de Google Play. Una versión para iOS está en estudio."),
             ("¿Cómo funciona el modo cocina?", "El modo cocina muestra la receta paso a paso, con temporizadores para cada paso, el recordatorio de los ingredientes y un asistente de IA que conoce la receta en curso."),
-            ("¿Por qué adaptar una receta a mi cocina?", "Cada aparato cocina de una forma distinta: un horno, una placa de inducción, una freidora de aire o un robot de cocina no tienen ni la misma potencia ni los mismos ajustes de un modelo a otro. Una receta escrita para otro equipamiento puede no salir en tu casa. Savoria reescribe tiempos, temperaturas y ajustes para lo que tienes de verdad — así sale a la primera."),
+            ("¿Por qué adaptar una receta a mi cocina?", "Cada aparato cocina de una forma distinta: un horno, una placa de inducción, una freidora de aire o un robot de cocina no tienen ni la misma potencia ni los mismos ajustes de un modelo a otro. Una receta escrita para otro equipamiento puede no salir en tu casa. Aloumi reescribe tiempos, temperaturas y ajustes para lo que tienes de verdad — así sale a la primera."),
         ],
     },
 }
@@ -246,7 +246,7 @@ REVEAL_JS = """<script>
 # n'ajoute QUE la colonne de lecture + la typo du corps légal, rebasée sur les mêmes variables
 # (--ink/--accent/--muted/--line/--surface). Le logo (symbole SVG) et le footer (markup traduit par
 # langue) sont déjà extraits de la landing → header/footer strictement identiques à la home.
-LOGO_SVG = re.search(r'<svg[^>]*>\s*<symbol id="savoria-logo".*?</symbol>\s*</svg>',
+LOGO_SVG = re.search(r'<svg[^>]*>\s*<symbol id="aloumi-logo".*?</symbol>\s*</svg>',
                      (SITE / TEMPLATE).read_text(encoding="utf-8"), re.S).group(0)
 
 # CSS du design system de la landing (tokens, base, header, footer, dark mode) — SSOT.
@@ -319,11 +319,11 @@ def jsonld(lang):
     m = META[lang]
     graph = [
         {"@type": "Organization", "@id": BASE + "/#org", "name": "JEYLAB", "url": BASE + "/",
-         "logo": BASE + "/icon-512.png", "email": "savoriaapp@gmail.com",
-         "brand": {"@type": "Brand", "name": "Savoria"}},
-        {"@type": "WebSite", "@id": BASE + "/#website", "name": "Savoria",
+         "logo": BASE + "/icon-512.png", "email": "aloumiapp@gmail.com",
+         "brand": {"@type": "Brand", "name": "Aloumi"}},
+        {"@type": "WebSite", "@id": BASE + "/#website", "name": "Aloumi",
          "url": f"{BASE}/{lang}/", "inLanguage": lang, "publisher": {"@id": BASE + "/#org"}},
-        {"@type": "MobileApplication", "@id": BASE + "/#app", "name": "Savoria",
+        {"@type": "MobileApplication", "@id": BASE + "/#app", "name": "Aloumi",
          "operatingSystem": "Android 8.0+", "applicationCategory": "LifestyleApplication",
          "url": f"{BASE}/{lang}/", "downloadUrl": PLAY, "installUrl": PLAY,
          "inLanguage": list(LANGS), "description": m["appdesc"],
@@ -462,7 +462,7 @@ def router_html(page=""):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Savoria</title>
+<title>Aloumi</title>
 <link rel="icon" type="image/png" href="/icon-512.png">
 {hl}
 <meta name="robots" content="noindex,follow">
@@ -471,7 +471,7 @@ def router_html(page=""):
   // Redirection de commodité vers la langue de l'utilisateur. Les crawlers ignorent ce JS
   // et découvrent chaque langue via les hreflang ci-dessus (contenu pré-rendu, pas de JS requis).
   var LANGS = {js_langs};
-  var stored; try {{ stored = localStorage.getItem('savoria_lang'); }} catch(e) {{}}
+  var stored; try {{ stored = localStorage.getItem('aloumi_lang'); }} catch(e) {{}}
   var param = new URLSearchParams(location.search).get('lang');
   var nav = (navigator.language || '').toLowerCase();
   var browser = LANGS.filter(function(l){{ return nav.indexOf(l) === 0; }})[0];
@@ -480,7 +480,7 @@ def router_html(page=""):
 </script>
 </head>
 <body>
-<p style="font:16px system-ui;padding:24px">Savoria — {links}</p>
+<p style="font:16px system-ui;padding:24px">Aloumi — {links}</p>
 </body>
 </html>
 """
@@ -506,7 +506,7 @@ def build_legal(footers):
                       f"/{LEGAL_FALLBACK}/{slug}/ (texte juridique non traduit)")
                 continue
             h1 = re.search(r"<h1>(.*?)</h1>", content, re.S)
-            title = re.sub("<[^>]+>", "", h1.group(1)).strip() if h1 else "Savoria"
+            title = re.sub("<[^>]+>", "", h1.group(1)).strip() if h1 else "Aloumi"
             for old, dst in PAGE_LINKS.items():
                 content = content.replace(f'href="{old}"', f'href="{legal_href(lang, dst)}"')
             # Sélecteur de langue dans la nav du header (comme la landing), pas flottant dans le
@@ -514,8 +514,8 @@ def build_legal(footers):
             lang_links = lang_selector(lang, lambda l: legal_href(l, f"{slug}/"))
             header = (
                 f'<header id="hdr"><div class="wrap nav">'
-                f'<a class="brand" href="/{lang}/" aria-label="Savoria">'
-                f'<svg class="brand-mark" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#savoria-logo"></use></svg> Savoria'
+                f'<a class="brand" href="/{lang}/" aria-label="Aloumi">'
+                f'<svg class="brand-mark" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#aloumi-logo"></use></svg> Aloumi'
                 f'</a><nav class="nav-right">{lang_links}'
                 f'<a class="badge-play" href="{PLAY}" target="_blank" rel="noopener">{PLAY_LABEL[lang]}</a>'
                 f'</nav></div></header>'
@@ -526,7 +526,7 @@ def build_legal(footers):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{title} — Savoria</title>
+<title>{title} — Aloumi</title>
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="{BASE}/{lang}/{slug}/">
 {hreflang_block(slug + "/")}

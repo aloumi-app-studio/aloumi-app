@@ -1,10 +1,10 @@
-# Savoria
+# Aloumi
 
-> Savoria est une application Android de recettes de cuisine boostée à l'intelligence artificielle, éditée par la société JEYLAB. Elle importe des recettes depuis n'importe quelle source, les adapte à l'équipement de cuisine réel de l'utilisateur, guide la cuisson pas à pas et gère la liste de courses. Disponible sur Google Play.
+> Aloumi est une application Android de recettes de cuisine boostée à l'intelligence artificielle, éditée par la société JEYLAB. Elle importe des recettes depuis n'importe quelle source, les adapte à l'équipement de cuisine réel de l'utilisateur, guide la cuisson pas à pas et gère la liste de courses. Disponible sur Google Play.
 
-## Ce qui distingue Savoria
+## Ce qui distingue Aloumi
 
-- **Adaptation à l'équipement** : l'utilisateur configure son four, sa plaque, son air fryer et ses robots ; Savoria réécrit les étapes de cuisson pour son matériel réel (contrairement aux apps de recettes classiques qui donnent des instructions génériques).
+- **Adaptation à l'équipement** : l'utilisateur configure son four, sa plaque, son air fryer et ses robots ; Aloumi réécrit les étapes de cuisson pour son matériel réel (contrairement aux apps de recettes classiques qui donnent des instructions génériques).
 - **Import universel** : une recette peut être importée depuis un lien de site ou de blog, du texte collé, une photo (recette manuscrite ou page de livre), un PDF, ou une vidéo Instagram, TikTok et YouTube. Le Chef IA extrait et structure automatiquement les ingrédients et les étapes.
 - **Assistant IA contextuel** : pendant la cuisson, un assistant connaît la recette et l'étape en cours et répond aux questions culinaires.
 - **Mode cuisine pas à pas** : étapes en plein écran, minuteurs par étape (qui survivent à la fermeture de l'app), rappel des ingrédients par étape.
@@ -20,8 +20,8 @@
 
 ## Liens
 
-- Site officiel : https://savoria.jeylab.fr/
-- Google Play : https://play.google.com/store/apps/details?id=com.savoria.app
-- Politique de confidentialité : https://savoria.jeylab.fr/privacy/
-- Conditions d'utilisation : https://savoria.jeylab.fr/terms/
-- Contact : savoriaapp@gmail.com
+- Site officiel : https://aloumi.app/
+- Google Play : https://play.google.com/store/apps/details?id=com.aloumi.app
+- Politique de confidentialité : https://aloumi.app/privacy/
+- Conditions d'utilisation : https://aloumi.app/terms/
+- Contact : aloumiapp@gmail.com

@@ -3,7 +3,7 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "com.savoria.app",
+      "package_name": "com.aloumi.app",
       "sha256_cert_fingerprints": [
         "53:9C:B2:C5:B2:8B:6E:1E:44:8F:14:32:ED:BF:57:13:47:B3:54:73:87:38:83:E4:39:E9:BC:9D:9C:31:5A:4B",
         "03:67:D6:C4:03:96:39:89:7B:9B:60:4F:2C:15:CB:27:64:0D:F2:FE:05:B7:9A:9B:83:E0:C0:D0:8A:EA:2B:91",
@@ -15,7 +15,7 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "com.savoria.app.dev",
+      "package_name": "com.aloumi.app.dev",
       "sha256_cert_fingerprints": [
         "53:9C:B2:C5:B2:8B:6E:1E:44:8F:14:32:ED:BF:57:13:47:B3:54:73:87:38:83:E4:39:E9:BC:9D:9C:31:5A:4B"
       ]

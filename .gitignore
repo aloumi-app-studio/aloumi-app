@@ -1,0 +1,4 @@
+# Python bytecode — apparu quand build_i18n.py / build_screens.py se sont mis a importer
+# store/i18n_loader.py (la SSOT des langues) au lieu de relire langs.json chacun de leur cote.
+__pycache__/
+*.pyc
