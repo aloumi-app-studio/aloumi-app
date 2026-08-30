@@ -2,13 +2,9 @@
 <!DOCTYPE html>
 <html lang="es"><head>
 <meta charset="UTF-8">
-<!-- Amélioration progressive : marque le document AVANT tout rendu, pour que l'animation
-     d'apparition (`.js .reveal`) ne s'active que si JavaScript tourne. Sans ce marqueur, la page
-     s'affiche simplement sans animation — jamais vide. Inline et en tête = aucun flash. -->
 <script>document.documentElement.classList.add('js')</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="WhsYv5RZNdnLEmNBOLDnQn8RqOnmPBkveGdKUD3EZSo">
-<meta name="description" content="Aloumi importa tus recetas (enlace, foto, PDF, Instagram, TikTok, YouTube) y las adapta a tu horno y a tu placa. Asistente de cocina con IA paso a paso, en Google Play.">
+<meta name="description" content="Aloumi importa tus recetas (enlace, foto, PDF, Instagram, TikTok, YouTube) y las adapta a tu horno y a tu placa. Asistente de cocina con IA paso a paso.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="author" content="JEYLAB">
 <meta name="theme-color" content="#b0602c">
@@ -22,7 +18,6 @@
 <link rel="icon" type="image/png" href="/icon-512.png">
 <link rel="apple-touch-icon" href="/icon-512.png">
 
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Aloumi">
 <meta property="og:title" content="Aloumi — Tus recetas adaptadas a tu cocina, con un chef IA">
@@ -37,7 +32,6 @@
 <meta property="og:locale:alternate" content="de_DE">
 <meta property="og:locale:alternate" content="it_IT">
 
-<!-- X : carte large. Titre/desc/image non dupliqués, X retombe sur og: — voir build_i18n.py -->
 <meta name="twitter:card" content="summary_large_image">
 
 <title>Aloumi — Tus recetas adaptadas a tu cocina, con un chef IA</title>
@@ -52,7 +46,7 @@
       "name": "JEYLAB",
       "url": "https://aloumi.app/",
       "logo": "https://aloumi.app/icon-512.png",
-      "email": "aloumiapp@gmail.com",
+      "email": "hello@aloumi.app",
       "brand": {
         "@type": "Brand",
         "name": "Aloumi"
@@ -112,7 +106,7 @@
           "name": "¿Aloumi es gratis?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí. Aloumi está disponible gratis en Google Play durante la fase de prueba abierta."
+            "text": "Sí. Aloumi es gratuita en Google Play. Las funciones de IA están sujetas a límites de uso razonable."
           }
         },
         {
@@ -346,7 +340,7 @@
   .f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;margin-bottom:36px}
   .f-brand .brand{margin-bottom:12px}
   .f-brand p{color:var(--muted);font-size:.94rem;max-width:34ch}
-  .f-col h5{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:700}
+  .f-col h4{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:700}
   .f-col a{display:block;color:var(--ink);font-size:.95rem;margin-bottom:10px;font-weight:500}
   .f-col a:hover{color:var(--accent)}
   .f-bottom{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:.86rem}
@@ -411,11 +405,8 @@
       Aloumi
     </a>
     <nav class="nav-right">
-      <!-- Aperçu de dev : mêmes balises que le site publié, mais les liens rebasculent la langue
-           en place (setLang) au lieu de naviguer. `build_i18n.py` remplace tout ce bloc par le
-           sélecteur à vrais liens /xx/ — voir lang_selector(). -->
       <details class="langsel"><summary aria-label="Idioma"><svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span class="langsel-full">Español</span><span class="langsel-code">ES</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="langsel-menu"><a href="/fr/" lang="fr" hreflang="fr">Français</a><a href="/en/" lang="en" hreflang="en">English</a><a href="/de/" lang="de" hreflang="de">Deutsch</a><a href="/it/" lang="it" hreflang="it">Italiano</a><a href="/es/" lang="es" hreflang="es" aria-current="true">Español</a></div></details>
-      <a class="badge-play" href="https://play.google.com/store/apps/details?id=com.aloumi.app" target="_blank" rel="noopener" data-i18n="nav.soon">En Google Play</a>
+      <a class="badge-play" href="https://play.google.com/store/apps/details?id=com.aloumi.app" target="_blank" rel="noopener">En Google Play</a>
     </nav>
   </div>
 </header>
@@ -424,27 +415,27 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="reveal in" style="transition-delay: 0ms;">
-        <p class="eyebrow" data-i18n="hero.eyebrow">Tu cocina, tus reglas.</p>
-        <h1 data-i18n-html="hero.title">Reúne todas tus recetas,<br>Aloumi las adapta a tu cocina.</h1>
-        <p class="lead" data-i18n-html="hero.lead">Un enlace, la foto de tu cuaderno de recetas, un PDF o un vídeo de Instagram, TikTok o YouTube: el Chef IA lo convierte en una ficha de receta limpia, <strong>adaptada a tu equipamiento</strong>. Y después te guía paso a paso.</p>
+        <p class="eyebrow">Tu cocina, tus reglas.</p>
+        <h1>Reúne todas tus recetas,<br>Aloumi las adapta a tu cocina.</h1>
+        <p class="lead">Un enlace, la foto de tu cuaderno de recetas, un PDF o un vídeo de Instagram, TikTok o YouTube: el Chef IA lo convierte en una ficha de receta limpia, <strong>adaptada a tu equipamiento</strong>. Y después te guía paso a paso.</p>
         <div class="cta">
           <div class="badges">
             <a class="badge-store badge-gplay live" href="https://play.google.com/store/apps/details?id=com.aloumi.app" target="_blank" rel="noopener">
-              <img src="/badges/gplay-es.svg" data-i18n-src="/badge.gplaySrc" data-i18n-alt="badge.gplayAlt" alt="Disponible en Google Play" width="239" height="71">
+              <img src="/badges/gplay-es.svg" alt="Disponible en Google Play" width="239" height="71">
             </a>
             <span class="badge-store badge-apple soon" role="img" aria-label="Application iOS bientôt disponible sur l'App Store">
-              <img src="/badges/appstore-es.svg" data-i18n-src="/badge.appstoreSrc" alt="" width="127" height="40">
-              <span class="soon-tag" data-i18n="badge.soontag">Muy pronto</span>
+              <img src="/badges/appstore-es.svg" alt="" width="127" height="40">
+              <span class="soon-tag">Muy pronto</span>
             </span>
           </div>
-          <a class="btn-ghost" href="#features" data-i18n="hero.cta">Descubre las funciones →</a>
+          <a class="btn-ghost" href="#features">Descubre las funciones →</a>
         </div>
       </div>
 
       <div class="phone-stage reveal" style="transition-delay: 60ms;">
         <div class="phone">
           <div class="screen">
-            <img src="/screens/es/05_equipment.png" width="520" height="1050" alt="Ficha de receta de Aloumi con los pasos de cocción adaptados al horno del usuario" data-i18n-src="/phone.src" data-i18n-alt="phone.alt" style="width:100%;height:auto;display:block">
+            <img src="/screens/es/05_equipment.webp" width="520" height="1050" fetchpriority="high" decoding="async" alt="Ficha de receta de Aloumi con los pasos de cocción adaptados al horno del usuario" style="width:100%;height:auto;display:block">
           </div>
         </div>
       </div>
@@ -454,45 +445,45 @@
   <section class="block" id="features">
     <div class="wrap">
       <div class="head reveal" style="transition-delay: 120ms;">
-        <p class="eyebrow" data-i18n="feat.eyebrow">Todo lo que necesitas</p>
-        <h2 data-i18n="feat.title">Una sola app, de la nevera al plato.</h2>
-        <p data-i18n="feat.sub">Cada paso en la cocina, asistido por la IA — pensado para ahorrarte tiempo sin renunciar al sabor.</p>
+        <p class="eyebrow">Todo lo que necesitas</p>
+        <h2>Una sola app, de la nevera al plato.</h2>
+        <p>Cada paso en la cocina, asistido por la IA — pensado para ahorrarte tiempo sin renunciar al sabor.</p>
       </div>
       <div class="features">
         <div class="feat reveal" style="transition-delay: 180ms;">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"></path><path d="M5 21V5a2 2 0 0 1 2-2h8l4 4v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"></path><path d="M12 11v6m-3-3l3 3 3-3"></path></svg></div>
-          <h3 data-i18n="f1.t">Importa de donde sea</h3>
-          <p data-i18n-html="f1.p">Un enlace, la foto de tu cuaderno de recetas, un PDF, un vídeo de Instagram, TikTok o YouTube — Aloumi lo convierte en una ficha limpia y estructurada, <strong>incluso desde otro idioma</strong>.</p>
+          <h3>Importa de donde sea</h3>
+          <p>Un enlace, la foto de tu cuaderno de recetas, un PDF, un vídeo de Instagram, TikTok o YouTube — Aloumi lo convierte en una ficha limpia y estructurada, <strong>incluso desde otro idioma</strong>.</p>
         </div>
         <div class="feat reveal" style="transition-delay: 240ms;">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="8" x2="20" y2="8"></line><line x1="4" y1="16" x2="20" y2="16"></line><circle cx="10" cy="8" r="2.3"></circle><circle cx="15" cy="16" r="2.3"></circle></svg></div>
-          <h3 data-i18n="fkit.t">Hecha a la medida de tu cocina</h3>
-          <p data-i18n-html="fkit.p">No hay dos hornos que cocinen igual. Configura tu equipamiento y Aloumi reescribe tiempos y ajustes <strong>para lo que tienes de verdad</strong>, para que el plato salga a la primera. Se acabó el «programa la Thermomix» cuando no tienes una.</p>
+          <h3>Hecha a la medida de tu cocina</h3>
+          <p>No hay dos hornos que cocinen igual. Configura tu equipamiento y Aloumi reescribe tiempos y ajustes <strong>para lo que tienes de verdad</strong>, para que el plato salga a la primera. Se acabó el «programa la Thermomix» cuando no tienes una.</p>
         </div>
         <div class="feat reveal" style="transition-delay: 300ms;">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.4 3.6L17 8l-3.6 1.4L12 13l-1.4-3.6L7 8l3.6-1.4L12 3z"></path><path d="M18 14l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2z"></path></svg></div>
-          <h3 data-i18n="f2.t">Un chef IA en el bolsillo</h3>
-          <p data-i18n-html="f2.p">Ideas a partir de lo que te queda en la nevera, una receta adaptada a tu dieta, un ingrediente sustituido — y la conversación <strong>se convierte en una receta guardada</strong>.</p>
+          <h3>Un chef IA en el bolsillo</h3>
+          <p>Ideas a partir de lo que te queda en la nevera, una receta adaptada a tu dieta, un ingrediente sustituido — y la conversación <strong>se convierte en una receta guardada</strong>.</p>
         </div>
         <div class="feat reveal" style="transition-delay: 360ms;">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"></path></svg></div>
-          <h3 data-i18n="fmod.t">Tu receta, como tú quieras</h3>
-          <p data-i18n-html="fmod.p">«Hazla vegetariana», «sin horno», «menos salada»: basta con pedirlo, y el Chef IA te enseña <strong>lo que cambiaría</strong> antes de seguir. Lo que no has pedido se queda como estaba — y puedes quedarte con las dos versiones.</p>
+          <h3>Tu receta, como tú quieras</h3>
+          <p>«Hazla vegetariana», «sin horno», «menos salada»: basta con pedirlo, y el Chef IA te enseña <strong>lo que cambiaría</strong> antes de seguir. Lo que no has pedido se queda como estaba — y puedes quedarte con las dos versiones.</p>
         </div>
         <div class="feat reveal" style="transition-delay: 360ms;">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l2.5 2M9 2h6"></path></svg></div>
-          <h3 data-i18n="f3.t">Modo cocina paso a paso</h3>
-          <p data-i18n-html="f3.p">Pasos a pantalla completa, ingredientes recordados en el momento justo, temporizadores que suenan <strong>aunque cierres la app o bloquees el móvil</strong>.</p>
+          <h3>Modo cocina paso a paso</h3>
+          <p>Pasos a pantalla completa, ingredientes recordados en el momento justo, temporizadores que suenan <strong>aunque cierres la app o bloquees el móvil</strong>.</p>
         </div>
         <div class="feat reveal" style="transition-delay: 360ms;">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12L5 3H2"></path><circle cx="9" cy="20" r="1.4"></circle><circle cx="18" cy="20" r="1.4"></circle></svg></div>
-          <h3 data-i18n="f4.t">Lista de la compra</h3>
-          <p data-i18n-html="f4.p">Escribe a tu aire: Aloumi <strong>ordena por secciones</strong>, junta los duplicados y convierte las cantidades.</p>
+          <h3>Lista de la compra</h3>
+          <p>Escribe a tu aire: Aloumi <strong>ordena por secciones</strong>, junta los duplicados y convierte las cantidades.</p>
         </div>
         <div class="feat reveal" style="transition-delay: 360ms;">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="2.5"></circle><circle cx="6" cy="12" r="2.5"></circle><circle cx="18" cy="19" r="2.5"></circle><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"></path></svg></div>
-          <h3 data-i18n="f6.t">Compartir en tiempo real</h3>
-          <p data-i18n-html="f6.p">Recetas, listas de la compra y joyas gastronómicas compartidas <strong>al instante</strong> con tu gente.</p>
+          <h3>Compartir en tiempo real</h3>
+          <p>Recetas, listas de la compra y joyas gastronómicas compartidas <strong>al instante</strong> con tu gente.</p>
         </div>
       </div>
     </div>
@@ -501,58 +492,58 @@
   <section class="block" id="apercu">
     <div class="wrap">
       <div class="head reveal" style="transition-delay: 360ms;">
-        <p class="eyebrow" data-i18n="gal.eyebrow">Un aperitivo</p>
-        <h2 data-i18n="gal.title">La app de un vistazo.</h2>
+        <p class="eyebrow">Un aperitivo</p>
+        <h2>La app de un vistazo.</h2>
       </div>
     </div>
     <div class="gallery reveal" style="transition-delay: 360ms;">
-      <figure class="shot"><img src="/screens/es/02_collection.png" width="520" height="1050" loading="lazy" data-i18n-src="/gal.s1" data-i18n-alt="gal.a1" alt="El recetario del usuario en Aloumi"></figure>
-      <figure class="shot"><img src="/screens/es/01_import.png" width="520" height="1050" loading="lazy" data-i18n-src="/gal.s2" data-i18n-alt="gal.a2" alt="Importación de una receta escrita a mano fotografiada en Aloumi"></figure>
-      <figure class="shot"><img src="/screens/es/03_inspiration.png" width="520" height="1050" loading="lazy" data-i18n-src="/gal.s3" data-i18n-alt="gal.a3" alt="El Chef IA de Aloumi propone ideas de recetas"></figure>
-      <figure class="shot"><img src="/screens/es/04_cooking.png" width="520" height="1050" loading="lazy" data-i18n-src="/gal.s4" data-i18n-alt="gal.a4" alt="Modo cocina paso a paso con temporizador en Aloumi"></figure>
-      <figure class="shot"><img src="/screens/es/06_shopping.png" width="520" height="1050" loading="lazy" data-i18n-src="/gal.s5" data-i18n-alt="gal.a5" alt="Lista de la compra ordenada por secciones en Aloumi"></figure>
+      <figure class="shot"><img src="/screens/es/02_collection.webp" width="520" height="1050" loading="lazy" alt="El recetario del usuario en Aloumi"></figure>
+      <figure class="shot"><img src="/screens/es/01_import.webp" width="520" height="1050" loading="lazy" alt="Importación de una receta escrita a mano fotografiada en Aloumi"></figure>
+      <figure class="shot"><img src="/screens/es/03_inspiration.webp" width="520" height="1050" loading="lazy" alt="El Chef IA de Aloumi propone ideas de recetas"></figure>
+      <figure class="shot"><img src="/screens/es/04_cooking.webp" width="520" height="1050" loading="lazy" alt="Modo cocina paso a paso con temporizador en Aloumi"></figure>
+      <figure class="shot"><img src="/screens/es/06_shopping.webp" width="520" height="1050" loading="lazy" alt="Lista de la compra ordenada por secciones en Aloumi"></figure>
     </div>
-    <p class="gallery-hint" data-i18n="gal.hint">Desliza para verlas →</p>
+    <p class="gallery-hint">Desliza para verlas →</p>
   </section>
 
   <section class="block" id="faq">
     <div class="wrap">
       <div class="head reveal" style="transition-delay: 360ms;">
-        <p class="eyebrow" data-i18n="faq.eyebrow">Preguntas frecuentes</p>
-        <h2 data-i18n="faq.title">Todo lo que quieres saber.</h2>
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h2>Todo lo que quieres saber.</h2>
       </div>
       <div class="faq-list reveal" style="transition-delay: 360ms;">
         <details class="faq-item">
-          <summary data-i18n="faq.q1">¿Aloumi es gratis?</summary>
-          <div class="ans" data-i18n="faq.a1">Sí. Aloumi está disponible gratis en Google Play durante la fase de prueba abierta.</div>
+          <summary>¿Aloumi es gratis?</summary>
+          <div class="ans">Sí. Aloumi es gratuita en Google Play. Las funciones de IA están sujetas a límites de uso razonable.</div>
         </details>
         <details class="faq-item">
-          <summary data-i18n="faq.q2">¿Puedo importar una receta de Instagram, TikTok o YouTube?</summary>
-          <div class="ans" data-i18n="faq.a2">Sí. Pega el enlace o comparte la publicación con Aloumi: el Chef IA recupera la receta y la estructura automáticamente, incluso desde un vídeo.</div>
+          <summary>¿Puedo importar una receta de Instagram, TikTok o YouTube?</summary>
+          <div class="ans">Sí. Pega el enlace o comparte la publicación con Aloumi: el Chef IA recupera la receta y la estructura automáticamente, incluso desde un vídeo.</div>
         </details>
         <details class="faq-item">
-          <summary data-i18n="faq.q3">¿Aloumi adapta las recetas a mi horno y a mi placa?</summary>
-          <div class="ans" data-i18n="faq.a3">Sí. Configuras tu equipamiento una sola vez (horno, placa, freidora de aire, robot de cocina) y Aloumi adapta los pasos de cocción a lo que tienes de verdad.</div>
+          <summary>¿Aloumi adapta las recetas a mi horno y a mi placa?</summary>
+          <div class="ans">Sí. Configuras tu equipamiento una sola vez (horno, placa, freidora de aire, robot de cocina) y Aloumi adapta los pasos de cocción a lo que tienes de verdad.</div>
         </details>
         <details class="faq-item">
-          <summary data-i18n="faq.q8">¿Puedo pedir un cambio en una receta que ya tengo?</summary>
-          <div class="ans" data-i18n="faq.a8">Sí. En cualquier receta de tu recetario, pídeselo al Chef IA en lenguaje natural: «hazla vegetariana», «sin horno», «menos salada». Primero te enseña lo que cambiaría, luego lo aplicas con un toque y puedes deshacerlo. Los ingredientes que no has nombrado nunca se tocan, y puedes quedarte con la original junto a la nueva versión.</div>
+          <summary>¿Puedo pedir un cambio en una receta que ya tengo?</summary>
+          <div class="ans">Sí. En cualquier receta de tu recetario, pídeselo al Chef IA en lenguaje natural: «hazla vegetariana», «sin horno», «menos salada». Primero te enseña lo que cambiaría, luego lo aplicas con un toque y puedes deshacerlo. Los ingredientes que no has nombrado nunca se tocan, y puedes quedarte con la original junto a la nueva versión.</div>
         </details>
         <details class="faq-item">
-          <summary data-i18n="faq.q4">¿Puedo importar una receta desde una foto o un PDF?</summary>
-          <div class="ans" data-i18n="faq.a4">Sí. Fotografía una receta escrita a mano o la página de un libro, o importa un PDF: Aloumi extrae los ingredientes y los pasos.</div>
+          <summary>¿Puedo importar una receta desde una foto o un PDF?</summary>
+          <div class="ans">Sí. Fotografía una receta escrita a mano o la página de un libro, o importa un PDF: Aloumi extrae los ingredientes y los pasos.</div>
         </details>
         <details class="faq-item">
-          <summary data-i18n="faq.q5">¿En qué plataformas está disponible Aloumi?</summary>
-          <div class="ans" data-i18n="faq.a5">Aloumi está disponible en Android a través de Google Play. Una versión para iOS está en estudio.</div>
+          <summary>¿En qué plataformas está disponible Aloumi?</summary>
+          <div class="ans">Aloumi está disponible en Android a través de Google Play. Una versión para iOS está en estudio.</div>
         </details>
         <details class="faq-item">
-          <summary data-i18n="faq.q6">¿Cómo funciona el modo cocina?</summary>
-          <div class="ans" data-i18n="faq.a6">El modo cocina muestra la receta paso a paso, con temporizadores para cada paso, el recordatorio de los ingredientes y un asistente de IA que conoce la receta en curso.</div>
+          <summary>¿Cómo funciona el modo cocina?</summary>
+          <div class="ans">El modo cocina muestra la receta paso a paso, con temporizadores para cada paso, el recordatorio de los ingredientes y un asistente de IA que conoce la receta en curso.</div>
         </details>
         <details class="faq-item">
-          <summary data-i18n="faq.q7">¿Por qué adaptar una receta a mi cocina?</summary>
-          <div class="ans" data-i18n="faq.a7">Cada aparato cocina de una forma distinta: un horno, una placa de inducción, una freidora de aire o un robot de cocina no tienen ni la misma potencia ni los mismos ajustes de un modelo a otro. Una receta escrita para otro equipamiento puede no salir en tu casa. Aloumi reescribe tiempos, temperaturas y ajustes para lo que tienes de verdad — así sale a la primera.</div>
+          <summary>¿Por qué adaptar una receta a mi cocina?</summary>
+          <div class="ans">Cada aparato cocina de una forma distinta: un horno, una placa de inducción, una freidora de aire o un robot de cocina no tienen ni la misma potencia ni los mismos ajustes de un modelo a otro. Una receta escrita para otro equipamiento puede no salir en tu casa. Aloumi reescribe tiempos, temperaturas y ajustes para lo que tienes de verdad — así sale a la primera.</div>
         </details>
       </div>
     </div>
@@ -564,16 +555,16 @@
     <div class="f-grid">
       <div class="f-brand">
         <div class="brand"><svg class="brand-mark" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#aloumi-logo"></use></svg> Aloumi</div>
-        <p data-i18n="f.tagline">Tu asistente de cocina personal, con IA. En Google Play.</p>
+        <p>Tu asistente de cocina personal, con IA. En Google Play.</p>
       </div>
-      <div class="f-col" data-i18n-html="col.legal"><h5>Información legal</h5><a href="/es/privacy/">Política de privacidad</a><a href="/es/terms/">Condiciones de uso</a><a href="/es/legal-notice/">Aviso legal</a></div>
-      <div class="f-col" data-i18n-html="col.help"><h5>Cuenta y ayuda</h5><a href="https://forms.gle/Kn7SL6Qa2NLKJP5JA">Eliminar mi cuenta</a><a href="mailto:aloumiapp@gmail.com">Contáctanos</a></div>
+      <div class="f-col"><h4>Información legal</h4><a href="/es/privacy/">Política de privacidad</a><a href="/es/terms/">Condiciones de uso</a><a href="/es/legal-notice/">Aviso legal</a></div>
+      <div class="f-col"><h4>Cuenta y ayuda</h4><a href="https://forms.gle/Kn7SL6Qa2NLKJP5JA">Eliminar mi cuenta</a><a href="mailto:hello@aloumi.app">Contáctanos</a></div>
     </div>
     <div class="f-bottom">
-      <span data-i18n="f.copy">© 2026 Aloumi</span>
-      <span data-i18n="f.made">Hecha con mimo en Francia.</span>
+      <span>© 2026 Aloumi</span>
+      <span>Hecha con mimo en Francia.</span>
     </div>
-    <p class="f-mini" data-i18n-html="f.editor">Publicada por JEYLAB (SARL) · <a href="/es/legal-notice/">Aviso legal</a></p>
+    <p class="f-mini">Publicada por JEYLAB (SARL) · <a href="/es/legal-notice/">Aviso legal</a></p>
   </div>
 </footer>
 

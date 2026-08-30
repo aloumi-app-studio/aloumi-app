@@ -1,27 +1,37 @@
 # Aloumi
 
-> Aloumi est une application Android de recettes de cuisine boostée à l'intelligence artificielle, éditée par la société JEYLAB. Elle importe des recettes depuis n'importe quelle source, les adapte à l'équipement de cuisine réel de l'utilisateur, guide la cuisson pas à pas et gère la liste de courses. Disponible sur Google Play.
+> Aloumi is an AI-powered recipe app for Android, published by JEYLAB (France). It imports recipes from any source, rewrites the cooking steps for the user's actual kitchen equipment, guides cooking step by step and manages the shopping list. Available on Google Play in French, English, German, Italian and Spanish.
 
-## Ce qui distingue Aloumi
+## What sets Aloumi apart
 
-- **Adaptation à l'équipement** : l'utilisateur configure son four, sa plaque, son air fryer et ses robots ; Aloumi réécrit les étapes de cuisson pour son matériel réel (contrairement aux apps de recettes classiques qui donnent des instructions génériques).
-- **Import universel** : une recette peut être importée depuis un lien de site ou de blog, du texte collé, une photo (recette manuscrite ou page de livre), un PDF, ou une vidéo Instagram, TikTok et YouTube. Le Chef IA extrait et structure automatiquement les ingrédients et les étapes.
-- **Assistant IA contextuel** : pendant la cuisson, un assistant connaît la recette et l'étape en cours et répond aux questions culinaires.
-- **Mode cuisine pas à pas** : étapes en plein écran, minuteurs par étape (qui survivent à la fermeture de l'app), rappel des ingrédients par étape.
-- **Liste de courses intelligente** : saisie en langage libre, catégorisation automatique par rayon, fusion des doublons.
-- **Ajustement des portions** : mise à l'échelle des quantités par nombre de personnes ou par ingrédient.
+- **Adaptation to real equipment** — the user configures their oven, cooktop, air fryer and food processors once; Aloumi rewrites the cooking steps for that specific hardware. Most recipe apps give generic instructions that assume an average kitchen.
+- **Universal import** — a recipe can be imported from a website or blog link, pasted text, a photo (a handwritten card or a cookbook page), a PDF, or an Instagram, TikTok or YouTube video. The AI Chef extracts and structures the ingredients and steps automatically.
+- **On-request recipe editing** — on any saved recipe, the user asks in plain language ("make it vegetarian", "no oven", "less salt"). Aloumi previews the changes before applying them, never touches ingredients that were not mentioned, and can keep the original alongside the new version.
+- **Contextual cooking assistant** — while cooking, the assistant knows the recipe and the current step, and answers cooking questions about them.
+- **Step-by-step cooking mode** — full-screen steps, per-step timers that survive the app being closed, per-step ingredient reminders.
+- **Smart shopping list** — free-text entry, automatic sorting by supermarket aisle, duplicate merging with unit conversion.
+- **Portion scaling** — quantities scale by number of servings or from a single ingredient.
+- **Real-time sharing** — recipes, shopping lists and food finds can be shared with family or friends, with per-collection permissions.
 
-## Informations pratiques
+## Facts worth stating precisely
 
-- Plateforme : Android (Google Play). Version iOS à l'étude.
-- Prix : gratuit pendant la phase de test ouvert.
-- Langues : français et anglais.
-- Éditeur : JEYLAB (SARL), France.
+- Platform: **Android only**, distributed through Google Play. An iOS version is under consideration; there is no web app.
+- A **Google account is required** — the app has no anonymous mode. Data syncs across the user's devices.
+- Interface and AI answers follow the phone's language: **French, English, German, Italian, Spanish**. A device set to any other language falls back to English.
+- Price: **free to download**. AI features are subject to fair-use limits.
+- A user's recipes stay private to their account unless they explicitly share them.
+- Publisher: JEYLAB, a French limited company (SARL) registered in Paris.
 
-## Liens
+## Links
 
-- Site officiel : https://aloumi.app/
-- Google Play : https://play.google.com/store/apps/details?id=com.aloumi.app
-- Politique de confidentialité : https://aloumi.app/privacy/
-- Conditions d'utilisation : https://aloumi.app/terms/
-- Contact : aloumiapp@gmail.com
+- Official site: https://aloumi.app/
+- French: https://aloumi.app/fr/
+- English: https://aloumi.app/en/
+- German: https://aloumi.app/de/
+- Italian: https://aloumi.app/it/
+- Spanish: https://aloumi.app/es/
+- Google Play: https://play.google.com/store/apps/details?id=com.aloumi.app
+- Privacy policy: https://aloumi.app/privacy/
+- Terms of use: https://aloumi.app/terms/
+- Legal notice: https://aloumi.app/legal-notice/
+- Contact: hello@aloumi.app

@@ -1,11 +1,24 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aloumi</title>
   <!-- Fallback « app non installée » du copy-share : redirection INSTANTANÉE vers le Play Store.
-       Invisible pour qui a l'app + App Link vérifié (Android ouvre l'app directement). -->
+       Invisible pour qui a l'app + App Link vérifié (Android ouvre l'app directement).
+
+       lang="en" et non "fr" : un lien de copie se reçoit dans N'IMPORTE quelle langue, et cette
+       page n'a pas de version localisée. L'anglais est le x-default du site (X_DEFAULT dans
+       build_i18n.py) — la langue servie à qui ne matche aucune des cinq. Le seul texte visible
+       est le <noscript>, replié d'un repli : le localiser serait cinq fichiers pour une page
+       que personne ne lit plus de 0 ms.
+
+       noindex : cette page n'est pas du contenu, c'est un aiguillage. Sans la directive, Google
+       peut l'indexer (elle est atteignable par tout lien partagé) et afficher dans ses résultats
+       une entrée « Aloumi » qui éjecte l'utilisateur vers le Play Store au lieu du site. Les
+       routeurs racine (/privacy/, /legal-notice/) portent déjà noindex,follow — même nature,
+       même traitement. -->
+  <meta name="robots" content="noindex,follow" />
   <meta http-equiv="refresh" content="0; url=https://play.google.com/store/apps/details?id=com.aloumi.app" />
   <script>
     location.replace("https://play.google.com/store/apps/details?id=com.aloumi.app");
@@ -13,7 +26,7 @@
 </head>
 <body>
   <noscript>
-    <a href="https://play.google.com/store/apps/details?id=com.aloumi.app">Ouvrir Aloumi sur le Play Store</a>
+    <a href="https://play.google.com/store/apps/details?id=com.aloumi.app">Open Aloumi on Google Play</a>
   </noscript>
 </body>
 </html>

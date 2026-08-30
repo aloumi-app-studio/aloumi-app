@@ -2,13 +2,9 @@
 <!DOCTYPE html>
 <html lang="de"><head>
 <meta charset="UTF-8">
-<!-- Amélioration progressive : marque le document AVANT tout rendu, pour que l'animation
-     d'apparition (`.js .reveal`) ne s'active que si JavaScript tourne. Sans ce marqueur, la page
-     s'affiche simplement sans animation — jamais vide. Inline et en tête = aucun flash. -->
 <script>document.documentElement.classList.add('js')</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="WhsYv5RZNdnLEmNBOLDnQn8RqOnmPBkveGdKUD3EZSo">
-<meta name="description" content="Aloumi importiert deine Rezepte (Link, Foto, PDF, Instagram, TikTok, YouTube) und passt sie an deinen Backofen und dein Kochfeld an. Schritt-für-Schritt-Kochassistent mit KI, bei Google Play.">
+<meta name="description" content="Aloumi importiert deine Rezepte (Link, Foto, PDF, Instagram, TikTok, YouTube) und passt sie an Backofen und Kochfeld an. Schritt für Schritt mit KI-Koch.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="author" content="JEYLAB">
 <meta name="theme-color" content="#b0602c">
@@ -22,7 +18,6 @@
 <link rel="icon" type="image/png" href="/icon-512.png">
 <link rel="apple-touch-icon" href="/icon-512.png">
 
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Aloumi">
 <meta property="og:title" content="Aloumi — Deine Rezepte, angepasst an deine Küche, mit KI-Koch">
@@ -37,7 +32,6 @@
 <meta property="og:locale:alternate" content="it_IT">
 <meta property="og:locale:alternate" content="es_ES">
 
-<!-- X : carte large. Titre/desc/image non dupliqués, X retombe sur og: — voir build_i18n.py -->
 <meta name="twitter:card" content="summary_large_image">
 
 <title>Aloumi — Deine Rezepte, angepasst an deine Küche, mit KI-Koch</title>
@@ -52,7 +46,7 @@
       "name": "JEYLAB",
       "url": "https://aloumi.app/",
       "logo": "https://aloumi.app/icon-512.png",
-      "email": "aloumiapp@gmail.com",
+      "email": "hello@aloumi.app",
       "brand": {
         "@type": "Brand",
         "name": "Aloumi"
@@ -112,7 +106,7 @@
           "name": "Ist Aloumi kostenlos?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Ja. Aloumi ist während der offenen Testphase kostenlos bei Google Play verfügbar."
+            "text": "Ja. Aloumi ist bei Google Play kostenlos erhältlich. Für die KI-Funktionen gelten faire Nutzungsgrenzen."
           }
         },
         {
@@ -346,7 +340,7 @@
   .f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;margin-bottom:36px}
   .f-brand .brand{margin-bottom:12px}
   .f-brand p{color:var(--muted);font-size:.94rem;max-width:34ch}
-  .f-col h5{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:700}
+  .f-col h4{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:700}
   .f-col a{display:block;color:var(--ink);font-size:.95rem;margin-bottom:10px;font-weight:500}
   .f-col a:hover{color:var(--accent)}
   .f-bottom{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:.86rem}
@@ -411,11 +405,8 @@
       Aloumi
     </a>
     <nav class="nav-right">
-      <!-- Aperçu de dev : mêmes balises que le site publié, mais les liens rebasculent la langue
-           en place (setLang) au lieu de naviguer. `build_i18n.py` remplace tout ce bloc par le
-           sélecteur à vrais liens /xx/ — voir lang_selector(). -->
       <details class="langsel"><summary aria-label="Sprache"><svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span class="langsel-full">Deutsch</span><span class="langsel-code">DE</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="langsel-menu"><a href="/fr/" lang="fr" hreflang="fr">Français</a><a href="/en/" lang="en" hreflang="en">English</a><a href="/de/" lang="de" hreflang="de" aria-current="true">Deutsch</a><a href="/it/" lang="it" hreflang="it">Italiano</a><a href="/es/" lang="es" hreflang="es">Español</a></div></details>
-      <a class="badge-play" href="https://play.google.com/store/apps/details?id=com.aloumi.app" target="_blank" rel="noopener" data-i18n="nav.soon">Bei Google Play</a>
+      <a class="badge-play" href="https://play.google.com/store/apps/details?id=com.aloumi.app" target="_blank" rel="noopener">Bei Google Play</a>
     </nav>
   </div>
 </header>
@@ -424,27 +415,27 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="reveal in" style="transition-delay: 0ms;">
-        <p class="eyebrow" data-i18n="hero.eyebrow">Deine Küche, deine Regeln.</p>
-        <h1 data-i18n-html="hero.title">Sammle alle deine Rezepte —<br>Aloumi passt sie an deine Küche an.</h1>
-        <p class="lead" data-i18n-html="hero.lead">Ein Link, ein Foto aus deinem Rezeptheft, ein PDF oder ein Instagram-, TikTok- oder YouTube-Video: Der KI-Koch macht daraus ein sauberes Rezept, <strong>abgestimmt auf deine Geräte</strong>. Und führt dich dann Schritt für Schritt.</p>
+        <p class="eyebrow">Deine Küche, deine Regeln.</p>
+        <h1>Sammle alle deine Rezepte —<br>Aloumi passt sie an deine Küche an.</h1>
+        <p class="lead">Ein Link, ein Foto aus deinem Rezeptheft, ein PDF oder ein Instagram-, TikTok- oder YouTube-Video: Der KI-Koch macht daraus ein sauberes Rezept, <strong>abgestimmt auf deine Geräte</strong>. Und führt dich dann Schritt für Schritt.</p>
         <div class="cta">
           <div class="badges">
             <a class="badge-store badge-gplay live" href="https://play.google.com/store/apps/details?id=com.aloumi.app" target="_blank" rel="noopener">
-              <img src="/badges/gplay-de.svg" data-i18n-src="/badge.gplaySrc" data-i18n-alt="badge.gplayAlt" alt="Jetzt bei Google Play" width="239" height="71">
+              <img src="/badges/gplay-de.svg" alt="Jetzt bei Google Play" width="239" height="71">
             </a>
             <span class="badge-store badge-apple soon" role="img" aria-label="Application iOS bientôt disponible sur l'App Store">
-              <img src="/badges/appstore-de.svg" data-i18n-src="/badge.appstoreSrc" alt="" width="127" height="40">
-              <span class="soon-tag" data-i18n="badge.soontag">Demnächst</span>
+              <img src="/badges/appstore-de.svg" alt="" width="127" height="40">
+              <span class="soon-tag">Demnächst</span>
             </span>
           </div>
-          <a class="btn-ghost" href="#features" data-i18n="hero.cta">Funktionen ansehen →</a>
+          <a class="btn-ghost" href="#features">Funktionen ansehen →</a>
         </div>
       </div>
 
       <div class="phone-stage reveal" style="transition-delay: 60ms;">
         <div class="phone">
           <div class="screen">
-            <img src="/screens/de/05_equipment.png" width="520" height="1050" alt="Aloumi-Rezept mit Garschritten, angepasst an den Backofen des Nutzers" data-i18n-src="/phone.src" data-i18n-alt="phone.alt" style="width:100%;height:auto;display:block">
+            <img src="/screens/de/05_equipment.webp" width="520" height="1050" fetchpriority="high" decoding="async" alt="Aloumi-Rezept mit Garschritten, angepasst an den Backofen des Nutzers" style="width:100%;height:auto;display:block">
           </div>
         </div>
       </div>
@@ -454,45 +445,45 @@
   <section class="block" id="features">
     <div class="wrap">
       <div class="head reveal" style="transition-delay: 120ms;">
-        <p class="eyebrow" data-i18n="feat.eyebrow">Alles, was du brauchst</p>
-        <h2 data-i18n="feat.title">Eine App, vom Kühlschrank bis auf den Teller.</h2>
-        <p data-i18n="feat.sub">Jeder Schritt beim Kochen, unterstützt von KI — gemacht, um dir Zeit zu sparen — ohne Abstriche beim Geschmack.</p>
+        <p class="eyebrow">Alles, was du brauchst</p>
+        <h2>Eine App, vom Kühlschrank bis auf den Teller.</h2>
+        <p>Jeder Schritt beim Kochen, unterstützt von KI — gemacht, um dir Zeit zu sparen — ohne Abstriche beim Geschmack.</p>
       </div>
       <div class="features">
         <div class="feat reveal" style="transition-delay: 180ms;">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"></path><path d="M5 21V5a2 2 0 0 1 2-2h8l4 4v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"></path><path d="M12 11v6m-3-3l3 3 3-3"></path></svg></div>
-          <h3 data-i18n="f1.t">Import von überall</h3>
-          <p data-i18n-html="f1.p">Ein Link, ein Foto aus deinem Rezeptheft, ein PDF, ein Instagram-, TikTok- oder YouTube-Video — Aloumi macht daraus ein sauber strukturiertes Rezept, <strong>auch aus einer anderen Sprache</strong>.</p>
+          <h3>Import von überall</h3>
+          <p>Ein Link, ein Foto aus deinem Rezeptheft, ein PDF, ein Instagram-, TikTok- oder YouTube-Video — Aloumi macht daraus ein sauber strukturiertes Rezept, <strong>auch aus einer anderen Sprache</strong>.</p>
         </div>
         <div class="feat reveal" style="transition-delay: 240ms;">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="8" x2="20" y2="8"></line><line x1="4" y1="16" x2="20" y2="16"></line><circle cx="10" cy="8" r="2.3"></circle><circle cx="15" cy="16" r="2.3"></circle></svg></div>
-          <h3 data-i18n="fkit.t">An deine Küche angepasst</h3>
-          <p data-i18n-html="fkit.p">Kein Backofen gart wie der andere. Richte deine Geräte ein, und Aloumi schreibt Zeiten und Einstellungen <strong>für deine tatsächliche Ausstattung</strong> um — damit das Gericht gleich beim ersten Mal gelingt. Schluss mit „stell deinen Thermomix ein“, wenn du gar keinen hast.</p>
+          <h3>An deine Küche angepasst</h3>
+          <p>Kein Backofen gart wie der andere. Richte deine Geräte ein, und Aloumi schreibt Zeiten und Einstellungen <strong>für deine tatsächliche Ausstattung</strong> um — damit das Gericht gleich beim ersten Mal gelingt. Schluss mit „stell deinen Thermomix ein“, wenn du gar keinen hast.</p>
         </div>
         <div class="feat reveal" style="transition-delay: 300ms;">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.4 3.6L17 8l-3.6 1.4L12 13l-1.4-3.6L7 8l3.6-1.4L12 3z"></path><path d="M18 14l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2z"></path></svg></div>
-          <h3 data-i18n="f2.t">Ein KI-Koch in deiner Tasche</h3>
-          <p data-i18n-html="f2.p">Ideen aus dem, was im Kühlschrank liegt, ein Rezept passend zu deiner Ernährung, eine Zutat ersetzt — und aus dem Gespräch <strong>wird ein gespeichertes Rezept</strong>.</p>
+          <h3>Ein KI-Koch in deiner Tasche</h3>
+          <p>Ideen aus dem, was im Kühlschrank liegt, ein Rezept passend zu deiner Ernährung, eine Zutat ersetzt — und aus dem Gespräch <strong>wird ein gespeichertes Rezept</strong>.</p>
         </div>
         <div class="feat reveal" style="transition-delay: 360ms;">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"></path></svg></div>
-          <h3 data-i18n="fmod.t">Dein Rezept, wie du es willst</h3>
-          <p data-i18n-html="fmod.p">„Mach es vegetarisch“, „ohne Backofen“, „weniger Salz“: frag einfach, und der KI-Koch zeigt dir <strong>was sich ändern würde</strong>, bevor er es übernimmt. Was du nicht genannt hast, bleibt unangetastet — und du kannst beide Versionen behalten.</p>
+          <h3>Dein Rezept, wie du es willst</h3>
+          <p>„Mach es vegetarisch“, „ohne Backofen“, „weniger Salz“: frag einfach, und der KI-Koch zeigt dir <strong>was sich ändern würde</strong>, bevor er es übernimmt. Was du nicht genannt hast, bleibt unangetastet — und du kannst beide Versionen behalten.</p>
         </div>
         <div class="feat reveal" style="transition-delay: 360ms;">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l2.5 2M9 2h6"></path></svg></div>
-          <h3 data-i18n="f3.t">Kochmodus Schritt für Schritt</h3>
-          <p data-i18n-html="f3.p">Schritte im Vollbild, Zutaten im richtigen Moment eingeblendet, Timer, die klingeln <strong>auch bei geschlossener App oder gesperrtem Handy</strong>.</p>
+          <h3>Kochmodus Schritt für Schritt</h3>
+          <p>Schritte im Vollbild, Zutaten im richtigen Moment eingeblendet, Timer, die klingeln <strong>auch bei geschlossener App oder gesperrtem Handy</strong>.</p>
         </div>
         <div class="feat reveal" style="transition-delay: 360ms;">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12L5 3H2"></path><circle cx="9" cy="20" r="1.4"></circle><circle cx="18" cy="20" r="1.4"></circle></svg></div>
-          <h3 data-i18n="f4.t">Einkaufsliste</h3>
-          <p data-i18n-html="f4.p">Schreib einfach drauflos: Aloumi <strong>sortiert nach Warengruppen</strong>, führt Doppeltes zusammen und rechnet Mengen um.</p>
+          <h3>Einkaufsliste</h3>
+          <p>Schreib einfach drauflos: Aloumi <strong>sortiert nach Warengruppen</strong>, führt Doppeltes zusammen und rechnet Mengen um.</p>
         </div>
         <div class="feat reveal" style="transition-delay: 360ms;">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="2.5"></circle><circle cx="6" cy="12" r="2.5"></circle><circle cx="18" cy="19" r="2.5"></circle><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"></path></svg></div>
-          <h3 data-i18n="f6.t">Teilen in Echtzeit</h3>
-          <p data-i18n-html="f6.p">Rezepte, Einkaufslisten und Feinkost-Tipps <strong>live</strong> mit deinen Leuten geteilt.</p>
+          <h3>Teilen in Echtzeit</h3>
+          <p>Rezepte, Einkaufslisten und Feinkost-Tipps <strong>live</strong> mit deinen Leuten geteilt.</p>
         </div>
       </div>
     </div>
@@ -501,58 +492,58 @@
   <section class="block" id="apercu">
     <div class="wrap">
       <div class="head reveal" style="transition-delay: 360ms;">
-        <p class="eyebrow" data-i18n="gal.eyebrow">Ein Vorgeschmack</p>
-        <h2 data-i18n="gal.title">Die App auf einen Blick.</h2>
+        <p class="eyebrow">Ein Vorgeschmack</p>
+        <h2>Die App auf einen Blick.</h2>
       </div>
     </div>
     <div class="gallery reveal" style="transition-delay: 360ms;">
-      <figure class="shot"><img src="/screens/de/02_collection.png" width="520" height="1050" loading="lazy" data-i18n-src="/gal.s1" data-i18n-alt="gal.a1" alt="Die Rezeptsammlung des Nutzers in Aloumi"></figure>
-      <figure class="shot"><img src="/screens/de/01_import.png" width="520" height="1050" loading="lazy" data-i18n-src="/gal.s2" data-i18n-alt="gal.a2" alt="Import eines abfotografierten handschriftlichen Rezepts in Aloumi"></figure>
-      <figure class="shot"><img src="/screens/de/03_inspiration.png" width="520" height="1050" loading="lazy" data-i18n-src="/gal.s3" data-i18n-alt="gal.a3" alt="Der KI-Koch von Aloumi schlägt Rezeptideen vor"></figure>
-      <figure class="shot"><img src="/screens/de/04_cooking.png" width="520" height="1050" loading="lazy" data-i18n-src="/gal.s4" data-i18n-alt="gal.a4" alt="Kochmodus Schritt für Schritt mit Timer in Aloumi"></figure>
-      <figure class="shot"><img src="/screens/de/06_shopping.png" width="520" height="1050" loading="lazy" data-i18n-src="/gal.s5" data-i18n-alt="gal.a5" alt="Nach Warengruppen sortierte Einkaufsliste in Aloumi"></figure>
+      <figure class="shot"><img src="/screens/de/02_collection.webp" width="520" height="1050" loading="lazy" alt="Die Rezeptsammlung des Nutzers in Aloumi"></figure>
+      <figure class="shot"><img src="/screens/de/01_import.webp" width="520" height="1050" loading="lazy" alt="Import eines abfotografierten handschriftlichen Rezepts in Aloumi"></figure>
+      <figure class="shot"><img src="/screens/de/03_inspiration.webp" width="520" height="1050" loading="lazy" alt="Der KI-Koch von Aloumi schlägt Rezeptideen vor"></figure>
+      <figure class="shot"><img src="/screens/de/04_cooking.webp" width="520" height="1050" loading="lazy" alt="Kochmodus Schritt für Schritt mit Timer in Aloumi"></figure>
+      <figure class="shot"><img src="/screens/de/06_shopping.webp" width="520" height="1050" loading="lazy" alt="Nach Warengruppen sortierte Einkaufsliste in Aloumi"></figure>
     </div>
-    <p class="gallery-hint" data-i18n="gal.hint">Wischen zum Blättern →</p>
+    <p class="gallery-hint">Wischen zum Blättern →</p>
   </section>
 
   <section class="block" id="faq">
     <div class="wrap">
       <div class="head reveal" style="transition-delay: 360ms;">
-        <p class="eyebrow" data-i18n="faq.eyebrow">Häufige Fragen</p>
-        <h2 data-i18n="faq.title">Alles, was du wissen willst.</h2>
+        <p class="eyebrow">Häufige Fragen</p>
+        <h2>Alles, was du wissen willst.</h2>
       </div>
       <div class="faq-list reveal" style="transition-delay: 360ms;">
         <details class="faq-item">
-          <summary data-i18n="faq.q1">Ist Aloumi kostenlos?</summary>
-          <div class="ans" data-i18n="faq.a1">Ja. Aloumi ist während der offenen Testphase kostenlos bei Google Play verfügbar.</div>
+          <summary>Ist Aloumi kostenlos?</summary>
+          <div class="ans">Ja. Aloumi ist bei Google Play kostenlos erhältlich. Für die KI-Funktionen gelten faire Nutzungsgrenzen.</div>
         </details>
         <details class="faq-item">
-          <summary data-i18n="faq.q2">Kann ich ein Rezept von Instagram, TikTok oder YouTube importieren?</summary>
-          <div class="ans" data-i18n="faq.a2">Ja. Füge den Link ein oder teile den Beitrag mit Aloumi: Der KI-Koch holt das Rezept und strukturiert es automatisch — auch aus einem Video.</div>
+          <summary>Kann ich ein Rezept von Instagram, TikTok oder YouTube importieren?</summary>
+          <div class="ans">Ja. Füge den Link ein oder teile den Beitrag mit Aloumi: Der KI-Koch holt das Rezept und strukturiert es automatisch — auch aus einem Video.</div>
         </details>
         <details class="faq-item">
-          <summary data-i18n="faq.q3">Passt Aloumi Rezepte an meinen Backofen und mein Kochfeld an?</summary>
-          <div class="ans" data-i18n="faq.a3">Ja. Du richtest deine Geräte einmal ein (Backofen, Kochfeld, Heißluftfritteuse, Küchenmaschinen), und Aloumi passt die Garschritte an deine tatsächliche Ausstattung an.</div>
+          <summary>Passt Aloumi Rezepte an meinen Backofen und mein Kochfeld an?</summary>
+          <div class="ans">Ja. Du richtest deine Geräte einmal ein (Backofen, Kochfeld, Heißluftfritteuse, Küchenmaschinen), und Aloumi passt die Garschritte an deine tatsächliche Ausstattung an.</div>
         </details>
         <details class="faq-item">
-          <summary data-i18n="faq.q8">Kann ich ein Rezept ändern lassen, das ich schon habe?</summary>
-          <div class="ans" data-i18n="faq.a8">Ja. Bei jedem Rezept in deiner Sammlung fragst du den KI-Koch in normaler Sprache: „mach es vegetarisch“, „ohne Backofen“, „weniger Salz“. Er zeigt dir zuerst, was sich ändern würde, du übernimmst es mit einem Tippen und kannst es rückgängig machen. Zutaten, die du nicht genannt hast, werden nie verändert, und du kannst das Original neben der neuen Version behalten.</div>
+          <summary>Kann ich ein Rezept ändern lassen, das ich schon habe?</summary>
+          <div class="ans">Ja. Bei jedem Rezept in deiner Sammlung fragst du den KI-Koch in normaler Sprache: „mach es vegetarisch“, „ohne Backofen“, „weniger Salz“. Er zeigt dir zuerst, was sich ändern würde, du übernimmst es mit einem Tippen und kannst es rückgängig machen. Zutaten, die du nicht genannt hast, werden nie verändert, und du kannst das Original neben der neuen Version behalten.</div>
         </details>
         <details class="faq-item">
-          <summary data-i18n="faq.q4">Kann ich ein Rezept aus einem Foto oder PDF importieren?</summary>
-          <div class="ans" data-i18n="faq.a4">Ja. Fotografiere ein handschriftliches Rezept oder eine Kochbuchseite, oder importiere ein PDF: Aloumi liest Zutaten und Schritte heraus.</div>
+          <summary>Kann ich ein Rezept aus einem Foto oder PDF importieren?</summary>
+          <div class="ans">Ja. Fotografiere ein handschriftliches Rezept oder eine Kochbuchseite, oder importiere ein PDF: Aloumi liest Zutaten und Schritte heraus.</div>
         </details>
         <details class="faq-item">
-          <summary data-i18n="faq.q5">Auf welchen Plattformen gibt es Aloumi?</summary>
-          <div class="ans" data-i18n="faq.a5">Aloumi gibt es für Android bei Google Play. Eine iOS-Version wird geprüft.</div>
+          <summary>Auf welchen Plattformen gibt es Aloumi?</summary>
+          <div class="ans">Aloumi gibt es für Android bei Google Play. Eine iOS-Version wird geprüft.</div>
         </details>
         <details class="faq-item">
-          <summary data-i18n="faq.q6">Wie funktioniert der Kochmodus?</summary>
-          <div class="ans" data-i18n="faq.a6">Der Kochmodus zeigt das Rezept Schritt für Schritt, mit einem Timer je Schritt, den passenden Zutaten im richtigen Moment und einem KI-Assistenten, der das laufende Rezept kennt.</div>
+          <summary>Wie funktioniert der Kochmodus?</summary>
+          <div class="ans">Der Kochmodus zeigt das Rezept Schritt für Schritt, mit einem Timer je Schritt, den passenden Zutaten im richtigen Moment und einem KI-Assistenten, der das laufende Rezept kennt.</div>
         </details>
         <details class="faq-item">
-          <summary data-i18n="faq.q7">Warum ein Rezept an meine Küche anpassen?</summary>
-          <div class="ans" data-i18n="faq.a7">Jedes Gerät gart anders: Backofen, Induktionskochfeld, Heißluftfritteuse oder Küchenmaschine haben von Modell zu Modell weder dieselbe Leistung noch dieselben Einstellungen. Ein Rezept, das für andere Geräte geschrieben wurde, kann bei dir misslingen. Aloumi schreibt Zeiten, Temperaturen und Einstellungen für deine tatsächliche Ausstattung um — damit es gleich beim ersten Mal gelingt.</div>
+          <summary>Warum ein Rezept an meine Küche anpassen?</summary>
+          <div class="ans">Jedes Gerät gart anders: Backofen, Induktionskochfeld, Heißluftfritteuse oder Küchenmaschine haben von Modell zu Modell weder dieselbe Leistung noch dieselben Einstellungen. Ein Rezept, das für andere Geräte geschrieben wurde, kann bei dir misslingen. Aloumi schreibt Zeiten, Temperaturen und Einstellungen für deine tatsächliche Ausstattung um — damit es gleich beim ersten Mal gelingt.</div>
         </details>
       </div>
     </div>
@@ -564,16 +555,16 @@
     <div class="f-grid">
       <div class="f-brand">
         <div class="brand"><svg class="brand-mark" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#aloumi-logo"></use></svg> Aloumi</div>
-        <p data-i18n="f.tagline">Dein persönlicher Küchenbegleiter mit KI. Bei Google Play.</p>
+        <p>Dein persönlicher Küchenbegleiter mit KI. Bei Google Play.</p>
       </div>
-      <div class="f-col" data-i18n-html="col.legal"><h5>Rechtliches</h5><a href="/de/privacy/">Datenschutzerklärung</a><a href="/de/terms/">Nutzungsbedingungen</a><a href="/de/legal-notice/">Impressum</a></div>
-      <div class="f-col" data-i18n-html="col.help"><h5>Konto &amp; Hilfe</h5><a href="https://forms.gle/Kn7SL6Qa2NLKJP5JA">Mein Konto löschen</a><a href="mailto:aloumiapp@gmail.com">Kontakt</a></div>
+      <div class="f-col"><h4>Rechtliches</h4><a href="/de/privacy/">Datenschutzerklärung</a><a href="/de/terms/">Nutzungsbedingungen</a><a href="/de/legal-notice/">Impressum</a></div>
+      <div class="f-col"><h4>Konto &amp; Hilfe</h4><a href="https://forms.gle/Kn7SL6Qa2NLKJP5JA">Mein Konto löschen</a><a href="mailto:hello@aloumi.app">Kontakt</a></div>
     </div>
     <div class="f-bottom">
-      <span data-i18n="f.copy">© 2026 Aloumi</span>
-      <span data-i18n="f.made">Mit Sorgfalt in Frankreich entwickelt.</span>
+      <span>© 2026 Aloumi</span>
+      <span>Mit Sorgfalt in Frankreich entwickelt.</span>
     </div>
-    <p class="f-mini" data-i18n-html="f.editor">Herausgegeben von JEYLAB (SARL) · <a href="/de/legal-notice/">Impressum</a></p>
+    <p class="f-mini">Herausgegeben von JEYLAB (SARL) · <a href="/de/legal-notice/">Impressum</a></p>
   </div>
 </footer>
 

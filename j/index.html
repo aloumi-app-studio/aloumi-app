@@ -1,12 +1,17 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aloumi</title>
   <!-- Fallback « app non installée » du lien « rejoindre le partage » (…/j/?c={code}) :
        redirection INSTANTANÉE vers le Play Store. Invisible pour qui a l'app + App Link vérifié
-       (Android ouvre l'app directement sur « Mes proches », code pré-rempli). -->
+       (Android ouvre l'app directement sur « Mes proches », code pré-rempli).
+
+       lang="en" + noindex : mêmes raisons qu'en /r/ — une invitation se reçoit dans n'importe
+       quelle langue, et un aiguillage n'a rien à faire dans un index. Voir le commentaire de
+       r/index.html, les deux fichiers vont ensemble. -->
+  <meta name="robots" content="noindex,follow" />
   <meta http-equiv="refresh" content="0; url=https://play.google.com/store/apps/details?id=com.aloumi.app" />
   <script>
     location.replace("https://play.google.com/store/apps/details?id=com.aloumi.app");
@@ -14,7 +19,7 @@
 </head>
 <body>
   <noscript>
-    <a href="https://play.google.com/store/apps/details?id=com.aloumi.app">Ouvrir Aloumi sur le Play Store</a>
+    <a href="https://play.google.com/store/apps/details?id=com.aloumi.app">Open Aloumi on Google Play</a>
   </noscript>
 </body>
 </html>
