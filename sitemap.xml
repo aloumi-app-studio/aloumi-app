@@ -10,8 +10,6 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://aloumi.app/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aloumi.app/en/"/>
     <lastmod>2026-08-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://aloumi.app/en/</loc>
@@ -22,8 +20,6 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://aloumi.app/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aloumi.app/en/"/>
     <lastmod>2026-08-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://aloumi.app/de/</loc>
@@ -34,8 +30,6 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://aloumi.app/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aloumi.app/en/"/>
     <lastmod>2026-08-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://aloumi.app/it/</loc>
@@ -46,8 +40,6 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://aloumi.app/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aloumi.app/en/"/>
     <lastmod>2026-08-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://aloumi.app/es/</loc>
@@ -58,8 +50,6 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://aloumi.app/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aloumi.app/en/"/>
     <lastmod>2026-08-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://aloumi.app/fr/privacy/</loc>
@@ -70,8 +60,6 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://aloumi.app/es/privacy/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aloumi.app/en/privacy/"/>
     <lastmod>2026-08-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://aloumi.app/en/privacy/</loc>
@@ -82,8 +70,6 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://aloumi.app/es/privacy/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aloumi.app/en/privacy/"/>
     <lastmod>2026-08-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://aloumi.app/de/privacy/</loc>
@@ -94,8 +80,6 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://aloumi.app/es/privacy/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aloumi.app/en/privacy/"/>
     <lastmod>2026-08-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://aloumi.app/it/privacy/</loc>
@@ -106,8 +90,6 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://aloumi.app/es/privacy/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aloumi.app/en/privacy/"/>
     <lastmod>2026-08-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://aloumi.app/es/privacy/</loc>
@@ -118,8 +100,6 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://aloumi.app/es/privacy/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aloumi.app/en/privacy/"/>
     <lastmod>2026-08-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://aloumi.app/fr/terms/</loc>
@@ -130,8 +110,6 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://aloumi.app/es/terms/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aloumi.app/en/terms/"/>
     <lastmod>2026-08-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://aloumi.app/en/terms/</loc>
@@ -142,8 +120,6 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://aloumi.app/es/terms/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aloumi.app/en/terms/"/>
     <lastmod>2026-08-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://aloumi.app/de/terms/</loc>
@@ -154,8 +130,6 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://aloumi.app/es/terms/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aloumi.app/en/terms/"/>
     <lastmod>2026-08-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://aloumi.app/it/terms/</loc>
@@ -166,8 +140,6 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://aloumi.app/es/terms/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aloumi.app/en/terms/"/>
     <lastmod>2026-08-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://aloumi.app/es/terms/</loc>
@@ -178,8 +150,6 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://aloumi.app/es/terms/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aloumi.app/en/terms/"/>
     <lastmod>2026-08-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://aloumi.app/fr/legal-notice/</loc>
@@ -190,8 +160,6 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://aloumi.app/es/legal-notice/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aloumi.app/en/legal-notice/"/>
     <lastmod>2026-08-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://aloumi.app/en/legal-notice/</loc>
@@ -202,8 +170,6 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://aloumi.app/es/legal-notice/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aloumi.app/en/legal-notice/"/>
     <lastmod>2026-08-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://aloumi.app/de/legal-notice/</loc>
@@ -214,8 +180,6 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://aloumi.app/es/legal-notice/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aloumi.app/en/legal-notice/"/>
     <lastmod>2026-08-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://aloumi.app/it/legal-notice/</loc>
@@ -226,8 +190,6 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://aloumi.app/es/legal-notice/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aloumi.app/en/legal-notice/"/>
     <lastmod>2026-08-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://aloumi.app/es/legal-notice/</loc>
@@ -238,7 +200,5 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://aloumi.app/es/legal-notice/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aloumi.app/en/legal-notice/"/>
     <lastmod>2026-08-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
   </url>
 </urlset>
