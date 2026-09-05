@@ -356,12 +356,14 @@
   <ul>
     <li><strong>Données de compte et contenu</strong> : conservés tant que votre compte existe ; supprimés immédiatement à la suppression du compte.</li>
     <li><strong>Historique des conversations IA</strong> : uniquement local sur votre appareil ; supprimé quand vous l'effacez dans l'app ou désinstallez l'application.</li>
-    <li><strong>Compteurs d'usage IA</strong> : conservés tant que le compte existe, supprimés avec lui.</li>
+    <li><strong>Compteurs d'usage IA</strong> : conservés <strong>13 mois au maximum</strong>, et supprimés avec le compte.</li>
     <li><strong>Jeton anti-fraude</strong> : conservé <strong>24 mois</strong>, y compris <strong>au-delà de la suppression du compte</strong> — c'est précisément ce qui empêche de recréer un compte pour obtenir une nouvelle offre d'essai. Passé ce délai, il est supprimé automatiquement. Empreinte non identifiante, jamais rattachée à votre identité.</li>
     <li><strong>Vidéos relayées lors d'un import réseau social</strong> : transit éphémère uniquement — supprimées immédiatement après l'analyse, jamais conservées.</li>
     <li><strong>Données d'achat</strong> : les événements de paiement transmis par RevenueCat sont conservés <strong>90 jours</strong> sur nos serveurs puis supprimés automatiquement, et effacés immédiatement à la suppression du compte. Votre identifiant de compte et l'historique de vos achats restent conservés par RevenueCat et Google Play selon leurs propres politiques de conservation.</li>
     <li><strong>Données de plantage</strong> : conservées 90 jours par Firebase Crashlytics.</li>
     <li><strong>Statistiques d'utilisation</strong> : conservées 14 mois maximum.</li>
+    <li><strong>Statistiques agrégées anonymes</strong> (coût d'usage par jour pour l'ensemble des utilisateurs, cohortes d'inscription et de départ) : elles ne contiennent aucun identifiant ni aucune date précise, et sont conservées sans limite — elles ne permettent pas de vous identifier.</li>
+    <li><strong>Preuve de votre consentement</strong> (versions des conditions acceptées, dates, choix concernant les statistiques) : conservée <strong>5 ans</strong> après la suppression du compte, sous un identifiant technique qui ne permet plus de vous identifier — c'est elle qui nous permet de démontrer que votre consentement avait bien été recueilli.</li>
   </ul>
 
   <h2 id="deletion">7. Suppression des données</h2>
@@ -370,7 +372,8 @@
     <li><strong>Dans l'application</strong> : Paramètres → Compte → « Supprimer mon compte ». Suppression immédiate et irréversible.</li>
     <li><strong>En ligne</strong> : via le <a href="https://forms.gle/K33dYa73hH8DoRFg8">formulaire de demande de suppression</a>. Les demandes sont traitées sous <strong>30 jours</strong> et confirmées par e-mail.</li>
   </ul>
-  <p>La suppression efface : vos recettes, listes de courses, adresses, planning de repas, équipements, profil de partage, images générées, compteurs d'usage IA, et votre compte de connexion. Aucune donnée personnellement identifiable n'est conservée après suppression, à la seule exception d'un <strong>jeton anti-fraude non identifiant</strong> (voir §1 et §6) qui empêche le recyclage de l'offre d'essai et ne permet pas de vous réidentifier.</p>
+  <p>La suppression efface : vos recettes, listes de courses, adresses, planning de repas, équipements, profil de partage, images générées, compteurs d'usage IA, votre compte de connexion, ainsi que votre identifiant dans notre outil de mesure d'audience (Google Analytics).</p>
+  <p>Ce qui subsiste, et pourquoi : les <strong>données de transaction</strong> (achats, abonnements) sont conservées <strong>10 ans</strong> par notre prestataire de paiement, au titre de nos obligations comptables et de la défense de nos droits ; la <strong>preuve de votre consentement</strong> est conservée <strong>5 ans</strong> ; un <strong>jeton anti-fraude non identifiant</strong> (voir §1 et §6) empêche le recyclage de l'offre d'essai ; et des <strong>statistiques pseudonymisées</strong> de comportement, sans aucune donnée de contenu, sont conservées à des fins d'analyse statistique. Tous portent un identifiant technique devenu orphelin : une fois votre compte de connexion détruit, aucun ne permet de vous réidentifier.</p>
 
   <h2>8. Vos droits</h2>
   <p>Conformément au RGPD, vous disposez des droits d'<strong>accès</strong>, de <strong>rectification</strong>, d'<strong>effacement</strong> et de <strong>portabilité</strong> de vos données, du droit à la <strong>limitation</strong> et d'<strong>opposition</strong> aux traitements fondés sur l'intérêt légitime, et du droit de <strong>retirer votre consentement</strong> à tout moment (pour les statistiques, via l'interrupteur dans les Paramètres). L'export de sauvegarde locale (Paramètres → Maintenance) vous fournit à tout moment une copie portable au format JSON de vos recettes, listes, adresses et équipements.</p>

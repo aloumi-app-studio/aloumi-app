@@ -356,12 +356,14 @@
   <ul>
     <li><strong>Account and content data</strong>: kept as long as your account exists; deleted immediately when you delete your account.</li>
     <li><strong>AI chat history</strong>: stored locally on your device only; removed when you delete it in the app or uninstall the app.</li>
-    <li><strong>AI usage counters</strong>: kept while your account exists, deleted with the account.</li>
+    <li><strong>AI usage counters</strong>: kept for a maximum of <strong>13 months</strong>, and deleted with the account.</li>
     <li><strong>Anti-fraud token</strong>: retained for <strong>24 months</strong>, including <strong>beyond account deletion</strong> — this is precisely what prevents recreating an account to obtain a new trial offer. After that period it is deleted automatically. It is a non-identifying hash, never linked to your identity.</li>
     <li><strong>Videos relayed during a social media import</strong>: ephemeral transit only — deleted immediately after analysis, never retained.</li>
     <li><strong>Purchase data</strong>: payment events sent by RevenueCat are kept on our servers for <strong>90 days</strong>, then deleted automatically, and erased immediately when the account is deleted. Your account identifier and purchase history remain with RevenueCat and Google Play under their own retention policies.</li>
     <li><strong>Crash data</strong>: retained by Firebase Crashlytics for 90 days.</li>
     <li><strong>Analytics data</strong>: retained for a maximum of 14 months.</li>
+    <li><strong>Anonymous aggregate statistics</strong> (daily usage cost across all users, sign-up and departure cohorts): these contain no identifier and no precise date, and are kept indefinitely — they cannot identify you.</li>
+    <li><strong>Proof of your consent</strong> (accepted versions of the terms, dates, analytics choices): kept for <strong>5 years</strong> after account deletion, under a technical identifier that can no longer identify you — it is what lets us demonstrate that your consent was properly obtained.</li>
   </ul>
 
   <h2 id="deletion">7. Data deletion</h2>
@@ -370,7 +372,8 @@
     <li><strong>In the app</strong>: Settings → Account → "Delete my account". Deletion is immediate and irreversible.</li>
     <li><strong>Online</strong>: submit a <a href="https://forms.gle/K33dYa73hH8DoRFg8">deletion request form</a>. Requests are processed within <strong>30 days</strong> and confirmed by email.</li>
   </ul>
-  <p>Deletion removes: your recipes, shopping lists, addresses, meal plans, equipment settings, sharing profile, generated images, AI usage counters, and your sign-in account. Nothing personally identifiable is retained after deletion, with the sole exception of a <strong>non-identifying anti-fraud token</strong> (see §1 and §6) that prevents trial-offer recycling and cannot be used to re-identify you.</p>
+  <p>Deletion removes: your recipes, shopping lists, addresses, meal plans, equipment settings, sharing profile, generated images, AI usage counters, your sign-in account, and your identifier in our analytics tool (Google Analytics).</p>
+  <p>What remains, and why: <strong>transaction data</strong> (purchases, subscriptions) is kept for <strong>10 years</strong> by our payment provider, under our accounting obligations and to defend our rights; <strong>proof of your consent</strong> is kept for <strong>5 years</strong>; a <strong>non-identifying anti-fraud token</strong> (see §1 and §6) prevents trial-offer recycling; and <strong>pseudonymized</strong> behavioral statistics, containing no content data, are kept for statistical analysis. All of them carry a technical identifier that has become orphaned: once your sign-in account is destroyed, none of them can re-identify you.</p>
 
   <h2>8. Your rights</h2>
   <p>Under the GDPR you have the right to <strong>access</strong>, <strong>rectify</strong>, <strong>erase</strong> and <strong>port</strong> your data, to <strong>restrict</strong> or <strong>object to</strong> processing based on legitimate interest, and to <strong>withdraw your consent</strong> at any time (for analytics, via the toggle in Settings). The app's local backup export (Settings → Maintenance) gives you a portable JSON copy of your recipes, lists, addresses and equipment at any time.</p>

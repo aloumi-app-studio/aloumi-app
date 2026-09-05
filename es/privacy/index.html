@@ -356,12 +356,14 @@
   <ul>
     <li><strong>Datos de la cuenta y contenidos</strong>: se conservan mientras exista su cuenta; se eliminan de inmediato cuando la elimina.</li>
     <li><strong>Historial de conversaciones con la IA</strong>: se guarda únicamente en su dispositivo; desaparece cuando lo borra en la app o desinstala la app.</li>
-    <li><strong>Contadores de uso de la IA</strong>: se conservan mientras exista su cuenta y se eliminan con ella.</li>
+    <li><strong>Contadores de uso de la IA</strong>: se conservan un máximo de <strong>13 meses</strong> y se eliminan con la cuenta.</li>
     <li><strong>Token antifraude</strong>: se conserva <strong>24 meses</strong>, incluso <strong>después de eliminar la cuenta</strong>: es precisamente lo que impide volver a crear una cuenta para conseguir otra oferta de prueba. Pasado ese plazo se elimina automáticamente. Es un hash no identificativo, nunca vinculado a su identidad.</li>
     <li><strong>Vídeos que pasan por una importación desde redes sociales</strong>: solo tránsito efímero — se eliminan justo después del análisis y nunca se conservan.</li>
     <li><strong>Datos de compra</strong>: los eventos de pago transmitidos por RevenueCat se conservan en nuestros servidores durante <strong>90 días</strong> y después se eliminan automáticamente; se borran de inmediato al eliminar la cuenta. Su identificador de cuenta y su historial de compras permanecen en RevenueCat y Google Play conforme a sus propias políticas de conservación.</li>
     <li><strong>Datos de fallos</strong>: Firebase Crashlytics los conserva 90 días.</li>
     <li><strong>Datos estadísticos</strong>: se conservan un máximo de 14 meses.</li>
+    <li><strong>Estadísticas agregadas anónimas</strong> (coste de uso diario del conjunto de usuarios, cohortes de alta y de baja): no contienen ningún identificador ni ninguna fecha precisa y se conservan sin límite de tiempo; no permiten identificarle.</li>
+    <li><strong>Prueba de su consentimiento</strong> (versiones de las condiciones aceptadas, fechas, decisiones sobre las estadísticas): se conserva <strong>5 años</strong> tras la eliminación de la cuenta, bajo un identificador técnico que ya no permite identificarle; es lo que nos permite demostrar que su consentimiento se recabó correctamente.</li>
   </ul>
 
   <h2 id="deletion">7. Eliminación de los datos</h2>
@@ -370,7 +372,8 @@
     <li><strong>En la app</strong>: Ajustes → Cuenta → «Eliminar mi cuenta». La eliminación es inmediata e irreversible.</li>
     <li><strong>En línea</strong>: mediante el <a href="https://forms.gle/K33dYa73hH8DoRFg8">formulario de solicitud de eliminación</a>. Las solicitudes se tramitan en un plazo de <strong>30 días</strong> y se confirman por correo electrónico.</li>
   </ul>
-  <p>La eliminación borra: sus recetas, listas de la compra, joyas gastronómicas, plan de comidas, configuración del equipamiento, perfil para compartir, imágenes generadas, contadores de uso de la IA y su cuenta de acceso. Después de la eliminación no se conserva nada que le identifique, con la única excepción de un <strong>token antifraude no identificativo</strong> (véanse §1 y §6), que impide reciclar las ofertas de prueba y no permite volver a identificarle.</p>
+  <p>La eliminación borra: sus recetas, listas de la compra, joyas gastronómicas, plan de comidas, configuración del equipamiento, perfil para compartir, imágenes generadas, contadores de uso de la IA, su cuenta de acceso y su identificador en nuestra herramienta de medición de audiencia (Google Analytics).</p>
+  <p>Lo que se conserva, y por qué: los <strong>datos de transacción</strong> (compras, suscripciones) los conserva <strong>10 años</strong> nuestro proveedor de pago, en virtud de nuestras obligaciones contables y de la defensa de nuestros derechos; la <strong>prueba de su consentimiento</strong> se conserva <strong>5 años</strong>; un <strong>token antifraude no identificativo</strong> (véanse §1 y §6) impide reciclar las ofertas de prueba; y unas <strong>estadísticas seudonimizadas</strong> de comportamiento, sin ningún dato de contenido, se conservan con fines de análisis estadístico. Todos ellos llevan un identificador técnico ya huérfano: una vez destruida su cuenta de acceso, ninguno permite volver a identificarle.</p>
 
   <h2>8. Sus derechos</h2>
   <p>Conforme al RGPD, tiene derecho de <strong>acceso</strong>, <strong>rectificación</strong>, <strong>supresión</strong> y <strong>portabilidad</strong> de sus datos, de <strong>limitación</strong> del tratamiento o de <strong>oposición</strong> a un tratamiento basado en el interés legítimo, así como a <strong>retirar su consentimiento</strong> en cualquier momento (para las estadísticas, mediante el interruptor de los Ajustes). La exportación de copia de seguridad local de la app (Ajustes → Mantenimiento) le da en todo momento una copia JSON portable de sus recetas, listas, joyas y equipamiento.</p>
