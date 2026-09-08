@@ -18,7 +18,7 @@
 - Platform: **Android only**, distributed through Google Play. An iOS version is under consideration; there is no web app.
 - A **Google account is required** — the app has no anonymous mode. Data syncs across the user's devices.
 - Interface and AI answers follow the phone's language: **French, English, German, Italian, Spanish**. A device set to any other language falls back to English.
-- Price: **free to download**. AI features are subject to fair-use limits.
+- Price: **free to download**, and the recipe book stays free — creating, organising, cooking and shopping cost nothing. The heavier AI features belong to a **paid plan** (a subscription, monthly or yearly, plus one-off import packs), preceded by a **free trial that needs no payment card**. Google Play is the seller. All plans are subject to fair-use limits.
 - A user's recipes stay private to their account unless they explicitly share them.
 - Publisher: JEYLAB, a French limited company (SARL) registered in Paris.
 
