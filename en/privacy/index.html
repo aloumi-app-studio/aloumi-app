@@ -253,7 +253,7 @@
 <main class="legal">
 <div class="wrap">
 <h1>Privacy Policy</h1>
-  <p class="updated">Aloumi — Last updated: September 1, 2026</p>
+  <p class="updated">Aloumi — Last updated: September 23, 2026</p>
 
   <p>This Privacy Policy explains what data <strong>Aloumi</strong> ("the app", "we") collects, why, on what legal basis, how long it is kept, and how you can exercise your rights. Aloumi is an AI-powered recipe app for Android, published by <strong>JEYLAB</strong> (a French SARL, Paris Trade Register 943 632 588, registered office: 6 rue Émile Dubois, 75014 Paris), the "data controller" within the meaning of the GDPR (contact below, full details in the <a href="/en/legal-notice/">legal notice</a>).</p>
 
@@ -298,9 +298,9 @@
       <td>Legitimate interest (protecting the service against abuse)</td>
     </tr>
     <tr>
-      <td>Anti-fraud token: a non-identifying, one-way hash derived from your email address</td>
-      <td>When you start your free trial (and only then)</td>
-      <td>Preventing abuse of the free trial offer (deleting then recreating an account to claim it again). The hash cannot be used to re-identify you and is never used for any other purpose.</td>
+      <td>Anti-fraud tokens: two pseudonymized hashes (irreversible hashing with a secret key), one derived from your email address, the other from the identifier of your Google account</td>
+      <td>Stored when you start your free trial (and only then). When your account is created, they are only computed to check whether the trial has already been used, without being stored.</td>
+      <td>Preventing abuse of the free trial offer (deleting then recreating an account to claim it again). The second hash remains effective even if the email address of your Google account changes. For the same reason, the free trial is only granted if the email address of your Google account has been verified by Google. Under the GDPR, these pseudonymized hashes remain personal data. They cannot be used to recover your email address or the identifier of your Google account: only comparing them with that same data, using the secret key we hold, makes it possible to establish that the trial has already been used. They are never used for any other purpose.</td>
       <td>Legitimate interest (fraud prevention)</td>
     </tr>
     <tr>
@@ -363,7 +363,7 @@
     <li><strong>Account and content data</strong>: kept as long as your account exists; deleted immediately when you delete your account.</li>
     <li><strong>AI chat history</strong>: stored locally on your device only; removed when you delete it in the app or uninstall the app.</li>
     <li><strong>AI usage counters</strong>: kept for a maximum of <strong>13 months</strong>, and deleted with the account.</li>
-    <li><strong>Anti-fraud token</strong>: retained for <strong>24 months</strong>, including <strong>beyond account deletion</strong> — this is precisely what prevents recreating an account to obtain a new trial offer. After that period it is deleted automatically. It is a non-identifying hash, never linked to your identity.</li>
+    <li><strong>Anti-fraud tokens</strong> (the two pseudonymized hashes, derived from the email address and from the identifier of the Google account): retained for <strong>24 months</strong>, including <strong>beyond account deletion</strong> — this is precisely what prevents recreating an account to obtain a new trial offer. After that period they are deleted automatically. They are stored without any link to your account: no account identifier, no email address in clear text.</li>
     <li><strong>Videos relayed during a social media import</strong>: ephemeral transit only — deleted immediately after analysis, never retained.</li>
     <li><strong>Purchase data</strong>: payment events sent by RevenueCat are kept on our servers for <strong>90 days</strong>, then deleted automatically, and erased immediately when the account is deleted. Your account identifier and purchase history remain with RevenueCat and Google Play under their own retention policies.</li>
     <li><strong>Crash data</strong>: retained by Firebase Crashlytics for 90 days.</li>
@@ -379,7 +379,7 @@
     <li><strong>Online</strong>: submit a <a href="https://forms.gle/K33dYa73hH8DoRFg8">deletion request form</a>. Requests are processed within <strong>30 days</strong> and confirmed by email.</li>
   </ul>
   <p>Deletion removes: your recipes, shopping lists, addresses, meal plans, equipment settings, sharing profile, generated images, AI usage counters, your sign-in account, and your identifier in our analytics tool (Google Analytics).</p>
-  <p>What remains, and why: <strong>transaction data</strong> (purchases, subscriptions) is kept for <strong>10 years</strong> by our payment provider, under our accounting obligations and to defend our rights; <strong>proof of your consent</strong> is kept for <strong>5 years</strong>; a <strong>non-identifying anti-fraud token</strong> (see §1 and §6) prevents trial-offer recycling; and <strong>pseudonymized</strong> behavioral statistics, containing no content data, are kept for statistical analysis. All of them carry a technical identifier that has become orphaned: once your sign-in account is destroyed, none of them can re-identify you.</p>
+  <p>What remains, and why: <strong>transaction data</strong> (purchases, subscriptions) is kept for <strong>10 years</strong> by our payment provider, under our accounting obligations and to defend our rights; <strong>proof of your consent</strong> is kept for <strong>5 years</strong>; two <strong>pseudonymized anti-fraud tokens</strong> (see §1 and §6) prevent trial-offer recycling; and <strong>pseudonymized</strong> behavioral statistics, containing no content data, are kept for statistical analysis. Apart from the anti-fraud tokens, this data carries a technical identifier that has become orphaned: once your sign-in account is destroyed, none of it can re-identify you.</p>
 
   <h2>8. Your rights</h2>
   <p>Under the GDPR you have the right to <strong>access</strong>, <strong>rectify</strong>, <strong>erase</strong> and <strong>port</strong> your data, to <strong>restrict</strong> or <strong>object to</strong> processing based on legitimate interest, and to <strong>withdraw your consent</strong> at any time (for analytics, via the toggle in Settings). The app's local backup export (Settings → Maintenance) gives you a portable JSON copy of your recipes, lists, addresses and equipment at any time.</p>

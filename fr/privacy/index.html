@@ -253,7 +253,7 @@
 <main class="legal">
 <div class="wrap">
 <h1>Politique de confidentialité</h1>
-  <p class="updated">Aloumi — Dernière mise à jour : 1er septembre 2026</p>
+  <p class="updated">Aloumi — Dernière mise à jour : 23 septembre 2026</p>
 
   <p>Cette politique explique quelles données <strong>Aloumi</strong> (« l'application », « nous ») collecte, pourquoi, sur quelle base légale, combien de temps elles sont conservées, et comment exercer vos droits. Aloumi est une application Android de recettes assistée par IA, éditée par la société <strong>JEYLAB</strong> (SARL, RCS Paris 943 632 588, siège : 6 rue Émile Dubois, 75014 Paris), responsable de traitement au sens du RGPD (contact ci-dessous, informations complètes dans les <a href="/fr/legal-notice/">mentions légales</a>).</p>
 
@@ -298,9 +298,9 @@
       <td>Intérêt légitime (protection du service contre les abus)</td>
     </tr>
     <tr>
-      <td>Jeton anti-fraude : empreinte non identifiante (hachage à sens unique) dérivée de votre adresse e-mail</td>
-      <td>Au moment où vous démarrez votre essai gratuit (et à ce moment-là seulement)</td>
-      <td>Empêcher le recyclage abusif de l'offre d'essai gratuite (supprimer puis recréer un compte pour en bénéficier à nouveau). L'empreinte ne permet pas de vous réidentifier et n'est jamais utilisée à d'autres fins.</td>
+      <td>Jetons anti-fraude : deux empreintes pseudonymisées (hachage irréversible avec une clé secrète), l'une dérivée de votre adresse e-mail, l'autre de l'identifiant de votre compte Google</td>
+      <td>Enregistrées au moment où vous démarrez votre essai gratuit (et à ce moment-là seulement). À la création de votre compte, elles sont seulement calculées pour vérifier si l'essai a déjà été utilisé, sans être conservées.</td>
+      <td>Empêcher le recyclage abusif de l'offre d'essai gratuite (supprimer puis recréer un compte pour en bénéficier à nouveau). La seconde empreinte reste opérante même si l'adresse e-mail de votre compte Google change. Pour la même raison, l'essai gratuit n'est accordé que si l'adresse e-mail de votre compte Google a été vérifiée par Google. Au sens du RGPD, ces empreintes pseudonymisées restent des données personnelles. Elles ne permettent pas de retrouver votre adresse e-mail ni l'identifiant de votre compte Google : seule leur comparaison avec ces mêmes données, à l'aide de la clé secrète que nous détenons, permet de constater que l'essai a déjà été utilisé. Elles ne sont jamais utilisées à d'autres fins.</td>
       <td>Intérêt légitime (prévention de la fraude)</td>
     </tr>
     <tr>
@@ -363,7 +363,7 @@
     <li><strong>Données de compte et contenu</strong> : conservés tant que votre compte existe ; supprimés immédiatement à la suppression du compte.</li>
     <li><strong>Historique des conversations IA</strong> : uniquement local sur votre appareil ; supprimé quand vous l'effacez dans l'app ou désinstallez l'application.</li>
     <li><strong>Compteurs d'usage IA</strong> : conservés <strong>13 mois au maximum</strong>, et supprimés avec le compte.</li>
-    <li><strong>Jeton anti-fraude</strong> : conservé <strong>24 mois</strong>, y compris <strong>au-delà de la suppression du compte</strong> — c'est précisément ce qui empêche de recréer un compte pour obtenir une nouvelle offre d'essai. Passé ce délai, il est supprimé automatiquement. Empreinte non identifiante, jamais rattachée à votre identité.</li>
+    <li><strong>Jetons anti-fraude</strong> (les deux empreintes pseudonymisées, dérivées de l'adresse e-mail et de l'identifiant du compte Google) : conservés <strong>24 mois</strong>, y compris <strong>au-delà de la suppression du compte</strong> — c'est précisément ce qui empêche de recréer un compte pour obtenir une nouvelle offre d'essai. Passé ce délai, ils sont supprimés automatiquement. Ils sont conservés sans aucun lien avec votre compte : ni identifiant de compte, ni adresse e-mail en clair.</li>
     <li><strong>Vidéos relayées lors d'un import réseau social</strong> : transit éphémère uniquement — supprimées immédiatement après l'analyse, jamais conservées.</li>
     <li><strong>Données d'achat</strong> : les événements de paiement transmis par RevenueCat sont conservés <strong>90 jours</strong> sur nos serveurs puis supprimés automatiquement, et effacés immédiatement à la suppression du compte. Votre identifiant de compte et l'historique de vos achats restent conservés par RevenueCat et Google Play selon leurs propres politiques de conservation.</li>
     <li><strong>Données de plantage</strong> : conservées 90 jours par Firebase Crashlytics.</li>
@@ -379,7 +379,7 @@
     <li><strong>En ligne</strong> : via le <a href="https://forms.gle/K33dYa73hH8DoRFg8">formulaire de demande de suppression</a>. Les demandes sont traitées sous <strong>30 jours</strong> et confirmées par e-mail.</li>
   </ul>
   <p>La suppression efface : vos recettes, listes de courses, adresses, planning de repas, équipements, profil de partage, images générées, compteurs d'usage IA, votre compte de connexion, ainsi que votre identifiant dans notre outil de mesure d'audience (Google Analytics).</p>
-  <p>Ce qui subsiste, et pourquoi : les <strong>données de transaction</strong> (achats, abonnements) sont conservées <strong>10 ans</strong> par notre prestataire de paiement, au titre de nos obligations comptables et de la défense de nos droits ; la <strong>preuve de votre consentement</strong> est conservée <strong>5 ans</strong> ; un <strong>jeton anti-fraude non identifiant</strong> (voir §1 et §6) empêche le recyclage de l'offre d'essai ; et des <strong>statistiques pseudonymisées</strong> de comportement, sans aucune donnée de contenu, sont conservées à des fins d'analyse statistique. Tous portent un identifiant technique devenu orphelin : une fois votre compte de connexion détruit, aucun ne permet de vous réidentifier.</p>
+  <p>Ce qui subsiste, et pourquoi : les <strong>données de transaction</strong> (achats, abonnements) sont conservées <strong>10 ans</strong> par notre prestataire de paiement, au titre de nos obligations comptables et de la défense de nos droits ; la <strong>preuve de votre consentement</strong> est conservée <strong>5 ans</strong> ; deux <strong>jetons anti-fraude pseudonymisés</strong> (voir §1 et §6) empêchent le recyclage de l'offre d'essai ; et des <strong>statistiques pseudonymisées</strong> de comportement, sans aucune donnée de contenu, sont conservées à des fins d'analyse statistique. Hormis les jetons anti-fraude, ces données portent un identifiant technique devenu orphelin : une fois votre compte de connexion détruit, aucune ne permet de vous réidentifier.</p>
 
   <h2>8. Vos droits</h2>
   <p>Conformément au RGPD, vous disposez des droits d'<strong>accès</strong>, de <strong>rectification</strong>, d'<strong>effacement</strong> et de <strong>portabilité</strong> de vos données, du droit à la <strong>limitation</strong> et d'<strong>opposition</strong> aux traitements fondés sur l'intérêt légitime, et du droit de <strong>retirer votre consentement</strong> à tout moment (pour les statistiques, via l'interrupteur dans les Paramètres). L'export de sauvegarde locale (Paramètres → Maintenance) vous fournit à tout moment une copie portable au format JSON de vos recettes, listes, adresses et équipements.</p>
