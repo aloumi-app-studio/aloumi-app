@@ -91,6 +91,7 @@
         "Modifica di una ricetta che hai già, chiesta in linguaggio naturale (vegetariana, senza forno, meno salata), con anteprima delle modifiche e originale conservato",
         "Assistente di cucina IA che conosce la ricetta in corso",
         "Modalità cucina passo dopo passo con timer per ogni passaggio",
+        "Piano pasti settimanale per pranzo e cena, composto con le tue ricette e collegato alla lista della spesa",
         "Lista della spesa ordinata automaticamente per reparto",
         "Condivisione in tempo reale di ricette, liste della spesa e chicche golose"
       ],
@@ -311,9 +312,10 @@
   .head{text-align:center;max-width:640px;margin:0 auto 52px}
   .head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:14px}
   .head p{color:var(--muted);font-size:1.08rem}
-  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-
-  .feat:last-child:nth-child(3n+1){grid-column:2}
+  .features{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+  .feat{grid-column:span 2}
+  .feat:last-child:nth-child(3n+1){grid-column:3 / span 2}
+  .feat:nth-last-child(2):nth-child(3n+1){grid-column:2 / span 2}
   .feat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px;
     box-shadow:var(--shadow);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
   .feat:hover{transform:translateY(-5px);box-shadow:var(--shadow-lift)}
@@ -368,7 +370,7 @@
 
     .badges{justify-content:center;width:100%}
     .features{grid-template-columns:1fr 1fr}
-    .feat:last-child:nth-child(3n+1){grid-column:auto}
+    .feat,.feat:last-child:nth-child(3n+1),.feat:nth-last-child(2):nth-child(3n+1){grid-column:auto}
     .f-grid{grid-template-columns:1fr;gap:28px}
   }
   @media (max-width:560px){
@@ -462,6 +464,11 @@
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l2.5 2M9 2h6"></path></svg></div>
           <h3>Modalità cucina passo dopo passo</h3>
           <p>Passaggi a schermo intero, ingredienti richiamati al momento giusto, timer che suonano <strong>anche ad app chiusa o a telefono bloccato</strong>.</p>
+        </div>
+        <div class="feat reveal" style="transition-delay: 360ms;">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="17" rx="2.5"></rect><path d="M3.5 9.5h17M8 2.5v4M16 2.5v4"></path><path d="M8 13.5h.01M12 13.5h.01M16 13.5h.01M8 17.5h.01M12 17.5h.01M16 17.5h.01" stroke-width="2.3"></path></svg></div>
+          <h3>La tua settimana, già pronta</h3>
+          <p>Addio al «cosa mangiamo stasera?»: nel tuo piano pasti trovi tutta la settimana, pranzo e cena, <strong>con le tue ricette</strong>. E la lista della spesa va di pari passo, senza dimenticare niente.</p>
         </div>
         <div class="feat reveal" style="transition-delay: 360ms;">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12L5 3H2"></path><circle cx="9" cy="20" r="1.4"></circle><circle cx="18" cy="20" r="1.4"></circle></svg></div>

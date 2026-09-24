@@ -9,6 +9,7 @@
 - **On-request recipe editing** — on any saved recipe, the user asks in plain language ("make it vegetarian", "no oven", "less salt"). Aloumi previews the changes before applying them, never touches ingredients that were not mentioned, and can keep the original alongside the new version.
 - **Contextual cooking assistant** — while cooking, the assistant knows the recipe and the current step, and answers cooking questions about them.
 - **Step-by-step cooking mode** — full-screen steps, per-step timers that survive the app being closed, per-step ingredient reminders.
+- **Weekly meal planner** — the user plans lunch and dinner for each day of the week from their own recipes, and can send the ingredients of the planned meals to the shopping list.
 - **Smart shopping list** — free-text entry, automatic sorting by supermarket aisle, duplicate merging with unit conversion.
 - **Portion scaling** — quantities scale by number of servings or from a single ingredient.
 - **Real-time sharing** — recipes, shopping lists and food finds can be shared with family or friends, with per-collection permissions.

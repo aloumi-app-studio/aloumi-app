@@ -91,6 +91,7 @@
         "Modification d'une recette existante à la demande en langage naturel (végétarien, sans four, moins salé), avec aperçu des changements et conservation de l'originale",
         "Assistant IA culinaire contextuel",
         "Mode cuisine pas à pas avec minuteurs par étape",
+        "Planning des repas de la semaine, midi et soir, composé avec les recettes du carnet et relié à la liste de courses",
         "Liste de courses avec catégorisation automatique par rayon",
         "Partage de recettes, courses et bonnes adresses en temps réel"
       ],
@@ -311,9 +312,10 @@
   .head{text-align:center;max-width:640px;margin:0 auto 52px}
   .head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:14px}
   .head p{color:var(--muted);font-size:1.08rem}
-  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-
-  .feat:last-child:nth-child(3n+1){grid-column:2}
+  .features{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+  .feat{grid-column:span 2}
+  .feat:last-child:nth-child(3n+1){grid-column:3 / span 2}
+  .feat:nth-last-child(2):nth-child(3n+1){grid-column:2 / span 2}
   .feat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px;
     box-shadow:var(--shadow);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
   .feat:hover{transform:translateY(-5px);box-shadow:var(--shadow-lift)}
@@ -368,7 +370,7 @@
 
     .badges{justify-content:center;width:100%}
     .features{grid-template-columns:1fr 1fr}
-    .feat:last-child:nth-child(3n+1){grid-column:auto}
+    .feat,.feat:last-child:nth-child(3n+1),.feat:nth-last-child(2):nth-child(3n+1){grid-column:auto}
     .f-grid{grid-template-columns:1fr;gap:28px}
   }
   @media (max-width:560px){
@@ -462,6 +464,11 @@
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l2.5 2M9 2h6"></path></svg></div>
           <h3>Mode cuisine pas à pas</h3>
           <p>Étapes en plein écran, ingrédients rappelés au bon moment, minuteurs qui sonnent <strong>même app fermée ou téléphone verrouillé</strong>.</p>
+        </div>
+        <div class="feat reveal" style="transition-delay: 360ms;">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="17" rx="2.5"></rect><path d="M3.5 9.5h17M8 2.5v4M16 2.5v4"></path><path d="M8 13.5h.01M12 13.5h.01M16 13.5h.01M8 17.5h.01M12 17.5h.01M16 17.5h.01" stroke-width="2.3"></path></svg></div>
+          <h3>Ta semaine, déjà prévue</h3>
+          <p>Fini le « qu'est-ce qu'on mange ce soir ? » : ton planning réunit tes repas de la semaine, midi et soir, <strong>avec tes propres recettes</strong>. Et ta liste de courses suit, sans rien oublier.</p>
         </div>
         <div class="feat reveal" style="transition-delay: 360ms;">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12L5 3H2"></path><circle cx="9" cy="20" r="1.4"></circle><circle cx="18" cy="20" r="1.4"></circle></svg></div>
