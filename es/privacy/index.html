@@ -254,7 +254,7 @@
 <main class="legal">
 <div class="wrap">
 <h1>Política de privacidad</h1>
-  <p class="updated">Aloumi — Última actualización: 23 de septiembre de 2026</p>
+  <p class="updated">Aloumi — Última actualización: 1 de octubre de 2026</p>
 
   <p>Esta Política explica qué datos recoge <strong>Aloumi</strong> («la app», «nosotros»), con qué finalidad, sobre qué base jurídica, durante cuánto tiempo los conserva y cómo puede usted ejercer sus derechos. Aloumi es una app de recetas con IA para Android, publicada por <strong>JEYLAB</strong> (SARL de derecho francés, Registro Mercantil de París 943 632 588, domicilio social: 6 rue Émile Dubois, 75014 París), «responsable del tratamiento» en el sentido del RGPD (contacto al final, datos completos en el <a href="/es/legal-notice/">aviso legal</a>).</p>
 
@@ -284,6 +284,18 @@
       <td>Mensajes, fotos y documentos que envía a las funciones de IA</td>
       <td>Cuando usa el Chef IA, la importación de recetas o el asistente en la cocina</td>
       <td>Se envían a la API de Google Gemini para generar la respuesta, a través de nuestra función de servidor, que los transmite sin conservarlos. El historial de conversaciones se guarda <strong>únicamente en su dispositivo</strong>: nunca se sube a nuestros servidores. No se utiliza para crear un perfil.</td>
+      <td>Ejecución del contrato</td>
+    </tr>
+    <tr>
+      <td>Fotos y documentos de una receta que quiere importar</td>
+      <td>Cuando importa una receta desde fotos o un documento</td>
+      <td>Se depositan temporalmente en un espacio de almacenamiento privado, propio de su cuenta (Google Firebase Storage), donde solo nuestro servidor los vuelve a leer para extraer la receta con la API de Gemini. Se <strong>eliminan en cuanto la receta le ha llegado</strong> y, en cualquier caso, automáticamente <strong>como máximo unos dos días</strong> después del depósito.</td>
+      <td>Ejecución del contrato</td>
+    </tr>
+    <tr>
+      <td>Identificador de notificaciones de su dispositivo (token de Firebase Cloud Messaging)</td>
+      <td>Al iniciar sesión y con cada importación de receta</td>
+      <td>Enviarle las notificaciones de la aplicación: solicitudes para compartir y sus aceptaciones, y el aviso «Tu receta está lista» al final de una importación, enviado solo al dispositivo que la inició y con el título de la receta. Las notificaciones solo se muestran si usted las permite en su dispositivo.</td>
       <td>Ejecución del contrato</td>
     </tr>
     <tr>
@@ -349,6 +361,7 @@
   <ul>
     <li><strong>Firebase Authentication</strong> — inicio de sesión</li>
     <li><strong>Firebase Firestore y Firebase Storage</strong> — almacenamiento de datos e imágenes</li>
+    <li><strong>Firebase Cloud Messaging</strong> — envío de notificaciones</li>
     <li><strong>Google Gemini API / Vertex AI</strong> — generación de texto e imágenes con IA</li>
     <li><strong>Firebase Crashlytics</strong> — informes de fallos</li>
     <li><strong>Google Analytics for Firebase</strong> — estadísticas de uso (solo con su consentimiento)</li>
@@ -366,6 +379,8 @@
     <li><strong>Contadores de uso de la IA</strong>: se conservan un máximo de <strong>13 meses</strong> y se eliminan con la cuenta.</li>
     <li><strong>Tokens antifraude</strong> (los dos hashes seudonimizados, derivados de la dirección de correo y del identificador de la cuenta de Google): se conservan <strong>24 meses</strong>, incluso <strong>después de eliminar la cuenta</strong>: es precisamente lo que impide volver a crear una cuenta para conseguir otra oferta de prueba. Pasado ese plazo se eliminan automáticamente. Se conservan sin ningún vínculo con su cuenta: ni identificador de cuenta, ni dirección de correo en claro.</li>
     <li><strong>Vídeos que pasan por una importación desde redes sociales</strong>: solo tránsito efímero — se eliminan justo después del análisis y nunca se conservan.</li>
+    <li><strong>Fotos y documentos depositados para una importación</strong>: se eliminan en cuanto la receta le ha llegado y, como máximo, unos <strong>dos días</strong> después del depósito.</li>
+    <li><strong>Identificador de notificaciones de su dispositivo</strong>: se conserva mientras ese dispositivo tenga la sesión iniciada en su cuenta; se retira al cerrar la sesión, en cuanto deja de ser válido y al eliminar la cuenta. Adjunto a una importación, solo se transmite durante esa importación.</li>
     <li><strong>Datos de compra</strong>: los eventos de pago transmitidos por RevenueCat se conservan en nuestros servidores durante <strong>90 días</strong> y después se eliminan automáticamente; se borran de inmediato al eliminar la cuenta. Su identificador de cuenta y su historial de compras permanecen en RevenueCat y Google Play conforme a sus propias políticas de conservación.</li>
     <li><strong>Datos de fallos</strong>: Firebase Crashlytics los conserva 90 días.</li>
     <li><strong>Datos estadísticos</strong>: se conservan un máximo de 14 meses.</li>
@@ -379,7 +394,7 @@
     <li><strong>En la app</strong>: Ajustes → Cuenta → «Eliminar mi cuenta». La eliminación es inmediata e irreversible.</li>
     <li><strong>En línea</strong>: mediante el <a href="https://forms.gle/K33dYa73hH8DoRFg8">formulario de solicitud de eliminación</a>. Las solicitudes se tramitan en un plazo de <strong>30 días</strong> y se confirman por correo electrónico.</li>
   </ul>
-  <p>La eliminación borra: sus recetas, listas de la compra, joyas gastronómicas, plan de comidas, configuración del equipamiento, perfil para compartir, imágenes generadas, contadores de uso de la IA, su cuenta de acceso y su identificador en nuestra herramienta de medición de audiencia (Google Analytics).</p>
+  <p>La eliminación borra: sus recetas, listas de la compra, joyas gastronómicas, plan de comidas, configuración del equipamiento, perfil para compartir, imágenes generadas, fotos depositadas para una importación, identificadores de notificaciones de sus dispositivos, contadores de uso de la IA, su cuenta de acceso y su identificador en nuestra herramienta de medición de audiencia (Google Analytics).</p>
   <p>Lo que se conserva, y por qué: los <strong>datos de transacción</strong> (compras, suscripciones) los conserva <strong>10 años</strong> nuestro proveedor de pago, en virtud de nuestras obligaciones contables y de la defensa de nuestros derechos; la <strong>prueba de su consentimiento</strong> se conserva <strong>5 años</strong>; dos <strong>tokens antifraude seudonimizados</strong> (véanse §1 y §6) impiden reciclar las ofertas de prueba; y unas <strong>estadísticas seudonimizadas</strong> de comportamiento, sin ningún dato de contenido, se conservan con fines de análisis estadístico. Salvo los tokens antifraude, estos datos llevan un identificador técnico ya huérfano: una vez destruida su cuenta de acceso, ninguno permite volver a identificarle.</p>
 
   <h2>8. Sus derechos</h2>

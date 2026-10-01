@@ -254,7 +254,7 @@
 <main class="legal">
 <div class="wrap">
 <h1>Privacy Policy</h1>
-  <p class="updated">Aloumi — Last updated: September 23, 2026</p>
+  <p class="updated">Aloumi — Last updated: October 1, 2026</p>
 
   <p>This Privacy Policy explains what data <strong>Aloumi</strong> ("the app", "we") collects, why, on what legal basis, how long it is kept, and how you can exercise your rights. Aloumi is an AI-powered recipe app for Android, published by <strong>JEYLAB</strong> (a French SARL, Paris Trade Register 943 632 588, registered office: 6 rue Émile Dubois, 75014 Paris), the "data controller" within the meaning of the GDPR (contact below, full details in the <a href="/en/legal-notice/">legal notice</a>).</p>
 
@@ -284,6 +284,18 @@
       <td>Messages, photos and documents you submit to AI features</td>
       <td>When you use the AI chef, recipe import or cooking assistant</td>
       <td>Sent to the Google Gemini API to generate the response, through our server function which relays them without storing them. Chat history is stored <strong>locally on your device only</strong> — it is never uploaded to our servers. Not used to build a profile of you.</td>
+      <td>Performance of the contract</td>
+    </tr>
+    <tr>
+      <td>Photos and documents of a recipe to import</td>
+      <td>When you import a recipe from photos or a document</td>
+      <td>Temporarily uploaded to a private storage area specific to your account (Google Firebase Storage), where only our server reads them back to extract the recipe with the Gemini API. They are <strong>deleted as soon as the recipe has reached you</strong>, and in any case automatically <strong>no later than about two days</strong> after upload.</td>
+      <td>Performance of the contract</td>
+    </tr>
+    <tr>
+      <td>Your device's notification identifier (Firebase Cloud Messaging token)</td>
+      <td>When you sign in, and with each recipe import</td>
+      <td>Sending you the app's notifications: sharing requests and their approvals, and the "your recipe is ready" notice at the end of an import, sent only to the device that started it and containing the recipe title. Notifications are only shown if you allow them on your device.</td>
       <td>Performance of the contract</td>
     </tr>
     <tr>
@@ -349,6 +361,7 @@
   <ul>
     <li><strong>Firebase Authentication</strong> — sign-in</li>
     <li><strong>Firebase Firestore &amp; Firebase Storage</strong> — data and image storage</li>
+    <li><strong>Firebase Cloud Messaging</strong> — sending notifications</li>
     <li><strong>Google Gemini API / Vertex AI</strong> — AI text and image generation</li>
     <li><strong>Firebase Crashlytics</strong> — crash reporting</li>
     <li><strong>Google Analytics for Firebase</strong> — usage statistics (with your consent only)</li>
@@ -366,6 +379,8 @@
     <li><strong>AI usage counters</strong>: kept for a maximum of <strong>13 months</strong>, and deleted with the account.</li>
     <li><strong>Anti-fraud tokens</strong> (the two pseudonymized hashes, derived from the email address and from the identifier of the Google account): retained for <strong>24 months</strong>, including <strong>beyond account deletion</strong> — this is precisely what prevents recreating an account to obtain a new trial offer. After that period they are deleted automatically. They are stored without any link to your account: no account identifier, no email address in clear text.</li>
     <li><strong>Videos relayed during a social media import</strong>: ephemeral transit only — deleted immediately after analysis, never retained.</li>
+    <li><strong>Photos and documents uploaded for an import</strong>: deleted as soon as the recipe has reached you, and no later than about <strong>two days</strong> after upload.</li>
+    <li><strong>Your device's notification identifier</strong>: kept as long as that device is signed in to your account; removed when you sign out, as soon as it is no longer valid, and when the account is deleted. When attached to an import, it is only carried for the duration of that import.</li>
     <li><strong>Purchase data</strong>: payment events sent by RevenueCat are kept on our servers for <strong>90 days</strong>, then deleted automatically, and erased immediately when the account is deleted. Your account identifier and purchase history remain with RevenueCat and Google Play under their own retention policies.</li>
     <li><strong>Crash data</strong>: retained by Firebase Crashlytics for 90 days.</li>
     <li><strong>Analytics data</strong>: retained for a maximum of 14 months.</li>
@@ -379,7 +394,7 @@
     <li><strong>In the app</strong>: Settings → Account → "Delete my account". Deletion is immediate and irreversible.</li>
     <li><strong>Online</strong>: submit a <a href="https://forms.gle/K33dYa73hH8DoRFg8">deletion request form</a>. Requests are processed within <strong>30 days</strong> and confirmed by email.</li>
   </ul>
-  <p>Deletion removes: your recipes, shopping lists, addresses, meal plans, equipment settings, sharing profile, generated images, AI usage counters, your sign-in account, and your identifier in our analytics tool (Google Analytics).</p>
+  <p>Deletion removes: your recipes, shopping lists, addresses, meal plans, equipment settings, sharing profile, generated images, photos uploaded for an import, your devices' notification identifiers, AI usage counters, your sign-in account, and your identifier in our analytics tool (Google Analytics).</p>
   <p>What remains, and why: <strong>transaction data</strong> (purchases, subscriptions) is kept for <strong>10 years</strong> by our payment provider, under our accounting obligations and to defend our rights; <strong>proof of your consent</strong> is kept for <strong>5 years</strong>; two <strong>pseudonymized anti-fraud tokens</strong> (see §1 and §6) prevent trial-offer recycling; and <strong>pseudonymized</strong> behavioral statistics, containing no content data, are kept for statistical analysis. Apart from the anti-fraud tokens, this data carries a technical identifier that has become orphaned: once your sign-in account is destroyed, none of it can re-identify you.</p>
 
   <h2>8. Your rights</h2>

@@ -254,7 +254,7 @@
 <main class="legal">
 <div class="wrap">
 <h1>Datenschutzerklärung</h1>
-  <p class="updated">Aloumi – Zuletzt aktualisiert: 23. September 2026</p>
+  <p class="updated">Aloumi – Zuletzt aktualisiert: 1. Oktober 2026</p>
 
   <p>Diese Datenschutzerklärung erläutert, welche Daten <strong>Aloumi</strong> („die App“, „wir“) erhebt, zu welchem Zweck, auf welcher Rechtsgrundlage, wie lange sie gespeichert werden und wie Sie Ihre Rechte ausüben können. Aloumi ist eine KI-gestützte Rezept-App für Android, herausgegeben von <strong>JEYLAB</strong> (französische SARL, Handelsregister Paris 943 632 588, Sitz: 6 rue Émile Dubois, 75014 Paris), dem „Verantwortlichen“ im Sinne der DSGVO (Kontakt unten, vollständige Angaben im <a href="/de/legal-notice/">Impressum</a>).</p>
 
@@ -284,6 +284,18 @@
       <td>Nachrichten, Fotos und Dokumente, die Sie an KI-Funktionen übermitteln</td>
       <td>Bei Nutzung des KI-Kochs, des Rezeptimports oder des Kochassistenten</td>
       <td>Übermittlung an die Google-Gemini-API zur Erzeugung der Antwort, über unsere Serverfunktion, die sie weiterleitet, ohne sie zu speichern. Der Chatverlauf wird <strong>ausschließlich lokal auf Ihrem Gerät</strong> gespeichert – er wird nie auf unsere Server übertragen. Er wird nicht zur Profilbildung verwendet.</td>
+      <td>Vertragserfüllung</td>
+    </tr>
+    <tr>
+      <td>Fotos und Dokumente eines zu importierenden Rezepts</td>
+      <td>Wenn Sie ein Rezept aus Fotos oder einem Dokument importieren</td>
+      <td>Vorübergehend in einem privaten, Ihrem Konto zugeordneten Speicherbereich (Google Firebase Storage) abgelegt, wo nur unser Server sie liest, um das Rezept mit der Gemini-API zu extrahieren. Sie werden <strong>gelöscht, sobald das Rezept bei Ihnen angekommen ist</strong>, in jedem Fall automatisch <strong>spätestens etwa zwei Tage</strong> nach dem Hochladen.</td>
+      <td>Vertragserfüllung</td>
+    </tr>
+    <tr>
+      <td>Benachrichtigungskennung Ihres Geräts (Firebase-Cloud-Messaging-Token)</td>
+      <td>Bei der Anmeldung und mit jedem Rezeptimport</td>
+      <td>Versand der Benachrichtigungen der App: Freigabeanfragen und deren Annahme sowie der Hinweis „Dein Rezept ist fertig“ am Ende eines Imports – nur an das Gerät gesendet, das ihn gestartet hat, mit dem Titel des Rezepts. Benachrichtigungen werden nur angezeigt, wenn Sie sie auf Ihrem Gerät erlauben.</td>
       <td>Vertragserfüllung</td>
     </tr>
     <tr>
@@ -349,6 +361,7 @@
   <ul>
     <li><strong>Firebase Authentication</strong> – Anmeldung</li>
     <li><strong>Firebase Firestore &amp; Firebase Storage</strong> – Speicherung von Daten und Bildern</li>
+    <li><strong>Firebase Cloud Messaging</strong> – Versand von Benachrichtigungen</li>
     <li><strong>Google Gemini API / Vertex AI</strong> – KI-Erzeugung von Text und Bildern</li>
     <li><strong>Firebase Crashlytics</strong> – Absturzberichte</li>
     <li><strong>Google Analytics für Firebase</strong> – Nutzungsstatistiken (nur mit Ihrer Einwilligung)</li>
@@ -366,6 +379,8 @@
     <li><strong>Zähler der KI-Nutzung</strong>: höchstens <strong>13 Monate</strong> aufbewahrt und mit dem Konto gelöscht.</li>
     <li><strong>Betrugsschutz-Tokens</strong> (die beiden pseudonymisierten Hashes, abgeleitet aus der E-Mail-Adresse und aus der Kennung des Google-Kontos): <strong>24 Monate</strong> aufbewahrt, auch <strong>über die Kontolöschung hinaus</strong> – genau dies verhindert, dass ein Konto neu angelegt wird, um erneut ein Testangebot zu erhalten. Nach Ablauf dieser Frist werden sie automatisch gelöscht. Sie werden ohne jede Verknüpfung mit Ihrem Konto aufbewahrt: weder eine Kontokennung noch die E-Mail-Adresse im Klartext.</li>
     <li><strong>Beim Social-Media-Import weitergeleitete Videos</strong>: nur flüchtiger Transit – unmittelbar nach der Analyse gelöscht, nie aufbewahrt.</li>
+    <li><strong>Für einen Import hochgeladene Fotos und Dokumente</strong>: gelöscht, sobald das Rezept bei Ihnen angekommen ist, spätestens etwa <strong>zwei Tage</strong> nach dem Hochladen.</li>
+    <li><strong>Benachrichtigungskennung Ihres Geräts</strong>: aufbewahrt, solange dieses Gerät mit Ihrem Konto angemeldet ist; entfernt bei der Abmeldung, sobald sie nicht mehr gültig ist, und bei Löschung des Kontos. Einem Import beigefügt, wird sie nur für die Dauer dieses Imports mitgeführt.</li>
     <li><strong>Kaufdaten</strong>: die von RevenueCat übermittelten Zahlungsereignisse werden <strong>90 Tage</strong> auf unseren Servern aufbewahrt und danach automatisch gelöscht; bei Löschung des Kontos werden sie sofort entfernt. Ihre Kontokennung und Ihr Kaufverlauf verbleiben gemäß deren eigenen Aufbewahrungsrichtlinien bei RevenueCat und Google Play.</li>
     <li><strong>Absturzdaten</strong>: von Firebase Crashlytics 90 Tage aufbewahrt.</li>
     <li><strong>Statistikdaten</strong>: höchstens 14 Monate aufbewahrt.</li>
@@ -379,7 +394,7 @@
     <li><strong>In der App</strong>: Einstellungen → Konto → „Mein Konto löschen“. Die Löschung erfolgt sofort und ist unwiderruflich.</li>
     <li><strong>Online</strong>: über das <a href="https://forms.gle/K33dYa73hH8DoRFg8">Formular für Löschanfragen</a>. Anfragen werden innerhalb von <strong>30 Tagen</strong> bearbeitet und per E-Mail bestätigt.</li>
   </ul>
-  <p>Die Löschung entfernt: Ihre Rezepte, Einkaufslisten, Adressen, Essenspläne, Geräteeinstellungen, Ihr Freigabeprofil, die erzeugten Bilder, die Zähler der KI-Nutzung, Ihr Anmeldekonto sowie Ihre Kennung in unserem Analysewerkzeug (Google Analytics).</p>
+  <p>Die Löschung entfernt: Ihre Rezepte, Einkaufslisten, Adressen, Essenspläne, Geräteeinstellungen, Ihr Freigabeprofil, die erzeugten Bilder, die für einen Import hochgeladenen Fotos, die Benachrichtigungskennungen Ihrer Geräte, die Zähler der KI-Nutzung, Ihr Anmeldekonto sowie Ihre Kennung in unserem Analysewerkzeug (Google Analytics).</p>
   <p>Was bestehen bleibt und warum: <strong>Transaktionsdaten</strong> (Käufe, Abonnements) werden von unserem Zahlungsdienstleister <strong>10 Jahre</strong> aufbewahrt – aufgrund unserer buchhalterischen Pflichten und zur Verteidigung unserer Rechte; der <strong>Nachweis Ihrer Einwilligung</strong> wird <strong>5 Jahre</strong> aufbewahrt; zwei <strong>pseudonymisierte Betrugsschutz-Tokens</strong> (siehe §1 und §6) verhindern das Recycling von Testangeboten; und <strong>pseudonymisierte</strong> Verhaltensstatistiken ohne jegliche Inhaltsdaten werden zu statistischen Zwecken aufbewahrt. Mit Ausnahme der Betrugsschutz-Tokens tragen diese Daten eine technische Kennung, die verwaist ist: Sobald Ihr Anmeldekonto gelöscht ist, lassen sie keine Re-Identifizierung zu.</p>
 
   <h2>8. Ihre Rechte</h2>

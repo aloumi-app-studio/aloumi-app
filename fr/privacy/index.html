@@ -254,7 +254,7 @@
 <main class="legal">
 <div class="wrap">
 <h1>Politique de confidentialité</h1>
-  <p class="updated">Aloumi — Dernière mise à jour : 23 septembre 2026</p>
+  <p class="updated">Aloumi — Dernière mise à jour : 1er octobre 2026</p>
 
   <p>Cette politique explique quelles données <strong>Aloumi</strong> (« l'application », « nous ») collecte, pourquoi, sur quelle base légale, combien de temps elles sont conservées, et comment exercer vos droits. Aloumi est une application Android de recettes assistée par IA, éditée par la société <strong>JEYLAB</strong> (SARL, RCS Paris 943 632 588, siège : 6 rue Émile Dubois, 75014 Paris), responsable de traitement au sens du RGPD (contact ci-dessous, informations complètes dans les <a href="/fr/legal-notice/">mentions légales</a>).</p>
 
@@ -284,6 +284,18 @@
       <td>Messages, photos et documents soumis aux fonctions IA</td>
       <td>Quand vous utilisez le Chef IA, l'import de recettes ou l'assistant cuisine</td>
       <td>Transmis à l'API Google Gemini pour générer la réponse, via notre fonction serveur qui les relaie sans les conserver. L'historique des conversations est stocké <strong>uniquement en local sur votre appareil</strong> — jamais sur nos serveurs. Aucun profilage.</td>
+      <td>Exécution du contrat</td>
+    </tr>
+    <tr>
+      <td>Photos et documents d'une recette à importer</td>
+      <td>Quand vous importez une recette depuis des photos ou un document</td>
+      <td>Déposés temporairement dans un espace de stockage privé, propre à votre compte (Google Firebase Storage), où seul notre serveur les relit pour en extraire la recette avec l'API Gemini. Ils sont <strong>supprimés dès que la recette vous est parvenue</strong>, et dans tous les cas automatiquement <strong>au plus tard environ deux jours</strong> après le dépôt.</td>
+      <td>Exécution du contrat</td>
+    </tr>
+    <tr>
+      <td>Identifiant de notification de votre appareil (jeton Firebase Cloud Messaging)</td>
+      <td>À la connexion, et avec chaque import de recette</td>
+      <td>Vous envoyer les notifications de l'application : demandes de partage et leurs acceptations, et l'avis « ta recette est prête » à la fin d'un import, envoyé au seul appareil qui l'a lancé et contenant le titre de la recette. Les notifications s'affichent seulement si vous les autorisez sur votre appareil.</td>
       <td>Exécution du contrat</td>
     </tr>
     <tr>
@@ -349,6 +361,7 @@
   <ul>
     <li><strong>Firebase Authentication</strong> — connexion</li>
     <li><strong>Firebase Firestore &amp; Firebase Storage</strong> — stockage des données et images</li>
+    <li><strong>Firebase Cloud Messaging</strong> — envoi des notifications</li>
     <li><strong>API Google Gemini / Vertex AI</strong> — génération de texte et d'images par IA</li>
     <li><strong>Firebase Crashlytics</strong> — rapports de plantage</li>
     <li><strong>Google Analytics for Firebase</strong> — statistiques d'utilisation (avec votre consentement uniquement)</li>
@@ -366,6 +379,8 @@
     <li><strong>Compteurs d'usage IA</strong> : conservés <strong>13 mois au maximum</strong>, et supprimés avec le compte.</li>
     <li><strong>Jetons anti-fraude</strong> (les deux empreintes pseudonymisées, dérivées de l'adresse e-mail et de l'identifiant du compte Google) : conservés <strong>24 mois</strong>, y compris <strong>au-delà de la suppression du compte</strong> — c'est précisément ce qui empêche de recréer un compte pour obtenir une nouvelle offre d'essai. Passé ce délai, ils sont supprimés automatiquement. Ils sont conservés sans aucun lien avec votre compte : ni identifiant de compte, ni adresse e-mail en clair.</li>
     <li><strong>Vidéos relayées lors d'un import réseau social</strong> : transit éphémère uniquement — supprimées immédiatement après l'analyse, jamais conservées.</li>
+    <li><strong>Photos et documents déposés pour un import</strong> : supprimés dès que la recette vous est parvenue, et au plus tard environ <strong>deux jours</strong> après le dépôt.</li>
+    <li><strong>Identifiant de notification de votre appareil</strong> : conservé tant que cet appareil est connecté à votre compte ; retiré à la déconnexion, dès qu'il n'est plus valide, et à la suppression du compte. Joint à un import, il n'est porté que le temps de cet import.</li>
     <li><strong>Données d'achat</strong> : les événements de paiement transmis par RevenueCat sont conservés <strong>90 jours</strong> sur nos serveurs puis supprimés automatiquement, et effacés immédiatement à la suppression du compte. Votre identifiant de compte et l'historique de vos achats restent conservés par RevenueCat et Google Play selon leurs propres politiques de conservation.</li>
     <li><strong>Données de plantage</strong> : conservées 90 jours par Firebase Crashlytics.</li>
     <li><strong>Statistiques d'utilisation</strong> : conservées 14 mois maximum.</li>
@@ -379,7 +394,7 @@
     <li><strong>Dans l'application</strong> : Paramètres → Compte → « Supprimer mon compte ». Suppression immédiate et irréversible.</li>
     <li><strong>En ligne</strong> : via le <a href="https://forms.gle/K33dYa73hH8DoRFg8">formulaire de demande de suppression</a>. Les demandes sont traitées sous <strong>30 jours</strong> et confirmées par e-mail.</li>
   </ul>
-  <p>La suppression efface : vos recettes, listes de courses, adresses, planning de repas, équipements, profil de partage, images générées, compteurs d'usage IA, votre compte de connexion, ainsi que votre identifiant dans notre outil de mesure d'audience (Google Analytics).</p>
+  <p>La suppression efface : vos recettes, listes de courses, adresses, planning de repas, équipements, profil de partage, images générées, photos déposées pour un import, identifiants de notification de vos appareils, compteurs d'usage IA, votre compte de connexion, ainsi que votre identifiant dans notre outil de mesure d'audience (Google Analytics).</p>
   <p>Ce qui subsiste, et pourquoi : les <strong>données de transaction</strong> (achats, abonnements) sont conservées <strong>10 ans</strong> par notre prestataire de paiement, au titre de nos obligations comptables et de la défense de nos droits ; la <strong>preuve de votre consentement</strong> est conservée <strong>5 ans</strong> ; deux <strong>jetons anti-fraude pseudonymisés</strong> (voir §1 et §6) empêchent le recyclage de l'offre d'essai ; et des <strong>statistiques pseudonymisées</strong> de comportement, sans aucune donnée de contenu, sont conservées à des fins d'analyse statistique. Hormis les jetons anti-fraude, ces données portent un identifiant technique devenu orphelin : une fois votre compte de connexion détruit, aucune ne permet de vous réidentifier.</p>
 
   <h2>8. Vos droits</h2>
