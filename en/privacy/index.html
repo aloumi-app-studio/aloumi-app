@@ -254,7 +254,7 @@
 <main class="legal">
 <div class="wrap">
 <h1>Privacy Policy</h1>
-  <p class="updated">Aloumi — Last updated: October 1, 2026</p>
+  <p class="updated">Aloumi — Last updated: October 5, 2026</p>
 
   <p>This Privacy Policy explains what data <strong>Aloumi</strong> ("the app", "we") collects, why, on what legal basis, how long it is kept, and how you can exercise your rights. Aloumi is an AI-powered recipe app for Android, published by <strong>JEYLAB</strong> (a French SARL, Paris Trade Register 943 632 588, registered office: 6 rue Émile Dubois, 75014 Paris), the "data controller" within the meaning of the GDPR (contact below, full details in the <a href="/en/legal-notice/">legal notice</a>).</p>
 
@@ -381,7 +381,7 @@
     <li><strong>Videos relayed during a social media import</strong>: ephemeral transit only — deleted immediately after analysis, never retained.</li>
     <li><strong>Photos and documents uploaded for an import</strong>: deleted as soon as the recipe has reached you, and no later than about <strong>two days</strong> after upload.</li>
     <li><strong>Your device's notification identifier</strong>: kept as long as that device is signed in to your account; removed when you sign out, as soon as it is no longer valid, and when the account is deleted. When attached to an import, it is only carried for the duration of that import.</li>
-    <li><strong>Purchase data</strong>: payment events sent by RevenueCat are kept on our servers for <strong>90 days</strong>, then deleted automatically, and erased immediately when the account is deleted. Your account identifier and purchase history remain with RevenueCat and Google Play under their own retention policies.</li>
+    <li><strong>Purchase data</strong>: payment events sent by RevenueCat are kept on our servers for <strong>90 days</strong>, then deleted automatically, and erased immediately when the account is deleted. Your RevenueCat record (account identifier and purchase history) is deleted with your account; Google Play, the seller of your purchases, keeps its own transaction records under its retention policy.</li>
     <li><strong>Crash data</strong>: retained by Firebase Crashlytics for 90 days.</li>
     <li><strong>Analytics data</strong>: retained for a maximum of 14 months.</li>
     <li><strong>Anonymous aggregate statistics</strong> (daily usage cost across all users, sign-up and departure cohorts): these contain no identifier and no precise date, and are kept indefinitely — they cannot identify you.</li>
@@ -391,11 +391,11 @@
   <h2 id="deletion">7. Data deletion</h2>
   <p>You can delete your account and all associated data at any time:</p>
   <ul>
-    <li><strong>In the app</strong>: Settings → Account → "Delete my account". Deletion is immediate and irreversible.</li>
-    <li><strong>Online</strong>: submit a <a href="https://forms.gle/K33dYa73hH8DoRFg8">deletion request form</a>. Requests are processed within <strong>30 days</strong> and confirmed by email.</li>
+    <li><strong>In the app</strong>: Settings → Account → "Delete my account". Deletion is immediate and irreversible; a second automatic pass, within the following hours, erases anything another still-signed-in device may have sent back in the meantime.</li>
+    <li><strong>Online</strong>: submit a <a href="https://forms.gle/K33dYa73hH8DoRFg8">deletion request form</a> while signed in with the Google account you use in Aloumi: we only delete an account when the request comes from its email address. Requests are processed within <strong>30 days</strong> and confirmed by email.</li>
   </ul>
-  <p>Deletion removes: your recipes, shopping lists, addresses, meal plans, equipment settings, sharing profile, generated images, photos uploaded for an import, your devices' notification identifiers, AI usage counters, your sign-in account, and your identifier in our analytics tool (Google Analytics).</p>
-  <p>What remains, and why: <strong>transaction data</strong> (purchases, subscriptions) is kept for <strong>10 years</strong> by our payment provider, under our accounting obligations and to defend our rights; <strong>proof of your consent</strong> is kept for <strong>5 years</strong>; two <strong>pseudonymized anti-fraud tokens</strong> (see §1 and §6) prevent trial-offer recycling; and <strong>pseudonymized</strong> behavioral statistics, containing no content data, are kept for statistical analysis. Apart from the anti-fraud tokens, this data carries a technical identifier that has become orphaned: once your sign-in account is destroyed, none of it can re-identify you.</p>
+  <p>Deletion removes: your recipes, shopping lists, addresses, meal plans, equipment settings, sharing profile, generated images, photos uploaded for an import, your devices' notification identifiers, AI usage counters, your sign-in account, your record with our purchase provider (RevenueCat), and your identifier in our analytics tool (Google Analytics).</p>
+  <p>What remains, and why: <strong>transaction data</strong> (purchases, subscriptions) stays with <strong>Google Play</strong>, the seller of your purchases, which keeps it under its own obligations; <strong>proof of your consent</strong> is kept for <strong>5 years</strong>; two <strong>pseudonymized anti-fraud tokens</strong> (see §1 and §6) prevent trial-offer recycling; and <strong>pseudonymized</strong> behavioral statistics, containing no content data, are kept for statistical analysis. Apart from the anti-fraud tokens and what Google Play keeps under your Google account, this data carries a technical identifier that has become orphaned: once your sign-in account is destroyed, none of it can re-identify you.</p>
 
   <h2>8. Your rights</h2>
   <p>Under the GDPR you have the right to <strong>access</strong>, <strong>rectify</strong>, <strong>erase</strong> and <strong>port</strong> your data, to <strong>restrict</strong> or <strong>object to</strong> processing based on legitimate interest, and to <strong>withdraw your consent</strong> at any time (for analytics, via the toggle in Settings). The app's local backup export (Settings → Maintenance) gives you a portable JSON copy of your recipes, lists, addresses and equipment at any time.</p>
