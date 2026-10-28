@@ -17,12 +17,20 @@
        peut l'indexer (elle est atteignable par tout lien partagé) et afficher dans ses résultats
        une entrée « Aloumi » qui éjecte l'utilisateur vers le Play Store au lieu du site. Les
        routeurs racine (/privacy/, /legal-notice/) portent déjà noindex,follow — même nature,
-       même traitement. -->
+       même traitement.
+
+       La requête du lien (?s=…) part au Play Store en `referrer` : l'app la relit une fois après
+       l'installation (Install Referrer), le lien survit donc à l'installation. Le meta refresh,
+       qui ne porte pas la requête, ne sert plus que sans JavaScript (sinon il gagnerait la course). -->
   <meta name="robots" content="noindex,follow" />
-  <meta http-equiv="refresh" content="0; url=https://play.google.com/store/apps/details?id=com.aloumi.app" />
   <script>
-    location.replace("https://play.google.com/store/apps/details?id=com.aloumi.app");
+    var play = "https://play.google.com/store/apps/details?id=com.aloumi.app";
+    var query = location.search.slice(1);
+    location.replace(query ? play + "&referrer=" + encodeURIComponent(query) : play);
   </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=https://play.google.com/store/apps/details?id=com.aloumi.app" />
+  </noscript>
 </head>
 <body>
   <noscript>
