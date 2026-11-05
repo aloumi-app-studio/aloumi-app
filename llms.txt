@@ -12,7 +12,7 @@
 - **Weekly meal planner** — the user plans lunch and dinner for each day of the week from their own recipes, and can send the ingredients of the planned meals to the shopping list.
 - **Smart shopping list** — free-text entry, automatic sorting by supermarket aisle, duplicate merging with unit conversion.
 - **Portion scaling** — quantities scale by number of servings or from a single ingredient.
-- **Real-time sharing** — recipes, shopping lists and food finds can be shared with family or friends, with per-collection permissions.
+- **Real-time sharing** — recipes, the meal planner, shopping lists and food finds can be shared with family or friends, with per-collection permissions; a planner or a shopping list can also be held in common, as one shared week or one shared list.
 
 ## Facts worth stating precisely
 
